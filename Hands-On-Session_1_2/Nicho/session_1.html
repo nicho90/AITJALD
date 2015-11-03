@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <script type="text/javascript">
+        //alert("Hello World - Inside \n '\\n' is a line feed \r '\\r' is a carriage return");
+
+        var x = null;
+        var y = undefined;
+        var z = 1.0;
+        var a = true;
+        var b = {};
+        var c = "This is a new String";
+        var d = "42";
+        var e = "42.234567890";
+        var f = 42.234567890;
+
+        console.log(c);
+
+        console.log("indexOf(): " + c.indexOf("new"));
+        console.log("lastIndexOf(): " + c.lastIndexOf("new"));
+        console.log("length(): " + c.length);
+        console.log("slice(): " + c.slice(5, 10));
+        console.log("toLowerCase(): " + c.toLowerCase());
+        console.log("toUpperCase(): " + c.toUpperCase());
+        console.log("trim(): " + c.trim());
+
+
+        console.log("toFixed(): " + f.toFixed(0));
+        console.log("toPrecision(): " + f.toPrecision(5));
+
+        console.log("parseInt(): " + parseInt(d));
+        console.log("parseFloat(): " + parseFloat(e));
+        console.log("toString(): " + z.toString());
+    </script>
+</head>
+
+<body>
+    <br>
+    <button onclick="alert('Hello World - Inline');">Alert</button>
+    <br>
+</body>
+
+<script src="external.js"></script>
+
+</html>
