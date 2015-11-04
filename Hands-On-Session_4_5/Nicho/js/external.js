@@ -18,12 +18,12 @@ $( "#submitButton" ).attr("disabled","disabled");
 
 // Add paragraph
 $( "#addParagraph" ).click(function() {
-    $( "#paragraphs" ).append( "<p>New paragraph</p>" );
+    $( "#newParagraph" ).html( 'Location on GoogleMaps: <a href="https://www.google.de/maps/?Münster" target="_blank">view here</a>' );
 });
 
 // Fade out all paragraphs
 $( "#hideParagraph" ).click(function() {
-    $( "#paragraphs" ).fadeOut( "slow", function() {
+    $( "#paragraphs" ).fadeOut(5000, function() {
 
     });
 });
@@ -36,8 +36,7 @@ $( "#hideInputs" ).click(function() {
 // Show Datepicker
 $( "#datepicker" ).datepicker();
 
-
-// Show jQuery-UI-Dialog
+// Show Dialog
 $( document ).ready(function() {
     $( "#dialog" ).dialog();
 });

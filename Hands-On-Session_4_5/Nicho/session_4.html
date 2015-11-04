@@ -6,7 +6,6 @@
 
         <link rel="stylesheet" href="css/styles.css">
         <link rel="stylesheet" href="lib/jquery-ui/jquery-ui.min.css">
-        <link rel="stylesheet" href="lib/leaflet/leaflet.css">
     </head>
 
     <body>
@@ -19,10 +18,9 @@
             <p>When? Every Wednesday</p>
             <p>Where? Institute for Geoinformatics</p>
             <p>Where (more precisely)? GEO 1, 3rd Floor, Room 323</p>
-            <p>Location on GoogleMaps: <a href="#">view here</a></p>
+            <span id="newParagraph"></span>
             <p>Course Language: English</p>
         </div>
-
         <br>
         <form>
             <div class="container">
@@ -92,7 +90,7 @@
                             <input type="radio" id="inputRadio3" value="phd">PhD
                         </td>
                         <td>
-                            <input type="radio" id="inputRadio4" value="none">None of these
+                            <input type="radio" id="inputRadio4" value="none" checked="checked">None of these
                         </td>
                     </tr>
                     <tr>
@@ -193,12 +191,5 @@
 
     <!-- Normal version -->
     <script src="js/external.js"></script>
-
-    <!-- Minified version, built from "http://javascript-minifier.com/" -->
-    <!-- <script src="external.min.js"></script> -->
-
-    <!-- Leaflet -->
-    <script src="lib/leaflet/leaflet.js"></script>
-
 
 </html>
