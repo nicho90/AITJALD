@@ -2,7 +2,7 @@
 
 // GeoJSON-Provider
 
-function getgeoJSON() {
+function getGeoJSON() {
     return {
           "type": "FeatureCollection",
           "features": [

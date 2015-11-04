@@ -36,8 +36,7 @@ $( document ).ready(function() {
 			layer.bindPopup(popupContent);
 		};
 
-
-    L.geoJson(getgeoJSON(), {
+    L.geoJson(getGeoJSON(), {
 
 			filter: function (feature, layer) {
 				if (feature.properties) {
