@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Excercise 4</title>
+
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+
+    <body>
+        <h1>Course: Introduction to JavaScript and Linked Data</h1>
+
+        <h3>Semester: Winter Semester 2015/2016</h3>
+
+
+
+        <div id="paragraphs">
+            <p>When? Every Wednesday</p>
+            <p>Where? Institute for Geoinformatics</p>
+            <p>Where (more precisely)? GEO 1, 3rd Floor, Room 323</p>
+            <p>Location on GoogleMaps: <a href="#">view here</a></p>
+            <p>Course Language: English</p>
+        </div>
+
+        <br>
+        <form>
+            <div class="container">
+                <span class="container-title">Some information about me:</span>
+                <table>
+                    <tr>
+                        <td>
+                            First Name:
+                        </td>
+                        <td colspan="4">
+                            <input type="text" id="exampleInputEmail1" placeholder="First Name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Last Name:
+                        </td>
+                        <td colspan="4">
+                            <input type="text" id="exampleInputEmail1" placeholder="Last Name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Year of Birth:
+                        </td>
+                        <td colspan="4">
+                            <select id="year">
+                                <option>1980</option>
+                                <option>1981</option>
+                                <option>1982</option>
+                                <option>1983</option>
+                                <option>1984</option>
+                                <option>1985</option>
+                                <option>1986</option>
+                                <option>1987</option>
+                                <option>1988</option>
+                                <option>1989</option>
+                                <option>1990</option>
+                                <option>1991</option>
+                                <option>1992</option>
+                                <option>1993</option>
+                                <option>1994</option>
+                                <option>1995</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Target degree:
+                        </td>
+                        <td>
+                            <input type="radio" id="inputRadio1" value="bachelor">Bachelor
+                        </td>
+                        <td>
+                            <input type="radio" id="inputRadio2" value="master">Master
+                        </td>
+                        <td>
+                            <input type="radio" id="inputRadio3" value="phd">PhD
+                        </td>
+                        <td>
+                            <input type="radio" id="inputRadio4" value="none">None of these
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            Why I've decided to study Geoinformatics:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            <input type="checkbox" id="inputCheckbox1" value="1">Bachelor
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            <input type="checkbox" id="inputCheckbox2" value="2">Master
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            <input type="checkbox" id="inputCheckbox3" value="3">PhD
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            <input type="checkbox" id="inputCheckbox4" value="4">None of these
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td>Here is my CV:</td>
+                        <td colspan="4">
+                            <input type="file" size="60"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            <textarea rows="4" cols="50" placeholder="Notes"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            <input type="submit" value="Submit" id="submitButton">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <button id="checkboxes" type="button">Select all checkboxes</button>
+            <button id="addParagraph" type="button">Add New Paragraph</button>
+            <button id="hideParagraph" type="button">FadeOut Paragraphs</button>
+            <button id="hideInputs" type="button">Hide Input Elements</button>
+        </form>
+    </body>
+
+    <!-- jQuery -->
+    <script src="lib/jquery-2.1.4.min.js"></script>
+
+    <!-- Normal version -->
+    <script src="js/external.js"></script>
+
+    <!-- Minified version, built from "http://javascript-minifier.com/" -->
+    <!-- <script src="external.min.js"></script> -->
+
+
+</html>
