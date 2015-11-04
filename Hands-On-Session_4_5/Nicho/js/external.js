@@ -4,10 +4,13 @@
 
 // Check all checkboxes
 $( "#checkboxes" ).click(function() {
-    $( "#inputCheckbox1" ).prop('checked', true);
+    $( "input[type=checkbox]" ).prop('checked', true);
+
+    // Find checkboxes by their IDs
+    /*$( "#inputCheckbox1" ).prop('checked', true);
     $( "#inputCheckbox2" ).prop('checked', true);
     $( "#inputCheckbox3" ).prop('checked', true);
-    $( "#inputCheckbox4" ).prop('checked', true);
+    $( "#inputCheckbox4" ).prop('checked', true);*/
 });
 
 // Disable submit button
@@ -28,4 +31,13 @@ $( "#hideParagraph" ).click(function() {
 // Hide all input elements
 $( "#hideInputs" ).click(function() {
     $( "input" ).hide();
+});
+
+// Show Datepicker
+$( "#datepicker" ).datepicker();
+
+
+// Show jQuery-UI-Dialog
+$( document ).ready(function() {
+    $( "#dialog" ).dialog();
 });

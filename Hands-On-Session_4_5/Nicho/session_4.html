@@ -5,6 +5,7 @@
         <title>Excercise 4</title>
 
         <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="lib/jquery-ui/jquery-ui.min.css">
     </head>
 
     <body>
@@ -12,8 +13,7 @@
 
         <h3>Semester: Winter Semester 2015/2016</h3>
 
-
-
+        <!-- PARAGRAPHS -->
         <div id="paragraphs">
             <p>When? Every Wednesday</p>
             <p>Where? Institute for Geoinformatics</p>
@@ -129,6 +129,20 @@
                         <td colspan="5"></td>
                     </tr>
                     <tr>
+                        <td>
+                            Date:
+                        </td>
+                        <td colspan="5">
+                            <input type="text" id="datepicker">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"></td>
+                    </tr>
+                    <tr>
                         <td>Here is my CV:</td>
                         <td colspan="4">
                             <input type="file" size="60"/>
@@ -161,10 +175,20 @@
             <button id="hideParagraph" type="button">FadeOut Paragraphs</button>
             <button id="hideInputs" type="button">Hide Input Elements</button>
         </form>
+        <br>
+        <br>
+        <br>
+
+        <!-- jQuery Dialog -->
+        <div id="dialog" title="Basic dialog">
+            <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+        </div>
+
     </body>
 
     <!-- jQuery -->
-    <script src="lib/jquery-2.1.4.min.js"></script>
+    <script src="lib/jquery/jquery-2.1.4.min.js"></script>
+    <script src="lib/jquery-ui/jquery-ui.min.js"></script>
 
     <!-- Normal version -->
     <script src="js/external.js"></script>
