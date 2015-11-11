@@ -1,0 +1,28 @@
+body {
+  padding-top: 60px;
+}
+
+.starter-template {
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+/*.container_2 {
+    border: 1px solid #000000;
+    padding: 10px 20px 10px 20px;
+    z-index: 0;
+}
+
+.container-title{
+    background-color: #ffffff;
+    padding: 4px;
+    z-index: 1;
+    position: relative;
+    top: -18px;
+}*/
+
+#map {
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 450px;
+}
