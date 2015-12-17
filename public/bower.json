@@ -1,0 +1,24 @@
+{
+  "name": "AITJSALD",
+  "version": "0.0.1",
+  "authors": [
+    "Nicho S. <n.schiestel@uni-muenster.de>"
+  ],
+  "description": "An introduction to JavaScript and Linked Data",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "leaflet": "~0.7.7",
+    "bootstrap": "~3.3.6",
+    "mapbox.js": "~2.2.3"
+  }
+}

@@ -1,6 +1,12 @@
-html, body {
-    height: 100%;
+html {
+  height: 100%;
 }
+
+body {
+  height: 100%;
+  padding-top: 50px;
+}
+
 #map {
     height: 100%;
     margin-top: 0px;
@@ -10,3 +16,9 @@ html, body {
     border-bottom-width: 15px;
     width: 100%;
 }
+
+.content {
+    text-align: center;
+}
+
+.details {}

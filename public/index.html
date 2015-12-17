@@ -4,21 +4,21 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="This application was build during the course &quot;An Introduction into JavaScript and Linked Data &quot;">
     <meta name="author" content="Nicholas Schietsl, André Wieghardt">
-   <!-- <link rel="icon" href="../../favicon.ico">-->
-    <link href="lib/bootstrap-3.3.5-dist/css/starter-template.css" rel="stylesheet">
-    <title>Liked Data</title>
+    <!-- <link rel="icon" href="../../favicon.ico">-->
+    <title>Linked Data</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="lib/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Own CSS -->
+    <link href="css/main.css" rel="stylesheet">
 </head>
 <body cz-shortcut-listen="true">
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
+    <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -30,16 +30,17 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </nav>
-<div class="container">
+<div class="container-fluid">
 
-    <div class="starter-template">
+    <div class="content">
         <h1>Introduction into JavaScript and Linked data.</h1>
         <p class="lead">The purpose of this web application is to visualize open data of the city of Münster.</p>
     </div>
@@ -49,9 +50,8 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="lib/jQuery-1.11.3/jquery-1.11.3.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+<script src="lib/jquery/dist/jquery.min.js"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
 
 </body>
