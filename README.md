@@ -1,4 +1,4 @@
-# An Introduction into JavaScript and linked data.
+# An Introduction into JavaScript and linked data
 
 ### Members
 ##### Du Guiying
