@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="This application was build during the course &quot;An Introduction into JavaScript and Linked Data &quot;">
+    <meta name="author" content="Nicholas Schietsl, André Wieghardt">
+    <!-- <link rel="icon" href="../../favicon.ico">-->
+    <link href="lib/bootstrap-3.3.5-dist/css/starter-template.css" rel="stylesheet">
+    <title>Starter Template for Bootstrap</title>
+    <!-- leaflet CSS -->
+    <link href="lib/leaflet-0.7.7/leaflet.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="lib/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- main style CSS for the application -->
+    <link href="style/main.css" rel="stylesheet">
+
+</head>
+<body cz-shortcut-listen="true">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">JavaScript and Linked Data</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+<div class="container-fluid" style="height: 100%">
+    <div id="map"></div>
+</div>
+<!-- leaflet JavaScript-->
+<script src="lib/leaflet-0.7.7/leaflet.js"></script>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="lib/jQuery-1.11.3/jquery-1.11.3.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+<!-- map JavaScript -->
+<script src="scripts/map.js"></script>
+
+
+</body>
+</html>
