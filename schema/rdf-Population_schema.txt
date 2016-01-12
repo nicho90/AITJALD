@@ -1,0 +1,178 @@
+@base <http://vocab.lodcom.de/>.
+@prefix lodcom:<http://vocab.lodcom.de/>.
+@prefix xsd:<http://www.w3.org/2001/XMLSchema#>.
+
+
+<hasMainPopulation> 		<description>			"Population of the main residentials (per year)"@en,
+													"Bevölkerung am Ort der Hauptwohnung (pro Jahr)"@de.
+<hasEntitledPopulation> 	<description>			"Population entitled to be in residence (per year)"@en,
+													"Wohnberechtigte Bevölkerung (pro Jahr)"@de.
+<hasGenderedPopulation> 	<description>			"Gendered population entitled to be in residence (per year and grouped by age)"@en,
+													"Wohnberechtigte Bevölkerung geschlechtergetrennt (pro Jahr und in 10 Altersgruppen)"@de.
+
+<value>						a 						xsd:integer.
+<year>						a 						xsd:integer.
+<agegroup>				a 						xsd:string.
+<gender>					a 						xsd:string.
+
+
+<aegidii>		lodcom:hasMainPopulation		[
+					lodcom:year       	2010;
+					lodcom:value		1286;
+				];
+				lodcom:hasMainPopulation		[
+					lodcom:year       	2011;
+					lodcom:value		1389;
+				];
+				lodcom:hasMainPopulation		[
+					lodcom:year       	2012;
+					lodcom:value		1401;
+				];
+				lodcom:hasMainPopulation		[
+					lodcom:year       	2013;
+					lodcom:value		1421;
+				];
+				lodcom:hasMainPopulation		[
+					lodcom:year       	2014;
+					lodcom:value		1411;
+				];
+				lodcom:hasEntitledPopulation 	[
+					lodcom:year       	2010;
+					lodcom:value		1356;
+				];
+				lodcom:hasEntitledPopulation 	[
+					lodcom:year       	2011;
+					lodcom:value		1470;
+				];
+				lodcom:hasEntitledPopulation 	[
+					lodcom:year       	2012;
+					lodcom:value		1454;
+				];
+				lodcom:hasEntitledPopulation 	[
+					lodcom:year       	2013;
+					lodcom:value		1462;
+				];
+				lodcom:hasEntitledPopulation 	[
+					lodcom:year       	2014;
+					lodcom:value		1450;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	"0-9";
+					lodcom:gender 		"male";
+					lodcom:value		37;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	"10-19";
+					lodcom:gender 		"male";
+					lodcom:value		38;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	"20-29";
+					lodcom:gender 		"male";
+					lodcom:value		184;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	"30-39";
+					lodcom:gender 		"male";
+					lodcom:value		126;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	"40-49";
+					lodcom:gender 		"male";
+					lodcom:value		85;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	"50-59";
+					lodcom:gender 		"male";
+					lodcom:value		66;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	"60-69";
+					lodcom:gender 		"male";
+					lodcom:value		47;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	"70-79";
+					lodcom:gender 		"male";
+					lodcom:value		62;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	"80-89";
+					lodcom:gender 		"male";
+					lodcom:value		14;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	">=90";
+					lodcom:gender 		"male";
+					lodcom:value		4;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	"0-9";
+					lodcom:gender 		"female";
+					lodcom:value		46;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	"10-19";
+					lodcom:gender 		"female";
+					lodcom:value		35;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	"20-29";
+					lodcom:gender 		"female";
+					lodcom:value		218;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	"30-39";
+					lodcom:gender 		"female";
+					lodcom:value		106;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	"40-49";
+					lodcom:gender 		"female";
+					lodcom:value		77;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	"50-59";
+					lodcom:gender 		"female";
+					lodcom:value		71;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	"60-69";
+					lodcom:gender 		"female";
+					lodcom:value		51;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	"70-79";
+					lodcom:gender 		"female";
+					lodcom:value		82;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	"80-89";
+					lodcom:gender 		"female";
+					lodcom:value		66;
+				];
+				lodcom:hasGenderedPopulation 	[
+					lodcom:year       	2014;
+					lodcom:agegroup 	">=90";
+					lodcom:gender 		"female";
+					lodcom:value		35;
+				].
