@@ -1,7 +1,7 @@
 @base <http://vocab.lodcom.de/>.
 
 @prefix dbp:<http://dbpedia.org/ontology/>.
-@prefix gn:<http:www.geonames.org/ontology#>.
+@prefix gn:<http://www.geonames.org/ontology#>.
 @prefix xsd:<http://www.w3.org/2001/XMLSchema#>.
 @prefix coord:<http://www.w3.org/2003/01/geo/wgs84_pos>.
 @prefix geo:<http://www.opengis.net/ont/geosparql#>.

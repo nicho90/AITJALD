@@ -5,11 +5,11 @@
 @prefix xsd:<http://www.w3.org/2001/XMLSchema#>.
 
 
-<hasMainPopulation> 		<description>			"Population of the main residentials (per year)"@en,
+<hasMainPopulation> 		dc:description			"Population of the main residentials (per year)"@en,
 													"Bevölkerung am Ort der Hauptwohnung (pro Jahr)"@de.
-<hasEntitledPopulation> 	<description>			"Population entitled to be in residence (per year)"@en,
+<hasEntitledPopulation> 	dc:description			"Population entitled to be in residence (per year)"@en,
 													"Wohnberechtigte Bevölkerung (pro Jahr)"@de.
-<hasGenderedPopulation> 	<description>			"Gendered population entitled to be in residence (per year and grouped by age)"@en,
+<hasGenderedPopulation> 	dc:description			"Gendered population entitled to be in residence (per year and grouped by age)"@en,
 													"Wohnberechtigte Bevölkerung geschlechtergetrennt (pro Jahr und in 10 Altersgruppen)"@de.
 
 <value>						a 						xsd:integer.
