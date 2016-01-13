@@ -12,6 +12,9 @@
     <!-- Bootstrap core CSS -->
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
 
+    <!-- Font-Awesome -->
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+
     <!-- Mapbox -->
     <link href='lib/mapbox.js/mapbox.css' rel="stylesheet"/>
 
@@ -33,10 +36,10 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active"><a href="map.html">Map</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html"><i class="fa fa-home"></i></span>&nbsp;&nbsp;Home</a></li>
+                    <li class="active"><a href="map.html"><i class="fa fa-map-o"></i>&nbsp;&nbsp;Map</a></li>
+                    <li><a href="about.html"><i class="fa fa-question-circle"></i>&nbsp;&nbsp;About</a></li>
+                    <li><a href="license.html"><i class="fa fa-key"></i>&nbsp;&nbsp;License</a></li>
                 </ul>
             </div>
         </div>
@@ -56,7 +59,63 @@
                 <div class="details">
                     <h1>Mitte</h1>
                     <hr>
-                    <div class="chart" id="chart_2"></div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-users"></i>&nbsp;&nbsp;Population</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="chart" id="chart_1"></div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;General</h3>
+                        </div>
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <a href="">a</a>
+                                    </th>
+                                    <td>
+                                        dbp:district
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <a href="">gn:name</a>
+                                    </th>
+                                    <td>
+                                        "Mitte"
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <a href="">gn:alternateName</a>
+                                    </th>
+                                    <td>
+                                        "Mitte" (German)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <a href="">gn:alternateName</a>
+                                    </th>
+                                    <td>
+                                        "Central" (English)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <a href="">gn:parentFeature</a>
+                                    </th>
+                                    <td>
+                                        <a href="">Münster</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,6 +139,5 @@
 
     <!-- Only for Demo -->
     <script src="js/links.js"></script>
-
 </body>
 </html>
