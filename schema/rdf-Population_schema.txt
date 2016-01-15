@@ -1,8 +1,7 @@
-@base <http://vocab.lodcom.de/>.
-
+@prefix lodcom: <http://vocab.lodcom.de/>.
 @prefix dc: <http://purl.org/dc/elements/1.1/>.
-@prefix lodcom:<http://vocab.lodcom.de/>.
-@prefix xsd:<http://www.w3.org/2001/XMLSchema#>.
+@prefix lodcom: <http://vocab.lodcom.de/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
 
 <hasMainPopulation> 		dc:description			"Population of the main residentials (per year)"@en,
@@ -18,7 +17,8 @@
 <gender>					a 						xsd:string.
 
 
-<aegidii>					lodcom:hasMainPopulation		[
+lodcom:aegidii				dc:description          "Ageidii is a subdistrict of Altstadt"@en;
+                            lodcom:hasMainPopulation		[
 								lodcom:year       	2010;
 								lodcom:value		1286;
 							];
