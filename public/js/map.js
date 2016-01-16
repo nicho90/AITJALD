@@ -41,16 +41,19 @@ $( document ).ready(function() {
 			var wktString = result[i].c.value;
 			// parse the WKT geometrie to a geoJSON object
 			var geoJSONgeometry = Terraformer.WKT.parse(wktString);
+
+			var adminType = result[i].d.value;
+			adminType = adminType.replace(DBPPREFIX,'');
 			// create the geo
 			var geoJSON = {
 				geometry: geoJSONgeometry,
 				type: 'Feature',
 				properties: {
-					name: result[i].a.value.replace(LODCOMPREFIX, '')
+					name: result[i].a.value.replace(LODCOMPREFIX, ''),
+					// TODO: do we need this?
+					administrativeLvl: adminType
 				}
 			};
-			var adminType = result[i].d.value;
-			adminType = adminType.replace(DBPPREFIX,'');
 
 			// adding the geoJSON to the responsible feature group
 			switch(adminType) {
@@ -75,13 +78,19 @@ $( document ).ready(function() {
 		}
 	});
 
+	// TODO: these variables have to dynamic. For testing now hardcoded
+	var diagramType = 'hasMainPopulation';
 	/*
 	 * Function to assign click function etc to the layer/feature
 	 */
 	function onEachFeature(feature, layer) {
 		layer.on({
 			click: function(){
-				console.log(feature.properties.name)
+				// change the highCharts diagram
+				changeHighcharts.setDiagram({
+					type: diagramType,
+					features: [feature.properties.name]
+				})
 			}
 		})
 	}
