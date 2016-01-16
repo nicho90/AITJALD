@@ -2305,3 +2305,656 @@ lodcom:schloss			    dc:description          "Schloss is a subdistrict of Innens
 								lodcom:gender 		"female";
 								lodcom:value		41;
 							].
+
+
+
+
+lodcom:aaseestadt			dc:description          "Aaseestadt is a subdistrict of Mitte-Sued"@en;
+                            lodcom:hasMainPopulation		[
+								lodcom:year       	2010;
+								lodcom:value		5223;
+							];
+							lodcom:hasMainPopulation		[
+								lodcom:year       	2011;
+								lodcom:value		5385;
+							];
+							lodcom:hasMainPopulation		[
+								lodcom:year       	2012;
+								lodcom:value		5447;
+							];
+							lodcom:hasMainPopulation		[
+								lodcom:year       	2013;
+								lodcom:value		5464;
+							];
+							lodcom:hasMainPopulation		[
+								lodcom:year       	2014;
+								lodcom:value		5415;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2010;
+								lodcom:value		5352;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2011;
+								lodcom:value		5537;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2012;
+								lodcom:value		5542;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2013;
+								lodcom:value		5534;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2014;
+								lodcom:value		5479;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"0-9";
+								lodcom:gender 		"male";
+								lodcom:value		206;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"10-19";
+								lodcom:gender 		"male";
+								lodcom:value		214;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"20-29";
+								lodcom:gender 		"male";
+								lodcom:value		384;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"30-39";
+								lodcom:gender 		"male";
+								lodcom:value		356;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"40-49";
+								lodcom:gender 		"male";
+								lodcom:value		337;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"50-59";
+								lodcom:gender 		"male";
+								lodcom:value		353;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"60-69";
+								lodcom:gender 		"male";
+								lodcom:value		261;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"70-79";
+								lodcom:gender 		"male";
+								lodcom:value		259;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"80-89";
+								lodcom:gender 		"male";
+								lodcom:value	    122;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	">=90";
+								lodcom:gender 		"male";
+								lodcom:value		18;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"0-9";
+								lodcom:gender 		"female";
+								lodcom:value		212;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"10-19";
+								lodcom:gender 		"female";
+								lodcom:value		216;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"20-29";
+								lodcom:gender 		"female";
+								lodcom:value		547;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"30-39";
+								lodcom:gender 		"female";
+								lodcom:value		374;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"40-49";
+								lodcom:gender 		"female";
+								lodcom:value		338;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"50-59";
+								lodcom:gender 		"female";
+								lodcom:value		397;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"60-69";
+								lodcom:gender 		"female";
+								lodcom:value		301;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"70-79";
+								lodcom:gender 		"female";
+								lodcom:value		331;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"80-89";
+								lodcom:gender 		"female";
+								lodcom:value		211;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	">=90";
+								lodcom:gender 		"female";
+								lodcom:value		42;
+							].
+
+
+lodcom:geist			    dc:description          "Geist is a subdistrict of Mitte-Sued"@en;
+                            lodcom:hasMainPopulation		[
+								lodcom:year       	2010;
+								lodcom:value		8494;
+							];
+							lodcom:hasMainPopulation		[
+								lodcom:year       	2011;
+								lodcom:value		8713;
+							];
+							lodcom:hasMainPopulation		[
+								lodcom:year       	2012;
+								lodcom:value		8741;
+							];
+							lodcom:hasMainPopulation		[
+								lodcom:year       	2013;
+								lodcom:value		8774;
+							];
+							lodcom:hasMainPopulation		[
+								lodcom:year       	2014;
+								lodcom:value		8895;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2010;
+								lodcom:value		8738;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2011;
+								lodcom:value		8929;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2012;
+								lodcom:value		8884;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2013;
+								lodcom:value		8864;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2014;
+								lodcom:value		8976;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"0-9";
+								lodcom:gender 		"male";
+								lodcom:value		332;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"10-19";
+								lodcom:gender 		"male";
+								lodcom:value		320;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"20-29";
+								lodcom:gender 		"male";
+								lodcom:value		813;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"30-39";
+								lodcom:gender 		"male";
+								lodcom:value		752;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"40-49";
+								lodcom:gender 		"male";
+								lodcom:value		634;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"50-59";
+								lodcom:gender 		"male";
+								lodcom:value		612;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"60-69";
+								lodcom:gender 		"male";
+								lodcom:value		393;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"70-79";
+								lodcom:gender 		"male";
+								lodcom:value		268;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"80-89";
+								lodcom:gender 		"male";
+								lodcom:value	    119;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	">=90";
+								lodcom:gender 		"male";
+								lodcom:value		17;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"0-9";
+								lodcom:gender 		"female";
+								lodcom:value		352;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"10-19";
+								lodcom:gender 		"female";
+								lodcom:value		330;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"20-29";
+								lodcom:gender 		"female";
+								lodcom:value		1019;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"30-39";
+								lodcom:gender 		"female";
+								lodcom:value		715;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"40-49";
+								lodcom:gender 		"female";
+								lodcom:value		598;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"50-59";
+								lodcom:gender 		"female";
+								lodcom:value		606;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"60-69";
+								lodcom:gender 		"female";
+								lodcom:value		436;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"70-79";
+								lodcom:gender 		"female";
+								lodcom:value		354;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"80-89";
+								lodcom:gender 		"female";
+								lodcom:value		228;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	">=90";
+								lodcom:gender 		"female";
+								lodcom:value		78;
+							].
+
+lodcom:schuetzenhof			dc:description          "Schuetzenhof is a subdistrict of Mitte-Sued"@en;
+                            lodcom:hasMainPopulation		[
+								lodcom:year       	2010;
+								lodcom:value		6790;
+							];
+							lodcom:hasMainPopulation		[
+								lodcom:year       	2011;
+								lodcom:value		7298;
+							];
+							lodcom:hasMainPopulation		[
+								lodcom:year       	2012;
+								lodcom:value		7362;
+							];
+							lodcom:hasMainPopulation		[
+								lodcom:year       	2013;
+								lodcom:value		7532;
+							];
+							lodcom:hasMainPopulation		[
+								lodcom:year       	2014;
+								lodcom:value		7606;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2010;
+								lodcom:value		7102;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2011;
+								lodcom:value		7529;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2012;
+								lodcom:value		7513;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2013;
+								lodcom:value		7632;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2014;
+								lodcom:value		7668;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"0-9";
+								lodcom:gender 		"male";
+								lodcom:value		243;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"10-19";
+								lodcom:gender 		"male";
+								lodcom:value		197;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"20-29";
+								lodcom:gender 		"male";
+								lodcom:value		963;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"30-39";
+								lodcom:gender 		"male";
+								lodcom:value		837;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"40-49";
+								lodcom:gender 		"male";
+								lodcom:value		470;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"50-59";
+								lodcom:gender 		"male";
+								lodcom:value		404;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"60-69";
+								lodcom:gender 		"male";
+								lodcom:value		222;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"70-79";
+								lodcom:gender 		"male";
+								lodcom:value		168;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"80-89";
+								lodcom:gender 		"male";
+								lodcom:value	    54;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	">=90";
+								lodcom:gender 		"male";
+								lodcom:value		11;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"0-9";
+								lodcom:gender 		"female";
+								lodcom:value		239;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"10-19";
+								lodcom:gender 		"female";
+								lodcom:value		209;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"20-29";
+								lodcom:gender 		"female";
+								lodcom:value		1327;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"30-39";
+								lodcom:gender 		"female";
+								lodcom:value		787;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"40-49";
+								lodcom:gender 		"female";
+								lodcom:value		446;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"50-59";
+								lodcom:gender 		"female";
+								lodcom:value		418;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"60-69";
+								lodcom:gender 		"female";
+								lodcom:value		245;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"70-79";
+								lodcom:gender 		"female";
+								lodcom:value		252;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"80-89";
+								lodcom:gender 		"female";
+								lodcom:value		149;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	">=90";
+								lodcom:gender 		"female";
+								lodcom:value		47;
+							].
+
+
+lodcom:dueesberg			dc:description          "Dueesberg is a subdistrict of Mitte-Sued"@en;
+                            lodcom:hasMainPopulation		[
+								lodcom:year       	2010;
+								lodcom:value		6720;
+							];
+							lodcom:hasMainPopulation		[
+								lodcom:year       	2011;
+								lodcom:value		6858;
+							];
+							lodcom:hasMainPopulation		[
+								lodcom:year       	2012;
+								lodcom:value		6911;
+							];
+							lodcom:hasMainPopulation		[
+								lodcom:year       	2013;
+								lodcom:value		6968;
+							];
+							lodcom:hasMainPopulation		[
+								lodcom:year       	2014;
+								lodcom:value		6989;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2010;
+								lodcom:value		6826;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2011;
+								lodcom:value		6992;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2012;
+								lodcom:value		6994;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2013;
+								lodcom:value		7035;
+							];
+							lodcom:hasEntitledPopulation 	[
+								lodcom:year       	2014;
+								lodcom:value		7036;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"0-9";
+								lodcom:gender 		"male";
+								lodcom:value		296;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"10-19";
+								lodcom:gender 		"male";
+								lodcom:value		337;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"20-29";
+								lodcom:gender 		"male";
+								lodcom:value		457;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"30-39";
+								lodcom:gender 		"male";
+								lodcom:value		436;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"40-49";
+								lodcom:gender 		"male";
+								lodcom:value		552;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"50-59";
+								lodcom:gender 		"male";
+								lodcom:value		524;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"60-69";
+								lodcom:gender 		"male";
+								lodcom:value		337;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"70-79";
+								lodcom:gender 		"male";
+								lodcom:value		277;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"80-89";
+								lodcom:gender 		"male";
+								lodcom:value	    157;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	">=90";
+								lodcom:gender 		"male";
+								lodcom:value		22;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"0-9";
+								lodcom:gender 		"female";
+								lodcom:value		274;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"10-19";
+								lodcom:gender 		"female";
+								lodcom:value		345;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"20-29";
+								lodcom:gender 		"female";
+								lodcom:value		504;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"30-39";
+								lodcom:gender 		"female";
+								lodcom:value		411;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"40-49";
+								lodcom:gender 		"female";
+								lodcom:value		528;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"50-59";
+								lodcom:gender 		"female";
+								lodcom:value		513;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"60-69";
+								lodcom:gender 		"female";
+								lodcom:value		350;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"70-79";
+								lodcom:gender 		"female";
+								lodcom:value		370;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	"80-89";
+								lodcom:gender 		"female";
+								lodcom:value		274;
+							];
+							lodcom:hasGenderedPopulation 	[
+								lodcom:year       	2014;
+								lodcom:agegroup 	">=90";
+								lodcom:gender 		"female";
+								lodcom:value		72;
+							].
