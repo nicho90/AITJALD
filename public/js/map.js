@@ -2,11 +2,11 @@
 
 // MAP
 $( document ).ready(function() {
-
+	var selectedFeatures = [];
 	// assinging the accesstoken for the mapbox library
     L.mapbox.accessToken = getMapboxAccessToken();
 	//create the map
-    var map = L.mapbox.map('map').setView([51.961298, 7.625849], 13);
+    var map = L.mapbox.map('map').setView([51.961298, 7.625849], 12);
 
 	//creating the layer control to switch between different baselayers
     L.control.layers({
@@ -16,9 +16,13 @@ $( document ).ready(function() {
     }).addTo(map);
 
 	// creating the feature Groups for the geometries for different layers
-	var cityFeatureGroup = L.featureGroup().addTo(map),
-			districtFeatureGroup = L.featureGroup().addTo(map),
-			cityDistrictFeatureGroup = L.layerGroup().addTo(map);
+	var cityFeatureGroup = L.featureGroup().setStyle(defaultStyle()),
+			districtFeatureGroup = L.featureGroup().setStyle(defaultStyle()),
+			cityDistrictFeatureGroup = L.featureGroup().setStyle(defaultStyle());
+
+	var cityLayerGroup = L.layerGroup([cityFeatureGroup]).addTo(map),
+			districtLayerGroup = L.layerGroup().addTo(map),
+			cityDistrictLayerGroup = L.layerGroup().addTo(map);
 
 	// create the geometry query to get the geometries to add them to the feature groups
 	var geometryQuery = "PREFIX geo:<" + GEOPREFIX + '> PREFIX dbp:<' + DBPPREFIX + "> " +
@@ -86,6 +90,14 @@ $( document ).ready(function() {
 	function onEachFeature(feature, layer) {
 		layer.on({
 			click: function(){
+				// every other layer should be styled as default
+				// TODO: if comparing is active - more than one layer have do be styled 'clicked style'
+				for (var i = 0; i < selectedFeatures.length; i++) {
+					selectedFeatures[i].setStyle(defaultStyle())
+				}
+				selectedFeatures = [];
+				selectedFeatures.push(layer);
+				layer.setStyle(clickedStyle());
 				// change the highCharts diagram
 				changeHighcharts.setDiagram({
 					type: diagramType,
@@ -94,4 +106,39 @@ $( document ).ready(function() {
 			}
 		})
 	}
+	$('#level_1').click(function () {
+		cityLayerGroup.clearLayers();
+		districtLayerGroup.clearLayers();
+		cityDistrictLayerGroup.clearLayers();
+		cityLayerGroup.addLayer(cityFeatureGroup);
+	});
+	$('#level_2').click(function () {
+		cityLayerGroup.clearLayers();
+		districtLayerGroup.clearLayers();
+		cityDistrictLayerGroup.clearLayers();
+		districtLayerGroup.addLayer(districtFeatureGroup);
+	});
+	$('#level_3').click(function () {
+		cityLayerGroup.clearLayers();
+		districtLayerGroup.clearLayers();
+		cityDistrictLayerGroup.clearLayers();
+		cityDistrictLayerGroup.addLayer(cityDistrictFeatureGroup);
+	});
 });
+
+
+/*
+* style function for the geometries
+* */
+function defaultStyle(feature) {
+	return {
+		fillColor: 'blue',
+		color: 'blue'
+	}
+}
+function clickedStyle(feature) {
+	return {
+		fillColor: 'red',
+		color: 'red'
+	}
+}
