@@ -111,18 +111,27 @@ $( document ).ready(function() {
 		districtLayerGroup.clearLayers();
 		cityDistrictLayerGroup.clearLayers();
 		cityLayerGroup.addLayer(cityFeatureGroup);
+		$('#level_1').removeClass('btn btn-default').addClass('btn btn-primary');
+		$('#level_2').removeClass('btn btn-primary').addClass('btn btn-default');
+		$('#level_3').removeClass('btn btn-primary').addClass('btn btn-default');
 	});
 	$('#level_2').click(function () {
 		cityLayerGroup.clearLayers();
 		districtLayerGroup.clearLayers();
 		cityDistrictLayerGroup.clearLayers();
 		districtLayerGroup.addLayer(districtFeatureGroup);
+		$('#level_1').removeClass('btn btn-primary').addClass('btn btn-default');
+		$('#level_2').removeClass('btn btn-default').addClass('btn btn-primary');
+		$('#level_3').removeClass('btn btn-primary').addClass('btn btn-default');
 	});
 	$('#level_3').click(function () {
 		cityLayerGroup.clearLayers();
 		districtLayerGroup.clearLayers();
 		cityDistrictLayerGroup.clearLayers();
 		cityDistrictLayerGroup.addLayer(cityDistrictFeatureGroup);
+		$('#level_1').removeClass('btn btn-primary').addClass('btn btn-default');
+		$('#level_2').removeClass('btn btn-primary').addClass('btn btn-default');
+		$('#level_3').removeClass('btn btn-default').addClass('btn btn-primary');
 	});
 });
 
