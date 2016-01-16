@@ -8,7 +8,7 @@
 @prefix sf:<http://www.opengis.net/ont/sf#>.
 
 
-<muenster>	 		a 					dbp:city;
+<muenster>	 		a 					dbp:City;
 					a					gn:Feature;
 					gn:name 			"M\u00FCnster"^^xsd:string;		
 					gn:alternateName	"M\u00FCnster"@de,

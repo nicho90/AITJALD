@@ -1,62 +1,88 @@
-"use strict"
+"use strict";
 
 // MAP
 $( document ).ready(function() {
 
+	// assinging the accesstoken for the mapbox library
     L.mapbox.accessToken = getMapboxAccessToken();
+	//create the map
     var map = L.mapbox.map('map').setView([51.961298, 7.625849], 13);
 
+	//creating the layer control to switch between different baselayers
     L.control.layers({
         'Streets': L.mapbox.tileLayer('mapbox.streets').addTo(map),
         'Satellite': L.mapbox.tileLayer('mapbox.satellite'),
         'Light': L.mapbox.tileLayer('mapbox.light')
     }).addTo(map);
 
-    // Add Feature Layer
-    /*L.mapbox.featureLayer({
-        type: 'Feature',
-        geometry: {
-            type: 'Point',
-            coordinates: [
-              51.963572,
-              7.613130
-            ]
-        },
-        properties: {
-            'title': 'Schloss',
-            'description': 'Schoss',
-            'marker-size': 'large',
-            'marker-color': '#BE9A6B',
-            'marker-symbol': 'bus'
-        }
-    }).addTo(map);*/
+	// creating the feature Groups for the geometries for different layers
+	var cityFeatureGroup = L.featureGroup().addTo(map),
+			districtFeatureGroup = L.featureGroup().addTo(map),
+			cityDistrictFeatureGroup = L.layerGroup().addTo(map);
 
-    /*function onEachFeature(feature, layer) {
-			var popupContent = "";
+	// create the geometry query to get the geometries to add them to the feature groups
+	var geometryQuery = "PREFIX geo:<" + GEOPREFIX + '> PREFIX dbp:<' + DBPPREFIX + "> " +
+			"SELECT ?a ?d ?c " +
+			"WHERE {GRAPH <http://course.introlinkeddata.org/G2> {" +
+			"?a geo:hasGeometry ?b." +
+			"?b geo:asWKT ?c." +
+			"?a a ?d." +
+			"FILTER(?d = dbp:City || ?d = dbp:District || ?d = dbp:CityDistrict)}}";
+	//create the the data object needet for 'sparqlPOSTRequest' function
+	var data = {
+		query: geometryQuery,
+		display:"json",
+		output:"json"
+	};
 
-			if (feature.properties && feature.properties.popupContent) {
-				popupContent += feature.properties.popupContent;
-			}
 
-			layer.bindPopup(popupContent);
-		};
-
-    L.geoJson(getGeoJSON(), {
-
-			filter: function (feature, layer) {
-				if (feature.properties) {
-					// If the property "underConstruction" exists and is true, return false (don't render features under construction)
-					return feature.properties.underConstruction !== undefined ? !feature.properties.underConstruction : true;
+	sparqlPOSTRequest(data, function(result){
+		for(var i=0; i < result.length; i++) {
+			var wktString = result[i].c.value;
+			// parse the WKT geometrie to a geoJSON object
+			var geoJSONgeometry = Terraformer.WKT.parse(wktString);
+			// create the geo
+			var geoJSON = {
+				geometry: geoJSONgeometry,
+				type: 'Feature',
+				properties: {
+					name: result[i].a.value.replace(LODCOMPREFIX, '')
 				}
-				return false;
-			},
+			};
+			var adminType = result[i].d.value;
+			adminType = adminType.replace(DBPPREFIX,'');
 
-			onEachFeature: onEachFeature
-		}).addTo(map);*/
+			// adding the geoJSON to the responsible feature group
+			switch(adminType) {
+				case 'City':
+					cityFeatureGroup.addLayer(L.geoJson(geoJSON,{
+						onEachFeature: onEachFeature
+					}));
+					break;
+				case 'District':
+					districtFeatureGroup.addLayer(L.geoJson(geoJSON,{
+						onEachFeature: onEachFeature
+					}));
+					break;
+				case 'CityDistrict':
+					cityDistrictFeatureGroup.addLayer(L.geoJson(geoJSON,{
+						onEachFeature: onEachFeature
+					}));
+					break;
+				default:
+					console.log('something went wrong. The administrative connection could not be mapped')
+			}
+		}
+	});
 
-
-        var featureLayer = L.mapbox.featureLayer()
-        .loadURL('/features/features.geojson')
-        .addTo(map);
-
+	/*
+	 * Function to assign click function etc to the layer/feature
+	 */
+	function onEachFeature(feature, layer) {
+		layer.on({
+			click: function(){
+				console.log(feature.properties.name)
+			}
+		})
+	}
 });
