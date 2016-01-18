@@ -66,3 +66,16 @@ WHERE {
         ?mainPopulation lodcom:value ?value.
   }
 }
+
+##############geometrie query##################
+PREFIX geo:<http://www.opengis.net/ont/geosparql#>
+PREFIX dbp:<http://dbpedia.org/ontology/>
+SELECT ?a ?d ?c
+WHERE {
+	GRAPH <http://course.introlinkeddata.org/G2> {
+		?a geo:hasGeometry ?b.
+		?b geo:asWKT ?c.
+		?a a ?d.
+		FILTER(?d = dbp:City || ?d = dbp:District || ?d = dbp:CityDistrict)
+	}
+}

@@ -8,7 +8,7 @@
 @prefix sf:<http://www.opengis.net/ont/sf#>.
 
 
-<muenster>	 		a 					dbp:city;
+<muenster>	 		a 					dbp:City;
 					a					gn:Feature;
 					gn:name 			"M\u00FCnster"^^xsd:string;		
 					gn:alternateName	"M\u00FCnster"@de,
@@ -29,7 +29,7 @@
 					].
 
 
-<mitte>	 			a 					dbp:citydistrict;
+<mitte>	 			a 					dbp:District;
 					a 					gn:Feature;
 					gn:name 			"Mitte"^^xsd:string;			
 					gn:alternateName	"Mitte"@de,
@@ -66,7 +66,7 @@
 					].
 
 
-<west>	 			a 					dbp:citydistrict;
+<west>	 			a 					dbp:District;
 					a 					gn:Feature;
 					gn:name 			"West"^^xsd:string;			
 					gn:alternateName	"West"@de,
@@ -86,7 +86,7 @@
 					].
 
 
-<nord>	 			a 					dbp:citydistrict;
+<nord>	 			a 					dbp:District;
 					a 					gn:Feature;
 					gn:name 			"Nord"^^xsd:string;			
 					gn:alternateName	"Nord"@de,
@@ -104,7 +104,7 @@
 					].
 
 
-<ost>	 			a 					dbp:citydistrict;
+<ost>	 			a 					dbp:District;
 					a 					gn:Feature;
 					gn:name 			"Ost"^^xsd:string;			
 					gn:alternateName	"Ost"@de,
@@ -121,7 +121,7 @@
 					].
 
 
-<suedost>	 		a 					dbp:citydistrict;
+<suedost>	 		a 					dbp:District;
 					a 					gn:Feature;
 					gn:name 			"S\u00FCdost"^^xsd:string;			
 					gn:alternateName	"S\u00FCdost"@de,
@@ -139,7 +139,7 @@
 					].
 
 
-<hiltrup>	 		a 					dbp:citydistrict;
+<hiltrup>	 		a 					dbp:District;
 					a 					gn:Feature;
 					gn:name 			"Hiltrup"^^xsd:string;			
 					gn:alternateName	"Hiltrup"@de,
@@ -158,7 +158,7 @@
 					].
 
 
-<aegidii>	 		a 					dbp:citydistrict;
+<aegidii>	 		a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Aegidii"^^xsd:string;			
 					gn:alternateName	"Aegidii"@de,
@@ -173,7 +173,7 @@
 					].
 
 
-<ueberwasser>		a 					dbp:citydistrict;
+<ueberwasser>		a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"\u00DCberwasser"^^xsd:string;			
 					gn:alternateName	"\u00DCberwasser"@de,
@@ -188,7 +188,7 @@
 					].
 
 
-<dom>	 			a 					dbp:citydistrict;
+<dom>	 			a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Dom"^^xsd:string;			
 					gn:alternateName	"Dom"@de,
@@ -203,7 +203,7 @@
 					].
 
 
-<buddenturm>		a 					dbp:citydistrict;
+<buddenturm>		a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Buddenturm"^^xsd:string;			
 					gn:alternateName	"Buddenturm"@de,
@@ -218,7 +218,7 @@
 					].
 
 
-<martini>			a 					dbp:citydistrict;
+<martini>			a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Martini"^^xsd:string;			
 					gn:alternateName	"Martini"@de,
@@ -233,7 +233,7 @@
 					].
 
 
-<pluggendorf>		a 					dbp:citydistrict;
+<pluggendorf>		a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Pluggendorf"^^xsd:string;			
 					gn:alternateName	"Pluggendorf"@de,
@@ -248,7 +248,7 @@
 					].
 
 
-<josef>				a 					dbp:citydistrict;
+<josef>				a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Josef"^^xsd:string;			
 					gn:alternateName	"Josef"@de,
@@ -263,7 +263,7 @@
 					].
 
 
-<bahnhof>			a 					dbp:citydistrict;
+<bahnhof>			a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Bahnhof"^^xsd:string;			
 					gn:alternateName	"Bahnhof"@de,
@@ -278,7 +278,7 @@
 					].
 
 
-<hansaplatz>		a 					dbp:citydistrict;
+<hansaplatz>		a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Hansaplatz"^^xsd:string;			
 					gn:alternateName	"Hansaplatz"@de,
@@ -293,7 +293,7 @@
 					].
 
 
-<mauritz-west>		a 					dbp:citydistrict;
+<mauritz-west>		a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Mauritz-West"^^xsd:string;			
 					gn:alternateName	"Mauritz-West"@de,
@@ -308,7 +308,7 @@
 					].
 
 
-<schlachthof>		a 					dbp:citydistrict;
+<schlachthof>		a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Schlachthof"^^xsd:string;			
 					gn:alternateName	"Schlachthof"@de,
@@ -323,7 +323,7 @@
 					].
 
 
-<kreuz>				a 					dbp:citydistrict;
+<kreuz>				a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Kreuz"^^xsd:string;			
 					gn:alternateName	"Kreuz"@de,
@@ -338,7 +338,7 @@
 					].
 
 
-<neutor>			a 					dbp:citydistrict;
+<neutor>			a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Neutor"^^xsd:string;			
 					gn:alternateName	"Neutor"@de,
@@ -353,7 +353,7 @@
 					].
 
 
-<schloss>			a 					dbp:citydistrict;
+<schloss>			a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Schloss"^^xsd:string;			
 					gn:alternateName	"Schloss"@de,
@@ -368,7 +368,7 @@
 					].
 
 
-<aaseestadt>		a 					dbp:citydistrict;
+<aaseestadt>		a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					geo:sfWithin		<mitte>;
 					gn:name 			"Aaseestadt"^^xsd:string;			
@@ -383,7 +383,7 @@
 					].
 
 
-<geist>				a 					dbp:citydistrict;
+<geist>				a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Geist"^^xsd:string;			
 					gn:alternateName	"Geist"@de,
@@ -398,7 +398,7 @@
 					].
 
 
-<schuetzenhof>		a 					dbp:citydistrict;
+<schuetzenhof>		a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Schützenhof"^^xsd:string;			
 					gn:alternateName	"Schützenhof"@de,
@@ -413,7 +413,7 @@
 					].
 
 
-<dueesberg>			a 					dbp:citydistrict;
+<dueesberg>			a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Düesberg"^^xsd:string;			
 					gn:alternateName	"Düesberg"@de,
@@ -428,7 +428,7 @@
 					].
 
 
-<hafen>				a 					dbp:citydistrict;
+<hafen>				a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Hafen"^^xsd:string;			
 					gn:alternateName	"Hafen"@de,
@@ -443,7 +443,7 @@
 					].
 
 
-<herz-jesu>			a 					dbp:citydistrict;
+<herz-jesu>			a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Herz-Jesu"^^xsd:string;			
 					gn:alternateName	"Herz-Jesu"@de,
@@ -458,7 +458,7 @@
 					].
 
 
-<mauritz-mitte>		a 					dbp:citydistrict;
+<mauritz-mitte>		a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Mauritz-Mitte"^^xsd:string;			
 					gn:alternateName	"Mauritz-Mitte"@de,
@@ -473,7 +473,7 @@
 					].
 
 
-<rumphorst>			a 					dbp:citydistrict;
+<rumphorst>			a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Rumphorst"^^xsd:string;			
 					gn:alternateName	"Rumphorst"@de,
@@ -488,7 +488,7 @@
 					].
 
 
-<uppenberg>			a 					dbp:citydistrict;
+<uppenberg>			a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					gn:name 			"Uppenberg"^^xsd:string;			
 					gn:alternateName	"Uppenberg"@de,
@@ -503,7 +503,7 @@
 					].
 
 
-<gievenbeck>		a 					dbp:citydistrict;
+<gievenbeck>		a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Gievenbeck"^^xsd:string;			
 					gn:alternateName	"Gievenbeck"@de,
@@ -518,7 +518,7 @@
 					].
 
 
-<sentrup>			a 					dbp:citydistrict;
+<sentrup>			a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Sentrup"^^xsd:string;			
 					gn:alternateName	"Sentrup"@de,
@@ -533,7 +533,7 @@
 					].
 
 
-<mecklenbeck>		a 					dbp:citydistrict;
+<mecklenbeck>		a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Mecklenbeck"^^xsd:string;			
 					gn:alternateName	"Mecklenbeck"@de,
@@ -548,7 +548,7 @@
 					].
 
 
-<albachten>			a 					dbp:citydistrict;
+<albachten>			a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Albachten"^^xsd:string;			
 					gn:alternateName	"Albachten"@de,
@@ -563,7 +563,7 @@
 					].
 
 
-<roxel>				a 					dbp:citydistrict;
+<roxel>				a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Roxel"^^xsd:string;			
 					gn:alternateName	"Roxel"@de,
@@ -578,7 +578,7 @@
 					].
 
 
-<nienberge>			a 					dbp:citydistrict;
+<nienberge>			a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Nienberge"^^xsd:string;			
 					gn:alternateName	"Nienberge"@de,
@@ -593,7 +593,7 @@
 					].
 
 
-<coerde>			a 					dbp:citydistrict;
+<coerde>			a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Coerde"^^xsd:string;			
 					gn:alternateName	"Coerde"@de,
@@ -608,7 +608,7 @@
 					].
 
 
-<kinderhaus-ost>	a 					dbp:citydistrict;
+<kinderhaus-ost>	a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Kinderhaus-Ost"^^xsd:string;			
 					gn:alternateName	"Kinderhaus-Ost"@de,
@@ -623,7 +623,7 @@
 					].
 
 
-<kinderhaus-west>	a 					dbp:citydistrict;
+<kinderhaus-west>	a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Kinderhaus-West"^^xsd:string;			
 					gn:alternateName	"Kinderhaus-West"@de,
@@ -638,7 +638,7 @@
 					].
 
 
-<sprakel>			a 					dbp:citydistrict;
+<sprakel>			a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Sprakel"^^xsd:string;			
 					gn:alternateName	"Sprakel"@de,
@@ -653,7 +653,7 @@
 					].
 
 
-<mauritz-ost>		a 					dbp:citydistrict;
+<mauritz-ost>		a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Mauritz-Ost"^^xsd:string;			
 					gn:alternateName	"Mauritz-Ost"@de,
@@ -668,7 +668,7 @@
 					].
 
 
-<gelmer-dyckburg>	a 					dbp:citydistrict;
+<gelmer-dyckburg>	a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Gelmer-Dyckburg"^^xsd:string;			
 					gn:alternateName	"Gelmer-Dyckburg"@de,
@@ -683,7 +683,7 @@
 					].
 
 
-<handorf>			a 					dbp:citydistrict;
+<handorf>			a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Handorf"^^xsd:string;			
 					gn:alternateName	"Handorf"@de,
@@ -698,7 +698,7 @@
 					].
 
 
-<gremmendorf-west>	a 					dbp:citydistrict;
+<gremmendorf-west>	a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Gremmendorf-West"^^xsd:string;			
 					gn:alternateName	"Gremmendorf-West"@de,
@@ -713,7 +713,7 @@
 					].
 
 
-<gremmendorf-ost>	a 					dbp:citydistrict;
+<gremmendorf-ost>	a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Gremmendorf-Ost"^^xsd:string;			
 					gn:alternateName	"Gremmendorf-Ost"@de,
@@ -728,7 +728,7 @@
 					].
 
 
-<angelmodde>		a 					dbp:citydistrict;
+<angelmodde>		a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Angelmodde"^^xsd:string;			
 					gn:alternateName	"Angelmodde"@de,
@@ -743,7 +743,7 @@
 					].
 
 
-<wolbeck>			a 					dbp:citydistrict;
+<wolbeck>			a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Wolbeck"^^xsd:string;			
 					gn:alternateName	"Wolbeck"@de,
@@ -758,7 +758,7 @@
 					].
 
 
-<berg-fidel>		a 					dbp:citydistrict;
+<berg-fidel>		a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Berg-Fidel"^^xsd:string;			
 					gn:alternateName	"Berg-Fidel"@de,
@@ -773,7 +773,7 @@
 					].
 
 
-<hiltrup-ost>		a 					dbp:citydistrict;
+<hiltrup-ost>		a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Hiltrup-Ost"^^xsd:string;			
 					gn:alternateName	"Hiltrup-Ost"@de,
@@ -788,7 +788,7 @@
 					].
 
 
-<hiltrup-mitte>		a 					dbp:citydistrict;
+<hiltrup-mitte>		a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Hiltrup-Mitte"^^xsd:string;			
 					gn:alternateName	"Hiltrup-Mitte"@de,
@@ -803,7 +803,7 @@
 					].
 
 
-<hiltrup-west>		a 					dbp:citydistrict;
+<hiltrup-west>		a 					dbp:CityDistrict;
 					a					gn:Feature;
 					gn:name 			"Hiltrup-West"^^xsd:string;			
 					gn:alternateName	"Hiltrup-West"@de,
@@ -818,7 +818,7 @@
 					].
 
 
-<hiltrup-west>		a 					dbp:citydistrict;
+<hiltrup-west>		a 					dbp:CityDistrict;
 					gn:name 			"Hiltrup-West"^^xsd:string;			
 					gn:alternateName	"Hiltrup-West"@de,
 										"Hiltrup-West"@en;

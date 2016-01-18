@@ -21,6 +21,8 @@
     "bootstrap": "~3.3.6",
     "mapbox.js": "~2.2.3",
     "highcharts": "highcharts-release#~4.2.1",
-    "font-awesome": "fontawesome#~4.5.0"
+    "font-awesome": "fontawesome#~4.5.0",
+    "terraformer": "~1.0.4",
+    "terraformer-wkt-parser": "~1.0.0"
   }
 }
