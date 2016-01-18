@@ -183,7 +183,7 @@ lodcom:aegidii				dc:description          "Ageidii is a subdistrict of Altstadt"
 
 
 
-lodcom:ueberwasser		dc:description          "Ueberwasseris a subdistrict of Altstadt"@en;
+lodcom:ueberwasser			dc:description          "Ueberwasseris a subdistrict of Altstadt"@en;
                             lodcom:hasMainPopulation		[
 								lodcom:year       	2010;
 								lodcom:value		1166;
@@ -11223,4 +11223,4 @@ lodcom:amelsbueren dc:description  "amelsbueren is a subdistrict of suedost"@en;
 					lodcom:agegroup 	">=90";
 					lodcom:gender 		"female";
 					lodcom:value		27;
-			].
+				].
