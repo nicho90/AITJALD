@@ -818,10 +818,10 @@
 					].
 
 
-<hiltrup-west>		a 					dbp:CityDistrict;
-					gn:name 			"Hiltrup-West"^^xsd:string;			
-					gn:alternateName	"Hiltrup-West"@de,
-										"Hiltrup-West"@en;
+<amelsbueren>		a 					dbp:CityDistrict;
+					gn:name 			"Amelsbüren"^^xsd:string;
+					gn:alternateName	"Amelsbüren"@de,
+										"Amelsbueren"@en;
 					gn:parentFeature	<hiltrup>;
 					coord:lat			51.88386567797622;
 					coord:lon			7.587089538574219;
