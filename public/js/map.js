@@ -16,9 +16,9 @@ $( document ).ready(function() {
     }).addTo(map);
 
 	// creating the feature Groups for the geometries for different layers
-	var cityFeatureGroup = L.featureGroup().setStyle(defaultStyle()),
-			districtFeatureGroup = L.featureGroup().setStyle(defaultStyle()),
-			cityDistrictFeatureGroup = L.featureGroup().setStyle(defaultStyle());
+	var cityFeatureGroup = L.featureGroup(),
+			districtFeatureGroup = L.featureGroup(),
+			cityDistrictFeatureGroup = L.featureGroup();
 
 	var cityLayerGroup = L.layerGroup([cityFeatureGroup]).addTo(map),
 			districtLayerGroup = L.layerGroup().addTo(map),
@@ -26,12 +26,14 @@ $( document ).ready(function() {
 
 	// create the geometry query to get the geometries to add them to the feature groups
 	var geometryQuery = "PREFIX geo:<" + GEOPREFIX + '> PREFIX dbp:<' + DBPPREFIX + "> " +
-			"SELECT ?a ?d ?c " +
+			"SELECT ?a ?type ?wkt ?area " +
 			"WHERE {GRAPH <http://course.introlinkeddata.org/G2> {" +
-			"?a geo:hasGeometry ?b." +
-			"?b geo:asWKT ?c." +
-			"?a a ?d." +
-			"FILTER(?d = dbp:City || ?d = dbp:District || ?d = dbp:CityDistrict)}}";
+            "?a geo:hasGeometry ?b." +
+			"?b dbp:area ?area." +
+			"?b geo:asWKT ?wkt." +
+			"?a a ?type." +
+			"FILTER(?type = dbp:City || ?type = dbp:District || ?type = dbp:CityDistrict)}}";
+            console.log(geometryQuery)
 	//create the the data object needet for 'sparqlPOSTRequest' function
 	var data = {
 		query: geometryQuery,
@@ -42,11 +44,11 @@ $( document ).ready(function() {
 
 	sparqlPOSTRequest(data, function(result){
 		for(var i=0; i < result.length; i++) {
-			var wktString = result[i].c.value;
+			var wktString = result[i].wkt.value;
 			// parse the WKT geometrie to a geoJSON object
 			var geoJSONgeometry = Terraformer.WKT.parse(wktString);
 
-			var adminType = result[i].d.value;
+			var adminType = result[i].type.value;
 			adminType = adminType.replace(DBPPREFIX,'');
 			// create the geo
 			var geoJSON = {
@@ -64,17 +66,17 @@ $( document ).ready(function() {
 				case 'City':
 					cityFeatureGroup.addLayer(L.geoJson(geoJSON,{
 						onEachFeature: onEachFeature
-					}));
+					})).setStyle(defaultStyle());
 					break;
 				case 'District':
 					districtFeatureGroup.addLayer(L.geoJson(geoJSON,{
 						onEachFeature: onEachFeature
-					}));
+					})).setStyle(defaultStyle());
 					break;
 				case 'CityDistrict':
 					cityDistrictFeatureGroup.addLayer(L.geoJson(geoJSON,{
 						onEachFeature: onEachFeature
-					}));
+					})).setStyle(defaultStyle());
 					break;
 				default:
 					console.log('something went wrong. The administrative connection could not be mapped')
@@ -95,6 +97,7 @@ $( document ).ready(function() {
 				for (var i = 0; i < selectedFeatures.length; i++) {
 					selectedFeatures[i].setStyle(defaultStyle())
 				}
+                layer.bringToFront();
 				selectedFeatures = [];
 				selectedFeatures.push(layer);
 				layer.setStyle(clickedStyle());
@@ -142,7 +145,8 @@ $( document ).ready(function() {
 function defaultStyle(feature) {
 	return {
 		fillColor: 'blue',
-		color: 'blue'
+		color: 'blue',
+        opacity: 1
 	}
 }
 function clickedStyle(feature) {
