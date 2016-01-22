@@ -8,4 +8,5 @@
 */
 var GEOPREFIX = "http://www.opengis.net/ont/geosparql#",
     LODCOMPREFIX = "http://vocab.lodcom.de/",
-    DBPPREFIX = "http://dbpedia.org/ontology/";
+    DBPPREFIX = "http://dbpedia.org/ontology/",
+    GNPREFIX = "http://www.geonames.org/ontology#";

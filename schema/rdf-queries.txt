@@ -59,24 +59,57 @@ WHERE {
 
 PREFIX lodcom: <http://vocab.lodcom.de/>
 
-SELECT ?what ?mainPopulation ?value
+SELECT ?what ?value ?year
 WHERE {
   GRAPH <http://course.introlinkeddata.org/G2> {
         ?what lodcom:hasMainPopulation ?mainPopulation.
-        ?mainPopulation lodcom:value ?value.
+        ?mainPopulation lodcom:year ?year.
+        ?mainPopulation lodcom:value ?value
   }
 }
 
 ##############geometrie query##################
 PREFIX geo:<http://www.opengis.net/ont/geosparql#>
 PREFIX dbp:<http://dbpedia.org/ontology/>
-SELECT ?a ?type ?wkt ?area
+PREFIX gn:<http://www.geonames.org/ontology#>
+SELECT ?feature ?type ?parent ?area ?wkt
 WHERE {
 	GRAPH <http://course.introlinkeddata.org/G2> {
-		?a geo:hasGeometry ?b.
-    ?b dbp:area ?area
+		?feature geo:hasGeometry ?b.
 		?b geo:asWKT ?wkt.
-		?a a ?type.
-		FILTER(?d = dbp:City || ?d = dbp:District || ?d = dbp:CityDistrict)
+		?feature a ?type.
+		FILTER(?type = dbp:City || ?type = dbp:District || ?type = dbp:CityDistrict).
+		OPTIONAL {
+		    ?feature gn:parentFeature ?parent.
+		    ?b dbp:area ?area.
+		}
 	}
+}
+
+########### district population ###############
+PREFIX lodcom: <http://vocab.lodcom.de/>
+PREFIX gn:<http://www.geonames.org/ontology#>
+
+SELECT ?feature ?year ?value
+WHERE {
+  GRAPH <http://course.introlinkeddata.org/G2> {
+        ?feature gn:parentFeature lodcom:mitte.
+        ?feature lodcom:hasMainPopulation ?mainPopulation.
+        ?mainPopulation lodcom:year ?year.
+        ?mainPopulation lodcom:value ?value
+  }
+}
+########### city population ###############
+PREFIX lodcom: <http://vocab.lodcom.de/>
+PREFIX gn:<http://www.geonames.org/ontology#>
+
+SELECT ?cdFature ?year ?value
+WHERE {
+  GRAPH <http://course.introlinkeddata.org/G2> {
+        ?feature gn:parentFeature lodcom:muenster.
+        ?cdFature gn:parentFeature ?feature.
+        ?cdFature lodcom:hasMainPopulation ?mainPopulation.
+        ?mainPopulation lodcom:year ?year.
+        ?mainPopulation lodcom:value ?value
+  }
 }
