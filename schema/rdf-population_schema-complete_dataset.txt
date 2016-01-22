@@ -1,5 +1,4 @@
-﻿@prefix lodcom: <http://vocab.lodcom.de/>.
-@prefix dc: <http://purl.org/dc/elements/1.1/>.
+﻿@prefix dc: <http://purl.org/dc/elements/1.1/>.
 @prefix lodcom: <http://vocab.lodcom.de/>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
