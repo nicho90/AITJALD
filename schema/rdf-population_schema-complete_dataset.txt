@@ -671,8 +671,7 @@ lodcom:buddenturm			dc:description          "Buddenturm is a subdistrict of Alts
 								lodcom:value		92;
 							].
 
-<<<<<<< HEAD
-lodcom:rumphorst dc:description          "rumphorst is a subdistrict of mitte-sued"@en;
+lodcom:rumphorst            dc:description          "rumphorst is a subdistrict of mitte-sued"@en;
                             lodcom:hasMainPopulation		[
 								lodcom:year       	2010;
 								lodcom:value		7684;
@@ -712,7 +711,7 @@ lodcom:rumphorst dc:description          "rumphorst is a subdistrict of mitte-su
 							lodcom:hasEntitledPopulation 	[
 								lodcom:year       	2014;
 								lodcom:value		8099;
-=======
+							].
 
 lodcom:martini			    dc:description          "Muddenturm is a subdistrict of Altstadt"@en;
                             lodcom:hasMainPopulation		[
@@ -754,208 +753,146 @@ lodcom:martini			    dc:description          "Muddenturm is a subdistrict of Alt
 							lodcom:hasEntitledPopulation 	[
 								lodcom:year       	2014;
 								lodcom:value		1384;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	"0-9";
 								lodcom:gender 		"male";
-<<<<<<< HEAD
 								lodcom:value		330;
-=======
 								lodcom:value		22;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	"10-19";
 								lodcom:gender 		"male";
-<<<<<<< HEAD
 								lodcom:value		451;
-=======
 								lodcom:value		32;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	"20-29";
 								lodcom:gender 		"male";
-<<<<<<< HEAD
 								lodcom:value		619;
-=======
 								lodcom:value		171;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	"30-39";
 								lodcom:gender 		"male";
-<<<<<<< HEAD
-								lodcom:value		491;
-=======
 								lodcom:value		117;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	"40-49";
 								lodcom:gender 		"male";
-<<<<<<< HEAD
-								lodcom:value	  523;
-=======
 								lodcom:value		80;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	"50-59";
 								lodcom:gender 		"male";
-<<<<<<< HEAD
 								lodcom:value		624;
-=======
 								lodcom:value		69;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	"60-69";
 								lodcom:gender 		"male";
-<<<<<<< HEAD
 								lodcom:value		317;
-=======
 								lodcom:value		38;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	"70-79";
 								lodcom:gender 		"male";
-<<<<<<< HEAD
 								lodcom:value		280;
-=======
 								lodcom:value		34;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	"80-89";
 								lodcom:gender 		"male";
-<<<<<<< HEAD
 								lodcom:value		154;
-=======
-								lodcom:value	    0;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	">=90";
 								lodcom:gender 		"male";
-<<<<<<< HEAD
 								lodcom:value		24;
-=======
 								lodcom:value		0;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	"0-9";
 								lodcom:gender 		"female";
-<<<<<<< HEAD
 								lodcom:value		339;
-=======
 								lodcom:value		25;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	"10-19";
 								lodcom:gender 		"female";
-<<<<<<< HEAD
 								lodcom:value		429;
-=======
 								lodcom:value		42;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	"20-29";
 								lodcom:gender 		"female";
-<<<<<<< HEAD
 								lodcom:value		687;
-=======
 								lodcom:value		326;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	"30-39";
 								lodcom:gender 		"female";
-<<<<<<< HEAD
 								lodcom:value		488;
-=======
 								lodcom:value		112;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	"40-49";
 								lodcom:gender 		"female";
-<<<<<<< HEAD
 								lodcom:value		608;
-=======
 								lodcom:value		61;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	"50-59";
 								lodcom:gender 		"female";
-<<<<<<< HEAD
 								lodcom:value		695;
-=======
 								lodcom:value		77;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	"60-69";
 								lodcom:gender 		"female";
-<<<<<<< HEAD
 								lodcom:value		360;
-=======
 								lodcom:value		47;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	"70-79";
 								lodcom:gender 		"female";
-<<<<<<< HEAD
 								lodcom:value		398;
-=======
 								lodcom:value		69;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	"80-89";
 								lodcom:gender 		"female";
-<<<<<<< HEAD
 								lodcom:value		230;
-=======
 								lodcom:value		0;
->>>>>>> origin/master
 							];
 							lodcom:hasGenderedPopulation 	[
 								lodcom:year       	2014;
 								lodcom:agegroup 	">=90";
 								lodcom:gender 		"female";
-<<<<<<< HEAD
 								lodcom:value		52;
 							].
 
 
-lodcom:uppenberg dc:description          "uppenberg is a subdistrict of mitte-sued"@en;
+lodcom:uppenberg            dc:description          "uppenberg is a subdistrict of mitte-sued"@en;
                             lodcom:hasMainPopulation		[
 								lodcom:year       	2010;
 								lodcom:value		7744;
@@ -1118,7 +1055,7 @@ lodcom:uppenberg dc:description          "uppenberg is a subdistrict of mitte-su
 							].
 
 
-lodcom:gievenbeck dc:description          "Ageidii is a subdistrict of Altstadt"@en;
+lodcom:gievenbeck           dc:description          "Ageidii is a subdistrict of Altstadt"@en;
                             lodcom:hasMainPopulation		[
 								lodcom:year       	2010;
 								lodcom:value		17926;
@@ -1281,7 +1218,7 @@ lodcom:gievenbeck dc:description          "Ageidii is a subdistrict of Altstadt"
 							].
 
 
-lodcom:sentrup dc:description          "sentrup is a subdistrict of Mitte"@en;
+lodcom:sentrup              dc:description          "sentrup is a subdistrict of Mitte"@en;
                             lodcom:hasMainPopulation		[
 								lodcom:year       	2010;
 								lodcom:value		5924;
@@ -1441,10 +1378,6 @@ lodcom:sentrup dc:description          "sentrup is a subdistrict of Mitte"@en;
 								lodcom:agegroup 	">=90";
 								lodcom:gender 		"female";
 								lodcom:value		72;
-							].
-
-=======
-								lodcom:value		0;
 							].
 
 
@@ -1936,10 +1869,9 @@ lodcom:bahnhof			    dc:description          "Bahnhof is a subdistrict of Innens
 								lodcom:gender 		"female";
 								lodcom:value		0;
 							].
->>>>>>> origin/master
 
-lodcom:mecklenbeck dc:description  "mecklenbeck is a subdistrict of Mitte"@en;
-											lodcom:hasMainPopulation		[
+lodcom:mecklenbeck  dc:description  "mecklenbeck is a subdistrict of Mitte"@en;
+				lodcom:hasMainPopulation		[
 					lodcom:year       	2010;
 					lodcom:value		9142;
 				];
@@ -2101,8 +2033,6 @@ lodcom:mecklenbeck dc:description  "mecklenbeck is a subdistrict of Mitte"@en;
 				].
 
 
-<<<<<<< HEAD
-=======
 lodcom:hansaplatz			dc:description          "Hansaplatz is a subdistrict of Innenstadtring"@en;
                             lodcom:hasMainPopulation		[
 								lodcom:year       	2010;
@@ -2264,10 +2194,9 @@ lodcom:hansaplatz			dc:description          "Hansaplatz is a subdistrict of Inne
 								lodcom:gender 		"female";
 								lodcom:value		17;
 							].
->>>>>>> origin/master
 
-lodcom:albachten dc:description          "albachten is a subdistrict of mitte"@en;
-											lodcom:hasMainPopulation		[
+lodcom:albachten    dc:description          "albachten is a subdistrict of mitte"@en;
+				lodcom:hasMainPopulation		[
 					lodcom:year       	2010;
 					lodcom:value		5688;
 				];
@@ -2428,10 +2357,8 @@ lodcom:albachten dc:description          "albachten is a subdistrict of mitte"@e
 					lodcom:value		27;
 				].
 
-
-<<<<<<< HEAD
-lodcom:roxel dc:description          "roxel is a subdistrict of mitte"@en;
-											lodcom:hasMainPopulation		[
+lodcom:roxel    dc:description          "roxel is a subdistrict of mitte"@en;
+				lodcom:hasMainPopulation		[
 					lodcom:year       	2010;
 					lodcom:value		8246;
 				];
@@ -2594,7 +2521,7 @@ lodcom:roxel dc:description          "roxel is a subdistrict of mitte"@en;
 
 
 lodcom:nienberge dc:description   "nienberge is a subdistrict of mitte"@en;
-											lodcom:hasMainPopulation		[
+				lodcom:hasMainPopulation		[
 					lodcom:year       	2010;
 					lodcom:value		6394;
 				];
@@ -2754,7 +2681,7 @@ lodcom:nienberge dc:description   "nienberge is a subdistrict of mitte"@en;
 					lodcom:gender 		"female";
 					lodcom:value		28;
 				].
-=======
+
 lodcom:mauritz-west			dc:description          "Mauritz-west is a subdistrict of Innenstadtring"@en;
                             lodcom:hasMainPopulation		[
 								lodcom:year       	2010;
@@ -3079,7 +3006,6 @@ lodcom:schlachthof			dc:description          "Schlachthof is a subdistrict of In
 								lodcom:gender 		"female";
 								lodcom:value		30;
 							].
->>>>>>> origin/master
 
 lodcom:coerde dc:description  "Ageidii is a subdistrict of west"@en;
 											lodcom:hasMainPopulation		[
@@ -3243,8 +3169,6 @@ lodcom:coerde dc:description  "Ageidii is a subdistrict of west"@en;
 					lodcom:value		58;
 				].
 
-<<<<<<< HEAD
-=======
 lodcom:kreuz			    dc:description          "Kreuz is a subdistrict of Innenstadtring"@en;
                             lodcom:hasMainPopulation		[
 								lodcom:year       	2010;
@@ -3406,7 +3330,6 @@ lodcom:kreuz			    dc:description          "Kreuz is a subdistrict of Innenstadt
 								lodcom:gender 		"female";
 								lodcom:value		98;
 							].
->>>>>>> origin/master
 
 lodcom:kinderhaus-ost dc:description   "kinder-haus-ost is a subdistrict of west"@en;
 											lodcom:hasMainPopulation		[
@@ -3571,8 +3494,7 @@ lodcom:kinderhaus-ost dc:description   "kinder-haus-ost is a subdistrict of west
 				].
 
 
-<<<<<<< HEAD
-				odcom:kinderhaus-west dc:description   "kinderhaus-west is a subdistrict of west"@en;
+lodcom:kinderhaus-west dc:description   "kinderhaus-west is a subdistrict of west"@en;
 															lodcom:hasMainPopulation		[
 									lodcom:year       	2010;
 									lodcom:value		10290;
@@ -3895,7 +3817,6 @@ lodcom:sprakel dc:description  "sprakel is a subdistrict of west"@en;
 					lodcom:gender 		"female";
 					lodcom:value		15;
 				].
-=======
 lodcom:neutor			    dc:description          "Neutor is a subdistrict of Innenstadtring"@en;
                             lodcom:hasMainPopulation		[
 								lodcom:year       	2010;
@@ -4058,7 +3979,6 @@ lodcom:neutor			    dc:description          "Neutor is a subdistrict of Innensta
 								lodcom:value		0;
 							].
 
->>>>>>> origin/master
 
 lodcom:mauritz-ost dc:description "mauritz-ost is a subdistrict of nord"@en;
 											lodcom:hasMainPopulation		[
@@ -4222,8 +4142,6 @@ lodcom:mauritz-ost dc:description "mauritz-ost is a subdistrict of nord"@en;
 					lodcom:value		64;
 				].
 
-<<<<<<< HEAD
-=======
 lodcom:schloss			    dc:description          "Schloss is a subdistrict of Innenstadtring"@en;
                             lodcom:hasMainPopulation		[
 								lodcom:year       	2010;
@@ -4385,7 +4303,6 @@ lodcom:schloss			    dc:description          "Schloss is a subdistrict of Innens
 								lodcom:gender 		"female";
 								lodcom:value		41;
 							].
->>>>>>> origin/master
 
 lodcom:gelmer-dyckburg dc:description   "gelmer-dyckburg is a subdistrict of nord"@en;
 											lodcom:hasMainPopulation		[
@@ -4712,7 +4629,6 @@ lodcom:handorf dc:description "handorf is a subdistrict of nord"@en;
 					lodcom:value		64;
 				].
 
-<<<<<<< HEAD
 lodcom:gremmendorf-west dc:description    "gremmendorf-west is a subdistrict of ost"@en;
 											lodcom:hasMainPopulation		[
 					lodcom:year       	2010;
@@ -4876,7 +4792,7 @@ lodcom:gremmendorf-west dc:description    "gremmendorf-west is a subdistrict of 
 				].
 
 
-gremmendorf-ost dc:description "gremmendorf-ost is a subdistrict of ost"@en;
+lodcom:gremmendorf-ost dc:description "gremmendorf-ost is a subdistrict of ost"@en;
 											lodcom:hasMainPopulation		[
 					lodcom:year       	2010;
 					lodcom:value		6328;
@@ -5037,7 +4953,7 @@ gremmendorf-ost dc:description "gremmendorf-ost is a subdistrict of ost"@en;
 					lodcom:gender 		"female";
 					lodcom:value		34;
 				].
-=======
+
 lodcom:aaseestadt			dc:description          "Aaseestadt is a subdistrict of Mitte-Sued"@en;
                             lodcom:hasMainPopulation		[
 								lodcom:year       	2010;
@@ -5362,7 +5278,6 @@ lodcom:geist			    dc:description          "Geist is a subdistrict of Mitte-Sued
 								lodcom:gender 		"female";
 								lodcom:value		78;
 							].
->>>>>>> origin/master
 
 lodcom:schuetzenhof			dc:description          "Schuetzenhof is a subdistrict of Mitte-Sued"@en;
                             lodcom:hasMainPopulation		[
@@ -5526,7 +5441,6 @@ lodcom:schuetzenhof			dc:description          "Schuetzenhof is a subdistrict of 
 								lodcom:value		47;
 							].
 
-<<<<<<< HEAD
 lodcom:angelmodde dc:description  "angelmodde is a subdistrict of ost"@en;
 											lodcom:hasMainPopulation		[
 					lodcom:year       	2010;
@@ -6338,7 +6252,6 @@ lodcom:hiltrup-mitte dc:description "hiltrup-mitte is a subdistrict of suedost"@
 					lodcom:gender 		"female";
 					lodcom:value		114;
 				].
-=======
 
 lodcom:dueesberg			dc:description          "Dueesberg is a subdistrict of Mitte-Sued"@en;
                             lodcom:hasMainPopulation		[
@@ -6828,7 +6741,6 @@ lodcom:herz-jesu			dc:description          "Herz-jesu is a subdistrict of Mitte-
 								lodcom:value		0;
 							].
 
->>>>>>> origin/master
 
 lodcom:mauritz-mitte	    dc:description          "Mauritz-mitte is a subdistrict of Mitte-Nordost"@en;
                             lodcom:hasMainPopulation		[
@@ -6992,7 +6904,6 @@ lodcom:mauritz-mitte	    dc:description          "Mauritz-mitte is a subdistrict
 								lodcom:value		76;
 							].
 
-<<<<<<< HEAD
 lodcom:hiltrup-west dc:description "hiltrup-west is a subdistrict of suedost"@en;
 											lodcom:hasMainPopulation		[
 					lodcom:year       	2010;
@@ -7317,7 +7228,7 @@ lodcom:amelsbueren dc:description  "amelsbueren is a subdistrict of suedost"@en;
 					lodcom:gender 		"female";
 					lodcom:value		27;
 				].
-=======
+
 lodcom:rumphorst	        dc:description          "Rumphorst is a subdistrict of Mitte-Nordost"@en;
                             lodcom:hasMainPopulation		[
 								lodcom:year       	2010;
@@ -7642,10 +7553,9 @@ lodcom:uppenberg	        dc:description          "Uppenberg is a subdistrict of 
 								lodcom:gender 		"female";
 								lodcom:value		43;
 							].
->>>>>>> origin/master
 
 
-lodcom:gievenbeck dc:description          "Ageidii is a subdistrict of Altstadt"@en;
+lodcom:gievenbeck           dc:description          "Ageidii is a subdistrict of Altstadt"@en;
                             lodcom:hasMainPopulation		[
 								lodcom:year       	2010;
 								lodcom:value		17926;
@@ -7808,7 +7718,7 @@ lodcom:gievenbeck dc:description          "Ageidii is a subdistrict of Altstadt"
 							].
 
 
-lodcom:sentrup dc:description          "sentrup is a subdistrict of Mitte"@en;
+lodcom:sentrup              dc:description          "sentrup is a subdistrict of Mitte"@en;
                             lodcom:hasMainPopulation		[
 								lodcom:year       	2010;
 								lodcom:value		5924;
@@ -8949,7 +8859,7 @@ lodcom:kinderhaus-ost dc:description   "kinder-haus-ost is a subdistrict of west
 				].
 
 
-				odcom:kinderhaus-west dc:description   "kinderhaus-west is a subdistrict of west"@en;
+lodcom:kinderhaus-west dc:description   "kinderhaus-west is a subdistrict of west"@en;
 															lodcom:hasMainPopulation		[
 									lodcom:year       	2010;
 									lodcom:value		10290;
@@ -9924,7 +9834,7 @@ lodcom:gremmendorf-west dc:description    "gremmendorf-west is a subdistrict of 
 				].
 
 
-gremmendorf-ost dc:description "gremmendorf-ost is a subdistrict of ost"@en;
+lodcom:gremmendorf-ost dc:description "gremmendorf-ost is a subdistrict of ost"@en;
 											lodcom:hasMainPopulation		[
 					lodcom:year       	2010;
 					lodcom:value		6328;
