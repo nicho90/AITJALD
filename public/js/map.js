@@ -1,5 +1,5 @@
 "use strict";
-
+var popup;
 // MAP
 $( document ).ready(function() {
 	var selectedFeatures = [];
@@ -7,7 +7,6 @@ $( document ).ready(function() {
     L.mapbox.accessToken = getMapboxAccessToken();
 	//create the map
     var map = L.mapbox.map('map').setView([51.961298, 7.625849], 12);
-
 	//creating the layer control to switch between different baselayers
     L.control.layers({
         'Streets': L.mapbox.tileLayer('mapbox.streets').addTo(map),
@@ -41,6 +40,9 @@ $( document ).ready(function() {
 	};
 	// create custom slider control
 	createSliderControl(map,[cityFeatureGroup,districtFeatureGroup,cityDistrictFeatureGroup]);
+	map.legendControl.addLegend(getLegendHTML());
+
+	popup = new L.Popup({ autoPan: false });
 
 	sparqlPOSTRequest(data, function(result){
 		for(var i=0; i < result.length; i++) {
@@ -112,7 +114,9 @@ $( document ).ready(function() {
 					administrativeLvl: feature.properties.administrativeLvl,
 					features: [feature]
 				})
-			}
+			},
+			mousemove: mousemove,
+			mouseout: mouseout
 		})
 	}
 	// assigning function to buttons in the top left corner of the map
@@ -145,6 +149,48 @@ $( document ).ready(function() {
 		$('#level_2').removeClass('btn btn-primary').addClass('btn btn-default');
 		$('#level_3').removeClass('btn btn-default').addClass('btn btn-primary');
 	});
+	var closeTooltip;
+
+	function mousemove(e) {
+		var layer = e.target;
+		popup.setLatLng(e.latlng);
+		if (layer.feature.properties.population != undefined && layer.feature.properties.population[selectedYear] != undefined) {
+
+			// TODO: still focused on main population. This should be dynamic (gender etc)
+			var density = parseInt(layer.feature.properties.population[selectedYear] / layer.feature.properties.area);
+			//console.log(density)
+			popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
+				density + ' people per square mile');
+		}
+		else {
+			popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
+				'No data available');
+		}
+		if (!popup._map) {
+			popup.openOn(map);
+		}
+		window.clearTimeout(closeTooltip);
+
+		// highlight feature
+		layer.setStyle({
+			weight: 3,
+			opacity: 0.3,
+			fillOpacity: 0.9
+		});
+
+		if (!L.Browser.ie && !L.Browser.opera) {
+			layer.bringToFront();
+		}
+
+	}
+
+	function mouseout(e) {
+		var layer = e.target;
+		layer.setStyle(densityStyle(layer.feature));
+		closeTooltip = window.setTimeout(function() {
+			map.closePopup();
+		}, 100);
+	}
 });
 
 /*
@@ -232,6 +278,27 @@ function clickedStyle() {
 		color: 'red'
 	}
 }
+/**
+ * source of function: https://www.mapbox.com/mapbox.js/example/v1.0.0/choropleth/
+ * @returns {string} html string for the legend div on the map
+ */
+function getLegendHTML() {
+	var grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+		labels = [],
+		from, to;
+
+	for (var i = 0; i < grades.length; i++) {
+		from = grades[i];
+		to = grades[i + 1];
+
+		labels.push(
+			'<li><span class="swatch" style="background:' + getColor(from + 1) + '"></span> ' +
+			from + (to ? '&ndash;' + to : '+')) + '</li>';
+	}
+
+	return '<span>People per square kilometer</span><ul>' + labels.join('') + '</ul>';
+}
+
 /*
 * function to change the style of every layer in the map corresponding to the selected year on the slider
 * @param featureGroups {Array} contains all feature group layers of the map, which style have to be changed
@@ -253,19 +320,31 @@ function changeStyleForAllLayers(featureGroups) {
 /*function to calculate the color for the different population density
 * @param feature {object} the feature that contains information about the area in square kilometer and total population*/
 function getColor(feature) {
-	if (feature.properties.population != undefined) {
-		var density = feature.properties.population[selectedYear]/feature.properties.area;
-		return density > 1000 ? '#8c2d04' :
+	if (feature.properties != undefined) {
+		if (feature.properties.population != undefined) {
+			var density = feature.properties.population[selectedYear]/feature.properties.area;
+			return density > 1000 ? '#8c2d04' :
 				density > 500  ? '#cc4c02' :
-						density > 200  ? '#ec7014' :
-								density > 100  ? '#fe9929' :
-										density > 50   ? '#fec44f' :
-												density > 20   ? '#fee391' :
-														density > 10   ? '#fff7bc' :
-																'#ffffe5';
+					density > 200  ? '#ec7014' :
+						density > 100  ? '#fe9929' :
+							density > 50   ? '#fec44f' :
+								density > 20   ? '#fee391' :
+									density > 10   ? '#fff7bc' :
+										'#ffffe5';
+		}
+		else {
+			return '#dddddd'
+		}
 	}
 	else {
-		return '#dddddd'
+		return feature > 1000 ? '#8c2d04' :
+			feature > 500  ? '#cc4c02' :
+				feature > 200  ? '#ec7014' :
+					feature > 100  ? '#fe9929' :
+						feature > 50   ? '#fec44f' :
+							feature > 20   ? '#fee391' :
+								feature > 10   ? '#fff7bc' :
+									'#ffffe5';
 	}
 
 }

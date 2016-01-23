@@ -15,7 +15,23 @@ body {
     border-bottom-width: 15px;
     width: 100%;
 }
+.map-legend ul {
+    list-style: none;
+    padding-left: 0;
+}
+.map-legend .swatch {
+    width:20px;
+    height:20px;
+    float:left;
+    margin-right:10px;
+}
 
+.leaflet-popup-close-button {
+    display: none;
+}
+.leaflet-popup-content-wrapper {
+    pointer-events: none;
+}
 .map-buttons {
     position: relative;
     margin-left: 48px;
