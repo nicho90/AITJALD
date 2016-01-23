@@ -160,7 +160,7 @@ $( document ).ready(function() {
 			var density = parseInt(layer.feature.properties.population[selectedYear] / layer.feature.properties.area);
 			//console.log(density)
 			popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
-				density + ' people per square mile');
+				density + ' people per square kilometer');
 		}
 		else {
 			popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
