@@ -20,7 +20,7 @@
 lodcom:aegidii				dc:description          "Ageidii is a subdistrict of Altstadt"@en;
                             lodcom:hasMainPopulation		[
 								lodcom:year       	2010;
-								lodcom:value		1286;
+								lodcom:value		2;
 							];
 							lodcom:hasMainPopulation		[
 								lodcom:year       	2011;

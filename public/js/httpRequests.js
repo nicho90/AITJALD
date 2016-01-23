@@ -20,13 +20,14 @@ var sparqlPOSTRequest = function(data, callback){
 };
 // create a sql Query depending on the administrative level
 var createSparqlQuery = function(options) {
+    var queryString = '';
     switch (options.type) {
         case 'hasMainPopulation':
             switch (options.administrativeLvl) {
                 case 'CityDistrict':
 
                     // create the SPAQL query to get the population of the citydistrict
-                    var queryString = "PREFIX lodcom:<" + LODCOMPREFIX + "> " +
+                    queryString = "PREFIX lodcom:<" + LODCOMPREFIX + "> " +
                         "SELECT ?a ?year ?value " +
                         "WHERE { GRAPH <http://course.introlinkeddata.org/G2> {" +
                         "FILTER(?a = lodcom:" + options.features[0] + ")." +
@@ -39,7 +40,7 @@ var createSparqlQuery = function(options) {
                 case 'District':
                     /* create the SPARQL query to get the population for every citydistrict within the district
                     * later the result will be added together*/
-                    var queryString = 'PREFIX lodcom: <' + LODCOMPREFIX + '>' +
+                    queryString = 'PREFIX lodcom: <' + LODCOMPREFIX + '>' +
                     'PREFIX gn:<' + GNPREFIX + '>' +
                     'SELECT ?feature ?year ?value ' +
                         'WHERE {' +
@@ -54,7 +55,7 @@ var createSparqlQuery = function(options) {
                     /* create the SPARQL query to get the population for every citydistrict within the district
                      * within the city
                      * later the result will be added together*/
-                    var queryString = 'PREFIX lodcom: <' + LODCOMPREFIX + '>' +
+                    queryString = 'PREFIX lodcom: <' + LODCOMPREFIX + '>' +
                         'PREFIX gn:<' + GNPREFIX + '>' +
                         'SELECT ?feature ?year ?value ' +
                         'WHERE {' +
@@ -72,8 +73,27 @@ var createSparqlQuery = function(options) {
             // TODO in 'options.features', there could be more than one. there have to be a iteration
 
             break;
+        // get all possible year values from the database
+        case 'distinctPopulation':
+            switch (options.populationType) {
+                // get all possible year values from the database from the lodcom:hasMainPopulation relation
+                case 'main':
+                    queryString = 'PREFIX lodcom: <' + LODCOMPREFIX + '>' +
+                        'SELECT DISTINCT ?year ' +
+                        'WHERE {' +
+                            'GRAPH <http://course.introlinkeddata.org/G2> {' +
+                            '?feature lodcom:hasMainPopulation ?mainPopulation. ' +
+                        '?mainPopulation lodcom:year ?year.}}' +
+                        'ORDER BY ?year';
+                    return queryString;
+                    break;
+                default:
+                    console.log('Population type error')
+            }
+
+            break;
         default:
-            console.log('Something went wrong. the definition of the digram type might be false')
+            console.log('Something went wrong. the definition of the type might be false')
     }
 };
 

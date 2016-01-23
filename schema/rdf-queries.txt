@@ -113,3 +113,18 @@ WHERE {
         ?mainPopulation lodcom:value ?value
   }
 }
+
+
+
+############### get every year for the main population ##########
+PREFIX lodcom: <http://vocab.lodcom.de/>
+
+SELECT DISTINCT ?year
+WHERE {
+  GRAPH <http://course.introlinkeddata.org/G2> {
+        ?feature lodcom:hasMainPopulation ?mainPopulation.
+        ?mainPopulation lodcom:year ?year.
+
+  }
+}
+ORDER BY ?year

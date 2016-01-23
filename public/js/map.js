@@ -14,7 +14,6 @@ $( document ).ready(function() {
         'Satellite': L.mapbox.tileLayer('mapbox.satellite'),
         'Light': L.mapbox.tileLayer('mapbox.light')
     }).addTo(map);
-
 	// creating the feature Groups for the geometries for different layers
 	var cityFeatureGroup = L.featureGroup(),
 			districtFeatureGroup = L.featureGroup(),
@@ -40,7 +39,8 @@ $( document ).ready(function() {
 		display:"json",
 		output:"json"
 	};
-
+	// create custom slider control
+	createSliderControl(map,[cityFeatureGroup,districtFeatureGroup,cityDistrictFeatureGroup]);
 
 	sparqlPOSTRequest(data, function(result){
 		for(var i=0; i < result.length; i++) {
@@ -54,6 +54,7 @@ $( document ).ready(function() {
 			var geoJSON = {
 				geometry: geoJSONgeometry,
 				type: 'Feature',
+				id: result[i].a.value.replace(LODCOMPREFIX, ''),
 				properties: {
 					name: result[i].a.value.replace(LODCOMPREFIX, ''),
 					// TODO: do we need this?
@@ -231,6 +232,24 @@ function clickedStyle() {
 		color: 'red'
 	}
 }
+/*
+* function to change the style of every layer in the map corresponding to the selected year on the slider
+* @param featureGroups {Array} contains all feature group layers of the map, which style have to be changed
+* */
+function changeStyleForAllLayers(featureGroups) {
+	// iterate through each layer group
+	for (var i = 0; i < featureGroups.length; i++) {
+		// in each feature layer group there is a layer group - iterate through it
+		for (var layer in featureGroups[i]._layers) {
+			// in each layer group there are one feature
+			for (var featureId in featureGroups[i]._layers[layer]._layers) {
+				var feature = featureGroups[i]._layers[layer]._layers[featureId].feature;
+				// change the style of the layer group according to the feature in it
+				featureGroups[i]._layers[layer].setStyle(densityStyle(feature));
+			}
+		}
+	}
+}
 /*function to calculate the color for the different population density
 * @param feature {object} the feature that contains information about the area in square kilometer and total population*/
 function getColor(feature) {
@@ -249,4 +268,82 @@ function getColor(feature) {
 		return '#dddddd'
 	}
 
+}
+
+//TODO: populationType is hardcoded. Should be dynamic
+var populationType = 'main';
+
+
+/**
+ * function to create the slider control for the different years
+ * @param map {Object} this is needed to enable and disable the dragging of the map
+ * @param featureGroups {Array} which contains every feature group layer of the map
+ */
+
+function createSliderControl(map,featureGroups) {
+	var MyControl = L.Control.extend({
+		options: {
+			position: 'bottomleft'
+		},
+
+		onAdd: function () {
+			// create the control container with a particular class name
+			var container = L.DomUtil.create('div', 'leaflet-year-slider-control');
+			container.innerHTML =
+				'<div id="yearSlider"></div>';
+
+			return container;
+		}
+	});
+	map.addControl(new MyControl());
+	var options = {
+		type: 'distinctPopulation',
+		populationType: populationType
+	};
+
+	var data = {
+		query: createSparqlQuery(options),
+		display: "json",
+		output: "json"
+	};
+	var yearValueArray = [];
+	sparqlPOSTRequest(data, function (result) {
+		for (var i = 0; i < result.length; i++) {
+			yearValueArray.push(parseInt(result[i].year.value));
+		}
+		$( "#yearSlider" ).slider({
+				value: yearValueArray[yearValueArray.length-1],
+				min: yearValueArray[0],
+				max: yearValueArray[yearValueArray.length-1],
+				step: 1,
+				slide: function(event,ui) {
+					selectedYear = ui.value.toString();
+					changeStyleForAllLayers(featureGroups)
+				},
+				// disable the dragging function of map. Otherwise the map would be dragged together with the slider
+				start: function() {
+					map.dragging.disable()
+				},
+				// after sliding, enable the dragginf function of the map
+				stop: function() {
+					map.dragging.enable()
+				}
+			})
+			.each(function() {
+				// adding labels for every step in the slider
+				//getting the values from the step
+				var opt = $(this).data()['ui-slider'].options;
+				// Get the number of possible values
+				var vals = opt.max - opt.min;
+				// Position the labels
+				for (var i = 0; i <= vals; i++) {
+ 					// Create a new element and position it with percentages
+					var el = $('<label>' + (i + opt.min) + '</label>').css('left', (i/vals*100-3) + '%');
+					// Add the element inside #slider
+					$("#yearSlider").append(el);
+
+				}
+
+			});
+	});
 }
