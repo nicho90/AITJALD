@@ -169,7 +169,7 @@ function channelStyle(feature,layer) {
 
 			sparqlPOSTRequest(data, function (result) {
 				// adding the population values for each year to each corresponding feature
-				if (result.length != 0) {s
+				if (result.length != 0) {
 					feature.properties.population = {};
 					for (var i = 0; i < result.length; i++) {
 						feature.properties.population[result[i].year.value] = parseInt(result[i].value.value);
