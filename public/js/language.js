@@ -26,10 +26,12 @@ var language = {
                 "highCharts": {
                     "title": {
                         "mainPopulation": "Main population",
-                        "genderPopulation": {
-                            "female": "Female population",
-                            "male": "Male population"
-                        }
+                        "agePopulation": {
+                            "female": "Female population by age",
+                            "male": "Male population by age",
+                            "both": "Population by age"
+                        },
+                        "entitledPopulation": "Population entitled to live in Münster",
                     }
                 }
             },
@@ -71,11 +73,13 @@ var language = {
             "panel": {
                 "highCharts": {
                     "title": {
-                        "mainPopulation": "Bevölkerung",
-                        "genderPopulation": {
-                            "female": "Weibliche Bevölkerung",
-                            "male": "Männliche Bevölkerung"
-                        }
+                        "mainPopulation": "Bevölkerung mit Hauptwohnsitz",
+                        "agePopulation": {
+                            "female": "Weibliche Bevölkerung nach Alter",
+                            "male": "Männliche Bevölkerung nach Alter",
+                            "both": "Bevölkerung nach Alter"
+                        },
+                        "entitledPopulation": "Wohnberechtigte Bevölkerung"
                     }
                 }
             },

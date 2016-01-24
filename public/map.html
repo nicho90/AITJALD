@@ -67,11 +67,24 @@
             </div>
             <div class="col-md-4">
                 <div class="details">
-                    <h1>Münster</h1>
-                    <hr>
+                    <!-- <h1>Münster</h1>
+                    <hr> -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><div id="highChartsTitle"><i class="fa fa-users"></i>&nbsp;&nbsp;<script>appendDiv('highChartsTitle','map.panel.highCharts.title.mainPopulation')</script></div></h3>
+                            <h3 class="panel-title">
+                                <div id="highChartsTitle">
+                                    <i class="fa fa-users"></i>&nbsp;&nbsp;
+                                    <div class="populationDropdown">
+                                        <select class="form-control" id="populationTypeDropdown">
+                                            <option id="populationDropdown1"><script>setDiv('populationDropdown1','map.panel.highCharts.title.mainPopulation')</script></option>
+                                            <option id="populationDropdown2"><script>setDiv('populationDropdown2','map.panel.highCharts.title.entitledPopulation')</script></option>
+                                            <option id="populationDropdown3"><script>setDiv('populationDropdown3','map.panel.highCharts.title.agePopulation.male')</script></option>
+                                            <option id="populationDropdown4"><script>setDiv('populationDropdown4','map.panel.highCharts.title.agePopulation.female')</script></option>
+                                            <option id="populationDropdown5"><script>setDiv('populationDropdown5','map.panel.highCharts.title.agePopulation.both')</script></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </h3>
                         </div>
                         <div class="panel-body">
                             <div class="chart" id="chart_1"></div>

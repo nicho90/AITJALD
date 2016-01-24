@@ -59,37 +59,91 @@ WHERE {
 
 PREFIX lodcom: <http://vocab.lodcom.de/>
 
-SELECT ?what ?mainPopulation ?value
+SELECT ?what ?value ?year
 WHERE {
   GRAPH <http://course.introlinkeddata.org/G2> {
         ?what lodcom:hasMainPopulation ?mainPopulation.
-        ?mainPopulation lodcom:value ?value.
+        ?mainPopulation lodcom:year ?year.
+        ?mainPopulation lodcom:value ?value
+  }
+}
+
+##############geometrie query##################
+PREFIX geo:<http://www.opengis.net/ont/geosparql#>
+PREFIX dbp:<http://dbpedia.org/ontology/>
+PREFIX gn:<http://www.geonames.org/ontology#>
+SELECT ?feature ?type ?parent ?area ?wkt
+WHERE {
+	GRAPH <http://course.introlinkeddata.org/G2> {
+		?feature geo:hasGeometry ?b.
+		?b geo:asWKT ?wkt.
+		?feature a ?type.
+		FILTER(?type = dbp:City || ?type = dbp:District || ?type = dbp:CityDistrict).
+		OPTIONAL {
+		    ?feature gn:parentFeature ?parent.
+		    ?b dbp:area ?area.
+		}
+	}
+}
+
+########### district population ###############
+PREFIX lodcom: <http://vocab.lodcom.de/>
+PREFIX gn:<http://www.geonames.org/ontology#>
+
+SELECT ?feature ?year ?value
+WHERE {
+  GRAPH <http://course.introlinkeddata.org/G2> {
+        ?feature gn:parentFeature lodcom:mitte.
+        ?feature lodcom:hasMainPopulation ?mainPopulation.
+        ?mainPopulation lodcom:year ?year.
+        ?mainPopulation lodcom:value ?value
+  }
+}
+########### city population ###############
+PREFIX lodcom: <http://vocab.lodcom.de/>
+PREFIX gn:<http://www.geonames.org/ontology#>
+
+SELECT ?cdFature ?year ?value
+WHERE {
+  GRAPH <http://course.introlinkeddata.org/G2> {
+        ?feature gn:parentFeature lodcom:muenster.
+        ?cdFature gn:parentFeature ?feature.
+        ?cdFature lodcom:hasMainPopulation ?mainPopulation.
+        ?mainPopulation lodcom:year ?year.
+        ?mainPopulation lodcom:value ?value
   }
 }
 
 
 
-#######################################################################################
-PREFIX afn: <http://jena.hpl.hp.com/ARQ/function#>
-PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
-PREFIX geo: <http://www.opengis.net/ont/geosparql#>
-PREFIX geof: <http://www.opengis.net/def/function/geosparql/>
-PREFIX gml: <http://www.opengis.net/ont/gml#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX par: <http://parliament.semwebcentral.org/parliament#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX sf: <http://www.opengis.net/ont/sf#>
-PREFIX time: <http://www.w3.org/2006/time#>
-PREFIX units: <http://www.opengis.net/def/uom/OGC/1.0/>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX gn: <http://www.geonames.org/ontology#>
-PREFIX dbp: <http://dbpedia.org/ontology/>
+############### get every year for the main population ##########
+PREFIX lodcom: <http://vocab.lodcom.de/>
 
-SELECT ?a ?b
+SELECT DISTINCT ?year
 WHERE {
-   GRAPH <http://course.introlinkeddata.org/G2> {
-       ?a geo:sfContains ?b.
-    }
-}
+  GRAPH <http://course.introlinkeddata.org/G2> {
+        ?feature lodcom:hasMainPopulation ?mainPopulation.
+        ?mainPopulation lodcom:year ?year.
 
+  }
+}
+ORDER BY ?year
+
+
+
+####################### get population types #####################
+PREFIX geo:<http://www.opengis.net/ont/geosparql#>
+PREFIX dbp:<http://dbpedia.org/ontology/>
+PREFIX gn:<http://www.geonames.org/ontology#>
+SELECT DISTINCT ?feature ?type ?parent ?area ?wkt
+WHERE {
+	GRAPH <http://course.introlinkeddata.org/G2> {
+		?feature a ?type.
+		FILTER(?type = dbp:City || ?type = dbp:District || ?type = dbp:CityDistrict).
+		OPTIONAL {
+		    ?feature gn:parentFeature ?parent.
+		    ?b dbp:area ?area.
+		}
+
+	}
+}
