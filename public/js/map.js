@@ -192,11 +192,11 @@ $( document ).ready(function() {
 			// if the layer for 'mouseout event' is not in selectedFeatures Array reset the style to densitys
 			if (layer !== selectedFeatures[i].layer) {
 				layer.setStyle(densityStyle(layer.feature));
-				closeTooltip = window.setTimeout(function() {
-					map.closePopup();
-				}, 100);
 			}
 		}
+		closeTooltip = window.setTimeout(function() {
+			map.closePopup();
+		}, 100);
 
 	}
 });
