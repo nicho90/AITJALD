@@ -187,10 +187,17 @@ $( document ).ready(function() {
 
 	function mouseout(e) {
 		var layer = e.target;
-		layer.setStyle(densityStyle(layer.feature));
-		closeTooltip = window.setTimeout(function() {
-			map.closePopup();
-		}, 100);
+		// check through every checked layer
+		for (var i = 0; i < selectedFeatures.length; i++) {
+			// if the layer for 'mouseout event' is not in selectedFeatures Array reset the style to densitys
+			if (layer !== selectedFeatures[i].layer) {
+				layer.setStyle(densityStyle(layer.feature));
+				closeTooltip = window.setTimeout(function() {
+					map.closePopup();
+				}, 100);
+			}
+		}
+
 	}
 });
 
