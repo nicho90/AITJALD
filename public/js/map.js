@@ -118,6 +118,7 @@ $( document ).ready(function() {
 			mousemove: mousemove,
 			mouseout: mouseout
 		})
+
 	}
 	// assigning function to buttons in the top left corner of the map
 	// corresponding layer should be displayed others should not be visible
@@ -160,7 +161,7 @@ $( document ).ready(function() {
 			var density = parseInt(layer.feature.properties.population[selectedYear] / layer.feature.properties.area);
 			//console.log(density)
 			popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
-				density + ' people per square kilometer');
+				density + ' ' + language[getCookieObject().language].map.legend.title.mainPopulation);
 		}
 		else {
 			popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
@@ -248,6 +249,14 @@ function channelStyle(feature,layer) {
 					console.log('no data available')
 				}
 				layer.setStyle(densityStyle(feature));
+				if(feature.properties.administrativeLvl === 'City') {
+					changeHighcharts.setDiagram({
+						type: options.type,
+						administrativeLvl: feature.properties.administrativeLvl,
+						features: [feature]
+					})
+				}
+
 
 			});
 			break;
@@ -296,7 +305,7 @@ function getLegendHTML() {
 			from + (to ? '&ndash;' + to : '+')) + '</li>';
 	}
 
-	return '<span>People per square kilometer</span><ul>' + labels.join('') + '</ul>';
+	return '<span>' + language[getCookieObject().language].map.legend.title.mainPopulation + '</span><ul>' + labels.join('') + '</ul>';
 }
 
 /*
