@@ -12,7 +12,7 @@
 					a					gn:Feature;
 					gn:name 			"M\u00FCnster"^^xsd:string;		
 					gn:alternateName	"M\u00FCnster"@de,
-										"Muenster"@en;
+										"Münster"@en;
 					gn:countryCode		"DE"^^xsd:string;
 					gn:wikipediaArticle	"http://de.wikipedia.org/wiki/M%FCnster_(Westfalen)";
 					coord:lat			51.960651;
@@ -112,7 +112,7 @@
 					a 					gn:Feature;
 					gn:name 			"Ost"^^xsd:string;			
 					gn:alternateName	"Ost"@de,
-										"East"@en;
+										"Ost"@en;
 					gn:parentFeature	<muenster>;
 					coord:lat			51.995530263148666;
 					coord:lon			7.6952362060546875;
@@ -130,7 +130,7 @@
 					a 					gn:Feature;
 					gn:name 			"S\u00FCdost"^^xsd:string;			
 					gn:alternateName	"S\u00FCdost"@de,
-										"Southeast"@en;
+										"S\u00FCdos"@en;
 					gn:parentFeature	<muenster>;
 					coord:lat			51.92610038835092;
 					coord:lon			7.710685729980469;
@@ -185,7 +185,7 @@
 					a 					gn:Feature;
 					gn:name 			"\u00DCberwasser"^^xsd:string;			
 					gn:alternateName	"\u00DCberwasser"@de,
-										"Ueberwasser"@en;
+										"\u00DCberwasser"@en;
 					gn:parentFeature	<mitte>;
 					coord:lat			51.96270463065166;
 					coord:lon			7.620391845703125;
@@ -423,9 +423,9 @@
 
 <schuetzenhof>		a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Schützenhof"^^xsd:string;			
-					gn:alternateName	"Schützenhof"@de,
-										"Schuetzenhof"@en;
+					gn:name 			"Sch\u00FCtzenhof"^^xsd:string;
+					gn:alternateName	"Sch\u00FCtzenhof"@de,
+										"Sch\u00FCtzenhof"@en;
 					gn:parentFeature	<mitte>;
 					coord:lat			51.944889028661954;
 					coord:lon			7.628116607666016;
@@ -439,9 +439,9 @@
 
 <dueesberg>			a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Düesberg"^^xsd:string;			
-					gn:alternateName	"Düesberg"@de,
-										"Dueesberg"@en;
+					gn:name 			"D\u00FCesberg"^^xsd:string;
+					gn:alternateName	"D\u00FCsberg"@de,
+										"D\u00FCesberg"@en;
 					gn:parentFeature	<mitte>;
 					coord:lat			51.93049583091759;
 					coord:lon			7.611808776855469;
@@ -870,9 +870,9 @@
 
 
 <amelsbueren>		a 					dbp:CityDistrict;
-					gn:name 			"Amelsbüren"^^xsd:string;
-					gn:alternateName	"Amelsbüren"@de,
-										"Amelsbueren"@en;
+					gn:name 			"Amelsb\u00FCren"^^xsd:string;
+					gn:alternateName	"Amelsb\u00FCren"@de,
+										"Amelsb\u00FCren"@en;
 					gn:parentFeature	<hiltrup>;
 					coord:lat			51.88386567797622;
 					coord:lon			7.587089538574219;
