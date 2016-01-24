@@ -1,10 +1,10 @@
 # An Introduction into JavaScript and linked data
 
 ### Members
-##### Du Guiying
-##### Thapa Pawan
-##### Nicholas Schiestel
-##### André Wieghardt
+##### ![alt GitHub](http://i.imgur.com/0o48UoR.png") [Du Guiying](https://github.com/robinhood747)
+##### ![alt GitHub](http://i.imgur.com/0o48UoR.png") [Thapa Pawan](https://github.com/pawan100)
+##### ![alt GitHub](http://i.imgur.com/0o48UoR.png") [Nicholas Schiestel](https://github.com/nicho90)
+##### ![alt GitHub](http://i.imgur.com/0o48UoR.png") [André Wieghardt](https://github.com/AndreWieghardt)
 
 
 ## Steps to build and run the application
