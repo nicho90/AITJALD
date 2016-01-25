@@ -181,9 +181,6 @@ lodcom:aegidii				dc:description          "ageidii is a subdistrict of altstadt"
 							].
 
 
-
-
-
 lodcom:ueberwasser			dc:description          "ueberwasser is a subdistrict of altstadt"@en;
 							lodcom:hasMainPopulation		[
 							lodcom:year       	2010;
@@ -3445,7 +3442,6 @@ lodcom:mauritz-mitte	    dc:description          "mauritz-mitte is a subdistrict
 							lodcom:value		76;
 							].
 
-
 lodcom:rumphorst	        dc:description          "rumphorst is a subdistrict of mitte-nordost"@en;
 							lodcom:hasMainPopulation		[
 							lodcom:year       	2010;
@@ -4748,6 +4744,7 @@ lodcom:nienberge 		dc:description   "nienberge is a subdistrict of west"@en;
 							lodcom:gender 		"female";
 							lodcom:value		28;
 							].
+
 
 lodcom:coerde 		dc:description  	"coerde is a subdistrict of Nord"@en;
 							lodcom:hasMainPopulation		[
