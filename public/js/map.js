@@ -1,6 +1,10 @@
 "use strict";
 var popup,
-	comparing = false;
+	comparing = false,
+
+	// when the timeslider is moved by the user the popups should not be shown
+	// this variable helps to identify if the slider is moving by the user
+	timeSliderMovement = false;
 // MAP
 $( document ).ready(function() {
 	var selectedFeatures = [];
@@ -178,60 +182,65 @@ $( document ).ready(function() {
 	var closeTooltip;
 
 	function mousemove(e) {
-		var layer = e.target;
-		popup.setLatLng(e.latlng);
-		if (layer.feature.properties.population != undefined && layer.feature.properties.population[selectedYear] != undefined) {
+		// react to the mouse movement only if the timeslider is not moving
+		if (!timeSliderMovement) {
+			var layer = e.target;
+			popup.setLatLng(e.latlng);
+			if (layer.feature.properties.population != undefined && layer.feature.properties.population[selectedYear] != undefined) {
 
-			// TODO: still focused on main population. This should be dynamic (gender etc)
-			var density = parseInt(layer.feature.properties.population[selectedYear] / layer.feature.properties.area);
-			//console.log(density)
-			popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
-				density + ' ' + language[getCookieObject().language].map.legend.title.mainPopulation);
-		}
-		else {
-			popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
-				'No data available');
-		}
-		if (!popup._map) {
-			popup.openOn(map);
-		}
-		window.clearTimeout(closeTooltip);
+				// TODO: still focused on main population. This should be dynamic (gender etc)
+				var density = parseInt(layer.feature.properties.population[selectedYear] / layer.feature.properties.area);
+				//console.log(density)
+				popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
+					density + ' ' + language[getCookieObject().language].map.legend.title.mainPopulation);
+			}
+			else {
+				popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
+					'No data available');
+			}
+			if (!popup._map) {
+				popup.openOn(map);
+			}
+			window.clearTimeout(closeTooltip);
 
-		// highlight feature
-		layer.setStyle({
-			weight: 3,
-			opacity: 0.3,
-			fillOpacity: 0.9
-		});
+			// highlight feature
+			layer.setStyle({
+				weight: 3,
+				opacity: 0.3,
+				fillOpacity: 0.9
+			});
 
-		if (!L.Browser.ie && !L.Browser.opera) {
-			layer.bringToFront();
+			if (!L.Browser.ie && !L.Browser.opera) {
+				layer.bringToFront();
+			}
 		}
-
 	}
 
 	function mouseout(e) {
-		var layer = e.target;
-		// check through every checked layer
-		if (selectedFeatures.length === 0) {
-			layer.setStyle(densityStyle(layer.feature));
-		}
-		else {
-			if (!comparing) {
-				for (var i = 0; i < selectedFeatures.length; i++) {
-					// if the layer for 'mouseout event' is not in selectedFeatures Array reset the style to densitys
-					if (layer !== selectedFeatures[i].layer) {
-						layer.setStyle(densityStyle(layer.feature));
+
+		// react to the mouse out movement only if the timeslider is not moving
+		if (!timeSliderMovement) {
+			var layer = e.target;
+			// check through every checked layer
+			if (selectedFeatures.length === 0) {
+				layer.setStyle(densityStyle(layer.feature));
+			}
+			else {
+				if (!comparing) {
+					for (var i = 0; i < selectedFeatures.length; i++) {
+						// if the layer for 'mouseout event' is not in selectedFeatures Array reset the style to densitys
+						if (layer !== selectedFeatures[i].layer) {
+							layer.setStyle(densityStyle(layer.feature));
+						}
 					}
 				}
+
 			}
 
+			closeTooltip = window.setTimeout(function() {
+				map.closePopup();
+			}, 100);
 		}
-
-		closeTooltip = window.setTimeout(function() {
-			map.closePopup();
-		}, 100);
-
 	}
 });
 
@@ -451,10 +460,12 @@ function createSliderControl(map,featureGroups) {
 				},
 				// disable the dragging function of map. Otherwise the map would be dragged together with the slider
 				start: function() {
+					timeSliderMovement = true;
 					map.dragging.disable()
 				},
 				// after sliding, enable the dragginf function of the map
 				stop: function() {
+					timeSliderMovement = false;
 					map.dragging.enable()
 				}
 			})
