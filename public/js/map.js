@@ -1,5 +1,6 @@
 "use strict";
-var popup;
+var popup,
+	comparing = false;
 // MAP
 $( document ).ready(function() {
 	var selectedFeatures = [];
@@ -16,7 +17,9 @@ $( document ).ready(function() {
 
 	//assigning map click function
 	map.on('click', function (e) {
-		setStyleForNoSelectedFeatures(map, selectedFeatures);
+		if(!comparing) {
+			setStyleForNoSelectedFeatures(map, selectedFeatures);
+		}
 	});
 
 	// creating the feature Groups for the geometries for different layers
@@ -105,22 +108,37 @@ $( document ).ready(function() {
 		channelStyle(feature,layer);
 		layer.on({
 			click: function(){
+				layer.bringToFront();
 				//console.log(feature);
 				// every other layer should be styled as default
 				// TODO: if comparing is active - more than one layer have do be styled 'clicked style'
-				for (var i = 0; i < selectedFeatures.length; i++) {
-					selectedFeatures[i].layer.setStyle(densityStyle(selectedFeatures[i].feature))
+				if (!comparing) {
+					changeHighcharts.setDiagram({
+						type: diagramType,
+						administrativeLvl: feature.properties.administrativeLvl,
+						features: [feature]
+					})
+					for (var i = 0; i < selectedFeatures.length; i++) {
+						selectedFeatures[i].layer.setStyle(densityStyle(selectedFeatures[i].feature))
+					}
+					selectedFeatures = [];
+					selectedFeatures.push({layer:layer,feature:feature});
 				}
-                layer.bringToFront();
-				selectedFeatures = [];
-				selectedFeatures.push({layer:layer,feature:feature});
+				else {
+					var featureArrayForHC = []
+					selectedFeatures.push({layer:layer,feature:feature});
+					for (var i = 0; i < selectedFeatures.length; i++) {
+						featureArrayForHC.push(selectedFeatures[i].feature)
+					}
+					// change the highCharts diagram
+					changeHighcharts.setDiagram({
+						type: diagramType,
+						administrativeLvl: feature.properties.administrativeLvl,
+						features: featureArrayForHC
+					})
+				}
 				layer.setStyle(clickedStyle());
-				// change the highCharts diagram
-				changeHighcharts.setDiagram({
-					type: diagramType,
-					administrativeLvl: feature.properties.administrativeLvl,
-					features: [feature]
-				})
+
 			},
 			mousemove: mousemove,
 			mouseout: mouseout
@@ -199,12 +217,15 @@ $( document ).ready(function() {
 			layer.setStyle(densityStyle(layer.feature));
 		}
 		else {
-			for (var i = 0; i < selectedFeatures.length; i++) {
-				// if the layer for 'mouseout event' is not in selectedFeatures Array reset the style to densitys
-				if (layer !== selectedFeatures[i].layer) {
-					layer.setStyle(densityStyle(layer.feature));
+			if (!comparing) {
+				for (var i = 0; i < selectedFeatures.length; i++) {
+					// if the layer for 'mouseout event' is not in selectedFeatures Array reset the style to densitys
+					if (layer !== selectedFeatures[i].layer) {
+						layer.setStyle(densityStyle(layer.feature));
+					}
 				}
 			}
+
 		}
 
 		closeTooltip = window.setTimeout(function() {
