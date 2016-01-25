@@ -13,6 +13,12 @@ $( document ).ready(function() {
         'Satellite': L.mapbox.tileLayer('mapbox.satellite'),
         'Light': L.mapbox.tileLayer('mapbox.light')
     }).addTo(map);
+
+	//assigning map click function
+	map.on('click', function (e) {
+		setStyleForNoSelectedFeatures(map, selectedFeatures);
+	});
+
 	// creating the feature Groups for the geometries for different layers
 	var cityFeatureGroup = L.featureGroup(),
 			districtFeatureGroup = L.featureGroup(),
@@ -21,6 +27,7 @@ $( document ).ready(function() {
 	var cityLayerGroup = L.layerGroup([cityFeatureGroup]).addTo(map),
 			districtLayerGroup = L.layerGroup().addTo(map),
 			cityDistrictLayerGroup = L.layerGroup().addTo(map);
+
 
 	// create the geometry query to get the geometries to add them to the feature groups
 	var geometryQuery = 'PREFIX geo:<' + GEOPREFIX + '> PREFIX dbp:<' + DBPPREFIX + '> ' +
@@ -447,4 +454,15 @@ function createSliderControl(map,featureGroups) {
 
 			});
 	});
+}
+
+function setStyleForNoSelectedFeatures(map, selectedFeatures) {
+	// if a user clicks on the map and not on a feature, no feature should be visualized as visible
+	// TODO: Highcharts should be empty now
+	// TODO:
+
+		for (var i = 0; i < selectedFeatures.length; i++) {
+			// if the layer for 'mouseout event' is not in selectedFeatures Array reset the style to densitys
+			selectedFeatures[i].layer.setStyle(densityStyle(selectedFeatures[i].feature));
+		}
 }
