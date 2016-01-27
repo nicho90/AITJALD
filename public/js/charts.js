@@ -8,18 +8,16 @@ $( document ).ready(function() {
         * @param options {object} it should contain 'type' and 'features'
         * */
         setDiagram: function(options) {
-
-            $('#chart_1').html('loading');
             var categories =[],
                 series = [];
             for (var i = 0; i < options.features.length; i++) {
-                if (options.features[i].properties.population != undefined) {
+                if (options.features[i].population != undefined) {
                     series.push({
-                        name:options.features[i].properties.name,
+                        name:options.features[i].name,
                         data: []
                     });
-                    for (var year in options.features[i].properties.population) {
-                        series[series.length-1].data.push(options.features[i].properties.population[year]);
+                    for (var year in options.features[i].population) {
+                        series[series.length-1].data.push(options.features[i].population[year]);
                         categories.push(year);
                     }
                 }

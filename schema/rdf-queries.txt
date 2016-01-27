@@ -86,6 +86,19 @@ WHERE {
 	}
 }
 
+############ citydistrict population #########
+PREFIX lodcom: <http://vocab.lodcom.de/>
+
+SELECT ?feature ?year ?value
+WHERE {
+  GRAPH <http://course.introlinkeddata.org/G2> {
+        FILTER (?feature = lodcom:uppenberg).
+        ?feature lodcom:hasEntitledPopulation ?mainPopulation.
+        ?mainPopulation lodcom:year ?year.
+        ?mainPopulation lodcom:value ?value
+  }
+}
+
 ########### district population ###############
 PREFIX lodcom: <http://vocab.lodcom.de/>
 PREFIX gn:<http://www.geonames.org/ontology#>
@@ -113,6 +126,27 @@ WHERE {
         ?mainPopulation lodcom:value ?value
   }
 }
+
+
+
+
+######## male poulation query #############
+PREFIX lodcom: <http://vocab.lodcom.de/>
+
+SELECT ?feature ?year ?value ?gender ?ageGroup
+WHERE {
+  GRAPH <http://course.introlinkeddata.org/G2> {
+        FILTER (?feature = lodcom:uppenberg).
+        ?feature lodcom:hasGenderedPopulation ?genderedPopulation.
+        ?genderedPopulation lodcom:year ?year.
+        ?genderedPopulation lodcom:value ?value.
+        ?genderedPopulation lodcom:gender ?gender.
+        FILTER (?gender = "male").
+        ?genderedPopulation lodcom:agegroup ?ageGroup.
+  }
+}
+
+
 
 
 
@@ -146,4 +180,18 @@ WHERE {
 		}
 
 	}
+}
+
+######### get population from year ##############
+PREFIX lodcom: <http://vocab.lodcom.de/>
+
+SELECT ?feature ?population
+WHERE {
+  GRAPH <http://course.introlinkeddata.org/G2> {
+        FILTER (?feature = lodcom:uppenberg).
+        ?feature lodcom:hasMainPopulation ?mainPopulation.
+        ?mainPopulation lodcom:year ?year.
+        FILTER (?year = 2014).
+        ?mainPopulation lodcom:value ?population
+  }
 }

@@ -26,3 +26,9 @@ switch (getCookieObject().language) {
     default:
         break;
 }
+function connectToPopulationTypeDropdownToLoadData(callback) {
+    $('#populationTypeDropdown').change(function() {
+        callback(this.value)
+    })
+
+}

@@ -76,11 +76,11 @@
                                     <i class="fa fa-users"></i>&nbsp;&nbsp;
                                     <div class="populationDropdown">
                                         <select class="form-control" id="populationTypeDropdown">
-                                            <option id="populationDropdown1"><script>setDiv('populationDropdown1','map.panel.highCharts.title.mainPopulation')</script></option>
-                                            <option id="populationDropdown2"><script>setDiv('populationDropdown2','map.panel.highCharts.title.entitledPopulation')</script></option>
-                                            <option id="populationDropdown3"><script>setDiv('populationDropdown3','map.panel.highCharts.title.agePopulation.male')</script></option>
-                                            <option id="populationDropdown4"><script>setDiv('populationDropdown4','map.panel.highCharts.title.agePopulation.female')</script></option>
-                                            <option id="populationDropdown5"><script>setDiv('populationDropdown5','map.panel.highCharts.title.agePopulation.both')</script></option>
+                                            <option id="populationDropdown1" value="main"><script>setDiv('populationDropdown1','map.panel.highCharts.title.mainPopulation')</script></option>
+                                            <option id="populationDropdown2" value="entitled"><script>setDiv('populationDropdown2','map.panel.highCharts.title.entitledPopulation')</script></option>
+                                            <option id="populationDropdown3" value="male"><script>setDiv('populationDropdown3','map.panel.highCharts.title.agePopulation.male')</script></option>
+                                            <option id="populationDropdown4" value="female"><script>setDiv('populationDropdown4','map.panel.highCharts.title.agePopulation.female')</script></option>
+                                            <option id="populationDropdown5" value="gender"><script>setDiv('populationDropdown5','map.panel.highCharts.title.agePopulation.both')</script></option>
                                         </select>
                                     </div>
                                 </div>
@@ -156,6 +156,7 @@
     <script src="js/httpRequests.js"></script>
     <script src="js/config.js"></script>
     <script src='lib/mapbox.js/mapbox.js'></script>
+    <script src="js/mapStyle.js"></script>
     <script src="js/map.js"></script>
     <script src="js/resize.js"></script>
     <script src="js/charts.js"></script>

@@ -1,13 +1,16 @@
 "use strict";
 var popup,
 	comparing = false,
+	//TODO: populationType is hardcoded. Should be dynamic
+	populationType = 'main',
 
 	// when the timeslider is moved by the user the popups should not be shown
 	// this variable helps to identify if the slider is moving by the user
-	timeSliderMovement = false;
+	timeSliderMovement = false,
+	selectedFeatures = [];
+
 // MAP
 $( document ).ready(function() {
-	var selectedFeatures = [];
 	// assinging the accesstoken for the mapbox library
     L.mapbox.accessToken = getMapboxAccessToken();
 	//create the map
@@ -22,7 +25,7 @@ $( document ).ready(function() {
 	//assigning map click function
 	map.on('click', function (e) {
 		if(!comparing) {
-			setStyleForNoSelectedFeatures(map, selectedFeatures);
+			setStyleForNoSelectedFeatures();
 		}
 	});
 
@@ -35,30 +38,19 @@ $( document ).ready(function() {
 			districtLayerGroup = L.layerGroup().addTo(map),
 			cityDistrictLayerGroup = L.layerGroup().addTo(map);
 
-
-	// create the geometry query to get the geometries to add them to the feature groups
-	var geometryQuery = 'PREFIX geo:<' + GEOPREFIX + '> PREFIX dbp:<' + DBPPREFIX + '> ' +
-			'PREFIX gn:<' + GNPREFIX + '> ' +
-			'SELECT ?a ?type ?area ?wkt ' +
-			'WHERE {GRAPH <http://course.introlinkeddata.org/G2> {' +
-            '?a geo:hasGeometry ?b.' +
-			'?b dbp:area ?area.' +
-			'?b geo:asWKT ?wkt.' +
-			'?a a ?type.' +
-			'FILTER(?type = dbp:City || ?type = dbp:District || ?type = dbp:CityDistrict)}}';
 	//create the the data object needet for 'sparqlPOSTRequest' function
 	var data = {
-		query: geometryQuery,
+		query: sparqlHTTPConnection.createSparqlQuery({type: 'geometryQuery'}), // create the geometry query to get the geometries to add them to the feature groups
 		display:"json",
 		output:"json"
 	};
+
 	// create custom slider control
 	createSliderControl(map,[cityFeatureGroup,districtFeatureGroup,cityDistrictFeatureGroup]);
 	map.legendControl.addLegend(getLegendHTML());
 
 	popup = new L.Popup({ autoPan: false });
-
-	sparqlPOSTRequest(data, function(result){
+	sparqlHTTPConnection.sparqlPOSTRequest(data, function(result){
 		for(var i=0; i < result.length; i++) {
 			var wktString = result[i].wkt.value;
 			// parse the WKT geometrie to a geoJSON object
@@ -70,9 +62,10 @@ $( document ).ready(function() {
 			var geoJSON = {
 				geometry: geoJSONgeometry,
 				type: 'Feature',
-				id: result[i].a.value.replace(LODCOMPREFIX, ''),
+				id: result[i].feature.value.replace(LODCOMPREFIX, ''),
 				properties: {
-					name: result[i].a.value.replace(LODCOMPREFIX, ''),
+					name: result[i].name.value.replace(LODCOMPREFIX, ''),
+					lodcomName: result[i].feature.value.replace(LODCOMPREFIX, ''),
 					// TODO: do we need this?
 					administrativeLvl: adminType,
 					// area comes in square meters create as square kilometers
@@ -85,17 +78,17 @@ $( document ).ready(function() {
 				case 'City':
 					cityFeatureGroup.addLayer(L.geoJson(geoJSON,{
 						onEachFeature: onEachFeature
-					})).setStyle(densityStyle(geoJSON));
+					}));
 					break;
 				case 'District':
 					districtFeatureGroup.addLayer(L.geoJson(geoJSON,{
 						onEachFeature: onEachFeature
-					})).setStyle(densityStyle(geoJSON));
+					}));
 					break;
 				case 'CityDistrict':
 					cityDistrictFeatureGroup.addLayer(L.geoJson(geoJSON,{
 						onEachFeature: onEachFeature
-					})).setStyle(densityStyle(geoJSON));
+					}));
 					break;
 				default:
 					console.log('something went wrong. The administrative connection could not be mapped')
@@ -104,39 +97,43 @@ $( document ).ready(function() {
 	});
 
 	// TODO: these variables have to dynamic. For testing now hardcoded
-	var diagramType = 'hasMainPopulation';
 	/*
 	 * Function to assign click function etc to the layer/feature
 	 */
 	function onEachFeature(feature, layer) {
-		channelStyle(feature,layer);
+		//layer.setStyle();
+		channelStyle(layer,true);
 		layer.on({
 			click: function(){
 				layer.bringToFront();
-				//console.log(feature);
+
+				$('#chart_1').html('loading');
 				// every other layer should be styled as default
 				// TODO: if comparing is active - more than one layer have do be styled 'clicked style'
 				if (!comparing) {
-					changeHighcharts.setDiagram({
-						type: diagramType,
-						administrativeLvl: feature.properties.administrativeLvl,
-						features: [feature]
-					})
+					sparqlHTTPConnection.getDataForFeature(feature,function (featureData){
+						changeHighcharts.setDiagram({
+							type: populationType,
+							administrativeLvl: feature.properties.administrativeLvl,
+							features: [featureData]
+						})
+					});
+
 					for (var i = 0; i < selectedFeatures.length; i++) {
-						selectedFeatures[i].layer.setStyle(densityStyle(selectedFeatures[i].feature))
+						channelStyle(selectedFeatures[i].layer)
 					}
 					selectedFeatures = [];
 					selectedFeatures.push({layer:layer,feature:feature});
 				}
 				else {
-					var featureArrayForHC = []
+					var featureArrayForHC = [];
 					selectedFeatures.push({layer:layer,feature:feature});
 					for (var i = 0; i < selectedFeatures.length; i++) {
 						featureArrayForHC.push(selectedFeatures[i].feature)
 					}
 					// change the highCharts diagram
 					changeHighcharts.setDiagram({
-						type: diagramType,
+						type: populationType,
 						administrativeLvl: feature.properties.administrativeLvl,
 						features: featureArrayForHC
 					})
@@ -186,18 +183,18 @@ $( document ).ready(function() {
 		if (!timeSliderMovement) {
 			var layer = e.target;
 			popup.setLatLng(e.latlng);
-			if (layer.feature.properties.population != undefined && layer.feature.properties.population[selectedYear] != undefined) {
+				if (layer.feature.displayInformation != undefined) {
+					var currentPopupInformation = parseInt(layer.feature.displayInformation[selectedYear].population / layer.feature.properties.area);
+					//console.log(density)
+					popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
+							currentPopupInformation + ' ' + language[getCookieObject().language].map.legend.title.mainPopulation);
+				}
+				else {
+					popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
+							'No data available');
+				}
 
-				// TODO: still focused on main population. This should be dynamic (gender etc)
-				var density = parseInt(layer.feature.properties.population[selectedYear] / layer.feature.properties.area);
-				//console.log(density)
-				popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
-					density + ' ' + language[getCookieObject().language].map.legend.title.mainPopulation);
-			}
-			else {
-				popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
-					'No data available');
-			}
+
 			if (!popup._map) {
 				popup.openOn(map);
 			}
@@ -213,6 +210,7 @@ $( document ).ready(function() {
 			if (!L.Browser.ie && !L.Browser.opera) {
 				layer.bringToFront();
 			}
+
 		}
 	}
 
@@ -223,14 +221,14 @@ $( document ).ready(function() {
 			var layer = e.target;
 			// check through every checked layer
 			if (selectedFeatures.length === 0) {
-				layer.setStyle(densityStyle(layer.feature));
+				channelStyle(layer,false);
 			}
 			else {
 				if (!comparing) {
 					for (var i = 0; i < selectedFeatures.length; i++) {
 						// if the layer for 'mouseout event' is not in selectedFeatures Array reset the style to densitys
 						if (layer !== selectedFeatures[i].layer) {
-							layer.setStyle(densityStyle(layer.feature));
+							channelStyle(layer,false);
 						}
 					}
 				}
@@ -242,95 +240,27 @@ $( document ).ready(function() {
 			}, 100);
 		}
 	}
+	connectToPopulationTypeDropdownToLoadData(function(result) {
+		populationType = result;
+		var featureGroups = [cityFeatureGroup,districtFeatureGroup,cityDistrictFeatureGroup];
+		changeStyleForAllLayersAccordingToYear(featureGroups, true)
+	});
+
 });
-
-/*
-* function to channel the style for the corresponding layers
-* this function loads the population for the features after they are created to enable the density visualisation
-* @param feature {object} the feature which is loaded to the layer
-* @param layer {object} the corresponding layer responsible for the feature*/
-function channelStyle(feature,layer) {
-	// init the options for the HTTP POST request
-	var options = {
-		type: 'hasMainPopulation',
-		administrativeLvl: feature.properties.administrativeLvl,
-		features: [feature.properties.name]
-	};
-
-	var data = {
-		query: createSparqlQuery(options),
-		display: "json",
-		output: "json"
-	};
-	switch (feature.properties.administrativeLvl) {
-		case 'CityDistrict':
-
-			sparqlPOSTRequest(data, function (result) {
-				// adding the population values for each year to each corresponding feature
-				if (result.length != 0) {
-					feature.properties.population = {};
-					for (var i = 0; i < result.length; i++) {
-						feature.properties.population[result[i].year.value] = parseInt(result[i].value.value);
-					}
-				}
-				else {
-					console.log('no data available')
-				}
-				layer.setStyle(densityStyle(feature));
-
-			});
-			break;
-		case 'District':
-		case 'City':
-			sparqlPOSTRequest(data, function (result) {
-				// adding the population values for each year to each corresponding feature
-				if (result.length != 0) {
-					feature.properties.population = {};
-					for (var i = 0; i < result.length; i++) {
-						if (feature.properties.population[result[i].year.value] == undefined) {
-							feature.properties.population[result[i].year.value] = parseInt(result[i].value.value);
-						}
-						else {
-							feature.properties.population[result[i].year.value] += parseInt(result[i].value.value);
-						}
-					}
-				}
-				else {
-					console.log('no data available')
-				}
-				layer.setStyle(densityStyle(feature));
-				if(feature.properties.administrativeLvl === 'City') {
-					changeHighcharts.setDiagram({
-						type: options.type,
-						administrativeLvl: feature.properties.administrativeLvl,
-						features: [feature]
-					})
-				}
-
-
-			});
-			break;
-		default:
-			console.log('error in channel Style')
-	}
-}
-// TODO: At the moment hardcoded - there could be a slider for the different years
-var selectedYear = "2014";
-
-
-/*
-* style functions for the geometries
-* */
-function densityStyle(feature) {
-	//console.log(feature)
+function defualtStyle() {
 	return {
 		weight: 2,
 		opacity: 0.3,
 		color: 'black',
 		fillOpacity: 0.7,
-		fillColor: getColor(feature)
+		fillColor: 'blue'
 	};
 }
+
+// TODO: At the moment hardcoded - there could be a slider for the different years
+var selectedYear = "2014";
+
+
 function clickedStyle() {
 	return {
 		fillColor: 'red',
@@ -362,55 +292,30 @@ function getLegendHTML() {
 * function to change the style of every layer in the map corresponding to the selected year on the slider
 * @param featureGroups {Array} contains all feature group layers of the map, which style have to be changed
 * */
-function changeStyleForAllLayers(featureGroups) {
-	// iterate through each layer group
-	for (var i = 0; i < featureGroups.length; i++) {
-		// in each feature layer group there is a layer group - iterate through it
-		for (var layer in featureGroups[i]._layers) {
-			// in each layer group there are one feature
-			for (var featureId in featureGroups[i]._layers[layer]._layers) {
-				var feature = featureGroups[i]._layers[layer]._layers[featureId].feature;
-				// change the style of the layer group according to the feature in it
-				featureGroups[i]._layers[layer].setStyle(densityStyle(feature));
+function changeStyleForAllLayersAccordingToYear(featureGroups, newCategorie) {
+	//if (!timeSliderMovement) {
+		// iterate through each layer group
+		for (var i = 0; i < featureGroups.length; i++) {
+			// in each feature layer group there is a layer group - iterate through it
+			for (var layer in featureGroups[i]._layers) {
+				// in each layer group there are one feature
+				for (var featureId in featureGroups[i]._layers[layer]._layers) {
+					var feature = featureGroups[i]._layers[layer]._layers[featureId].feature;
+					// change the style of the layer group according to the feature in it
+					var featureInSelectedFeatures = false;
+					for (var j = 0; j < selectedFeatures.length; j++) {
+						if (selectedFeatures[j].feature == feature) {
+							featureInSelectedFeatures = true
+						}
+					}
+					if (!featureInSelectedFeatures) {
+						channelStyle(featureGroups[i]._layers[layer]._layers[featureId],newCategorie);
+					}
+				}
 			}
 		}
-	}
+	//}
 }
-/*function to calculate the color for the different population density
-* @param feature {object} the feature that contains information about the area in square kilometer and total population*/
-function getColor(feature) {
-	if (feature.properties != undefined) {
-		if (feature.properties.population != undefined) {
-			var density = feature.properties.population[selectedYear]/feature.properties.area;
-			return density > 1000 ? '#8c2d04' :
-				density > 500  ? '#cc4c02' :
-					density > 200  ? '#ec7014' :
-						density > 100  ? '#fe9929' :
-							density > 50   ? '#fec44f' :
-								density > 20   ? '#fee391' :
-									density > 10   ? '#fff7bc' :
-										'#ffffe5';
-		}
-		else {
-			return '#dddddd'
-		}
-	}
-	else {
-		return feature > 1000 ? '#8c2d04' :
-			feature > 500  ? '#cc4c02' :
-				feature > 200  ? '#ec7014' :
-					feature > 100  ? '#fe9929' :
-						feature > 50   ? '#fec44f' :
-							feature > 20   ? '#fee391' :
-								feature > 10   ? '#fff7bc' :
-									'#ffffe5';
-	}
-
-}
-
-//TODO: populationType is hardcoded. Should be dynamic
-var populationType = 'main';
-
 
 /**
  * function to create the slider control for the different years
@@ -440,12 +345,12 @@ function createSliderControl(map,featureGroups) {
 	};
 
 	var data = {
-		query: createSparqlQuery(options),
+		query: sparqlHTTPConnection.createSparqlQuery(options),
 		display: "json",
 		output: "json"
 	};
 	var yearValueArray = [];
-	sparqlPOSTRequest(data, function (result) {
+	sparqlHTTPConnection.sparqlPOSTRequest(data, function (result) {
 		for (var i = 0; i < result.length; i++) {
 			yearValueArray.push(parseInt(result[i].year.value));
 		}
@@ -456,14 +361,14 @@ function createSliderControl(map,featureGroups) {
 				step: 1,
 				slide: function(event,ui) {
 					selectedYear = ui.value.toString();
-					changeStyleForAllLayers(featureGroups)
+					changeStyleForAllLayersAccordingToYear(featureGroups,false);
 				},
 				// disable the dragging function of map. Otherwise the map would be dragged together with the slider
 				start: function() {
 					timeSliderMovement = true;
 					map.dragging.disable()
 				},
-				// after sliding, enable the dragginf function of the map
+				// after sliding, enable the dragging function of the map
 				stop: function() {
 					timeSliderMovement = false;
 					map.dragging.enable()
@@ -474,11 +379,11 @@ function createSliderControl(map,featureGroups) {
 				//getting the values from the step
 				var opt = $(this).data()['ui-slider'].options;
 				// Get the number of possible values
-				var vals = opt.max - opt.min;
+				var values = opt.max - opt.min;
 				// Position the labels
-				for (var i = 0; i <= vals; i++) {
+				for (var i = 0; i <= values; i++) {
  					// Create a new element and position it with percentages
-					var el = $('<label>' + (i + opt.min) + '</label>').css('left', (i/vals*100-3) + '%');
+					var el = $('<label>' + (i + opt.min) + '</label>').css('left', (i/values*100-3) + '%');
 					// Add the element inside #slider
 					$("#yearSlider").append(el);
 
@@ -488,13 +393,13 @@ function createSliderControl(map,featureGroups) {
 	});
 }
 
-function setStyleForNoSelectedFeatures(map, selectedFeatures) {
+function setStyleForNoSelectedFeatures() {
 	// if a user clicks on the map and not on a feature, no feature should be visualized as visible
 	// TODO: Highcharts should be empty now
 	// TODO:
 
 		for (var i = 0; i < selectedFeatures.length; i++) {
 			// if the layer for 'mouseout event' is not in selectedFeatures Array reset the style to densitys
-			selectedFeatures[i].layer.setStyle(densityStyle(selectedFeatures[i].feature));
+			selectedFeatures[i].layer.setStyle(channelStyle(selectedFeatures[i].layer),false);
 		}
 }
