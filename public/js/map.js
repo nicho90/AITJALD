@@ -19,7 +19,8 @@ $( document ).ready(function() {
     L.control.layers({
         'Streets': L.mapbox.tileLayer('mapbox.streets').addTo(map),
         'Satellite': L.mapbox.tileLayer('mapbox.satellite'),
-        'Light': L.mapbox.tileLayer('mapbox.light')
+        'Light': L.mapbox.tileLayer('mapbox.light'),
+        'Dark': L.mapbox.tileLayer('mapbox.dark')
     }).addTo(map);
 
 	//assigning map click function
@@ -44,6 +45,9 @@ $( document ).ready(function() {
 		display:"json",
 		output:"json"
 	};
+
+	// Hide Compare Buttons
+	toggleCompareButtons(false);
 
 	// create custom slider control
 	createSliderControl(map,[cityFeatureGroup,districtFeatureGroup,cityDistrictFeatureGroup]);
@@ -107,7 +111,9 @@ $( document ).ready(function() {
 			click: function(){
 				layer.bringToFront();
 				console.log(feature)
-				$('#chart_1').html('loading');
+				$('#chart').html('loading');
+				$('#area').html(feature.properties.name);
+
 				// every other layer should be styled as default
 				// TODO: if comparing is active - more than one layer have do be styled 'clicked style'
 				if (!comparing) {
@@ -149,33 +155,37 @@ $( document ).ready(function() {
 	// assigning function to buttons in the top left corner of the map
 	// corresponding layer should be displayed others should not be visible
 	// change also the colors for the buttons
-	$('#level_1').click(function () {
+	$('#level_1_button').click(function () {
 		cityLayerGroup.clearLayers();
 		districtLayerGroup.clearLayers();
 		cityDistrictLayerGroup.clearLayers();
 		cityLayerGroup.addLayer(cityFeatureGroup);
-		$('#level_1').removeClass('btn btn-default').addClass('btn btn-primary');
-		$('#level_2').removeClass('btn btn-primary').addClass('btn btn-default');
-		$('#level_3').removeClass('btn btn-primary').addClass('btn btn-default');
+		$('#level_1_button').removeClass('btn btn-default').addClass('btn btn-primary');
+		$('#level_2_button').removeClass('btn btn-primary').addClass('btn btn-default');
+		$('#level_3_button').removeClass('btn btn-primary').addClass('btn btn-default');
+		toggleCompareButtons(false);
 	});
-	$('#level_2').click(function () {
+	$('#level_2_button').click(function () {
 		cityLayerGroup.clearLayers();
 		districtLayerGroup.clearLayers();
 		cityDistrictLayerGroup.clearLayers();
 		districtLayerGroup.addLayer(districtFeatureGroup);
-		$('#level_1').removeClass('btn btn-primary').addClass('btn btn-default');
-		$('#level_2').removeClass('btn btn-default').addClass('btn btn-primary');
-		$('#level_3').removeClass('btn btn-primary').addClass('btn btn-default');
+		$('#level_1_button').removeClass('btn btn-primary').addClass('btn btn-default');
+		$('#level_2_button').removeClass('btn btn-default').addClass('btn btn-primary');
+		$('#level_3_button').removeClass('btn btn-primary').addClass('btn btn-default');
+		toggleCompareButtons(true);
 	});
-	$('#level_3').click(function () {
+	$('#level_3_button').click(function () {
 		cityLayerGroup.clearLayers();
 		districtLayerGroup.clearLayers();
 		cityDistrictLayerGroup.clearLayers();
 		cityDistrictLayerGroup.addLayer(cityDistrictFeatureGroup);
-		$('#level_1').removeClass('btn btn-primary').addClass('btn btn-default');
-		$('#level_2').removeClass('btn btn-primary').addClass('btn btn-default');
-		$('#level_3').removeClass('btn btn-default').addClass('btn btn-primary');
+		$('#level_1_button').removeClass('btn btn-primary').addClass('btn btn-default');
+		$('#level_2_button').removeClass('btn btn-primary').addClass('btn btn-default');
+		$('#level_3_button').removeClass('btn btn-default').addClass('btn btn-primary');
+		toggleCompareButtons(true);
 	});
+
 	var closeTooltip;
 
 	function mousemove(e) {
@@ -254,6 +264,7 @@ $( document ).ready(function() {
 	});
 
 });
+
 function defualtStyle() {
 	return {
 		weight: 2,
@@ -403,3 +414,26 @@ function setStyleForNoSelectedFeatures() {
 			selectedFeatures[i].layer.setStyle(channelStyle(selectedFeatures[i].layer),false);
 		}
 }
+
+// TOGGLE COMPARING-BUTTONS ON MAP
+function toggleCompareButtons(status){
+	if(status){
+		$('.compare-buttons').show();
+		$('#compare_add_button').removeClass('btn btn-default').addClass('btn btn-primary');
+		$('#compare_remove_button').removeClass('btn btn-primary').addClass('btn btn-default');
+	} else {
+		$('.compare-buttons').hide();
+		$('#compare_add_button').removeClass('btn btn-primary').addClass('btn btn-default');
+		$('#compare_remove_button').removeClass('btn btn-primary').addClass('btn btn-default');
+	}
+};
+
+// HIGHLIGHT COMPARING-BUTTONS ON MAP
+$('#compare_add_button').click(function () {
+	$('#compare_add_button').removeClass('btn btn-default').addClass('btn btn-primary');
+	$('#compare_remove_button').removeClass('btn btn-primary').addClass('btn btn-default');
+});
+$('#compare_remove_button').click(function () {
+	$('#compare_add_button').removeClass('btn btn-primary').addClass('btn btn-default');
+	$('#compare_remove_button').removeClass('btn btn-default').addClass('btn btn-primary');
+});

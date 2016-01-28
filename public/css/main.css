@@ -32,11 +32,23 @@ body {
 .leaflet-popup-content-wrapper {
     pointer-events: none;
 }
+
 .map-buttons {
     position: relative;
     margin-left: 48px;
     margin-top: 10px;
     z-index: 9999999;
+}
+
+.compare-buttons {
+    position: relative;
+    margin-left: 8px;
+    margin-top: 10px;
+    z-index: 9999999;
+}
+
+.no-click {
+    pointer-events: none;
 }
 
 .content {

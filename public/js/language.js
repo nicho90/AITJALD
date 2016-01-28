@@ -55,6 +55,9 @@ var language = {
         "license": {
             "content": '<h1>License</h1>' +
             '<p class="lead">...</p>'
+        },
+        "compareButtons": {
+            "comparison": '<i class="fa fa-balance-scale"></i>&nbsp;&nbsp;Comparison'
         }
     },
     "de": {
@@ -110,6 +113,9 @@ var language = {
         "license": {
             "content": '<h1>Lizenz</h1>' +
                     '<p class="lead">...</p>'
+        },
+        "compareButtons": {
+            "comparison": '<i class="fa fa-balance-scale"></i>&nbsp;&nbsp;Vergleich'
         }
     }
 };

@@ -23,7 +23,7 @@ $( document ).ready(function() {
                 }
             }
             if (series.length != 0) {
-                $('#chart_1').highcharts({
+                $('#chart').highcharts({
                     chart: {
                         type: 'column'
                     },
@@ -67,7 +67,7 @@ $( document ).ready(function() {
                 });
             }
             else {
-                $('#chart_1').html('Data missing');
+                $('#chart').html('Data missing');
             }
         }
     };
