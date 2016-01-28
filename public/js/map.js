@@ -14,7 +14,7 @@ $( document ).ready(function() {
 	// assinging the accesstoken for the mapbox library
     L.mapbox.accessToken = getMapboxAccessToken();
 	//create the map
-    var map = L.mapbox.map('map').setView([51.961298, 7.625849], 12);
+    var map = L.mapbox.map('map').setView([51.961298, 7.625849], 11);
 	//creating the layer control to switch between different baselayers
     L.control.layers({
         'Streets': L.mapbox.tileLayer('mapbox.streets').addTo(map),
@@ -106,7 +106,7 @@ $( document ).ready(function() {
 		layer.on({
 			click: function(){
 				layer.bringToFront();
-
+				console.log(feature)
 				$('#chart_1').html('loading');
 				// every other layer should be styled as default
 				// TODO: if comparing is active - more than one layer have do be styled 'clicked style'
@@ -200,16 +200,23 @@ $( document ).ready(function() {
 			}
 			window.clearTimeout(closeTooltip);
 
-			// highlight feature
-			layer.setStyle({
-				weight: 3,
-				opacity: 0.3,
-				fillOpacity: 0.9
-			});
-
-			if (!L.Browser.ie && !L.Browser.opera) {
-				layer.bringToFront();
+			var featureIsInSelectedFeatures = false;
+			for (var i = 0; i < selectedFeatures.length; i++) {
+				if(selectedFeatures[i].layer == layer) {
+					featureIsInSelectedFeatures = true;
+				}
 			}
+			// highlight feature
+			if(!featureIsInSelectedFeatures) {
+				layer.setStyle({
+					weight: 1,
+					opacity: 1,
+					fillOpacity: 0.9
+				});
+
+
+			}
+
 
 		}
 	}
@@ -260,13 +267,6 @@ function defualtStyle() {
 // TODO: At the moment hardcoded - there could be a slider for the different years
 var selectedYear = "2014";
 
-
-function clickedStyle() {
-	return {
-		fillColor: 'red',
-		color: 'red'
-	}
-}
 /**
  * source of function: https://www.mapbox.com/mapbox.js/example/v1.0.0/choropleth/
  * @returns {string} html string for the legend div on the map

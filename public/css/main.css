@@ -51,6 +51,16 @@ body {
     height:300px;
 }
 /* style for the year slider */
+.leaflet-year-slider-control {
+    border-radius: 3px;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 25px;
+    background: #FFFFFF;
+}
+
 #yearSlider {
     width: 300px;
     margin-bottom: 25px;

@@ -32,7 +32,14 @@ var language = {
                             "both": "Population by age"
                         },
                         "entitledPopulation": "Population entitled to live in Münster",
-                    }
+                    },
+                    "yAxis": "Population"
+                },
+                "general": {
+                    "loading": "Loading data"
+                },
+                "error": {
+                    "dataMissing" : "No data available"
                 }
             },
             "legend": {
@@ -80,12 +87,19 @@ var language = {
                             "both": "Bevölkerung nach Alter"
                         },
                         "entitledPopulation": "Wohnberechtigte Bevölkerung"
-                    }
+                    },
+                    "yAxis": "Einwohner"
+                },
+                "general": {
+                    "loading": "Lade Daten"
+                },
+                "error": {
+                    "dataMissing" : "Keine Daten vorhanden"
                 }
             },
             "legend": {
                 "title": {
-                    "mainPopulation": "Bevölkerung pro Quadratkilometer"
+                    "mainPopulation": "Einwohner pro Quadratkilometer"
                 }
             }
         },

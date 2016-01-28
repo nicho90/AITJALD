@@ -40,7 +40,7 @@ $( document ).ready(function() {
                     yAxis: {
                         min: 0,
                         title: {
-                            text: options.type
+                            text: language[getCookieObject().language].map.panel.highCharts.yAxis
                         }
                     },
                     tooltip: {

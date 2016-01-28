@@ -137,3 +137,14 @@ function getColor(density) {
 
 }
 
+
+
+function clickedStyle() {
+    return {
+        //fillColor: 'red',
+        color: 'red',
+        weight: 3,
+        opacity: 1
+    }
+}
+
