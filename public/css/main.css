@@ -7,6 +7,11 @@ body {
   padding-top: 50px;
 }
 
+.emoji {
+    font-weight: normal;
+    font-family: "Apple Color Emoji","Segoe UI Emoji","NotoColorEmoji","Segoe UI Symbol","Android Emoji","EmojiSymbols";
+}
+
 #map {
     height: 100%;
     border: solid;

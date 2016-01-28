@@ -16,6 +16,10 @@ var popup,
 
 // MAP
 $( document ).ready(function() {
+
+	// INIT COMPARING-BUTTONS ON MAP
+	toggleCompareButton(false);
+
 	// assinging the accesstoken for the mapbox library
     L.mapbox.accessToken = getMapboxAccessToken();
 	//create the map
@@ -51,8 +55,6 @@ $( document ).ready(function() {
 		output:"json"
 	};
 
-	// INIT COMPARING-BUTTONS ON MAP
-	toggleCompareButton(false);
 
 	// create custom slider control
 	createSliderControl(map,[cityFeatureGroup,districtFeatureGroup,cityDistrictFeatureGroup]);
@@ -120,7 +122,7 @@ $( document ).ready(function() {
 		layer.on({
 			click: function(){
 				layer.bringToFront();
-				$('#chart').html('<center><i class="fa fa-spinner fa-pulse"></i></center>');
+				$('#chart').html('<br><center><i class="fa fa-spinner fa-pulse"></i></center>');
 				$('#area').html(feature.properties.name);
 
 				// every other layer should be styled as default
@@ -390,7 +392,6 @@ function createSliderControl(map,featureGroups) {
 				var el = $('<label>' + (i + opt.min) + '</label>').css('left', (i/values*100-3) + '%');
 				// Add the element inside #slider
 				$("#yearSlider").append(el);
-
 			}
 		});
 	});
@@ -399,13 +400,12 @@ function createSliderControl(map,featureGroups) {
 function setStyleForNoSelectedFeatures() {
 	// if a user clicks on the map and not on a feature, no feature should be visualized as visible
 	// TODO: Highcharts should be empty now
-	// TODO:
 
-		for (var i = 0; i < selectedFeatures.length; i++) {
-			// if the layer for 'mouseout event' is not in selectedFeatures Array reset the style to densitys
-			selectedFeatures[i].layer.setStyle(channelStyle(selectedFeatures[i].layer),false);
-		}
-}
+	for (var i = 0; i < selectedFeatures.length; i++) {
+		// if the layer for 'mouseout event' is not in selectedFeatures Array reset the style to densitys
+		selectedFeatures[i].layer.setStyle(channelStyle(selectedFeatures[i].layer),false);
+	}
+};
 
 
 
@@ -445,7 +445,7 @@ function toogleCompareAddRemoveBottons(status) {
 		addStatus = false;
 		removeStatus = false;
 	}
-}
+};
 
 // HIGHLIGHT COMPARE-ADD-BUTTON
 $('#compare_add_button').click(function () {
