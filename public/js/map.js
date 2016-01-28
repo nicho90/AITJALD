@@ -9,6 +9,11 @@ var popup,
 	timeSliderMovement = false,
 	selectedFeatures = [];
 
+
+	var comparisonStatus = false;
+	var addStatus = false;
+	var removeStatus = false;
+
 // MAP
 $( document ).ready(function() {
 	// assinging the accesstoken for the mapbox library
@@ -46,8 +51,8 @@ $( document ).ready(function() {
 		output:"json"
 	};
 
-	// Hide Compare Buttons
-	toggleCompareButtons(false);
+	// INIT COMPARING-BUTTONS ON MAP
+	toggleCompareButton(false);
 
 	// create custom slider control
 	createSliderControl(map,[cityFeatureGroup,districtFeatureGroup,cityDistrictFeatureGroup]);
@@ -105,19 +110,23 @@ $( document ).ready(function() {
 	 * Function to assign click function etc to the layer/feature
 	 */
 	function onEachFeature(feature, layer) {
+
+		console.log(feature);
+		console.log(layer);
+		console.log("#######");
+
 		//layer.setStyle();
 		channelStyle(layer,true);
 		layer.on({
 			click: function(){
 				layer.bringToFront();
-				console.log(feature)
-				$('#chart').html('loading');
+				$('#chart').html('<center><i class="fa fa-spinner fa-pulse"></i></center>');
 				$('#area').html(feature.properties.name);
 
 				// every other layer should be styled as default
 				// TODO: if comparing is active - more than one layer have do be styled 'clicked style'
 				if (!comparing) {
-					sparqlHTTPConnection.getDataForFeature(feature,function (featureData){
+					sparqlHTTPConnection.getDataForFeature(feature, function (featureData){
 						changeHighcharts.setDiagram({
 							type: populationType,
 							administrativeLvl: feature.properties.administrativeLvl,
@@ -145,13 +154,11 @@ $( document ).ready(function() {
 					})
 				}
 				layer.setStyle(clickedStyle());
-
 			},
 			mousemove: mousemove,
 			mouseout: mouseout
-		})
-
-	}
+		});
+	};
 	// assigning function to buttons in the top left corner of the map
 	// corresponding layer should be displayed others should not be visible
 	// change also the colors for the buttons
@@ -160,30 +167,30 @@ $( document ).ready(function() {
 		districtLayerGroup.clearLayers();
 		cityDistrictLayerGroup.clearLayers();
 		cityLayerGroup.addLayer(cityFeatureGroup);
-		$('#level_1_button').removeClass('btn btn-default').addClass('btn btn-primary');
-		$('#level_2_button').removeClass('btn btn-primary').addClass('btn btn-default');
-		$('#level_3_button').removeClass('btn btn-primary').addClass('btn btn-default');
-		toggleCompareButtons(false);
+		setButtonStyle('#level_1_button', 'btn-default', 'btn-primary');
+		setButtonStyle('#level_2_button', 'btn-primary', 'btn-default');
+		setButtonStyle('#level_3_button', 'btn-primary', 'btn-default');
+		toggleCompareButton(false);
 	});
 	$('#level_2_button').click(function () {
 		cityLayerGroup.clearLayers();
 		districtLayerGroup.clearLayers();
 		cityDistrictLayerGroup.clearLayers();
 		districtLayerGroup.addLayer(districtFeatureGroup);
-		$('#level_1_button').removeClass('btn btn-primary').addClass('btn btn-default');
-		$('#level_2_button').removeClass('btn btn-default').addClass('btn btn-primary');
-		$('#level_3_button').removeClass('btn btn-primary').addClass('btn btn-default');
-		toggleCompareButtons(true);
+		setButtonStyle('#level_1_button', 'btn-primary', 'btn-default');
+		setButtonStyle('#level_2_button', 'btn-default', 'btn-primary');
+		setButtonStyle('#level_3_button', 'btn-primary', 'btn-default');
+		toggleCompareButton(true);
 	});
 	$('#level_3_button').click(function () {
 		cityLayerGroup.clearLayers();
 		districtLayerGroup.clearLayers();
 		cityDistrictLayerGroup.clearLayers();
 		cityDistrictLayerGroup.addLayer(cityDistrictFeatureGroup);
-		$('#level_1_button').removeClass('btn btn-primary').addClass('btn btn-default');
-		$('#level_2_button').removeClass('btn btn-primary').addClass('btn btn-default');
-		$('#level_3_button').removeClass('btn btn-default').addClass('btn btn-primary');
-		toggleCompareButtons(true);
+		setButtonStyle('#level_1_button', 'btn-primary', 'btn-default');
+		setButtonStyle('#level_2_button', 'btn-primary', 'btn-default');
+		setButtonStyle('#level_3_button', 'btn-default', 'btn-primary');
+		toggleCompareButton(true);
 	});
 
 	var closeTooltip;
@@ -223,13 +230,9 @@ $( document ).ready(function() {
 					opacity: 1,
 					fillOpacity: 0.9
 				});
-
-
 			}
-
-
 		}
-	}
+	};
 
 	function mouseout(e) {
 
@@ -256,7 +259,8 @@ $( document ).ready(function() {
 				map.closePopup();
 			}, 100);
 		}
-	}
+	};
+
 	connectToPopulationTypeDropdownToLoadData(function(result) {
 		populationType = result;
 		var featureGroups = [cityFeatureGroup,districtFeatureGroup,cityDistrictFeatureGroup];
@@ -265,18 +269,10 @@ $( document ).ready(function() {
 
 });
 
-function defualtStyle() {
-	return {
-		weight: 2,
-		opacity: 0.3,
-		color: 'black',
-		fillOpacity: 0.7,
-		fillColor: 'blue'
-	};
-}
 
 // TODO: At the moment hardcoded - there could be a slider for the different years
 var selectedYear = "2014";
+
 
 /**
  * source of function: https://www.mapbox.com/mapbox.js/example/v1.0.0/choropleth/
@@ -326,7 +322,7 @@ function changeStyleForAllLayersAccordingToYear(featureGroups, newCategorie) {
 			}
 		}
 	//}
-}
+};
 
 /**
  * function to create the slider control for the different years
@@ -339,13 +335,10 @@ function createSliderControl(map,featureGroups) {
 		options: {
 			position: 'bottomleft'
 		},
-
 		onAdd: function () {
 			// create the control container with a particular class name
 			var container = L.DomUtil.create('div', 'leaflet-year-slider-control');
-			container.innerHTML =
-				'<div id="yearSlider"></div>';
-
+			container.innerHTML = '<div id="yearSlider"></div>';
 			return container;
 		}
 	});
@@ -366,43 +359,42 @@ function createSliderControl(map,featureGroups) {
 			yearValueArray.push(parseInt(result[i].year.value));
 		}
 		$( "#yearSlider" ).slider({
-				value: yearValueArray[yearValueArray.length-1],
-				min: yearValueArray[0],
-				max: yearValueArray[yearValueArray.length-1],
-				step: 1,
-				slide: function(event,ui) {
-					selectedYear = ui.value.toString();
-					changeStyleForAllLayersAccordingToYear(featureGroups,false);
-				},
-				// disable the dragging function of map. Otherwise the map would be dragged together with the slider
-				start: function() {
-					timeSliderMovement = true;
-					map.dragging.disable()
-				},
-				// after sliding, enable the dragging function of the map
-				stop: function() {
-					timeSliderMovement = false;
-					map.dragging.enable()
-				}
-			})
-			.each(function() {
-				// adding labels for every step in the slider
-				//getting the values from the step
-				var opt = $(this).data()['ui-slider'].options;
-				// Get the number of possible values
-				var values = opt.max - opt.min;
-				// Position the labels
-				for (var i = 0; i <= values; i++) {
- 					// Create a new element and position it with percentages
-					var el = $('<label>' + (i + opt.min) + '</label>').css('left', (i/values*100-3) + '%');
-					// Add the element inside #slider
-					$("#yearSlider").append(el);
+			value: yearValueArray[yearValueArray.length-1],
+			min: yearValueArray[0],
+			max: yearValueArray[yearValueArray.length-1],
+			step: 1,
+			slide: function(event,ui) {
+				selectedYear = ui.value.toString();
+				changeStyleForAllLayersAccordingToYear(featureGroups,false);
+			},
+			// disable the dragging function of map. Otherwise the map would be dragged together with the slider
+			start: function() {
+				timeSliderMovement = true;
+				map.dragging.disable()
+			},
+			// after sliding, enable the dragging function of the map
+			stop: function() {
+				timeSliderMovement = false;
+				map.dragging.enable()
+			}
+		})
+		.each(function() {
+			// adding labels for every step in the slider
+			//getting the values from the step
+			var opt = $(this).data()['ui-slider'].options;
+			// Get the number of possible values
+			var values = opt.max - opt.min;
+			// Position the labels
+			for (var i = 0; i <= values; i++) {
+				// Create a new element and position it with percentages
+				var el = $('<label>' + (i + opt.min) + '</label>').css('left', (i/values*100-3) + '%');
+				// Add the element inside #slider
+				$("#yearSlider").append(el);
 
-				}
-
-			});
+			}
+		});
 	});
-}
+};
 
 function setStyleForNoSelectedFeatures() {
 	// if a user clicks on the map and not on a feature, no feature should be visualized as visible
@@ -415,25 +407,63 @@ function setStyleForNoSelectedFeatures() {
 		}
 }
 
-// TOGGLE COMPARING-BUTTONS ON MAP
-function toggleCompareButtons(status){
+
+
+// TOGGLE COMPARING-BUTTON-GROUP ON MAP BASED ON ADMIN-TYPE
+function toggleCompareButton(status){
 	if(status){
 		$('.compare-buttons').show();
-		$('#compare_add_button').removeClass('btn btn-default').addClass('btn btn-primary');
-		$('#compare_remove_button').removeClass('btn btn-primary').addClass('btn btn-default');
+		toogleCompareAddRemoveBottons(false);
 	} else {
 		$('.compare-buttons').hide();
-		$('#compare_add_button').removeClass('btn btn-primary').addClass('btn btn-default');
-		$('#compare_remove_button').removeClass('btn btn-primary').addClass('btn btn-default');
+		toogleCompareAddRemoveBottons(false);
 	}
 };
 
-// HIGHLIGHT COMPARING-BUTTONS ON MAP
+$('#compare_button').click(function () {
+	if(comparisonStatus){
+		comparisonStatus = false;
+		toogleCompareAddRemoveBottons(comparisonStatus);
+	} else {
+		comparisonStatus = true;
+		toogleCompareAddRemoveBottons(comparisonStatus);
+	}
+});
+
+// TOGGLE ADD-REMOVE-BUTTONS BASED ON COMPARISON BUTTON
+function toogleCompareAddRemoveBottons(status) {
+	if(status) {
+		setButtonStyle('#compare_button', 'btn-default', 'btn-primary');
+		$('#compare_add_button').show();
+		$('#compare_remove_button').show();
+		addStatus = true;
+		removeStatus = false;
+	} else {
+		setButtonStyle('#compare_button', 'btn-primary', 'btn-default');
+		$('#compare_add_button').hide();
+		$('#compare_remove_button').hide();
+		addStatus = false;
+		removeStatus = false;
+	}
+}
+
+// HIGHLIGHT COMPARE-ADD-BUTTON
 $('#compare_add_button').click(function () {
-	$('#compare_add_button').removeClass('btn btn-default').addClass('btn btn-primary');
-	$('#compare_remove_button').removeClass('btn btn-primary').addClass('btn btn-default');
+	addStatus = true;
+	removeStatus = false;
+	setButtonStyle('#compare_add_button', 'btn-default', 'btn-success');
+	setButtonStyle('#compare_remove_button', 'btn-danger', 'btn-default');
 });
+
+// HIGHLIGHT COMPARE-REMOVE-BUTTON
 $('#compare_remove_button').click(function () {
-	$('#compare_add_button').removeClass('btn btn-primary').addClass('btn btn-default');
-	$('#compare_remove_button').removeClass('btn btn-default').addClass('btn btn-primary');
+	addStatus = false;
+	removeStatus = true;
+	setButtonStyle('#compare_add_button', 'btn-success', 'btn-default');
+	setButtonStyle('#compare_remove_button', 'btn-default', 'btn-danger');
 });
+
+// CHANGE BUTTON STYLE
+function setButtonStyle(buttonId, removeClass, addClass){
+	$(buttonId).removeClass(removeClass).addClass(addClass);
+};

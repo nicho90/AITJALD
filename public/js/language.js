@@ -56,8 +56,8 @@ var language = {
             "content": '<h1>License</h1>' +
             '<p class="lead">...</p>'
         },
-        "compareButtons": {
-            "comparison": '<i class="fa fa-balance-scale"></i>&nbsp;&nbsp;Comparison'
+        "compareButton": {
+            "comparison": '<i class="fa fa-balance-scale"></i>&nbsp;&nbsp;Compare Districts/Subdistricts'
         }
     },
     "de": {
@@ -114,8 +114,8 @@ var language = {
             "content": '<h1>Lizenz</h1>' +
                     '<p class="lead">...</p>'
         },
-        "compareButtons": {
-            "comparison": '<i class="fa fa-balance-scale"></i>&nbsp;&nbsp;Vergleich'
+        "compareButton": {
+            "comparison": '<i class="fa fa-balance-scale"></i>&nbsp;&nbsp;Vergleiche Stadtteile/Bezirke'
         }
     }
 };

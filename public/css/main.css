@@ -55,7 +55,9 @@ body {
     text-align: center;
 }
 
-.details {}
+.details {
+    padding-top: 15px;
+}
 
 
 .chart {

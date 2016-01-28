@@ -106,7 +106,6 @@ function channelStyle(layer,newCategorie) {
  * */
 function densityStyle(people, area) {
     var density = people/area;
-    //console.log(feature)
     return {
         weight: 2,
         opacity: 0.3,
@@ -115,6 +114,7 @@ function densityStyle(people, area) {
         fillColor: getColor(density)
     };
 }
+
 /*function to calculate the color for the different population density
  * @param feature {object} the feature that contains information about the area in square kilometer and total population*/
 function getColor(density) {
@@ -133,18 +133,13 @@ function getColor(density) {
     else {
         return '#dddddd'
     }
-
-
 }
-
 
 
 function clickedStyle() {
     return {
-        //fillColor: 'red',
         color: 'red',
         weight: 3,
         opacity: 1
     }
 }
-
