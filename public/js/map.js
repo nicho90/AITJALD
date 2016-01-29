@@ -113,9 +113,9 @@ $( document ).ready(function() {
 	 */
 	function onEachFeature(feature, layer) {
 
-		console.log(feature);
+		/*console.log(feature);
 		console.log(layer);
-		console.log("#######");
+		console.log("#######");*/
 
 		//layer.setStyle();
 		channelStyle(layer,true);

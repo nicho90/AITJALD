@@ -11,9 +11,11 @@ var language = {
             "map": "Map",
             "about": "About",
             "license": "License",
-            "language": 'Change language &nbsp;<span class="caret"></span>',
-            "english": '<b>English</b>',
-            "german": 'German (Deutsch)',
+            "language": {
+                "title": 'Change language &nbsp;<span class="caret"></span>',
+                "english": '<b>English</b>',
+                "german": 'German (Deutsch)'
+            },
         },
         "index": {
             "content" :'<h1>Introduction into JavaScript and Linked data.</h1>' +
@@ -72,9 +74,11 @@ var language = {
             "map": "Karte",
             "about": "Über",
             "license": "Lizenz",
-            "language": 'Sprache ändern &nbsp;<span class="caret"></span>',
-            "english": 'Englisch (English)',
-            "german": '<b>Deutsch</b> (German)'
+            "language": {
+                "title": 'Sprache ändern &nbsp;<span class="caret"></span>',
+                "english": 'Englisch (English)',
+                "german": '<b>Deutsch</b> (German)'
+            },
         },
         "index": {
             "content" :'<h1>Einführung in JavaScrupt und Linked Data.</h1>' +
