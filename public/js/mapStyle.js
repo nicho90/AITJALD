@@ -6,7 +6,7 @@
  * this function loads the population for the features after they are created to enable the density visualisation
  * @param feature {object} the feature which is loaded to the layer
  * @param layer {object} the corresponding layer responsible for the feature*/
-function channelStyle(layer,newCategorie) {
+function channelStyle(layer,newCategorie,style) {
     // init the options for the HTTP POST request
     var options = {
         type: populationType,
@@ -41,12 +41,12 @@ function channelStyle(layer,newCategorie) {
                                 console.log('no data available')
                             }
                             var population = layer.feature.displayInformation[selectedYear].population;
-                            layer.setStyle(densityStyle(population, layer.feature.properties.area));
+                            layer.setStyle(style(population, layer.feature.properties.area));
                         });
                     }
                     else {
                         var population = layer.feature.displayInformation[selectedYear].population;
-                        layer.setStyle(densityStyle(population, layer.feature.properties.area));
+                        layer.setStyle(style(population, layer.feature.properties.area));
                     }
 
                     break;
@@ -77,12 +77,12 @@ function channelStyle(layer,newCategorie) {
                                 console.log('no data available')
                             }
                             var population = layer.feature.displayInformation[selectedYear].population;
-                            layer.setStyle(densityStyle(population, layer.feature.properties.area));
+                            layer.setStyle(style(population, layer.feature.properties.area));
                         });
                     }
                     else {
                         var population = layer.feature.displayInformation[selectedYear].population;
-                        layer.setStyle(densityStyle(population, layer.feature.properties.area));
+                        layer.setStyle(style(population, layer.feature.properties.area));
                     }
 
                     break;
@@ -106,6 +106,7 @@ function channelStyle(layer,newCategorie) {
  * */
 function densityStyle(people, area) {
     var density = people/area;
+
     return {
         weight: 2,
         opacity: 0.3,

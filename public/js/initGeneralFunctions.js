@@ -52,6 +52,17 @@ $('#compare_button').click(function () {
     if(comparingStatus){
         comparingStatus = false;
         toogleCompareAddRemoveBottons(comparingStatus);
+        for (var i = 0; i < selectedFeatures.length-1; i++) {
+            channelStyle(selectedFeatures[i].layer,false,densityStyle)
+        }
+        selectedFeatures = selectedFeatures.slice(selectedFeatures.length-1,selectedFeatures.length);
+        sparqlHTTPConnection.getDataForFeature(selectedFeatures[0].feature, function (featureData){
+            changeHighcharts.setDiagram({
+                type: populationType,
+                administrativeLvl: selectedFeatures[0].feature.properties.administrativeLvl,
+                features: [featureData]
+            })
+        });
     } else {
         comparingStatus = true;
         toogleCompareAddRemoveBottons(comparingStatus);

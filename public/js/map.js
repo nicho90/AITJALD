@@ -113,7 +113,7 @@ $( document ).ready(function() {
 		console.log("#######");*/
 
 		//layer.setStyle();
-		channelStyle(layer,true);
+		channelStyle(layer,true,densityStyle);
 		layer.on({
 			click: function(){
 				layer.bringToFront();
@@ -132,23 +132,29 @@ $( document ).ready(function() {
 					});
 
 					for (var i = 0; i < selectedFeatures.length; i++) {
-						channelStyle(selectedFeatures[i].layer)
+						channelStyle(selectedFeatures[i].layer,false,densityStyle)
 					}
 					selectedFeatures = [];
 					selectedFeatures.push({layer:layer,feature:feature});
 				}
 				else {
-					var featureArrayForHC = [];
+					var featureArrayForHC = [],
+							counterHelper = 0;
 					selectedFeatures.push({layer:layer,feature:feature});
 					for (var i = 0; i < selectedFeatures.length; i++) {
-						featureArrayForHC.push(selectedFeatures[i].feature)
+						sparqlHTTPConnection.getDataForFeature(selectedFeatures[i].feature, function (featureData){
+							counterHelper +=1;
+							featureArrayForHC.push(featureData);
+							if (counterHelper == selectedFeatures.length) {
+								changeHighcharts.setDiagram({
+									type: populationType,
+									administrativeLvl: feature.properties.administrativeLvl,
+									features: featureArrayForHC
+								})
+							}
+
+						});
 					}
-					// change the highCharts diagram
-					changeHighcharts.setDiagram({
-						type: populationType,
-						administrativeLvl: feature.properties.administrativeLvl,
-						features: featureArrayForHC
-					})
 				}
 				layer.setStyle(clickedStyle());
 			},
@@ -238,18 +244,19 @@ $( document ).ready(function() {
 			var layer = e.target;
 			// check through every checked layer
 			if (selectedFeatures.length === 0) {
-				channelStyle(layer,false);
+				channelStyle(layer,false,densityStyle);
 			}
 			else {
-				if (!comparingStatus) {
-					for (var i = 0; i < selectedFeatures.length; i++) {
-						// if the layer for 'mouseout event' is not in selectedFeatures Array reset the style to densitys
-						if (layer !== selectedFeatures[i].layer) {
-							channelStyle(layer,false);
-						}
+				var selectedFeatueHelper = false;
+				for (var i = 0; i < selectedFeatures.length; i++) {
+					// if the layer for 'mouseout event' is not in selectedFeatures Array reset the style to densitys
+					if (layer == selectedFeatures[i].layer) {
+						selectedFeatueHelper = true;
 					}
 				}
-
+				if (!selectedFeatueHelper) {
+					channelStyle(layer,false,densityStyle);
+				}
 			}
 
 			closeTooltip = window.setTimeout(function() {
@@ -313,13 +320,17 @@ function changeStyleForAllLayersAccordingToYear(featureGroups, newCategorie) {
 						}
 					}
 					if (!featureInSelectedFeatures) {
-						channelStyle(featureGroups[i]._layers[layer]._layers[featureId],newCategorie);
+						channelStyle(featureGroups[i]._layers[layer]._layers[featureId],newCategorie,densityStyle);
 					}
 				}
 			}
 		}
 	//}
 };
+
+function resetStyleAfterComparing() {
+
+}
 
 /**
  * function to create the slider control for the different years
@@ -398,7 +409,7 @@ function setStyleForNoSelectedFeatures() {
 
 	for (var i = 0; i < selectedFeatures.length; i++) {
 		// if the layer for 'mouseout event' is not in selectedFeatures Array reset the style to densitys
-		selectedFeatures[i].layer.setStyle(channelStyle(selectedFeatures[i].layer),false);
+		selectedFeatures[i].layer.setStyle(channelStyle(selectedFeatures[i].layer),false,densityStyle);
 	}
 };
 

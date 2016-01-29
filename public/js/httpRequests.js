@@ -179,8 +179,9 @@ var sparqlHTTPConnection = {
                                         output.population = {}
                                     }
                                     output.population[year] = parseInt(result[i].population.value);
-                                    callback(output);
                                 }
+
+                                callback(output);
                                 break;
                             case 'District':
                             case 'City':

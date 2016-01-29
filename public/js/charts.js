@@ -8,6 +8,7 @@ $( document ).ready(function() {
         * @param options {object} it should contain 'type' and 'features'
         * */
         setDiagram: function(options) {
+            console.log(options);
             var categories =[],
                 series = [];
             for (var i = 0; i < options.features.length; i++) {
