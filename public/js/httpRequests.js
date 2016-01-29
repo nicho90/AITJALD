@@ -194,8 +194,8 @@ var sparqlHTTPConnection = {
                                     else {
                                         output.population[year] += parseInt(result[i].population.value);
                                     }
-                                    callback(output);
                                 }
+                                callback(output);
                                 break;
                             default:
                                 break;
