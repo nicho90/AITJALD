@@ -27,6 +27,9 @@ var language = {
                 "district": "Districts",
                 "cityDistrict": "Citydistricts"
             },
+            "compareButton": {
+                "comparison": '<i class="fa fa-balance-scale"></i>&nbsp;&nbsp;Compare '
+            },
             "panel": {
                 "highCharts": {
                     "title": {
@@ -60,9 +63,6 @@ var language = {
         "license": {
             "content": '<h1>License</h1>' +
             '<p class="lead">...</p>'
-        },
-        "compareButton": {
-            "comparison": '<i class="fa fa-balance-scale"></i>&nbsp;&nbsp;Compare '
         }
     },
     "de": {
@@ -89,6 +89,9 @@ var language = {
                 "city": "Stadt",
                 "district": "Stadtbezirke",
                 "cityDistrict": "Stadtteile"
+            },
+            "compareButton": {
+                "comparison": '<i class="fa fa-balance-scale"></i>&nbsp;&nbsp;Vergleiche '
             },
             "panel": {
                 "highCharts": {
@@ -123,9 +126,6 @@ var language = {
         "license": {
             "content": '<h1>Lizenz</h1>' +
                     '<p class="lead">...</p>'
-        },
-        "compareButton": {
-            "comparison": '<i class="fa fa-balance-scale"></i>&nbsp;&nbsp;Vergleiche '
         }
     }
 };
