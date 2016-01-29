@@ -62,7 +62,7 @@ var language = {
             '<p class="lead">...</p>'
         },
         "compareButton": {
-            "comparison": '<i class="fa fa-balance-scale"></i>&nbsp;&nbsp;Compare Districts/Subdistricts'
+            "comparison": '<i class="fa fa-balance-scale"></i>&nbsp;&nbsp;Compare '
         }
     },
     "de": {
@@ -125,7 +125,7 @@ var language = {
                     '<p class="lead">...</p>'
         },
         "compareButton": {
-            "comparison": '<i class="fa fa-balance-scale"></i>&nbsp;&nbsp;Vergleiche Stadtteile/Bezirke'
+            "comparison": '<i class="fa fa-balance-scale"></i>&nbsp;&nbsp;Vergleiche '
         }
     }
 };

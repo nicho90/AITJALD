@@ -148,7 +148,6 @@ $( document ).ready(function() {
 						}
 						if (!featureInSelecetedGroupHelper) {
 							$('#chart').html('<br><center><i class="fa fa-spinner fa-pulse"></i></center>');
-							$('#area').html(feature.properties.name);
 							var featureArrayForHC = [],
 									counterHelper = 0;
 							selectedFeatures.push({layer:layer,feature:feature});
@@ -232,6 +231,8 @@ $( document ).ready(function() {
 		setButtonStyle('#level_2_button', 'btn-default', 'btn-primary');
 		setButtonStyle('#level_3_button', 'btn-primary', 'btn-default');
 		toggleCompareButton(true);
+		setDiv('compareButton','compareButton.comparison');
+		appendDiv('compareButton', 'map.layerButton.district');
 	});
 	$('#level_3_button').click(function () {
 		cityLayerGroup.clearLayers();
@@ -242,6 +243,8 @@ $( document ).ready(function() {
 		setButtonStyle('#level_2_button', 'btn-primary', 'btn-default');
 		setButtonStyle('#level_3_button', 'btn-default', 'btn-primary');
 		toggleCompareButton(true);
+		setDiv('compareButton','compareButton.comparison');
+		appendDiv('compareButton', 'map.layerButton.cityDistrict');
 	});
 
 	var closeTooltip;
