@@ -31,6 +31,8 @@ switch (getCookieObject().language) {
 }
 function connectToPopulationTypeDropdownToLoadData(callback) {
     $('#populationTypeDropdown').change(function() {
+        $('#yearSlider').empty();
+        $('#yearSlider').slider('destroy');
         callback(this.value)
     })
 

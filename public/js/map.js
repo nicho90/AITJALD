@@ -102,6 +102,9 @@ $( document ).ready(function() {
 		}
 	});
 
+	function getMap() {
+		return map;
+	}
 	// TODO: these variables have to dynamic. For testing now hardcoded
 	/*
 	 * Function to assign click function etc to the layer/feature
@@ -251,9 +254,12 @@ $( document ).ready(function() {
 
 	function mousemove(e) {
 		// react to the mouse movement only if the timeslider is not moving
+
 		if (!timeSliderMovement) {
+
 			var layer = e.target;
-			popup.setLatLng(e.latlng);
+			if(layer.feature.displayInformation[selectedYear] != undefined) {
+				popup.setLatLng(e.latlng);
 				if (layer.feature.displayInformation != undefined) {
 					var currentPopupInformation = parseInt(layer.feature.displayInformation[selectedYear].population / layer.feature.properties.area);
 					//console.log(density)
@@ -266,26 +272,28 @@ $( document ).ready(function() {
 				}
 
 
-			if (!popup._map) {
-				popup.openOn(map);
-			}
-			window.clearTimeout(closeTooltip);
+				if (!popup._map) {
+					popup.openOn(map);
+				}
+				window.clearTimeout(closeTooltip);
 
-			var featureIsInSelectedFeatures = false;
-			for (var i = 0; i < selectedFeatures.length; i++) {
-				if(selectedFeatures[i].layer == layer) {
-					featureIsInSelectedFeatures = true;
+				var featureIsInSelectedFeatures = false;
+				for (var i = 0; i < selectedFeatures.length; i++) {
+					if(selectedFeatures[i].layer == layer) {
+						featureIsInSelectedFeatures = true;
+					}
+				}
+				// highlight feature
+				if(!featureIsInSelectedFeatures) {
+					layer.setStyle({
+						weight: 1,
+						opacity: 1,
+						fillOpacity: 0.9
+					});
 				}
 			}
-			// highlight feature
-			if(!featureIsInSelectedFeatures) {
-				layer.setStyle({
-					weight: 1,
-					opacity: 1,
-					fillOpacity: 0.9
-				});
-			}
 		}
+
 	};
 
 	function mouseout(e) {
@@ -317,9 +325,11 @@ $( document ).ready(function() {
 	};
 
 	connectToPopulationTypeDropdownToLoadData(function(result) {
-		populationType = result;
+		//$( "#yearSlider").slider('destroy');
 		var featureGroups = [cityFeatureGroup,districtFeatureGroup,cityDistrictFeatureGroup];
+		populationType = result;
 		changeStyleForAllLayersAccordingToYear(featureGroups, true)
+		changeYearSliderControl(map,featureGroups);
 	});
 
 });
@@ -379,10 +389,6 @@ function changeStyleForAllLayersAccordingToYear(featureGroups, newCategorie) {
 	//}
 };
 
-function resetStyleAfterComparing() {
-
-}
-
 /**
  * function to create the slider control for the different years
  * @param map {Object} this is needed to enable and disable the dragging of the map
@@ -402,6 +408,10 @@ function createSliderControl(map,featureGroups) {
 		}
 	});
 	map.addControl(new MyControl());
+	changeYearSliderControl(map,featureGroups);
+
+};
+function changeYearSliderControl(map,featureGroups){
 	var options = {
 		type: 'distinctPopulation',
 		populationType: populationType
@@ -412,16 +422,17 @@ function createSliderControl(map,featureGroups) {
 		display: "json",
 		output: "json"
 	};
+	console.log(data.query);
 	var yearValueArray = [];
 	sparqlHTTPConnection.sparqlPOSTRequest(data, function (result) {
 		for (var i = 0; i < result.length; i++) {
 			yearValueArray.push(parseInt(result[i].year.value));
 		}
-		$( "#yearSlider" ).slider({
-			value: yearValueArray[yearValueArray.length-1],
+		console.log(yearValueArray);
+		$( "#yearSlider").slider({
 			min: yearValueArray[0],
 			max: yearValueArray[yearValueArray.length-1],
-			step: 1,
+			value: yearValueArray[yearValueArray.length-1],
 			slide: function(event,ui) {
 				selectedYear = ui.value.toString();
 				changeStyleForAllLayersAccordingToYear(featureGroups,false);
@@ -451,8 +462,23 @@ function createSliderControl(map,featureGroups) {
 				$("#yearSlider").append(el);
 			}
 		});
+		if (yearValueArray.length == 1) {
+			$('#yearSlider').css('width', '10px');
+			/*$('#yearSlider').css('position', 'relative')
+			$('.ui-slider-handle').css('position', 'absolute')
+			$('.ui-slider-handle').css('height', '1.2em')
+			$('.ui-slider-handle').css('width', '1.2em')*/
+		}
+		else {
+			$('#yearSlider').css('width', '300px');
+			/*$('#yearSlider').css('position', 'relative')
+			$('.ui-slider-handle').css('position', 'absolute')
+			$('.ui-slider-handle').css('height', '1.2em')
+			$('.ui-slider-handle').css('width', '1.2em')*/
+		}
+		//$('#yearSlider').slider('refresh')
 	});
-};
+}
 
 function setStyleForNoSelectedFeatures() {
 	// if a user clicks on the map and not on a feature, no feature should be visualized as visible

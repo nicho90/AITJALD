@@ -40,13 +40,17 @@ function channelStyle(layer,newCategorie,style) {
                             else {
                                 console.log('no data available')
                             }
-                            var population = layer.feature.displayInformation[selectedYear].population;
-                            layer.setStyle(style(population, layer.feature.properties.area));
+                            if (layer.feature.displayInformation[selectedYear] != undefined) {
+                                var population = layer.feature.displayInformation[selectedYear].population;
+                                layer.setStyle(style(population, layer.feature.properties.area));
+                            }
                         });
                     }
                     else {
-                        var population = layer.feature.displayInformation[selectedYear].population;
-                        layer.setStyle(style(population, layer.feature.properties.area));
+                        if (layer.feature.displayInformation[selectedYear] != undefined) {
+                            var population = layer.feature.displayInformation[selectedYear].population;
+                            layer.setStyle(style(population, layer.feature.properties.area));
+                        }
                     }
 
                     break;

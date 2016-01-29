@@ -98,32 +98,45 @@ var sparqlHTTPConnection = {
                 break;
             // get all possible year values from the database
             case 'distinctPopulation':
+                var populationTypeFilter = '';
                 switch (options.populationType) {
                     // get all possible year values from the database from the lodcom:hasMainPopulation relation
                     case 'main':
-                        queryString = 'PREFIX lodcom: <' + LODCOMPREFIX + '>' +
-                            'SELECT DISTINCT ?year ' +
-                            'WHERE {' +
-                            'GRAPH <http://course.introlinkeddata.org/G2> {' +
-                            '?feature lodcom:hasMainPopulation ?mainPopulation. ' +
-                            '?mainPopulation lodcom:year ?year.}}' +
-                            'ORDER BY ?year';
-                        return queryString;
+                        populationTypeFilter = "?feature lodcom:hasMainPopulation ?b.";
+                        break;
+                    case 'entitled':
+                        populationTypeFilter = "?feature lodcom:hasEntitledPopulation ?b.";
+                        break;
+                    case 'gender':
+                    case 'male':
+                    case 'female':
+                        populationTypeFilter = "?feature lodcom:hasGenderedPopulation ?b.";
                         break;
                     default:
-                        console.log('Population type error')
+                        console.log('Population type error');
+                        break;
                 }
-
+                queryString = 'PREFIX lodcom: <' + LODCOMPREFIX + '>' +
+                    'SELECT DISTINCT ?year ' +
+                    'WHERE {' +
+                    'GRAPH <http://course.introlinkeddata.org/G2> {' +
+                    populationTypeFilter +
+                    '?b lodcom:year ?year.}}' +
+                    'ORDER BY ?year';
+                return queryString;
                 break;
             case 'female':
             case 'male':
+            case 'gender':
                 var genderFilter = '';
                 if (options.type == 'female') {
+                    genderFilter = 'FILTER (?gender = "female").'
+                }
+                else if (options.type == 'male'){
                     genderFilter = 'FILTER (?gender = "male").'
                 }
                 else {
-
-                    genderFilter = 'FILTER (?gender = "female").'
+                    genderFilter = ''
                 }
                 switch (options.administrativeLvl) {
                     case 'CityDistrict':
