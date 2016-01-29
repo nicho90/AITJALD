@@ -2,8 +2,7 @@
  * Created by André on 24.01.2016.
  */
 
-var addStatus = false,
-    removeStatus = false;
+var addStatus = false;
 
 $('#germanLanguageSwitcher').click(function(){
     if (getCookieObject().language !== 'de') {
@@ -75,21 +74,19 @@ function toogleCompareAddRemoveBottons(status) {
         setButtonStyle('#compare_button', 'btn-default', 'btn-primary');
         $('#compare_add_button').show();
         $('#compare_remove_button').show();
+        setButtonStyle('#compare_add_button', 'btn-default', 'btn-success');
         addStatus = true;
-        removeStatus = false;
     } else {
         setButtonStyle('#compare_button', 'btn-primary', 'btn-default');
         $('#compare_add_button').hide();
         $('#compare_remove_button').hide();
         addStatus = false;
-        removeStatus = false;
     }
 };
 
 // HIGHLIGHT COMPARE-ADD-BUTTON
 $('#compare_add_button').click(function () {
     addStatus = true;
-    removeStatus = false;
     setButtonStyle('#compare_add_button', 'btn-default', 'btn-success');
     setButtonStyle('#compare_remove_button', 'btn-danger', 'btn-default');
 });
@@ -97,7 +94,6 @@ $('#compare_add_button').click(function () {
 // HIGHLIGHT COMPARE-REMOVE-BUTTON
 $('#compare_remove_button').click(function () {
     addStatus = false;
-    removeStatus = true;
     setButtonStyle('#compare_add_button', 'btn-success', 'btn-default');
     setButtonStyle('#compare_remove_button', 'btn-default', 'btn-danger');
 });

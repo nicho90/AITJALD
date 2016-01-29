@@ -117,12 +117,13 @@ $( document ).ready(function() {
 		layer.on({
 			click: function(){
 				layer.bringToFront();
-				$('#chart').html('<br><center><i class="fa fa-spinner fa-pulse"></i></center>');
-				$('#area').html(feature.properties.name);
 
 				// every other layer should be styled as default
 				// TODO: if comparing is active - more than one layer have do be styled 'clicked style'
 				if (!comparingStatus) {
+
+					$('#chart').html('<br><center><i class="fa fa-spinner fa-pulse"></i></center>');
+					$('#area').html(feature.properties.name);
 					sparqlHTTPConnection.getDataForFeature(feature, function (featureData){
 						changeHighcharts.setDiagram({
 							type: populationType,
@@ -138,22 +139,69 @@ $( document ).ready(function() {
 					selectedFeatures.push({layer:layer,feature:feature});
 				}
 				else {
-					var featureArrayForHC = [],
-							counterHelper = 0;
-					selectedFeatures.push({layer:layer,feature:feature});
-					for (var i = 0; i < selectedFeatures.length; i++) {
-						sparqlHTTPConnection.getDataForFeature(selectedFeatures[i].feature, function (featureData){
-							counterHelper +=1;
-							featureArrayForHC.push(featureData);
-							if (counterHelper == selectedFeatures.length) {
-								changeHighcharts.setDiagram({
-									type: populationType,
-									administrativeLvl: feature.properties.administrativeLvl,
-									features: featureArrayForHC
-								})
+					if (addStatus) {
+						var featureInSelecetedGroupHelper = false;
+						for (var i = 0; i < selectedFeatures.length; i++) {
+							if (layer == selectedFeatures[i].layer) {
+								featureInSelecetedGroupHelper = true;
 							}
+						}
+						if (!featureInSelecetedGroupHelper) {
+							$('#chart').html('<br><center><i class="fa fa-spinner fa-pulse"></i></center>');
+							$('#area').html(feature.properties.name);
+							var featureArrayForHC = [],
+									counterHelper = 0;
+							selectedFeatures.push({layer:layer,feature:feature});
+							for (var i = 0; i < selectedFeatures.length; i++) {
+								sparqlHTTPConnection.getDataForFeature(selectedFeatures[i].feature, function (featureData){
+									counterHelper +=1;
+									featureArrayForHC.push(featureData);
+									if (counterHelper == selectedFeatures.length) {
+										changeHighcharts.setDiagram({
+											type: populationType,
+											administrativeLvl: feature.properties.administrativeLvl,
+											features: featureArrayForHC
+										})
+									}
 
-						});
+								});
+							}
+						}
+
+					}
+					else {
+						var featureInSelecetedGroupHelper = false;
+						for (var i = 0; i < selectedFeatures.length; i++) {
+							if (layer == selectedFeatures[i].layer) {
+								featureInSelecetedGroupHelper = true;
+								console.log(i);
+								//delete selectedFeatures[i];
+								selectedFeatures.splice(i,1)
+							}
+						}
+						if (featureInSelecetedGroupHelper) {
+
+							$('#chart').html('<br><center><i class="fa fa-spinner fa-pulse"></i></center>');
+							$('#area').html(feature.properties.name);
+							console.log('true');
+							var featureArrayForHC = [],
+									counterHelper = 0;
+							for (var i = 0; i < selectedFeatures.length; i++) {
+								sparqlHTTPConnection.getDataForFeature(selectedFeatures[i].feature, function (featureData){
+									counterHelper +=1;
+									featureArrayForHC.push(featureData);
+									if (counterHelper == selectedFeatures.length) {
+										changeHighcharts.setDiagram({
+											type: populationType,
+											administrativeLvl: feature.properties.administrativeLvl,
+											features: featureArrayForHC
+										})
+									}
+
+								});
+							}
+						}
+
 					}
 				}
 				layer.setStyle(clickedStyle());
