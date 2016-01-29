@@ -63,6 +63,9 @@ var language = {
         "license": {
             "content": '<h1>License</h1>' +
             '<p class="lead">...</p>'
+        },
+        "genderal":{
+            "loadingInformation": "Loading information"
         }
     },
     "de": {
@@ -126,6 +129,9 @@ var language = {
         "license": {
             "content": '<h1>Lizenz</h1>' +
                     '<p class="lead">...</p>'
+        },
+        "genderal":{
+            "loadingInformation": "Lade Informationen"
         }
     }
 };

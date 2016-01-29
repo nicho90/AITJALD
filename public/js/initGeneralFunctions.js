@@ -71,7 +71,7 @@ function connectToPopulationTypeDropdownToLoadData(callback) {
                 $('.populationDropdown').parent().append(htmlString);
             });
         }
-        $('#yearSlider').empty().slider('destroy');
+        $('#yearSlider').empty().slider('destroy').html(language[getCookieObject().language].genderal.loadingInformation).css('width','150px');
         callback(this.value)
     })
 

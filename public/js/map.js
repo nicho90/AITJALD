@@ -427,7 +427,7 @@ function changeYearSliderControl(map,featureGroups){
 		for (var i = 0; i < result.length; i++) {
 			yearValueArray.push(parseInt(result[i].year.value));
 		}
-		console.log(yearValueArray);
+		$('#yearSlider').empty()
 		$( "#yearSlider").slider({
 			min: yearValueArray[0],
 			max: yearValueArray[yearValueArray.length-1],
