@@ -195,3 +195,17 @@ WHERE {
         ?mainPopulation lodcom:value ?population
   }
 }
+
+
+############### get every agegroup for the population ##########
+PREFIX lodcom: <http://vocab.lodcom.de/>
+
+SELECT DISTINCT ?agegroup
+WHERE {
+  GRAPH <http://course.introlinkeddata.org/G2> {
+        ?feature lodcom:hasGenderedPopulation ?pop.
+        ?pop lodcom:agegroup ?agegroup.
+
+  }
+}
+ORDER BY ?agegroup

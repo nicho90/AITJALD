@@ -97,34 +97,7 @@ var sparqlHTTPConnection = {
 
                 break;
             // get all possible year values from the database
-            case 'distinctPopulation':
-                var populationTypeFilter = '';
-                switch (options.populationType) {
-                    // get all possible year values from the database from the lodcom:hasMainPopulation relation
-                    case 'main':
-                        populationTypeFilter = "?feature lodcom:hasMainPopulation ?b.";
-                        break;
-                    case 'entitled':
-                        populationTypeFilter = "?feature lodcom:hasEntitledPopulation ?b.";
-                        break;
-                    case 'gender':
-                    case 'male':
-                    case 'female':
-                        populationTypeFilter = "?feature lodcom:hasGenderedPopulation ?b.";
-                        break;
-                    default:
-                        console.log('Population type error');
-                        break;
-                }
-                queryString = 'PREFIX lodcom: <' + LODCOMPREFIX + '>' +
-                    'SELECT DISTINCT ?year ' +
-                    'WHERE {' +
-                    'GRAPH <http://course.introlinkeddata.org/G2> {' +
-                    populationTypeFilter +
-                    '?b lodcom:year ?year.}}' +
-                    'ORDER BY ?year';
-                return queryString;
-                break;
+
             case 'female':
             case 'male':
             case 'gender':
@@ -160,6 +133,44 @@ var sparqlHTTPConnection = {
                         break;
                     default:
                 }
+                break;
+            case 'distinctPopulation':
+                var populationTypeFilter = '';
+                switch (options.populationType) {
+                    // get all possible year values from the database from the lodcom:hasMainPopulation relation
+                    case 'main':
+                        populationTypeFilter = "?feature lodcom:hasMainPopulation ?b.";
+                        break;
+                    case 'entitled':
+                        populationTypeFilter = "?feature lodcom:hasEntitledPopulation ?b.";
+                        break;
+                    case 'gender':
+                    case 'male':
+                    case 'female':
+                        populationTypeFilter = "?feature lodcom:hasGenderedPopulation ?b.";
+                        break;
+                    default:
+                        console.log('Population type error');
+                        break;
+                }
+                queryString = 'PREFIX lodcom: <' + LODCOMPREFIX + '>' +
+                    'SELECT DISTINCT ?year ' +
+                    'WHERE {' +
+                    'GRAPH <http://course.introlinkeddata.org/G2> {' +
+                    populationTypeFilter +
+                    '?b lodcom:year ?year.}}' +
+                    'ORDER BY ?year';
+                return queryString;
+                break;
+            case 'distinctAgeGroups':
+                queryString = 'PREFIX lodcom: <'+ LODCOMPREFIX + '>' +
+                    'SELECT DISTINCT ?agegroup ' +
+                    'WHERE {' +
+                        'GRAPH <http://course.introlinkeddata.org/G2> {' +
+                        '?feature lodcom:hasGenderedPopulation ?pop.' +
+                        '?pop lodcom:agegroup ?agegroup.}}' +
+                    'ORDER BY ?agegroup';
+                return queryString;
                 break;
             default:
                 console.log('Something went wrong. the definition of the type might be false')

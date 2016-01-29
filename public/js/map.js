@@ -422,7 +422,6 @@ function changeYearSliderControl(map,featureGroups){
 		display: "json",
 		output: "json"
 	};
-	console.log(data.query);
 	var yearValueArray = [];
 	sparqlHTTPConnection.sparqlPOSTRequest(data, function (result) {
 		for (var i = 0; i < result.length; i++) {

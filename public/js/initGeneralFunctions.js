@@ -31,8 +31,47 @@ switch (getCookieObject().language) {
 }
 function connectToPopulationTypeDropdownToLoadData(callback) {
     $('#populationTypeDropdown').change(function() {
-        $('#yearSlider').empty();
-        $('#yearSlider').slider('destroy');
+        $('#populationTypeDropdown').parent().nextAll().remove();
+        //$('#genderIcon').remove();
+        //$('#genderIcon').prev().remove();
+        if (this.value == 'male' || this.value == 'female' || this.value == 'gender') {
+            var htmlString ='';
+            switch (this.value) {
+                case 'male':
+                    htmlString += '</br><i class="fa fa-male" id="genderIcon"></i>&nbsp;&nbsp;';
+                    break;
+                case 'female':
+                    htmlString += '</br><i class="fa fa-female" id="genderIcon"></i>&nbsp;&nbsp;';
+                    break;
+                case 'gender':
+                    htmlString += '</br><i class="fa fa-binoculars" id="genderIcon"></i>&nbsp;&nbsp;';
+                    break;
+                default:
+                    break;
+            }
+            htmlString +=  '<div class="ageGroupDropdown" id="ageGroupDropdown">'+
+                '<select class="form-control" id="populationTypeDropdown">'+
+                '<option id="ageGroupDropdown0" value="all">all</option>';
+            var options = {
+                type: 'distinctAgeGroups'
+            };
+
+            var data = {
+                query: sparqlHTTPConnection.createSparqlQuery(options),
+                display: "json",
+                output: "json"
+            };
+            console.log(data.query);
+            sparqlHTTPConnection.sparqlPOSTRequest(data, function (result) {
+                for (var i = 0; i < result.length; i++) {
+                    var yearString = result[i].agegroup.value;
+                    htmlString += '<option id="ageGroupDropdown' + i+1 + '" value="' + yearString + '">' + yearString + '</option>';
+                }
+                htmlString += '</select></div>';
+                $('.populationDropdown').parent().append(htmlString);
+            });
+        }
+        $('#yearSlider').empty().slider('destroy');
         callback(this.value)
     })
 
