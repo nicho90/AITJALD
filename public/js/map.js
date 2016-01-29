@@ -1,6 +1,6 @@
 "use strict";
 var popup,
-	comparing = false,
+	comparingStatus = false,
 	//TODO: populationType is hardcoded. Should be dynamic
 	populationType = 'main',
 
@@ -8,11 +8,6 @@ var popup,
 	// this variable helps to identify if the slider is moving by the user
 	timeSliderMovement = false,
 	selectedFeatures = [];
-
-
-	var comparisonStatus = false;
-	var addStatus = false;
-	var removeStatus = false;
 
 // MAP
 $( document ).ready(function() {
@@ -34,7 +29,7 @@ $( document ).ready(function() {
 
 	//assigning map click function
 	map.on('click', function (e) {
-		if(!comparing) {
+		if(!comparingStatus) {
 			setStyleForNoSelectedFeatures();
 		}
 	});
@@ -127,7 +122,7 @@ $( document ).ready(function() {
 
 				// every other layer should be styled as default
 				// TODO: if comparing is active - more than one layer have do be styled 'clicked style'
-				if (!comparing) {
+				if (!comparingStatus) {
 					sparqlHTTPConnection.getDataForFeature(feature, function (featureData){
 						changeHighcharts.setDiagram({
 							type: populationType,
@@ -246,7 +241,7 @@ $( document ).ready(function() {
 				channelStyle(layer,false);
 			}
 			else {
-				if (!comparing) {
+				if (!comparingStatus) {
 					for (var i = 0; i < selectedFeatures.length; i++) {
 						// if the layer for 'mouseout event' is not in selectedFeatures Array reset the style to densitys
 						if (layer !== selectedFeatures[i].layer) {
@@ -409,61 +404,3 @@ function setStyleForNoSelectedFeatures() {
 
 
 
-// TOGGLE COMPARING-BUTTON-GROUP ON MAP BASED ON ADMIN-TYPE
-function toggleCompareButton(status){
-	if(status){
-		$('.compare-buttons').show();
-		toogleCompareAddRemoveBottons(false);
-	} else {
-		$('.compare-buttons').hide();
-		toogleCompareAddRemoveBottons(false);
-	}
-};
-
-$('#compare_button').click(function () {
-	if(comparisonStatus){
-		comparisonStatus = false;
-		toogleCompareAddRemoveBottons(comparisonStatus);
-	} else {
-		comparisonStatus = true;
-		toogleCompareAddRemoveBottons(comparisonStatus);
-	}
-});
-
-// TOGGLE ADD-REMOVE-BUTTONS BASED ON COMPARISON BUTTON
-function toogleCompareAddRemoveBottons(status) {
-	if(status) {
-		setButtonStyle('#compare_button', 'btn-default', 'btn-primary');
-		$('#compare_add_button').show();
-		$('#compare_remove_button').show();
-		addStatus = true;
-		removeStatus = false;
-	} else {
-		setButtonStyle('#compare_button', 'btn-primary', 'btn-default');
-		$('#compare_add_button').hide();
-		$('#compare_remove_button').hide();
-		addStatus = false;
-		removeStatus = false;
-	}
-};
-
-// HIGHLIGHT COMPARE-ADD-BUTTON
-$('#compare_add_button').click(function () {
-	addStatus = true;
-	removeStatus = false;
-	setButtonStyle('#compare_add_button', 'btn-default', 'btn-success');
-	setButtonStyle('#compare_remove_button', 'btn-danger', 'btn-default');
-});
-
-// HIGHLIGHT COMPARE-REMOVE-BUTTON
-$('#compare_remove_button').click(function () {
-	addStatus = false;
-	removeStatus = true;
-	setButtonStyle('#compare_add_button', 'btn-success', 'btn-default');
-	setButtonStyle('#compare_remove_button', 'btn-default', 'btn-danger');
-});
-
-// CHANGE BUTTON STYLE
-function setButtonStyle(buttonId, removeClass, addClass){
-	$(buttonId).removeClass(removeClass).addClass(addClass);
-};
