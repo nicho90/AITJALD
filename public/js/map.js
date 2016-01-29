@@ -460,6 +460,3 @@ function setStyleForNoSelectedFeatures() {
 		selectedFeatures[i].layer.setStyle(channelStyle(selectedFeatures[i].layer),false,densityStyle);
 	}
 };
-
-
-
