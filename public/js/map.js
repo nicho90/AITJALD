@@ -1,8 +1,10 @@
 "use strict";
 var popup,
 	comparingStatus = false,
-	//TODO: populationType is hardcoded. Should be dynamic
+	//TODO: populationType is hardcoded. Should be dynamic through a cookie (last selected population type)
 	populationType = 'main',
+	selectedAgeGroup = '',
+	selectedYear = '',
 
 	// when the timeslider is moved by the user the popups should not be shown
 	// this variable helps to identify if the slider is moving by the user
@@ -116,9 +118,10 @@ $( document ).ready(function() {
 		console.log("#######");*/
 
 		//layer.setStyle();
-		channelStyle(layer,true,densityStyle);
+		channelStyle(layer,true);
 		layer.on({
 			click: function(){
+				console.log(feature);
 				layer.bringToFront();
 
 				// every other layer should be styled as default
@@ -136,7 +139,7 @@ $( document ).ready(function() {
 					});
 
 					for (var i = 0; i < selectedFeatures.length; i++) {
-						channelStyle(selectedFeatures[i].layer,false,densityStyle)
+						channelStyle(selectedFeatures[i].layer,false)
 					}
 					selectedFeatures = [];
 					selectedFeatures.push({layer:layer,feature:feature});
@@ -234,7 +237,7 @@ $( document ).ready(function() {
 		setButtonStyle('#level_2_button', 'btn-default', 'btn-primary');
 		setButtonStyle('#level_3_button', 'btn-primary', 'btn-default');
 		toggleCompareButton(true);
-		setDiv('compareButton','compareButton.comparison');
+		setDiv('compareButton','map.compareButton.comparison');
 		appendDiv('compareButton', 'map.layerButton.district');
 	});
 	$('#level_3_button').click(function () {
@@ -246,7 +249,7 @@ $( document ).ready(function() {
 		setButtonStyle('#level_2_button', 'btn-primary', 'btn-default');
 		setButtonStyle('#level_3_button', 'btn-default', 'btn-primary');
 		toggleCompareButton(true);
-		setDiv('compareButton','compareButton.comparison');
+		setDiv('compareButton','map.compareButton.comparison');
 		appendDiv('compareButton', 'map.layerButton.cityDistrict');
 	});
 
@@ -261,10 +264,18 @@ $( document ).ready(function() {
 			if(layer.feature.displayInformation[selectedYear] != undefined) {
 				popup.setLatLng(e.latlng);
 				if (layer.feature.displayInformation != undefined) {
-					var currentPopupInformation = parseInt(layer.feature.displayInformation[selectedYear].population / layer.feature.properties.area);
-					//console.log(density)
-					popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
-							currentPopupInformation + ' ' + language[getCookieObject().language].map.legend.title.mainPopulation);
+					if (populationType == 'main' || populationType == 'entigled') {
+						var currentPopupInformation = parseInt(layer.feature.displayInformation[selectedYear].population / layer.feature.properties.area);
+						//console.log(density)
+						popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
+								currentPopupInformation + ' ' + language[getCookieObject().language].map.legend.title.mainPopulation);
+					}
+					else {
+						var currentPopupInformation = ((layer.feature.displayInformation[selectedYear][selectedAgeGroup].value / layer.feature.displayInformation[selectedYear].population)*100).toFixed(2);
+						//console.log(density)
+						popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
+								currentPopupInformation + ' ' + language[getCookieObject().language].map.legend.title.percentPopulation);
+					}
 				}
 				else {
 					popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
@@ -303,7 +314,7 @@ $( document ).ready(function() {
 			var layer = e.target;
 			// check through every checked layer
 			if (selectedFeatures.length === 0) {
-				channelStyle(layer,false,densityStyle);
+				channelStyle(layer,false);
 			}
 			else {
 				var selectedFeatueHelper = false;
@@ -314,7 +325,7 @@ $( document ).ready(function() {
 					}
 				}
 				if (!selectedFeatueHelper) {
-					channelStyle(layer,false,densityStyle);
+					channelStyle(layer,false);
 				}
 			}
 
@@ -328,15 +339,15 @@ $( document ).ready(function() {
 		//$( "#yearSlider").slider('destroy');
 		var featureGroups = [cityFeatureGroup,districtFeatureGroup,cityDistrictFeatureGroup];
 		populationType = result;
-		changeStyleForAllLayersAccordingToYear(featureGroups, true)
+		changeStyleForAllLayersAccordingToYear(featureGroups, true);
 		changeYearSliderControl(map,featureGroups);
+		if (result == 'male' || result == 'female' || result == 'gender') {
+			connectAgeDropdownToMap(map);
+		}
+		changeLegend();
 	});
 
 });
-
-
-// TODO: At the moment hardcoded - there could be a slider for the different years
-var selectedYear = "2014";
 
 
 /**
@@ -344,20 +355,42 @@ var selectedYear = "2014";
  * @returns {string} html string for the legend div on the map
  */
 function getLegendHTML() {
-	var grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-		labels = [],
-		from, to;
+	if (populationType == 'main' || populationType == 'entitled') {
+		var grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+				labels = [],
+				from, to;
 
-	for (var i = 0; i < grades.length; i++) {
-		from = grades[i];
-		to = grades[i + 1];
+		for (var i = 0; i < grades.length; i++) {
+			from = grades[i];
+			to = grades[i + 1];
 
-		labels.push(
-			'<li><span class="swatch" style="background:' + getColor(from + 1) + '"></span> ' +
-			from + (to ? '&ndash;' + to : '+')) + '</li>';
+			labels.push(
+					'<li><span class="swatch" style="background:' + getDensitiyColor(from + 1) + '"></span> ' +
+					from + (to ? '&ndash;' + to : '+')) + '</li>';
+		}
+
+		return '<span>' + language[getCookieObject().language].map.legend.title.mainPopulation + '</span><ul>' + labels.join('') + '</ul>';
 	}
+	else {
+		var grades = [0, 5, 10, 15, 20, 25, 50, 75],
+				labels = [],
+				from, to;
 
-	return '<span>' + language[getCookieObject().language].map.legend.title.mainPopulation + '</span><ul>' + labels.join('') + '</ul>';
+		for (var i = 0; i < grades.length; i++) {
+			from = grades[i];
+			to = grades[i + 1];
+
+			labels.push(
+					'<li><span class="swatch" style="background:' + getPercentColor(from + 1) + '"></span> ' +
+					from + (to ? '&ndash;' + to : '+')) + '</li>';
+		}
+
+		return '<span>' + language[getCookieObject().language].map.legend.title.percentPopulation + '</span><ul>' + labels.join('') + '</ul>';
+	}
+}
+function changeLegend(){
+	$('.map-legend').empty();
+	$('.map-legend').html(getLegendHTML());
 }
 
 /*
@@ -381,7 +414,7 @@ function changeStyleForAllLayersAccordingToYear(featureGroups, newCategorie) {
 						}
 					}
 					if (!featureInSelectedFeatures) {
-						channelStyle(featureGroups[i]._layers[layer]._layers[featureId],newCategorie,densityStyle);
+						channelStyle(featureGroups[i]._layers[layer]._layers[featureId],newCategorie);
 					}
 				}
 			}
@@ -475,6 +508,7 @@ function changeYearSliderControl(map,featureGroups){
 			$('.ui-slider-handle').css('height', '1.2em')
 			$('.ui-slider-handle').css('width', '1.2em')*/
 		}
+		selectedYear = yearValueArray[yearValueArray.length-1];
 		//$('#yearSlider').slider('refresh')
 	});
 }
@@ -485,6 +519,6 @@ function setStyleForNoSelectedFeatures() {
 
 	for (var i = 0; i < selectedFeatures.length; i++) {
 		// if the layer for 'mouseout event' is not in selectedFeatures Array reset the style to densitys
-		selectedFeatures[i].layer.setStyle(channelStyle(selectedFeatures[i].layer),false,densityStyle);
+		selectedFeatures[i].layer.setStyle(channelStyle(selectedFeatures[i].layer),false);
 	}
 };

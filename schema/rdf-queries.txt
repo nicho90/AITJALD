@@ -131,20 +131,24 @@ WHERE {
 
 
 ######## male poulation query #############
-PREFIX lodcom: <http://vocab.lodcom.de/>
-
-SELECT ?feature ?year ?value ?gender ?ageGroup
+PREFIX lodcom:<http://vocab.lodcom.de/>
+SELECT ?feature ?year ?value ?agegroup ?entValue
 WHERE {
-  GRAPH <http://course.introlinkeddata.org/G2> {
-        FILTER (?feature = lodcom:uppenberg).
+    GRAPH <http://course.introlinkeddata.org/G2> {
+        FILTER(?feature = lodcom:aegidii).
         ?feature lodcom:hasGenderedPopulation ?genderedPopulation.
+        ?feature lodcom:hasEntitledPopulation ?entitledPopulation.
+        ?entitledPopulation lodcom:year ?entYear.
+        ?entitledPopulation lodcom:value ?entValue.
         ?genderedPopulation lodcom:year ?year.
         ?genderedPopulation lodcom:value ?value.
         ?genderedPopulation lodcom:gender ?gender.
+        ?genderedPopulation lodcom:agegroup ?agegroup.
+        FILTER (?entYear = ?year).
         FILTER (?gender = "male").
-        ?genderedPopulation lodcom:agegroup ?ageGroup.
-  }
+    }
 }
+ORDER BY ?year
 
 
 
@@ -209,3 +213,28 @@ WHERE {
   }
 }
 ORDER BY ?agegroup
+
+
+############## get agegoup population for district #########
+
+
+PREFIX lodcom:<http://vocab.lodcom.de/>
+PREFIX gn:<http://www.geonames.org/ontology#>
+SELECT ?parentFeature ?year ?value ?agegroup ?entitledPopulationValue
+WHERE {
+    GRAPH <http://course.introlinkeddata.org/G2> {
+        ?feature gn:parentFeature ?parentFeature.
+        FILTER(?parentFeature = lodcom:mitte).
+        ?feature lodcom:hasGenderedPopulation ?genderedPopulation.
+        ?feature lodcom:hasEntitledPopulation ?entitledPopulation.
+        ?entitledPopulation lodcom:year ?entYear.
+        ?entitledPopulation lodcom:value ?entitledPopulationValue.
+        ?genderedPopulation lodcom:year ?year.
+        ?genderedPopulation lodcom:value ?value.
+        ?genderedPopulation lodcom:gender ?gender.
+        ?genderedPopulation lodcom:agegroup ?agegroup.
+        FILTER (?gender = "male").
+        FILTER (?entYear = ?year).
+    }
+}
+ORDER BY ?year

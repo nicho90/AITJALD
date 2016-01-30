@@ -32,11 +32,10 @@ switch (getCookieObject().language) {
 function connectToPopulationTypeDropdownToLoadData(callback) {
     $('#populationTypeDropdown').change(function() {
         $('#populationTypeDropdown').parent().nextAll().remove();
-        //$('#genderIcon').remove();
-        //$('#genderIcon').prev().remove();
-        if (this.value == 'male' || this.value == 'female' || this.value == 'gender') {
+        var newPopulationType = this.value;
+        if (newPopulationType == 'male' || newPopulationType == 'female' || newPopulationType == 'gender') {
             var htmlString ='';
-            switch (this.value) {
+            switch (newPopulationType) {
                 case 'male':
                     htmlString += '</br><i class="fa fa-male" id="genderIcon"></i>&nbsp;&nbsp;';
                     break;
@@ -49,19 +48,19 @@ function connectToPopulationTypeDropdownToLoadData(callback) {
                 default:
                     break;
             }
-            htmlString +=  '<div class="ageGroupDropdown" id="ageGroupDropdown">'+
-                '<select class="form-control" id="populationTypeDropdown">'+
-                '<option id="ageGroupDropdown0" value="all">all</option>';
+            htmlString += '<div class="ageGroupDropdown">' + language[getCookieObject().language].map.panel.highCharts.title.agePopulation.description +'&nbsp;&nbsp;</div>';
+            htmlString +=  '<div class="ageGroupDropdown">'+
+                '<select class="form-control" id="ageGroupDropdown">'+
+                '<option id="ageGroupDropdown0" value="all">' + language[getCookieObject().language].map.panel.highCharts.title.agePopulation.all + '</option>';
+            selectedAgeGroup = 'all';
             var options = {
                 type: 'distinctAgeGroups'
             };
-
             var data = {
                 query: sparqlHTTPConnection.createSparqlQuery(options),
                 display: "json",
                 output: "json"
             };
-            console.log(data.query);
             sparqlHTTPConnection.sparqlPOSTRequest(data, function (result) {
                 for (var i = 0; i < result.length; i++) {
                     var yearString = result[i].agegroup.value;
@@ -69,12 +68,22 @@ function connectToPopulationTypeDropdownToLoadData(callback) {
                 }
                 htmlString += '</select></div>';
                 $('.populationDropdown').parent().append(htmlString);
+                callback(newPopulationType);
+                $('#yearSlider').empty().slider('destroy').html(language[getCookieObject().language].genderal.loadingInformation).css('width','150px');
             });
         }
-        $('#yearSlider').empty().slider('destroy').html(language[getCookieObject().language].genderal.loadingInformation).css('width','150px');
-        callback(this.value)
+        else {
+            callback(newPopulationType);
+            $('#yearSlider').empty().slider('destroy').html(language[getCookieObject().language].genderal.loadingInformation).css('width','150px');
+        }
     })
 
+}
+
+function connectAgeDropdownToMap(map) {
+    $('#ageGroupDropdown').change(function(){
+        selectedAgeGroup = this.value;
+    })
 }
 
 // TOGGLE COMPARING-BUTTON-GROUP ON MAP BASED ON ADMIN-TYPE

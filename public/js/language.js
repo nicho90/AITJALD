@@ -37,7 +37,9 @@ var language = {
                         "agePopulation": {
                             "female": "Female population by age",
                             "male": "Male population by age",
-                            "both": "Population by age"
+                            "both": "Population by age",
+                            "all": "All",
+                            "description": "Age group"
                         },
                         "entitledPopulation": "Population entitled to live in Münster",
                     },
@@ -52,7 +54,8 @@ var language = {
             },
             "legend": {
                 "title": {
-                    "mainPopulation": "People per squarekilometre"
+                    "mainPopulation": "People per squarekilometre",
+                    "percentPopulation": "Percent of the population"
                 }
             }
         },
@@ -103,7 +106,9 @@ var language = {
                         "agePopulation": {
                             "female": "Weibliche Bevölkerung nach Alter",
                             "male": "Männliche Bevölkerung nach Alter",
-                            "both": "Bevölkerung nach Alter"
+                            "both": "Bevölkerung nach Alter",
+                            "all": "Alle",
+                            "description": "Altersgruppe"
                         },
                         "entitledPopulation": "Wohnberechtigte Bevölkerung"
                     },
@@ -118,7 +123,8 @@ var language = {
             },
             "legend": {
                 "title": {
-                    "mainPopulation": "Einwohner pro Quadratkilometer"
+                    "mainPopulation": "Einwohner pro Quadratkilometer",
+                    "percentPopulation": "Prozent der gesamt Einwohner"
                 }
             }
         },

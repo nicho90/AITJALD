@@ -111,25 +111,65 @@ var sparqlHTTPConnection = {
                 else {
                     genderFilter = ''
                 }
-                switch (options.administrativeLvl) {
+                switch (options.feature.properties.administrativeLvl) {
                     case 'CityDistrict':
                         queryString = "PREFIX lodcom:<" + LODCOMPREFIX + "> " +
-                            "SELECT ?feature ?year ?value " +
+                            "SELECT ?feature ?year ?value ?agegroup ?entitledPopulationValue " +
                             "WHERE { GRAPH <http://course.introlinkeddata.org/G2> {" +
                             "FILTER(?feature = lodcom:" + options.feature.properties.lodcomName + ")." +
                             "?feature lodcom:hasGenderedPopulation ?genderedPopulation." +
+                            "?feature lodcom:hasEntitledPopulation ?entitledPopulation."+
+                            "?entitledPopulation lodcom:year ?entYear." +
+                            "?entitledPopulation lodcom:value ?entitledPopulationValue." +
                             "?genderedPopulation lodcom:year ?year." +
                             "?genderedPopulation lodcom:value ?value." +
-                            "?genderedPopulation lodcom:gender ?gender."+
+                            "?genderedPopulation lodcom:gender ?gender." +
+                            "?genderedPopulation lodcom:agegroup ?agegroup." +
                             genderFilter +
-                            "?b lodcom:year ?year. " +
-                            "?b lodcom:value ?value}}" +
-                            "ORDER BY ?year";
+                            "FILTER (?entYear = ?year)." +
+                            "}}ORDER BY ?year";
                         return queryString;
                         break;
                     case 'District':
+                        queryString = "PREFIX lodcom:<" + LODCOMPREFIX + "> " +
+                            'PREFIX gn:<' + GNPREFIX + '>' +
+                            "SELECT ?feature ?year ?value ?agegroup ?entitledPopulationValue " +
+                            "WHERE { GRAPH <http://course.introlinkeddata.org/G2> {" +
+                            "?feature gn:parentFeature ?parentFeature." +
+                            "FILTER(?parentFeature = lodcom:" + options.feature.properties.lodcomName + ")." +
+                            "?feature lodcom:hasGenderedPopulation ?genderedPopulation." +
+                            "?feature lodcom:hasEntitledPopulation ?entitledPopulation."+
+                            "?entitledPopulation lodcom:year ?entYear." +
+                            "?entitledPopulation lodcom:value ?entitledPopulationValue." +
+                            "?genderedPopulation lodcom:year ?year." +
+                            "?genderedPopulation lodcom:value ?value." +
+                            "?genderedPopulation lodcom:gender ?gender." +
+                            "?genderedPopulation lodcom:agegroup ?agegroup." +
+                            genderFilter +
+                            "FILTER (?entYear = ?year)." +
+                            "}}ORDER BY ?year";
+                        return queryString;
                         break;
                     case 'City':
+                        queryString = "PREFIX lodcom:<" + LODCOMPREFIX + "> " +
+                            'PREFIX gn:<' + GNPREFIX + '>' +
+                            "SELECT ?feature ?year ?value ?agegroup ?entitledPopulationValue " +
+                            "WHERE { GRAPH <http://course.introlinkeddata.org/G2> {" +
+                            "?parentFeature gn:parentFeature ?parent2Feature." +
+                            "?feature gn:parentFeature ?parentFeature." +
+                            "FILTER(?parent2Feature = lodcom:" + options.feature.properties.lodcomName + ")." +
+                            "?feature lodcom:hasGenderedPopulation ?genderedPopulation." +
+                            "?feature lodcom:hasEntitledPopulation ?entitledPopulation."+
+                            "?entitledPopulation lodcom:year ?entYear." +
+                            "?entitledPopulation lodcom:value ?entitledPopulationValue." +
+                            "?genderedPopulation lodcom:year ?year." +
+                            "?genderedPopulation lodcom:value ?value." +
+                            "?genderedPopulation lodcom:gender ?gender." +
+                            "?genderedPopulation lodcom:agegroup ?agegroup." +
+                            genderFilter +
+                            "FILTER (?entYear = ?year)." +
+                            "}}ORDER BY ?year";
+                        return queryString;
                         break;
                     default:
                 }
