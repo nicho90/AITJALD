@@ -44,9 +44,27 @@
                 <li class="active"><a href="about.html"><div id="aboutText"><i class="fa fa-question-circle"></i>&nbsp;&nbsp;<script>appendDiv('aboutText','navbar.about')</script></div></a></li>
                 <li><a href="license.html"><div id="licenseText"><i class="fa fa-key"></i>&nbsp;&nbsp;<script>appendDiv('licenseText','navbar.license')</script></div></a></li>
             </ul>
-            <div class="navbar-flags">
+            <!--NAVBAR RIGHT -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><div id="languageText"><i class="fa fa-cogs"></i>&nbsp;&nbsp;<script>appendDiv('languageText','navbar.language.title')</script></div></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#" id="englishLanguageSwitcher">
+                                <div id="englishText"><span class="emoji">&#x1F1FA;&#x1F1F8;</span>&nbsp;&nbsp;</div><script>appendDiv('englishText','navbar.language.english')</script>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" id="germanLanguageSwitcher">
+                                <div id="germanText"><span class="emoji">&#x1F1E9;&#x1F1EA;</span>&nbsp;&nbsp;</div><script>appendDiv('germanText','navbar.language.german')</script>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!--<div class="navbar-flags">
                 <h2><span id="germanLanguageSwitcher" class="flag-icon flag-icon-de"></span>&nbsp;<span id="englishLanguageSwitcher" class="flag-icon flag-icon-gb"></span></h2>
-            </div>
+            </div>-->
         </div>
     </div>
 </nav>

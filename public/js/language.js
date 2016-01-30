@@ -9,7 +9,7 @@ var language = {
         "navbar": {
             "home": "Home",
             "map": "Map",
-            "about": "About",
+            "about": "About us",
             "license": "License",
             "language": {
                 "title": 'Change language &nbsp;<span class="caret"></span>',
@@ -57,7 +57,7 @@ var language = {
             }
         },
         "about": {
-            "content": '<h1>About</h1>' +
+            "content": '<h1>About us</h1>' +
                     '<p class="lead">...</p>'
         },
         "license": {
@@ -75,7 +75,7 @@ var language = {
         "navbar": {
             "home": "Start",
             "map": "Karte",
-            "about": "Über",
+            "about": "Über uns",
             "license": "Lizenz",
             "language": {
                 "title": 'Sprache ändern &nbsp;<span class="caret"></span>',
@@ -123,7 +123,7 @@ var language = {
             }
         },
         "about": {
-            "content": '<h1>Über</h1>' +
+            "content": '<h1>Über uns</h1>' +
                     '<p class="lead">...</p>'
         },
         "license": {
