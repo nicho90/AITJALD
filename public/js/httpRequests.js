@@ -114,7 +114,7 @@ var sparqlHTTPConnection = {
                 switch (options.feature.properties.administrativeLvl) {
                     case 'CityDistrict':
                         queryString = "PREFIX lodcom:<" + LODCOMPREFIX + "> " +
-                            "SELECT ?feature ?year ?value ?agegroup ?entitledPopulationValue " +
+                            "SELECT ?feature ?year ?gender ?value ?agegroup ?entitledPopulationValue " +
                             "WHERE { GRAPH <http://course.introlinkeddata.org/G2> {" +
                             "FILTER(?feature = lodcom:" + options.feature.properties.lodcomName + ")." +
                             "?feature lodcom:hasGenderedPopulation ?genderedPopulation." +
@@ -127,13 +127,13 @@ var sparqlHTTPConnection = {
                             "?genderedPopulation lodcom:agegroup ?agegroup." +
                             genderFilter +
                             "FILTER (?entYear = ?year)." +
-                            "}}ORDER BY ?year";
+                            "}}ORDER BY ?year ?agegroup";
                         return queryString;
                         break;
                     case 'District':
                         queryString = "PREFIX lodcom:<" + LODCOMPREFIX + "> " +
                             'PREFIX gn:<' + GNPREFIX + '>' +
-                            "SELECT ?feature ?year ?value ?agegroup ?entitledPopulationValue " +
+                            "SELECT ?feature ?year ?gender ?value ?agegroup ?entitledPopulationValue " +
                             "WHERE { GRAPH <http://course.introlinkeddata.org/G2> {" +
                             "?feature gn:parentFeature ?parentFeature." +
                             "FILTER(?parentFeature = lodcom:" + options.feature.properties.lodcomName + ")." +
@@ -147,13 +147,13 @@ var sparqlHTTPConnection = {
                             "?genderedPopulation lodcom:agegroup ?agegroup." +
                             genderFilter +
                             "FILTER (?entYear = ?year)." +
-                            "}}ORDER BY ?year";
+                            "}}ORDER BY ?year ?agegroup";
                         return queryString;
                         break;
                     case 'City':
                         queryString = "PREFIX lodcom:<" + LODCOMPREFIX + "> " +
                             'PREFIX gn:<' + GNPREFIX + '>' +
-                            "SELECT ?feature ?year ?value ?agegroup ?entitledPopulationValue " +
+                            "SELECT ?feature ?year ?gender ?value ?agegroup ?entitledPopulationValue " +
                             "WHERE { GRAPH <http://course.introlinkeddata.org/G2> {" +
                             "?parentFeature gn:parentFeature ?parent2Feature." +
                             "?feature gn:parentFeature ?parentFeature." +
@@ -168,7 +168,7 @@ var sparqlHTTPConnection = {
                             "?genderedPopulation lodcom:agegroup ?agegroup." +
                             genderFilter +
                             "FILTER (?entYear = ?year)." +
-                            "}}ORDER BY ?year";
+                            "}}ORDER BY ?year ?agegroup";
                         return queryString;
                         break;
                     default:
@@ -267,8 +267,94 @@ var sparqlHTTPConnection = {
                         break;
                     case 'male':
                     case 'female':
+                        switch (feature.properties.administrativeLvl) {
+                            case 'CityDistrict':
+                                console.log(result);
+                                for (var i = 0; i < result.length; i++) {
+                                    if(output.population === undefined) {
+                                        output.population = {}
+                                    }
+                                    if (output.population[result[i].year.value] == undefined) {
+                                        output.population[result[i].year.value] = {};
+                                    }
+                                    output.population[result[i].year.value][result[i].agegroup.value] = parseInt(result[i].value.value);
+                                }
+                                callback(output);
+                                /*for (var i = 0; i < result.length; i++) {
+                                    var year = result[i].year.value;
+                                    if(output.population === undefined) {
+                                        output.population = {}
+                                    }
+                                    output.population[year] = parseInt(result[i].population.value);
+                                }
+
+                                callback(output);*/
+                                break;
+                            case 'District':
+                            case 'City':
+                                output.population = {};
+                                for (var i = 0; i < result.length; i++) {
+                                    var year = result[i].year.value;
+                                    if (output.population[year] === undefined) {
+                                        output.population[year] = parseInt(result[i].population.value);
+                                    }
+                                    else {
+                                        output.population[year] += parseInt(result[i].population.value);
+                                    }
+                                }
+                                callback(output);
+                                break;
+                            default:
+                                break;
+                        }
                         break;
                     case 'gender':
+                        switch (feature.properties.administrativeLvl) {
+                            case 'CityDistrict':
+                                for (var i = 0; i < result.length; i++) {
+                                    if(output.population === undefined) {
+                                        output.population = {}
+                                    }
+                                    if (output.population[result[i].gender.value] == undefined) {
+                                        output.population[result[i].gender.value] = []
+                                    }
+                                    if (output.population[result[i].gender.value][result[i].year.value] == undefined) {
+                                        output.population[result[i].gender.value][result[i].year.value] = {};
+                                    }
+                                    if (output.population[result[i].gender.value][result[i].year.value][result[i].agegroup.value] == undefined) {
+                                        output.population[result[i].gender.value][result[i].year.value][result[i].agegroup.value] = 0;
+                                    }
+                                    output.population[result[i].gender.value][result[i].year.value][result[i].agegroup.value] += parseInt(result[i].value.value);
+                                }
+                                console.log(output);
+                                callback(output);
+                                break;
+                            case 'District':
+                            case 'City':
+                                console.log(result);
+                                var tmpTest = 0;
+                                for (var i = 0; i < result.length; i++) {
+                                    if(output.population === undefined) {
+                                        output.population = {}
+                                    }
+                                    if (output.population[result[i].gender.value] == undefined) {
+                                        output.population[result[i].gender.value] = []
+                                    }
+                                    if (output.population[result[i].gender.value][result[i].year.value] == undefined) {
+                                        output.population[result[i].gender.value][result[i].year.value] = {};
+                                    }
+                                    if (output.population[result[i].gender.value][result[i].year.value][result[i].agegroup.value] == undefined) {
+                                        output.population[result[i].gender.value][result[i].year.value][result[i].agegroup.value] = 0;
+                                    }
+                                    output.population[result[i].gender.value][result[i].year.value][result[i].agegroup.value] += parseInt(result[i].value.value);
+                                    tmpTest += parseInt(result[i].value.value);
+                                }
+                                console.log(output);
+                                callback(output);
+                                break;
+                            default:
+                                break;
+                        }
                         break;
                     default:
                 }

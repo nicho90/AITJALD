@@ -121,7 +121,6 @@ $( document ).ready(function() {
 		channelStyle(layer,true);
 		layer.on({
 			click: function(){
-				console.log(feature);
 				layer.bringToFront();
 
 				// every other layer should be styled as default
