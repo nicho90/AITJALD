@@ -339,10 +339,10 @@ $( document ).ready(function() {
 		//$( "#yearSlider").slider('destroy');
 		var featureGroups = [cityFeatureGroup,districtFeatureGroup,cityDistrictFeatureGroup];
 		populationType = result;
-		changeStyleForAllLayersAccordingToYear(featureGroups, true);
+		changeStyleForAllLayers(featureGroups, true);
 		changeYearSliderControl(map,featureGroups);
 		if (result == 'male' || result == 'female' || result == 'gender') {
-			connectAgeDropdownToMap(map);
+			connectAgeDropdownToMap(featureGroups);
 		}
 		changeLegend();
 	});
@@ -397,7 +397,7 @@ function changeLegend(){
 * function to change the style of every layer in the map corresponding to the selected year on the slider
 * @param featureGroups {Array} contains all feature group layers of the map, which style have to be changed
 * */
-function changeStyleForAllLayersAccordingToYear(featureGroups, newCategorie) {
+function changeStyleForAllLayers(featureGroups, newCategorie) {
 	//if (!timeSliderMovement) {
 		// iterate through each layer group
 		for (var i = 0; i < featureGroups.length; i++) {
@@ -467,7 +467,7 @@ function changeYearSliderControl(map,featureGroups){
 			value: yearValueArray[yearValueArray.length-1],
 			slide: function(event,ui) {
 				selectedYear = ui.value.toString();
-				changeStyleForAllLayersAccordingToYear(featureGroups,false);
+				changeStyleForAllLayers(featureGroups,false);
 			},
 			// disable the dragging function of map. Otherwise the map would be dragged together with the slider
 			start: function() {

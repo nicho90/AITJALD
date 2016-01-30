@@ -80,9 +80,10 @@ function connectToPopulationTypeDropdownToLoadData(callback) {
 
 }
 
-function connectAgeDropdownToMap(map) {
+function connectAgeDropdownToMap(featureGroups) {
     $('#ageGroupDropdown').change(function(){
         selectedAgeGroup = this.value;
+        changeStyleForAllLayers(featureGroups,false)
     })
 }
 
