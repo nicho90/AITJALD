@@ -757,7 +757,6 @@ lodcom:martini			    dc:description          "martini is a subdistrict of altsta
 							lodcom:year       	2014;
 							lodcom:agegroup 	"70-79";
 							lodcom:gender 		"male";
-							lodcom:value		280;
 							lodcom:value		34;
 							];
 							lodcom:hasGenderedPopulation 	[
