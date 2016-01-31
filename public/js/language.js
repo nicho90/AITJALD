@@ -18,8 +18,11 @@ var language = {
             },
         },
         "index": {
-            "content" :'<h1>Introduction into JavaScript and Linked data.</h1>' +
-            '<p class="lead">The purpose of this web application is to visualize open data of the city of Münster.</p>'
+            "heading" :'<h1>Introduction into JavaScript and Linked data</h1>',
+            "sub-heading_1": '<h3>- Institute for Geoinformatics -</h3>',
+            "sub-heading_2": '<h4>Muenster</h4>',
+            "sub-heading_3": '<h5>Winter term 2015\/16</h5>',
+            "content": '<br><p class="lead">The purpose of this web application is to visualize open data of the city of Münster.</p>'
         },
         "map": {
             "layerButton": {
@@ -60,12 +63,15 @@ var language = {
             }
         },
         "about": {
-            "content": '<h1>About us</h1>' +
-                    '<p class="lead">...</p>'
+            "heading": '<h1>About us</h1>'
+
         },
         "license": {
-            "content": '<h1>License</h1>' +
-            '<p class="lead">...</p>'
+            "heading": '<h1>Licenses</h1>',
+            'software': '<h3>1. Software</h3>',
+            'data': '<h3>2. Open Data</h3>',
+            'mit': '<b>The MIT License (MIT)</b><br><br> Copyright (c) 2016 André Wieghardt, Nicholas Schiestel, Guiying Du, Pawan Thapa' + '<p> Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>' + '<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>' + '<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>',
+            'opendata': '<b>n/a</b><br><br>'
         },
         "genderal":{
             "loadingInformation": "Loading information"
@@ -87,8 +93,11 @@ var language = {
             },
         },
         "index": {
-            "content" :'<h1>Einführung in JavaScrupt und Linked Data.</h1>' +
-            '<p class="lead">Das Ziel dieser Web Appliaction ist es Open Data aus Münster zu visualisieren.</p>'
+            "heading" :'<h1>Einführung in JavaScript und Linked Data</h1>',
+            "sub-heading_1": '<h3>- Institute for Geoinformatik -</h3>',
+            "sub-heading_2": '<h4>Münster</h4>',
+            "sub-heading_3": '<h5>Wintersemester 2015\/16</h5>',
+            "content": '<br><p class="lead">Das Ziel dieser Web Appliaction ist es Open Data aus Münster zu visualisieren.</p>'
         },
         "map": {
             "layerButton": {
@@ -129,12 +138,14 @@ var language = {
             }
         },
         "about": {
-            "content": '<h1>Über uns</h1>' +
-                    '<p class="lead">...</p>'
+            "heading": '<h1>Über uns</h1>'
         },
         "license": {
-            "content": '<h1>Lizenz</h1>' +
-                    '<p class="lead">...</p>'
+            "heading": '<h1>Lizenzen</h1>',
+            'software': '<h3>1. Software</h3>',
+            'data': '<h3>2. Open Data</h3>',
+            'mit': '<b>The MIT License (MIT)</b><br><br> Copyright (c) 2016 André Wieghardt, Nicholas Schiestel, Guiying Du, Pawan Thapa' + '<p> Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>' + '<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>' + '<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>',
+            'opendata': '<b>n/a</b><br><br>'
         },
         "genderal":{
             "loadingInformation": "Lade Informationen"
