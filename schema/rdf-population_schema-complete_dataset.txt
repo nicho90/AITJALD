@@ -829,7 +829,7 @@ lodcom:martini			    dc:description          "martini is a subdistrict of altsta
 							lodcom:year       	2014;
 							lodcom:agegroup 	">=90";
 							lodcom:gender 		"female";
-							lodcom:value		52;
+							lodcom:value		0;
 							].
 
 
@@ -4868,13 +4868,13 @@ lodcom:coerde 		dc:description  	"coerde is a subdistrict of Nord"@en;
 							lodcom:year       	2014;
 							lodcom:agegroup 	"30-39";
 							lodcom:gender 		"female";
-							lodcom:value		711;
+							lodcom:value		666;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year       	2014;
 							lodcom:agegroup 	"40-49";
 							lodcom:gender 		"female";
-							lodcom:value		77;
+							lodcom:value		711;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year       	2014;
@@ -5090,7 +5090,7 @@ lodcom:kinderhaus-west		 dc:description   "kinderhaus-west is a subdistrict of n
 							];
 							lodcom:hasMainPopulation		[
 							lodcom:year       	2014;
-							lodcom:value		10512;
+							lodcom:value		10463;
 							];
 							lodcom:hasEntitledPopulation 	[
 							lodcom:year       	2010;
@@ -5589,7 +5589,7 @@ lodcom:gelmer-dyckburg 	dc:description   "gelmer-dyckburg is a subdistrict of os
 							];
 							lodcom:hasEntitledPopulation 	[
 							lodcom:year       	2012;
-							lodcom:value	3623;
+							lodcom:value	    3623;
 							];
 							lodcom:hasEntitledPopulation 	[
 							lodcom:year       	2013;
@@ -5838,49 +5838,49 @@ lodcom:handorf 		dc:description 		"handorf is a subdistrict of ost"@en;
 							lodcom:year       	2014;
 							lodcom:agegroup 	"20-29";
 							lodcom:gender 		"female";
-							lodcom:value		626;
+							lodcom:value		343;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year       	2014;
 							lodcom:agegroup 	"30-39";
 							lodcom:gender 		"female";
-							lodcom:value		637;
+							lodcom:value		451;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year       	2014;
 							lodcom:agegroup 	"40-49";
 							lodcom:gender 		"female";
-							lodcom:value		837;
+							lodcom:value		660;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year       	2014;
 							lodcom:agegroup 	"50-59";
 							lodcom:gender 		"female";
-							lodcom:value		821;
+							lodcom:value		604;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year       	2014;
 							lodcom:agegroup 	"60-69";
 							lodcom:gender 		"female";
-							lodcom:value		574;
+							lodcom:value		413;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year       	2014;
 							lodcom:agegroup 	"70-79";
 							lodcom:gender 		"female";
-							lodcom:value		606;
+							lodcom:value		513;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year       	2014;
 							lodcom:agegroup 	"80-89";
 							lodcom:gender 		"female";
-							lodcom:value		353;
+							lodcom:value		234;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year       	2014;
 							lodcom:agegroup 	">=90";
 							lodcom:gender 		"female";
-							lodcom:value		64;
+							lodcom:value		61;
 							].
 
 
@@ -6241,7 +6241,7 @@ lodcom:angelmodde 			dc:description 		 "angelmodde is a subdistrict of suedost"@
 							];
 							lodcom:hasEntitledPopulation 	[
 							lodcom:year       	2012;
-							lodcom:value	 7527;
+							lodcom:value	    7527;
 							];
 							lodcom:hasEntitledPopulation 	[
 							lodcom:year       	2013;
@@ -6407,7 +6407,7 @@ lodcom:wolbeck 		dc:description		  "wolbeck is a subdistrict of suedost"@en;
 							];
 							lodcom:hasEntitledPopulation 	[
 							lodcom:year       	2013;
-							lodcom:value	  8924;
+							lodcom:value	    8924;
 							];
 							lodcom:hasEntitledPopulation 	[
 							lodcom:year       	2014;
