@@ -87,16 +87,6 @@ function connectAgeDropdownToMap(featureGroups) {
     })
 }
 
-// TOGGLE COMPARING-BUTTON-GROUP ON MAP BASED ON ADMIN-TYPE
-function toggleCompareButton(status){
-    if(status){
-        $('.compare-buttons').show();
-        toogleCompareAddRemoveBottons(false);
-    } else {
-        $('.compare-buttons').hide();
-        toogleCompareAddRemoveBottons(false);
-    }
-};
 
 $('#compare_button').click(function () {
     if(comparingStatus){
@@ -129,6 +119,8 @@ function toogleCompareAddRemoveBottons(status) {
         addStatus = true;
     } else {
         setButtonStyle('#compare_button', 'btn-primary', 'btn-default');
+        setButtonStyle('#compare_add_button', 'btn-success', 'btn-default');
+        setButtonStyle('#compare_remove_button', 'btn-danger', 'btn-default');
         $('#compare_add_button').hide();
         $('#compare_remove_button').hide();
         addStatus = false;

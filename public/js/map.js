@@ -14,9 +14,6 @@ var popup,
 // MAP
 $( document ).ready(function() {
 
-	// INIT COMPARING-BUTTONS ON MAP
-	toggleCompareButton(false);
-
 	// assinging the accesstoken for the mapbox library
     L.mapbox.accessToken = getMapboxAccessToken();
 	//create the map
@@ -28,6 +25,10 @@ $( document ).ready(function() {
         'Light': L.mapbox.tileLayer('mapbox.light'),
         'Dark': L.mapbox.tileLayer('mapbox.dark')
     }).addTo(map);
+
+	// INIT
+	setDiv('compareButton','map.compareButton.comparison');
+	appendDiv('compareButton', 'map.layerButton.city');
 
 	//assigning map click function
 	map.on('click', function (e) {
@@ -225,7 +226,8 @@ $( document ).ready(function() {
 		setButtonStyle('#level_1_button', 'btn-default', 'btn-primary');
 		setButtonStyle('#level_2_button', 'btn-primary', 'btn-default');
 		setButtonStyle('#level_3_button', 'btn-primary', 'btn-default');
-		toggleCompareButton(false);
+		setDiv('compareButton','map.compareButton.comparison');
+		appendDiv('compareButton', 'map.layerButton.city');
 	});
 	$('#level_2_button').click(function () {
 		cityLayerGroup.clearLayers();
@@ -235,7 +237,6 @@ $( document ).ready(function() {
 		setButtonStyle('#level_1_button', 'btn-primary', 'btn-default');
 		setButtonStyle('#level_2_button', 'btn-default', 'btn-primary');
 		setButtonStyle('#level_3_button', 'btn-primary', 'btn-default');
-		toggleCompareButton(true);
 		setDiv('compareButton','map.compareButton.comparison');
 		appendDiv('compareButton', 'map.layerButton.district');
 	});
@@ -247,7 +248,6 @@ $( document ).ready(function() {
 		setButtonStyle('#level_1_button', 'btn-primary', 'btn-default');
 		setButtonStyle('#level_2_button', 'btn-primary', 'btn-default');
 		setButtonStyle('#level_3_button', 'btn-default', 'btn-primary');
-		toggleCompareButton(true);
 		setDiv('compareButton','map.compareButton.comparison');
 		appendDiv('compareButton', 'map.layerButton.cityDistrict');
 	});

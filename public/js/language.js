@@ -23,7 +23,7 @@ var language = {
         },
         "map": {
             "layerButton": {
-                "city": "City",
+                "city": "Cities",
                 "district": "Districts",
                 "cityDistrict": "Citydistricts"
             },
@@ -92,7 +92,7 @@ var language = {
         },
         "map": {
             "layerButton": {
-                "city": "Stadt",
+                "city": "Städte",
                 "district": "Stadtbezirke",
                 "cityDistrict": "Stadtteile"
             },
