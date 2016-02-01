@@ -46,7 +46,8 @@ var language = {
                         },
                         "entitledPopulation": "Population entitled to live in Münster",
                     },
-                    "yAxis": "Population"
+                    "yAxis": "Population",
+                    "empty": "Please select a feature on the map to display information."
                 },
                 "general": {
                     "loading": "Loading data"
@@ -121,7 +122,8 @@ var language = {
                         },
                         "entitledPopulation": "Wohnberechtigte Bevölkerung"
                     },
-                    "yAxis": "Einwohner"
+                    "yAxis": "Einwohner",
+                    "empty": "Bitte wähle ein Object auf der Karte aus um Daten anzeigen zu lassen."
                 },
                 "general": {
                     "loading": "Lade Daten"

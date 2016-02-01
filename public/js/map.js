@@ -13,7 +13,6 @@ var popup,
 
 // MAP
 $( document ).ready(function() {
-
 	// assinging the accesstoken for the mapbox library
     L.mapbox.accessToken = getMapboxAccessToken();
 	//create the map
@@ -179,7 +178,6 @@ $( document ).ready(function() {
 						for (var i = 0; i < selectedFeatures.length; i++) {
 							if (layer == selectedFeatures[i].layer) {
 								featureInSelecetedGroupHelper = true;
-								console.log(i);
 								//delete selectedFeatures[i];
 								selectedFeatures.splice(i,1)
 							}
@@ -188,7 +186,6 @@ $( document ).ready(function() {
 
 							$('#chart').html('<br><center><i class="fa fa-spinner fa-pulse"></i></center>');
 							$('#area').html(feature.properties.name);
-							console.log('true');
 							var featureArrayForHC = [],
 									counterHelper = 0;
 							for (var i = 0; i < selectedFeatures.length; i++) {
@@ -219,6 +216,9 @@ $( document ).ready(function() {
 	// corresponding layer should be displayed others should not be visible
 	// change also the colors for the buttons
 	$('#level_1_button').click(function () {
+		changeHighcharts.emptyHighCharts();
+		setStyleForNoSelectedFeatures();
+		selectedFeatures = [];
 		cityLayerGroup.clearLayers();
 		districtLayerGroup.clearLayers();
 		cityDistrictLayerGroup.clearLayers();
@@ -230,6 +230,9 @@ $( document ).ready(function() {
 		appendDiv('compareButton', 'map.layerButton.city');
 	});
 	$('#level_2_button').click(function () {
+		changeHighcharts.emptyHighCharts();
+		setStyleForNoSelectedFeatures();
+		selectedFeatures = [];
 		cityLayerGroup.clearLayers();
 		districtLayerGroup.clearLayers();
 		cityDistrictLayerGroup.clearLayers();
@@ -241,6 +244,9 @@ $( document ).ready(function() {
 		appendDiv('compareButton', 'map.layerButton.district');
 	});
 	$('#level_3_button').click(function () {
+		changeHighcharts.emptyHighCharts();
+		setStyleForNoSelectedFeatures();
+		selectedFeatures = [];
 		cityLayerGroup.clearLayers();
 		districtLayerGroup.clearLayers();
 		cityDistrictLayerGroup.clearLayers();
@@ -527,6 +533,8 @@ function changeYearSliderControl(map,featureGroups){
 		//$('#yearSlider').slider('refresh')
 	});
 }
+
+
 
 function setStyleForNoSelectedFeatures() {
 	// if a user clicks on the map and not on a feature, no feature should be visualized as visible

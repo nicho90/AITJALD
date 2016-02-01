@@ -207,6 +207,24 @@ $( document ).ready(function() {
                     $('#chart').html('Data missing');
                 }
             }
+        },
+        emptyHighCharts: function() {
+            $('#chart').highcharts({
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: language[getCookieObject().language].map.panel.highCharts.empty
+                },
+                series: [{
+                    type: 'pie',
+                    name: 'Random data',
+                    data: []
+                }]
+            });
         }
     };
+    changeHighcharts.emptyHighCharts();
 });
