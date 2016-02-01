@@ -269,7 +269,6 @@ var sparqlHTTPConnection = {
                     case 'female':
                         switch (feature.properties.administrativeLvl) {
                             case 'CityDistrict':
-                                console.log(result);
                                 for (var i = 0; i < result.length; i++) {
                                     if(output.population === undefined) {
                                         output.population = {}
@@ -326,7 +325,6 @@ var sparqlHTTPConnection = {
                                     }
                                     output.population[result[i].gender.value][result[i].year.value][result[i].agegroup.value] += parseInt(result[i].value.value);
                                 }
-                                console.log(output);
                                 callback(output);
                                 break;
                             case 'District':

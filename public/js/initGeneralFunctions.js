@@ -71,6 +71,7 @@ function connectToPopulationTypeDropdownToLoadData(callback) {
                 callback(newPopulationType);
                 $('#yearSlider').empty().slider('destroy').html(language[getCookieObject().language].genderal.loadingInformation).css('width','150px');
             });
+
         }
         else {
             callback(newPopulationType);
@@ -83,7 +84,9 @@ function connectToPopulationTypeDropdownToLoadData(callback) {
 function connectAgeDropdownToMap(featureGroups) {
     $('#ageGroupDropdown').change(function(){
         selectedAgeGroup = this.value;
-        changeStyleForAllLayers(featureGroups,true)
+        changeStyleForAllLayers(featureGroups,true);
+
+        changeHighcharts.setDiagram()
     })
 }
 

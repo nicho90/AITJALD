@@ -338,6 +338,22 @@ $( document ).ready(function() {
 		//$( "#yearSlider").slider('destroy');
 		var featureGroups = [cityFeatureGroup,districtFeatureGroup,cityDistrictFeatureGroup];
 		populationType = result;
+		var counterHelper = 0,
+				featureArrayForHC = [];
+		for (var i = 0; i < selectedFeatures.length; i++) {
+			sparqlHTTPConnection.getDataForFeature(selectedFeatures[i].feature, function (featureData){
+				counterHelper +=1;
+				featureArrayForHC.push(featureData);
+				if (counterHelper == selectedFeatures.length) {
+					changeHighcharts.setDiagram({
+						type: populationType,
+						administrativeLvl: selectedFeatures[counterHelper-1].feature.properties.administrativeLvl,
+						features: featureArrayForHC
+					})
+				}
+
+			});
+		}
 		changeStyleForAllLayers(featureGroups, true);
 		changeYearSliderControl(map,featureGroups);
 		if (result == 'male' || result == 'female' || result == 'gender') {

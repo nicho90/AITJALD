@@ -72,8 +72,6 @@ $( document ).ready(function() {
                 }
             }
             else if (populationType == 'female' || populationType == 'male'){
-                console.log('else');
-                console.log(options);
                 var categories =[],
                     series = [];
                 for (var i = 0; i < options.features.length; i++) {
@@ -140,8 +138,6 @@ $( document ).ready(function() {
                 }
             }
             else {
-                console.log('else');
-                console.log(options);
                 var categories =[],
                     series = [];
 
