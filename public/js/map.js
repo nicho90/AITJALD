@@ -381,7 +381,7 @@ function getLegendHTML() {
 
 			labels.push(
 					'<li><span class="swatch" style="background:' + getPercentColor(from + 1) + '"></span> ' +
-					from + (to ? '&ndash;' + to : '+')) + '</li>';
+					from + (to ? '&ndash;' + to + ' &#37;' : ' &#37; +')) + '</li>';
 		}
 
 		return '<span>' + language[getCookieObject().language].map.legend.title.percentPopulation + '</span><ul>' + labels.join('') + '</ul>';
@@ -412,9 +412,9 @@ function changeStyleForAllLayers(featureGroups, newCategorie) {
 							featureInSelectedFeatures = true
 						}
 					}
-					if (!featureInSelectedFeatures) {
-						channelStyle(featureGroups[i]._layers[layer]._layers[featureId],newCategorie);
-					}
+					//if (!featureInSelectedFeatures || newCategorie) {
+						channelStyle(featureGroups[i]._layers[layer]._layers[featureId],newCategorie,featureInSelectedFeatures);
+					//}
 				}
 			}
 		}

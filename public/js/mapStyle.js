@@ -7,7 +7,7 @@
  * @param feature {object} the feature which is loaded to the layer
  * @param layer {object} the corresponding layer responsible for the feature*/
 'use strict'
-function channelStyle(layer,newCategorie) {
+function channelStyle(layer,newCategorie,selected) {
     // init the options for the HTTP POST request
     var options = {
         type: populationType,
@@ -44,6 +44,9 @@ function channelStyle(layer,newCategorie) {
                                 if (layer.feature.displayInformation[selectedYear] != undefined) {
                                     var population = layer.feature.displayInformation[selectedYear].population;
                                     layer.setStyle(densityStyle(population, layer.feature.properties.area));
+                                    if (selected) {
+                                        layer.setStyle(clickedStyle())
+                                    }
                                 }
                             });
                             break;
@@ -73,6 +76,9 @@ function channelStyle(layer,newCategorie) {
                                     }
                                     var population = layer.feature.displayInformation[selectedYear].population;
                                     layer.setStyle(densityStyle(population, layer.feature.properties.area));
+                                    if (selected) {
+                                        layer.setStyle(clickedStyle())
+                                    }
                                 });
                             }
                             else {
@@ -124,6 +130,9 @@ function channelStyle(layer,newCategorie) {
                                 if (layer.feature.displayInformation[selectedYear] != undefined) {
                                     var population = layer.feature.displayInformation[selectedYear].population;
                                     layer.setStyle(procentStyle(population, layer.feature.displayInformation[selectedYear][selectedAgeGroup].value));
+                                    if (selected) {
+                                        layer.setStyle(clickedStyle())
+                                    }
                                 }
                             });
                             break;
@@ -177,6 +186,9 @@ function channelStyle(layer,newCategorie) {
                                 if (layer.feature.displayInformation[selectedYear] != undefined) {
                                     var population = layer.feature.displayInformation[selectedYear].population;
                                     layer.setStyle(procentStyle(population, layer.feature.displayInformation[selectedYear][selectedAgeGroup].value));
+                                    if (selected) {
+                                        layer.setStyle(clickedStyle())
+                                    }
                                 }
                             });
                             break;
