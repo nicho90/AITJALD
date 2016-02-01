@@ -113,10 +113,6 @@ $( document ).ready(function() {
 	 */
 	function onEachFeature(feature, layer) {
 
-		/*console.log(feature);
-		console.log(layer);
-		console.log("#######");*/
-
 		//layer.setStyle();
 		channelStyle(layer,true);
 		layer.on({
@@ -128,7 +124,6 @@ $( document ).ready(function() {
 				if (!comparingStatus) {
 
 					$('#chart').html('<br><center><i class="fa fa-spinner fa-pulse"></i></center>');
-					$('#area').html(feature.properties.name);
 					sparqlHTTPConnection.getDataForFeature(feature, function (featureData){
 						changeHighcharts.setDiagram({
 							type: populationType,
@@ -185,7 +180,6 @@ $( document ).ready(function() {
 						if (featureInSelecetedGroupHelper) {
 
 							$('#chart').html('<br><center><i class="fa fa-spinner fa-pulse"></i></center>');
-							$('#area').html(feature.properties.name);
 							var featureArrayForHC = [],
 									counterHelper = 0;
 							for (var i = 0; i < selectedFeatures.length; i++) {
