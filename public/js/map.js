@@ -263,7 +263,7 @@ $( document ).ready(function() {
 			if(layer.feature.displayInformation[selectedYear] != undefined) {
 				popup.setLatLng(e.latlng);
 				if (layer.feature.displayInformation != undefined) {
-					if (populationType == 'main' || populationType == 'entigled') {
+					if (populationType == 'main' || populationType == 'entitled') {
 						var currentPopupInformation = parseInt(layer.feature.displayInformation[selectedYear].population / layer.feature.properties.area);
 						//console.log(density)
 						popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
