@@ -286,7 +286,10 @@ $( document ).ready(function() {
                     type: 'pie',
                     name: 'Random data',
                     data: []
-                }]
+                }],
+                credits: {
+                    enabled: false
+                }
             });
         }
     };
