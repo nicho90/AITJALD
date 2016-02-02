@@ -92,67 +92,69 @@
             </div>
             <div class="col-md-4">
                 <div class="details">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">
-                                <div id="highChartsTitle">
-                                    <i class="fa fa-users"></i>&nbsp;&nbsp;
-                                    <div class="populationDropdown">
-                                        <select class="form-control" id="populationTypeDropdown">
-                                            <option id="populationDropdown1" value="main"><script>setDiv('populationDropdown1','map.panel.highCharts.title.mainPopulation')</script></option>
-                                            <option id="populationDropdown2" value="entitled"><script>setDiv('populationDropdown2','map.panel.highCharts.title.entitledPopulation')</script></option>
-                                            <option id="populationDropdown3" value="male"><script>setDiv('populationDropdown3','map.panel.highCharts.title.agePopulation.male')</script></option>
-                                            <option id="populationDropdown4" value="female"><script>setDiv('populationDropdown4','map.panel.highCharts.title.agePopulation.female')</script></option>
-                                            <option id="populationDropdown5" value="gender"><script>setDiv('populationDropdown5','map.panel.highCharts.title.agePopulation.both')</script></option>
-                                        </select>
+                    <div class="details-content">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <div id="highChartsTitle">
+                                        <i class="fa fa-users"></i>&nbsp;&nbsp;
+                                        <div class="populationDropdown">
+                                            <select class="form-control" id="populationTypeDropdown">
+                                                <option id="populationDropdown1" value="main"><script>setDiv('populationDropdown1','map.panel.highCharts.title.mainPopulation')</script></option>
+                                                <option id="populationDropdown2" value="entitled"><script>setDiv('populationDropdown2','map.panel.highCharts.title.entitledPopulation')</script></option>
+                                                <option id="populationDropdown3" value="male"><script>setDiv('populationDropdown3','map.panel.highCharts.title.agePopulation.male')</script></option>
+                                                <option id="populationDropdown4" value="female"><script>setDiv('populationDropdown4','map.panel.highCharts.title.agePopulation.female')</script></option>
+                                                <option id="populationDropdown5" value="gender"><script>setDiv('populationDropdown5','map.panel.highCharts.title.agePopulation.both')</script></option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                            </h3>
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="chart" id="chart"></div>
+                            </div>
                         </div>
-                        <div class="panel-body">
-                            <div class="chart" id="chart"></div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;General</h3>
+                            </div>
+                            <table class="table table-striped">
+                                <tbody>
+                                    <tr>
+                                        <th>
+                                            <a href="">a</a>
+                                        </th>
+                                        <td>
+                                            dbp:city
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <a href="">gn:name</a>
+                                        </th>
+                                        <td>
+                                            "Münster"
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <a href="">gn:alternateName</a>
+                                        </th>
+                                        <td>
+                                            "Münster" (German)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <a href="">gn:alternateName</a>
+                                        </th>
+                                        <td>
+                                            "Muenster" (English)
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;General</h3>
-                        </div>
-                        <table class="table table-striped">
-                            <tbody>
-                                <tr>
-                                    <th>
-                                        <a href="">a</a>
-                                    </th>
-                                    <td>
-                                        dbp:city
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <a href="">gn:name</a>
-                                    </th>
-                                    <td>
-                                        "Münster"
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <a href="">gn:alternateName</a>
-                                    </th>
-                                    <td>
-                                        "Münster" (German)
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <a href="">gn:alternateName</a>
-                                    </th>
-                                    <td>
-                                        "Muenster" (English)
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>

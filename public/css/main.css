@@ -120,3 +120,26 @@ body {
     height: 150px;
     border: 5px solid #8BC34A;
 }
+.details {
+    display: flex;
+    overflow: hidden;
+    height: 100vh;
+    margin-top: -100px;
+    padding-top: 115px;
+    position: relative;
+    width: 100%;
+    backface-visibility: hidden;
+    will-change: overflow;
+}
+.details-content {
+    overflow: auto;
+    height: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+}
+.details-content::-webkit-scrollbar {
+    display: none;
+}
+.details-content {
+    width: 100%;
+}
