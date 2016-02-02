@@ -295,10 +295,14 @@ var sparqlHTTPConnection = {
                                 for (var i = 0; i < result.length; i++) {
                                     var year = result[i].year.value;
                                     if (output.population[year] === undefined) {
-                                        output.population[year] = parseInt(result[i].population.value);
+                                        output.population[year] = {};
+
+                                    }
+                                    if (output.population[year][result[i].agegroup.value] === undefined) {
+                                        output.population[year][result[i].agegroup.value] = parseInt(result[i].value.value);
                                     }
                                     else {
-                                        output.population[year] += parseInt(result[i].population.value);
+                                        output.population[year][result[i].agegroup.value] += parseInt(result[i].value.value);
                                     }
                                 }
                                 callback(output);
