@@ -122,7 +122,6 @@ $( document ).ready(function() {
 				// every other layer should be styled as default
 				// TODO: if comparing is active - more than one layer have do be styled 'clicked style'
 				if (!comparingStatus) {
-
 					$('#chart').html('<br><center><i class="fa fa-spinner fa-pulse"></i></center>');
 					sparqlHTTPConnection.getDataForFeature(feature, function (featureData){
 						changeHighcharts.setDiagram({
@@ -166,7 +165,6 @@ $( document ).ready(function() {
 								});
 							}
 						}
-
 					}
 					else {
 						var featureInSelecetedGroupHelper = false;
@@ -178,7 +176,6 @@ $( document ).ready(function() {
 							}
 						}
 						if (featureInSelecetedGroupHelper) {
-
 							$('#chart').html('<br><center><i class="fa fa-spinner fa-pulse"></i></center>');
 							var featureArrayForHC = [],
 									counterHelper = 0;
@@ -197,7 +194,6 @@ $( document ).ready(function() {
 								});
 							}
 						}
-
 					}
 				}
 				layer.setStyle(clickedStyle());
@@ -256,7 +252,6 @@ $( document ).ready(function() {
 
 	function mousemove(e) {
 		// react to the mouse movement only if the timeslider is not moving
-
 		if (!timeSliderMovement) {
 
 			var layer = e.target;
@@ -281,7 +276,6 @@ $( document ).ready(function() {
 							'No data available');
 				}
 
-
 				if (!popup._map) {
 					popup.openOn(map);
 				}
@@ -303,7 +297,6 @@ $( document ).ready(function() {
 				}
 			}
 		}
-
 	};
 
 	function mouseout(e) {
@@ -374,8 +367,8 @@ $( document ).ready(function() {
 function getLegendHTML() {
 	if (populationType == 'main' || populationType == 'entitled') {
 		var grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-				labels = [],
-				from, to;
+			labels = [],
+			from, to;
 
 		for (var i = 0; i < grades.length; i++) {
 			from = grades[i];
@@ -390,8 +383,8 @@ function getLegendHTML() {
 	}
 	else {
 		var grades = [0, 5, 10, 15, 20, 25, 50, 75],
-				labels = [],
-				from, to;
+			labels = [],
+			from, to;
 
 		for (var i = 0; i < grades.length; i++) {
 			from = grades[i];
