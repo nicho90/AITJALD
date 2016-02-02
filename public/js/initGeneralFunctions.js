@@ -15,7 +15,6 @@ $('#englishLanguageSwitcher').click(function(){
     if (getCookieObject().language !== 'en') {
         document.cookie = 'language = en';
         location.reload();
-
     }
 });
 

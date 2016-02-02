@@ -167,6 +167,7 @@ if (!document.cookie) {
     document.cookie = 'language = en'
 }
 function getCookieObject() {
+
     var cookieArray = document.cookie.split(';');
     var cookieJSON = {};
     for (var i = 0; i < cookieArray.length; i++) {
