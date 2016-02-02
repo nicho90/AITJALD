@@ -210,6 +210,7 @@ $( document ).ready(function() {
 	// corresponding layer should be displayed others should not be visible
 	// change also the colors for the buttons
 	$('#level_1_button').click(function () {
+		$('#chart2').remove();
 		changeHighcharts.emptyHighCharts();
 		setStyleForNoSelectedFeatures();
 		selectedFeatures = [];
@@ -224,6 +225,7 @@ $( document ).ready(function() {
 		appendDiv('compareButton', 'map.layerButton.city');
 	});
 	$('#level_2_button').click(function () {
+		$('#chart2').remove();
 		changeHighcharts.emptyHighCharts();
 		setStyleForNoSelectedFeatures();
 		selectedFeatures = [];
@@ -238,6 +240,7 @@ $( document ).ready(function() {
 		appendDiv('compareButton', 'map.layerButton.district');
 	});
 	$('#level_3_button').click(function () {
+		$('#chart2').remove(); 	 	
 		changeHighcharts.emptyHighCharts();
 		setStyleForNoSelectedFeatures();
 		selectedFeatures = [];
