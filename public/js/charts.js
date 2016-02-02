@@ -138,28 +138,44 @@ $( document ).ready(function() {
                 }
             }
             else {
-                var categories =[],
-                    series = [];
+                var categoriesFemale =[],
+                    seriesFemale = [],
+                    categoriesMale =[],
+                    seriesMale = [];
 
                 for (var i = 0; i < options.features.length; i++) {
                     if (options.features[i].population != undefined) {
                         var name = options.features[i].name
                         for (var gender in options.features[i].population) {
-                            series.push({
-                                name:gender,
-                                data: []
-                            });
-                            for (var year in options.features[i].population[gender]) {
-                                for (var ageGroup in options.features[i].population[gender][year]) {
-                                    series[series.length-1].data.push(options.features[i].population[gender][year][ageGroup]);
-                                    categories.push(ageGroup);
+                            if (gender == 'female') {
+                                seriesFemale.push({
+                                    name:language[getCookieObject().language].map.panel.highCharts.gender.female,
+                                    data: []
+                                });
+                                for (var year in options.features[i].population[gender]) {
+                                    for (var ageGroup in options.features[i].population[gender][year]) {
+                                        seriesFemale[seriesFemale.length-1].data.push(options.features[i].population[gender][year][ageGroup]);
+                                        categoriesFemale.push(ageGroup);
+                                    }
+                                }
+                            }
+                            else {
+                                seriesMale.push({
+                                    name:language[getCookieObject().language].map.panel.highCharts.gender.male,
+                                    data: []
+                                });
+                                for (var year in options.features[i].population[gender]) {
+                                    for (var ageGroup in options.features[i].population[gender][year]) {
+                                        seriesMale[seriesMale.length-1].data.push(options.features[i].population[gender][year][ageGroup]);
+                                        categoriesMale.push(ageGroup);
+                                    }
                                 }
                             }
 
                         }
                     }
                 }
-                if (series.length != 0) {
+                if (seriesFemale.length != 0) {
                     $('#chart').highcharts({
                         chart: {
                             type: 'column'
@@ -171,7 +187,7 @@ $( document ).ready(function() {
                             text: null
                         },
                         xAxis: {
-                            categories: categories,
+                            categories: categoriesFemale,
                             crosshair: true
                         },
                         yAxis: {
@@ -194,7 +210,7 @@ $( document ).ready(function() {
                                 borderWidth: 0
                             }
                         },
-                        series: series,
+                        series: seriesFemale,
                         credits: {
                             enabled: false
                         },
@@ -205,6 +221,54 @@ $( document ).ready(function() {
                 }
                 else {
                     $('#chart').html('Data missing');
+                }
+                if (seriesMale.length != 0) {
+                    $('#chart2').highcharts({
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: null
+                        },
+                        subtitle: {
+                            text: null
+                        },
+                        xAxis: {
+                            categories: categoriesMale,
+                            crosshair: true
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: language[getCookieObject().language].map.panel.highCharts.yAxis
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                            '<td style="padding:0"><b>{point.y}</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: seriesMale,
+                        credits: {
+                            enabled: false
+                        },
+                        exporting: {
+                            enabled: false
+                        }
+                    });
+                }
+
+                else {
+                    $('#chart2').html('Data missing');
                 }
             }
         },

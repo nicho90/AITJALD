@@ -46,6 +46,10 @@ var language = {
                         },
                         "entitledPopulation": "Population entitled to live in Münster",
                     },
+                    "gender": {
+                        "female": "Women",
+                        "male": "Man"
+                    },
                     "yAxis": "Population",
                     "empty": "Please select a feature on the map to display information."
                 },
@@ -121,6 +125,10 @@ var language = {
                             "description": "Altersgruppe"
                         },
                         "entitledPopulation": "Wohnberechtigte Bevölkerung"
+                    },
+                    "gender": {
+                        "female": "Frauen",
+                        "male": "Männer"
                     },
                     "yAxis": "Einwohner",
                     "empty": "Bitte wähle ein Object auf der Karte aus um Daten anzeigen zu lassen."

@@ -340,8 +340,10 @@ $( document ).ready(function() {
 		populationType = result;
 		var counterHelper = 0,
 				featureArrayForHC = [];
+		console.log(selectedFeatures.length)
 		for (var i = 0; i < selectedFeatures.length; i++) {
 			sparqlHTTPConnection.getDataForFeature(selectedFeatures[i].feature, function (featureData){
+				console.log(featureData)
 				counterHelper +=1;
 				featureArrayForHC.push(featureData);
 				if (counterHelper == selectedFeatures.length) {

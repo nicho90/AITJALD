@@ -31,18 +31,22 @@ switch (getCookieObject().language) {
 }
 function connectToPopulationTypeDropdownToLoadData(callback) {
     $('#populationTypeDropdown').change(function() {
+        $('#chart').html('<br><center><i class="fa fa-spinner fa-pulse"></i></center>');
         $('#populationTypeDropdown').parent().nextAll().remove();
         var newPopulationType = this.value;
         if (newPopulationType == 'male' || newPopulationType == 'female' || newPopulationType == 'gender') {
             var htmlString ='';
             switch (newPopulationType) {
                 case 'male':
+                    $('#chart2').remove();
                     htmlString += '</br><i class="fa fa-male" id="genderIcon"></i>&nbsp;&nbsp;';
                     break;
                 case 'female':
+                    $('#chart2').remove();
                     htmlString += '</br><i class="fa fa-female" id="genderIcon"></i>&nbsp;&nbsp;';
                     break;
                 case 'gender':
+                    $('#chart').parent().append('<div class="chart" id="chart2"></div>');
                     htmlString += '</br><i class="fa fa-binoculars" id="genderIcon"></i>&nbsp;&nbsp;';
                     break;
                 default:
@@ -74,6 +78,7 @@ function connectToPopulationTypeDropdownToLoadData(callback) {
 
         }
         else {
+            $('#chart2').remove();
             callback(newPopulationType);
             $('#yearSlider').empty().slider('destroy').html(language[getCookieObject().language].genderal.loadingInformation).css('width','150px');
         }
