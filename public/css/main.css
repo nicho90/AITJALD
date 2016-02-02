@@ -92,15 +92,6 @@ body {
     margin-left: -10px;
     text-align: center;
 }
-
-.navbar-flags {
-    float: right;
-    height: 10px;
-}
-.navbar-flags h2 {
-    height: 10px;
-    font-size: 30px;
-}
 #highChartsTitle .populationDropdown {
     display: inline-block;
 }

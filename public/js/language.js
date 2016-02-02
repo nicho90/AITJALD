@@ -131,7 +131,7 @@ var language = {
                         "male": "Männer"
                     },
                     "yAxis": "Einwohner",
-                    "empty": "Bitte wähle ein Object auf der Karte aus um Daten anzeigen zu lassen."
+                    "empty": "Bitte wähle ein Objekt auf der Karte aus um Daten anzeigen zu lassen."
                 },
                 "general": {
                     "loading": "Lade Daten"

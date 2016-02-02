@@ -2,6 +2,63 @@
  * Created by André on 24.01.2016.
  */
 
+
+$( document ).ready(function() {
+
+    // CHECK FONT/EMOJI-SUPPORT FOR FLAGS
+    var font = (function () {
+        var test_string = 'mmmmmmmmmwwwwwww';
+        var test_font = '"Comic Sans MS"';
+        var notInstalledWidth = 0;
+        var testbed = null;
+        var guid = 0;
+
+        return {
+            // must be called when the dom is ready
+            setup : function () {
+                if ($('#fontInstalledTest').length) return;
+
+                $('head').append('<' + 'style> #fontInstalledTest, #fontTestBed { position: absolute; left: -9999px; top: 0; visibility: hidden; } #fontInstalledTest { font-size: 50px!important; font-family: ' + test_font + ';}</' + 'style>');
+
+
+                $('body').append('<div id="fontTestBed"></div>').append('<span id="fontInstalledTest" class="fonttest">' + test_string + '</span>');
+                testbed = $('#fontTestBed');
+                notInstalledWidth = $('#fontInstalledTest').width();
+            },
+
+            isInstalled : function(font) {
+                guid++;
+
+                var style = '<' + 'style id="fonttestStyle"> #fonttest' + guid + ' { font-size: 50px!important; font-family: ' + font + ', ' + test_font + '; } <' + '/style>';
+
+                $('head').find('#fonttestStyle').remove().end().append(style);
+                testbed.empty().append('<span id="fonttest' + guid + '" class="fonttest">' + test_string + '</span>');
+
+                return (testbed.find('span').width() != notInstalledWidth);
+            }
+        };
+    })();
+
+    font.setup();
+    var emoji_1 = font.isInstalled('Apple Color Emoji');
+    var emoji_2 = font.isInstalled('Segoe UI Emoji');
+    var emoji_3 = font.isInstalled('NotoColorEmoji');
+    var emoji_4 = font.isInstalled('Android Emoji');
+    var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+    if(is_chrome){
+        $('#en_US').html('<span class="flag-icon flag-icon-us"></span>');
+        $('#de_DE').html('<span class="flag-icon flag-icon-de"></span>');
+    } else {
+        if(emoji_1 || emoji_2 || emoji_3 || emoji_4) {
+            $('#en_US').html('&#x1F1FA;&#x1F1F8;');
+            $('#de_DE').html('&#x1F1E9;&#x1F1EA;');
+        } else {
+            $('#en_US').html('<span class="flag-icon flag-icon-us"></span>');
+            $('#de_DE').html('<span class="flag-icon flag-icon-de"></span>');
+        }
+    }
+});
+
 var addStatus = false;
 
 $('#germanLanguageSwitcher').click(function(){
@@ -28,6 +85,7 @@ switch (getCookieObject().language) {
     default:
         break;
 }
+
 function connectToPopulationTypeDropdownToLoadData(callback) {
     $('#populationTypeDropdown').change(function() {
         $('#chart').html('<br><center><i class="fa fa-spinner fa-pulse"></i></center>');
