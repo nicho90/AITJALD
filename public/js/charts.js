@@ -138,6 +138,8 @@ $( document ).ready(function() {
                 }
             }
             else {
+
+                $('#chart').parent().append('<div class="chart" id="chart2"></div>');
                 var categoriesFemale =[],
                     seriesFemale = [],
                     categoriesMale =[],

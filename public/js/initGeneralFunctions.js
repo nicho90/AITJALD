@@ -46,7 +46,6 @@ function connectToPopulationTypeDropdownToLoadData(callback) {
                     htmlString += '</br><i class="fa fa-female" id="genderIcon"></i>&nbsp;&nbsp;';
                     break;
                 case 'gender':
-                    $('#chart').parent().append('<div class="chart" id="chart2"></div>');
                     htmlString += '</br><i class="fa fa-binoculars" id="genderIcon"></i>&nbsp;&nbsp;';
                     break;
                 default:
