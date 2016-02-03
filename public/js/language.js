@@ -9,6 +9,7 @@ var language = {
         "navbar": {
             "home": "Home",
             "map": "Map",
+            "help": "Help",
             "about": "About us",
             "license": "License",
             "language": {
@@ -69,7 +70,10 @@ var language = {
         },
         "about": {
             "heading": '<h1>About us</h1>'
-
+        },
+        "help": {
+            "heading": '<h1>Help</h1>',
+            "sub-heading": '<h3>- User manual- </h3>'
         },
         "license": {
             "heading": '<h1>Licenses</h1>',
@@ -89,6 +93,7 @@ var language = {
         "navbar": {
             "home": "Start",
             "map": "Karte",
+            "help": "Hilfe",
             "about": "Über uns",
             "license": "Lizenz",
             "language": {
@@ -149,6 +154,10 @@ var language = {
         },
         "about": {
             "heading": '<h1>Über uns</h1>'
+        },
+        "help": {
+            "heading": '<h1>Hilfe</h1>',
+            "sub-heading": '<h3>- Benutzerhandbuch - </h3>'
         },
         "license": {
             "heading": '<h1>Lizenzen</h1>',
