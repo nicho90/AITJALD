@@ -138,7 +138,7 @@ $( document ).ready(function() {
                 }
             }
             else {
-
+                $('#chart2').remove();
                 $('#chart').parent().append('<div class="chart" id="chart2"></div>');
                 var categoriesFemale =[],
                     seriesFemale = [],
