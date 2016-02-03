@@ -88,7 +88,9 @@ switch (getCookieObject().language) {
 
 function connectToPopulationTypeDropdownToLoadData(callback) {
     $('#populationTypeDropdown').change(function() {
-        $('#chart').html('<br><center><i class="fa fa-spinner fa-pulse"></i></center>');
+        if (selectedFeatures.length != 0) {
+            $('#chart').html('<br><center><i class="fa fa-spinner fa-pulse"></i></center>');
+        }
         $('#populationTypeDropdown').parent().nextAll().remove();
         var newPopulationType = this.value;
         if (newPopulationType == 'male' || newPopulationType == 'female' || newPopulationType == 'gender') {
