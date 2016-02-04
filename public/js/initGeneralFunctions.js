@@ -213,12 +213,17 @@ function setButtonStyle(buttonId, removeClass, addClass){
 // SET GENERAL INFORMATION PANEL
 function setGeneralInformation(feature, data){
 
+    //console.log(feature);
+    //console.log(data);
+
     $('#general').html(
         '<div class="panel panel-default">' +
             '<div class="panel-heading">' +
                 '<h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;' + language[getCookieObject().language].info.heading + '</h3>' +
             '</div>' +
-            '<table class="table table-striped" id="generalTable"><tbody></tbody></table>' +
+            '<div class="table-responsive">' +
+                '<table class="table table-striped" id="generalTable"><thead><th>Subject</th><th>Predicate</th><th>Object</th></thead><tbody></tbody></table>' +
+            '</div>' +
         '</div>'
     );
 
@@ -229,27 +234,28 @@ function setGeneralInformation(feature, data){
         var write = true;
         var predicate = data[i].predicate.value;
         var object = data[i].object;
-        console.log(data[i].object);
 
         // RDF-PREDICATES
-        if(predicate == "http://www.opengis.net/ont/geosparql#sfContains") {
-            predicate = '<a href="http://www.opengis.net/ont/geosparql#sfContains" target="_blank">contains</a>';
-        } else if(predicate == "http://www.w3.org/2003/01/geo/wgs84_poslon") {
-            predicate = "Longitude";
-        } else if(predicate == "http://www.w3.org/2003/01/geo/wgs84_poslat") {
-            predicate = "Latitude";
-        } else if(predicate == "http://www.geonames.org/ontology#wikipediaArticle") {
-            predicate = "Wikipedia articl";
-        } else if(predicate == "http://www.w3.org/2003/01/geo/wgs84_poslat") {
-            predicate = "Latitude";
-        } else if(predicate == "http://www.geonames.org/ontology#countryCode") {
-            predicate = "Country code";
-        } else if(predicate == "http://www.geonames.org/ontology#alternateName") {
-            predicate = "Alternative name";
-        } else if(predicate == "http://www.geonames.org/ontology#name") {
-            predicate = "Name";
-        } else if(predicate == "http://www.w3.org/1999/02/22-rdf-syntax-ns#type") {
-            predicate = "Type";
+        if(predicate == (GEOSPARQLPREFIX + "sfContains")) {
+            predicate = '<a href="' + GEOSPARQLPREFIX + 'sfContains" target="_blank">gn:sfContains</a>';
+        } else if (predicate == (GEOSPARQLPREFIX + "sfWithin")) {
+            predicate = '<a href="' + GEOSPARQLPREFIX + 'sfWithin" target="_blank">geo:sfWithin</a>';
+        } else if(predicate == (GEOPREFIX + "wgs84_pos#lon")) {
+            predicate = '<a href="' + GEOPREFIX + '#wgs84_poslon" target="_blank">geo:wgs84_poslon</a>';
+        } else if(predicate == (GEOPREFIX + "wgs84_pos#lat")) {
+            predicate = '<a href="' + GEOPREFIX + 'wgs84_poslat" target="_blank">geo:wgs84_poslat</a>';
+        } else if(predicate == (GNPREFIX + "wikipediaArticle")) {
+            predicate = '<a href="' + GNPREFIX + 'wikipediaArticle" target="_blank">gn:wikipediaArticle</a>';
+        } else if(predicate == (GNPREFIX + "countryCode")) {
+            predicate = '<a href="' + GNPREFIX + 'countryCode" target="_blank">gn:countryCode</a>';
+        } else if(predicate == (GNPREFIX + "alternateName")) {
+            predicate = '<a href="' + GNPREFIX + 'alternateName" target="_blank">gn:alternateName</a>';
+        } else if(predicate == (GNPREFIX + "name")) {
+            predicate = '<a href="' + GNPREFIX + 'name" target="_blank">gn:Name</a>';
+        } else if (predicate == (GNPREFIX + "parentFeature")) {
+            predicate = '<a href="' + GNPREFIX + 'parentFeature" target="_blank">gn:parentFeature</a>';
+        } else if(predicate == "type") {
+            predicate = '<a href="' + RDFPREFIX + 'type" target="_blank">rdf:type</a>';
         } else {
             write = false;
         }
@@ -260,27 +266,43 @@ function setGeneralInformation(feature, data){
                 object = '<a href="' + object.value + '" target="_blank">' + object.value + '</a>';
             }
             else {
-                object = "<kbd>" + object.value + "</kbd>";
+                var lang = object['xml:lang'];
+                if(lang) {
+                    if(lang == "en"){
+                        object = '<kbd>' + object.value + '</kbd> <span class="flag-icon flag-icon-gb"></span>';
+                    } else if(lang == "de") {
+                        object = '<kbd>' + object.value + '</kbd> <span class="flag-icon flag-icon-de"></span>';
+                    } else {
+                        object = '<kbd>' + object.value + '</kbd>';
+                    }
+                } else {
+                    object = '<kbd>' + object.value + '</kbd>';
+                }
             }
         } else if(object.type == "uri"){
-            if(object.value == "http://www.geonames.org/ontology#Feature") {
-                object = "<kbd>Feature</kbd>";
-            } else if(object.value == "http://dbpedia.org/ontology/City") {
-                object = "<kbd>City</kbd>";
-            } else if(object.value == "http://dbpedia.org/ontology/District") {
-                object = "<kbd>District</kbd>";
-            } else if(object.value == "http://dbpedia.org/ontology/CityDistrict") {
-                object = "<kbd>City District</kbd>";
-            } else if(object.value.includes("http://vocab.lodcom.de/")){
-                object = '<span class="label label-default">' + object.value.replace("http://vocab.lodcom.de/", "") + '</span>';
+            if(object.value == (GNPREFIX + "Feature")) {
+                object = '<a href="' + GNPREFIX + 'Feature" target="_blank">gn:Feature</a>';
+            } else if(object.value ==  (DBPPREFIX + "City")) {
+                object = '<a href="' + DBPPREFIX + 'District" target="_blank">dbp:City</a>';
+            } else if(object.value == (DBPPREFIX + "District")) {
+                object = '<a href="' + DBPPREFIX + 'District" target="_blank">dbp:District</a>';
+            } else if(object.value == (DBPPREFIX + "CityDistrict")) {
+                object = '<a href="' + DBPPREFIX + 'CityDistrict" target="_blank">dbp:CityDistrict</a>';
+            } else if(object.value.includes(LODCOMPREFIX)){
+                object = '<span class="label label-default">' + object.value.replace(LODCOMPREFIX, "") + '</span>';
             }
         } else {
             object = object.value;
         }
 
-        var row = '<tr><td>' + subject + '</td><th>' + predicate + '</th><td>' + object + '</td></tr>';
+        var row = '<tr><td>' + subject + '</td><td>' + predicate + '</td><td>' + object + '</td></tr>';
         if(write){
             $('#generalTable tbody').append(row);
         }
     }
+};
+
+// RESET GENERAL INFORMATION PANEL
+function resetGeneralInformation(){
+    $('#general').html('');
 };

@@ -32,11 +32,11 @@ var sparqlHTTPConnection = {
                     'WHERE {'+
                     'GRAPH <http://course.introlinkeddata.org/G2> {' +
                     '?feature ?predicate ?object ' +
-                    'FILTER (?feature = lodcom:muenster).}}';
+                    'FILTER (?feature = lodcom:' + options.feature.properties.lodcomName + ').}}';
 
                 return panelQuery;
             case 'geometryQuery':
-                var geometryQuery = 'PREFIX geo:<' + GEOPREFIX + '> PREFIX dbp:<' + DBPPREFIX + '> ' +
+                var geometryQuery = 'PREFIX geo:<' + GEOSPARQLPREFIX + '> PREFIX dbp:<' + DBPPREFIX + '> ' +
                         'PREFIX gn:<' + GNPREFIX + '> ' +
                         'SELECT ?feature ?type ?area ?wkt ?name ' +
                         'WHERE {GRAPH <http://course.introlinkeddata.org/G2> {' +

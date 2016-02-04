@@ -145,6 +145,10 @@ $( document ).ready(function() {
 					selectedFeatures.push({layer:layer,feature:feature});
 				}
 				else {
+
+					// RESET INFO-PANEL
+					resetGeneralInformation();
+
 					if (addStatus) {
 						var featureInSelecetedGroupHelper = false;
 						for (var i = 0; i < selectedFeatures.length; i++) {
@@ -213,6 +217,7 @@ $( document ).ready(function() {
 	// corresponding layer should be displayed others should not be visible
 	// change also the colors for the buttons
 	$('#level_1_button').click(function () {
+		$('#general').html('');
 		$('#chart2').remove();
 		changeHighcharts.emptyHighCharts();
 		setStyleForNoSelectedFeatures();
@@ -228,6 +233,7 @@ $( document ).ready(function() {
 		appendDiv('compareButton', 'map.layerButton.city');
 	});
 	$('#level_2_button').click(function () {
+		$('#general').html('');
 		$('#chart2').remove();
 		changeHighcharts.emptyHighCharts();
 		setStyleForNoSelectedFeatures();
@@ -243,6 +249,7 @@ $( document ).ready(function() {
 		appendDiv('compareButton', 'map.layerButton.district');
 	});
 	$('#level_3_button').click(function () {
+		$('#general').html('');
 		$('#chart2').remove();
 		changeHighcharts.emptyHighCharts();
 		setStyleForNoSelectedFeatures();
