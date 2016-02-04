@@ -68,6 +68,9 @@ var language = {
                 }
             }
         },
+        "info": {
+            "heading": 'Information about Feature'
+        },
         "about": {
             "heading": '<h1>About us</h1>'
         },
@@ -151,6 +154,9 @@ var language = {
                     "percentPopulation": "Prozent der gesamt Einwohner"
                 }
             }
+        },
+        "info": {
+            "heading": 'Informationen über Feature'
         },
         "about": {
             "heading": '<h1>Über uns</h1>'

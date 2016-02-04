@@ -46,14 +46,14 @@ $( document ).ready(function() {
     var emoji_4 = font.isInstalled('Android Emoji');
     var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
     if(is_chrome){
-        $('#en_US').html('<span class="flag-icon flag-icon-us"></span>');
+        $('#en_US').html('<span class="flag-icon flag-icon-gb"></span>');
         $('#de_DE').html('<span class="flag-icon flag-icon-de"></span>');
     } else {
         if(emoji_1 || emoji_2 || emoji_3 || emoji_4) {
             $('#en_US').html('&#x1F1FA;&#x1F1F8;');
             $('#de_DE').html('&#x1F1E9;&#x1F1EA;');
         } else {
-            $('#en_US').html('<span class="flag-icon flag-icon-us"></span>');
+            $('#en_US').html('<span class="flag-icon flag-icon-gb"></span>');
             $('#de_DE').html('<span class="flag-icon flag-icon-de"></span>');
         }
     }
@@ -133,7 +133,6 @@ function connectToPopulationTypeDropdownToLoadData(callback) {
                 callback(newPopulationType);
                 $('#yearSlider').empty().slider('destroy').html(language[getCookieObject().language].genderal.loadingInformation).css('width','150px');
             });
-
         }
         else {
             $('#chart2').remove();
@@ -148,8 +147,7 @@ function connectAgeDropdownToMap(featureGroups) {
     $('#ageGroupDropdown').change(function(){
         selectedAgeGroup = this.value;
         changeStyleForAllLayers(featureGroups,true);
-
-        changeHighcharts.setDiagram()
+        changeHighcharts.setDiagram();
     })
 }
 
@@ -210,4 +208,79 @@ $('#compare_remove_button').click(function () {
 // CHANGE BUTTON STYLE
 function setButtonStyle(buttonId, removeClass, addClass){
     $(buttonId).removeClass(removeClass).addClass(addClass);
+};
+
+// SET GENERAL INFORMATION PANEL
+function setGeneralInformation(feature, data){
+
+    $('#general').html(
+        '<div class="panel panel-default">' +
+            '<div class="panel-heading">' +
+                '<h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;' + language[getCookieObject().language].info.heading + '</h3>' +
+            '</div>' +
+            '<table class="table table-striped" id="generalTable"><tbody></tbody></table>' +
+        '</div>'
+    );
+
+    var subject = '<span class="label label-primary">' + feature.properties.lodcomName + '</span>';
+
+    for(var i=0; i<data.length;i++) {
+
+        var write = true;
+        var predicate = data[i].predicate.value;
+        var object = data[i].object;
+        console.log(data[i].object);
+
+        // RDF-PREDICATES
+        if(predicate == "http://www.opengis.net/ont/geosparql#sfContains") {
+            predicate = '<a href="http://www.opengis.net/ont/geosparql#sfContains" target="_blank">contains</a>';
+        } else if(predicate == "http://www.w3.org/2003/01/geo/wgs84_poslon") {
+            predicate = "Longitude";
+        } else if(predicate == "http://www.w3.org/2003/01/geo/wgs84_poslat") {
+            predicate = "Latitude";
+        } else if(predicate == "http://www.geonames.org/ontology#wikipediaArticle") {
+            predicate = "Wikipedia articl";
+        } else if(predicate == "http://www.w3.org/2003/01/geo/wgs84_poslat") {
+            predicate = "Latitude";
+        } else if(predicate == "http://www.geonames.org/ontology#countryCode") {
+            predicate = "Country code";
+        } else if(predicate == "http://www.geonames.org/ontology#alternateName") {
+            predicate = "Alternative name";
+        } else if(predicate == "http://www.geonames.org/ontology#name") {
+            predicate = "Name";
+        } else if(predicate == "http://www.w3.org/1999/02/22-rdf-syntax-ns#type") {
+            predicate = "Type";
+        } else {
+            write = false;
+        }
+
+        // RDF-OBJECTS
+        if(object.type == "literal" || object.type == "typed-literal") {
+            if(object.value.includes("http://") || object.value.includes("https://")){
+                object = '<a href="' + object.value + '" target="_blank">' + object.value + '</a>';
+            }
+            else {
+                object = "<kbd>" + object.value + "</kbd>";
+            }
+        } else if(object.type == "uri"){
+            if(object.value == "http://www.geonames.org/ontology#Feature") {
+                object = "<kbd>Feature</kbd>";
+            } else if(object.value == "http://dbpedia.org/ontology/City") {
+                object = "<kbd>City</kbd>";
+            } else if(object.value == "http://dbpedia.org/ontology/District") {
+                object = "<kbd>District</kbd>";
+            } else if(object.value == "http://dbpedia.org/ontology/CityDistrict") {
+                object = "<kbd>City District</kbd>";
+            } else if(object.value.includes("http://vocab.lodcom.de/")){
+                object = '<span class="label label-default">' + object.value.replace("http://vocab.lodcom.de/", "") + '</span>';
+            }
+        } else {
+            object = object.value;
+        }
+
+        var row = '<tr><td>' + subject + '</td><th>' + predicate + '</th><td>' + object + '</td></tr>';
+        if(write){
+            $('#generalTable tbody').append(row);
+        }
+    }
 };

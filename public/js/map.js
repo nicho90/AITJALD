@@ -122,6 +122,8 @@ $( document ).ready(function() {
 				// every other layer should be styled as default
 				// TODO: if comparing is active - more than one layer have do be styled 'clicked style'
 				if (!comparingStatus) {
+
+					// UPDATE HIGHCHARTS-PANEL
 					$('#chart').html('<br><center><i class="fa fa-spinner fa-pulse"></i></center>');
 					sparqlHTTPConnection.getDataForFeature(feature, function (featureData){
 						changeHighcharts.setDiagram({
@@ -131,8 +133,13 @@ $( document ).ready(function() {
 						})
 					});
 
+					// UPDATE INFO-PANEL
+					sparqlHTTPConnection.getDataForPanel(feature, function (panelData){
+						setGeneralInformation(feature, panelData);
+					});
+
 					for (var i = 0; i < selectedFeatures.length; i++) {
-						channelStyle(selectedFeatures[i].layer,false)
+						channelStyle(selectedFeatures[i].layer,false);
 					}
 					selectedFeatures = [];
 					selectedFeatures.push({layer:layer,feature:feature});
@@ -236,7 +243,7 @@ $( document ).ready(function() {
 		appendDiv('compareButton', 'map.layerButton.district');
 	});
 	$('#level_3_button').click(function () {
-		$('#chart2').remove(); 	 	
+		$('#chart2').remove();
 		changeHighcharts.emptyHighCharts();
 		setStyleForNoSelectedFeatures();
 		selectedFeatures = [];

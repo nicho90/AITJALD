@@ -24,6 +24,17 @@ var sparqlHTTPConnection = {
     createSparqlQuery: function(options) {
         var queryString = '';
         switch (options.type) {
+            case 'panelQuery':
+                var panelQuery =
+
+                    'PREFIX lodcom:  <' + LODCOMPREFIX + '>' +
+                    'SELECT ?feature ?predicate ?object '+
+                    'WHERE {'+
+                    'GRAPH <http://course.introlinkeddata.org/G2> {' +
+                    '?feature ?predicate ?object ' +
+                    'FILTER (?feature = lodcom:muenster).}}';
+
+                return panelQuery;
             case 'geometryQuery':
                 var geometryQuery = 'PREFIX geo:<' + GEOPREFIX + '> PREFIX dbp:<' + DBPPREFIX + '> ' +
                         'PREFIX gn:<' + GNPREFIX + '> ' +
@@ -215,6 +226,25 @@ var sparqlHTTPConnection = {
             default:
                 console.log('Something went wrong. the definition of the type might be false')
         }
+    },
+    getDataForPanel: function(feature, callback){
+        var options = {
+            type: 'panelQuery',
+            feature: feature
+        };
+        var data = {
+            query: this.createSparqlQuery(options),
+            display: "json",
+            output: "json"
+        };
+        this.sparqlPOSTRequest(data, function (result) {
+            if (result.length != 0) {
+                callback(result);
+            } else {
+                console.log('Error: getDataForPanel query failed');
+                callback(null);
+            }
+        });
     },
     getDataForFeature: function(feature, callback) {
         var options = {
