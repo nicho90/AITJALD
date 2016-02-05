@@ -10,9 +10,9 @@
 
 <muenster>	 		a 					dbp:City;
 					a					gn:Feature;
-					gn:name 			"M\u00FCnster"^^xsd:string;
+					gn:name 			"M\u00FCnster"^^xsd:string;		
 					gn:alternateName	"M\u00FCnster"@de,
-										"Muenster"@en;
+										"M\u00FCnster"@en;
 					gn:countryCode		"DE"^^xsd:string;
 					gn:wikipediaArticle	"http://de.wikipedia.org/wiki/M%FCnster_(Westfalen)";
 					coord:lat			51.960651;
@@ -32,9 +32,9 @@
 
 <mitte>	 			a 					dbp:District;
 					a 					gn:Feature;
-					gn:name 			"Mitte"^^xsd:string;
+					gn:name 			"Mitte"^^xsd:string;			
 					gn:alternateName	"Mitte"@de,
-										"Center"@en;
+										"Mitte"@en;
 					gn:parentFeature	<muenster>;
 					coord:lat			51.96673209962334;
 					coord:lon			7.6293182373046875;
@@ -70,7 +70,7 @@
 
 <west>	 			a 					dbp:District;
 					a 					gn:Feature;
-					gn:name 			"West"^^xsd:string;
+					gn:name 			"West"^^xsd:string;			
 					gn:alternateName	"West"@de,
 										"West"@en;
 					gn:parentFeature	<muenster>;
@@ -91,7 +91,7 @@
 
 <nord>	 			a 					dbp:District;
 					a 					gn:Feature;
-					gn:name 			"Nord"^^xsd:string;
+					gn:name 			"Nord"^^xsd:string;			
 					gn:alternateName	"Nord"@de,
 										"North"@en;
 					gn:parentFeature	<muenster>;
@@ -110,9 +110,9 @@
 
 <ost>	 			a 					dbp:District;
 					a 					gn:Feature;
-					gn:name 			"Ost"^^xsd:string;
+					gn:name 			"Ost"^^xsd:string;			
 					gn:alternateName	"Ost"@de,
-										"East"@en;
+										"Ost"@en;
 					gn:parentFeature	<muenster>;
 					coord:lat			51.995530263148666;
 					coord:lon			7.6952362060546875;
@@ -128,9 +128,9 @@
 
 <suedost>	 		a 					dbp:District;
 					a 					gn:Feature;
-					gn:name 			"S\u00FCdost"^^xsd:string;
+					gn:name 			"S\u00FCdost"^^xsd:string;			
 					gn:alternateName	"S\u00FCdost"@de,
-										"South-East"@en;
+										"S\u00FCdos"@en;
 					gn:parentFeature	<muenster>;
 					coord:lat			51.92610038835092;
 					coord:lon			7.710685729980469;
@@ -147,7 +147,7 @@
 
 <hiltrup>	 		a 					dbp:District;
 					a 					gn:Feature;
-					gn:name 			"Hiltrup"^^xsd:string;
+					gn:name 			"Hiltrup"^^xsd:string;			
 					gn:alternateName	"Hiltrup"@de,
 										"Hiltrup"@en;
 					gn:parentFeature	<muenster>;
@@ -167,7 +167,7 @@
 
 <aegidii>	 		a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Aegidii"^^xsd:string;
+					gn:name 			"Aegidii"^^xsd:string;			
 					gn:alternateName	"Aegidii"@de,
 										"Aegidii"@en;
 					gn:parentFeature	<mitte>;
@@ -183,9 +183,9 @@
 
 <ueberwasser>		a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"\u00DCberwasser"^^xsd:string;
+					gn:name 			"\u00DCberwasser"^^xsd:string;			
 					gn:alternateName	"\u00DCberwasser"@de,
-										"Ueberwasser"@en;
+										"\u00DCberwasser"@en;
 					gn:parentFeature	<mitte>;
 					coord:lat			51.96270463065166;
 					coord:lon			7.620391845703125;
@@ -199,7 +199,7 @@
 
 <dom>	 			a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Dom"^^xsd:string;
+					gn:name 			"Dom"^^xsd:string;			
 					gn:alternateName	"Dom"@de,
 										"Dom"@en;
 					gn:parentFeature	<mitte>;
@@ -215,7 +215,7 @@
 
 <buddenturm>		a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Buddenturm"^^xsd:string;
+					gn:name 			"Buddenturm"^^xsd:string;			
 					gn:alternateName	"Buddenturm"@de,
 										"Buddenturm"@en;
 					gn:parentFeature	<mitte>;
@@ -231,7 +231,7 @@
 
 <martini>			a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Martini"^^xsd:string;
+					gn:name 			"Martini"^^xsd:string;			
 					gn:alternateName	"Martini"@de,
 										"Martini"@en;
 					gn:parentFeature	<mitte>;
@@ -247,7 +247,7 @@
 
 <pluggendorf>		a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Pluggendorf"^^xsd:string;
+					gn:name 			"Pluggendorf"^^xsd:string;			
 					gn:alternateName	"Pluggendorf"@de,
 										"Pluggendorf"@en;
 					gn:parentFeature	<mitte>;
@@ -263,7 +263,7 @@
 
 <josef>				a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Josef"^^xsd:string;
+					gn:name 			"Josef"^^xsd:string;			
 					gn:alternateName	"Josef"@de,
 										"Josef"@en;
 					gn:parentFeature	<mitte>;
@@ -279,7 +279,7 @@
 
 <bahnhof>			a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Bahnhof"^^xsd:string;
+					gn:name 			"Bahnhof"^^xsd:string;			
 					gn:alternateName	"Bahnhof"@de,
 										"Bahnhof"@en;
 					gn:parentFeature	<mitte>;
@@ -295,7 +295,7 @@
 
 <hansaplatz>		a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Hansaplatz"^^xsd:string;
+					gn:name 			"Hansaplatz"^^xsd:string;			
 					gn:alternateName	"Hansaplatz"@de,
 										"Hansaplatz"@en;
 					gn:parentFeature	<mitte>;
@@ -311,7 +311,7 @@
 
 <mauritz-west>		a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Mauritz-West"^^xsd:string;
+					gn:name 			"Mauritz-West"^^xsd:string;			
 					gn:alternateName	"Mauritz-West"@de,
 										"Mauritz-West"@en;
 					gn:parentFeature	<mitte>;
@@ -327,7 +327,7 @@
 
 <schlachthof>		a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Schlachthof"^^xsd:string;
+					gn:name 			"Schlachthof"^^xsd:string;			
 					gn:alternateName	"Schlachthof"@de,
 										"Schlachthof"@en;
 					gn:parentFeature	<mitte>;
@@ -343,7 +343,7 @@
 
 <kreuz>				a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Kreuz"^^xsd:string;
+					gn:name 			"Kreuz"^^xsd:string;			
 					gn:alternateName	"Kreuz"@de,
 										"Kreuz"@en;
 					gn:parentFeature	<mitte>;
@@ -359,7 +359,7 @@
 
 <neutor>			a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Neutor"^^xsd:string;
+					gn:name 			"Neutor"^^xsd:string;			
 					gn:alternateName	"Neutor"@de,
 										"Neutor"@en;
 					gn:parentFeature	<mitte>;
@@ -375,9 +375,9 @@
 
 <schloss>			a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Schloss"^^xsd:string;
+					gn:name 			"Schloss"^^xsd:string;			
 					gn:alternateName	"Schloss"@de,
-										"Castle"@en;
+										"Schloss"@en;
 					gn:parentFeature	<mitte>;
 					coord:lat			51.961340299257685;
 					coord:lon			7.609748840332031;
@@ -392,7 +392,7 @@
 <aaseestadt>		a 					dbp:CityDistrict;
 					a 					gn:Feature;
 					geo:sfWithin		<mitte>;
-					gn:name 			"Aaseestadt"^^xsd:string;
+					gn:name 			"Aaseestadt"^^xsd:string;			
 					gn:alternateName	"Aaseestadt"@de,
 										"Aaseestadt"@en;
 					gn:parentFeature	<mitte>;
@@ -407,7 +407,7 @@
 
 <geist>				a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Geist"^^xsd:string;
+					gn:name 			"Geist"^^xsd:string;			
 					gn:alternateName	"Geist"@de,
 										"Geist"@en;
 					gn:parentFeature	<mitte>;
@@ -425,7 +425,7 @@
 					a 					gn:Feature;
 					gn:name 			"Sch\u00FCtzenhof"^^xsd:string;
 					gn:alternateName	"Sch\u00FCtzenhof"@de,
-										"Schuetzenhof"@en;
+										"Sch\u00FCtzenhof"@en;
 					gn:parentFeature	<mitte>;
 					coord:lat			51.944889028661954;
 					coord:lon			7.628116607666016;
@@ -441,7 +441,7 @@
 					a 					gn:Feature;
 					gn:name 			"D\u00FCesberg"^^xsd:string;
 					gn:alternateName	"D\u00FCsberg"@de,
-										"Dueesberg"@en;
+										"D\u00FCesberg"@en;
 					gn:parentFeature	<mitte>;
 					coord:lat			51.93049583091759;
 					coord:lon			7.611808776855469;
@@ -455,7 +455,7 @@
 
 <hafen>				a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Hafen"^^xsd:string;
+					gn:name 			"Hafen"^^xsd:string;			
 					gn:alternateName	"Hafen"@de,
 										"Hafen"@en;
 					gn:parentFeature	<mitte>;
@@ -471,7 +471,7 @@
 
 <herz-jesu>			a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Herz-Jesu"^^xsd:string;
+					gn:name 			"Herz-Jesu"^^xsd:string;			
 					gn:alternateName	"Herz-Jesu"@de,
 										"Herz-Jesu"@en;
 					gn:parentFeature	<mitte>;
@@ -487,9 +487,9 @@
 
 <mauritz-mitte>		a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Mauritz-Mitte"^^xsd:string;
+					gn:name 			"Mauritz-Mitte"^^xsd:string;			
 					gn:alternateName	"Mauritz-Mitte"@de,
-										"Mauritz-Center"@en;
+										"Mauritz-Mitte"@en;
 					gn:parentFeature	<mitte>;
 					coord:lat			51.96895556356364;
 					coord:lon			7.655754089355469;
@@ -503,7 +503,7 @@
 
 <rumphorst>			a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Rumphorst"^^xsd:string;
+					gn:name 			"Rumphorst"^^xsd:string;			
 					gn:alternateName	"Rumphorst"@de,
 										"Rumphorst"@en;
 					gn:parentFeature	<mitte>;
@@ -519,7 +519,7 @@
 
 <uppenberg>			a 					dbp:CityDistrict;
 					a 					gn:Feature;
-					gn:name 			"Uppenberg"^^xsd:string;
+					gn:name 			"Uppenberg"^^xsd:string;			
 					gn:alternateName	"Uppenberg"@de,
 										"Uppenberg"@en;
 					gn:parentFeature	<mitte>;
@@ -535,7 +535,7 @@
 
 <gievenbeck>		a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Gievenbeck"^^xsd:string;
+					gn:name 			"Gievenbeck"^^xsd:string;			
 					gn:alternateName	"Gievenbeck"@de,
 										"Gievenbeck"@en;
 					gn:parentFeature	<west>;
@@ -551,7 +551,7 @@
 
 <sentrup>			a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Sentrup"^^xsd:string;
+					gn:name 			"Sentrup"^^xsd:string;			
 					gn:alternateName	"Sentrup"@de,
 										"Sentrup"@en;
 					gn:parentFeature	<west>;
@@ -567,7 +567,7 @@
 
 <mecklenbeck>		a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Mecklenbeck"^^xsd:string;
+					gn:name 			"Mecklenbeck"^^xsd:string;			
 					gn:alternateName	"Mecklenbeck"@de,
 										"Mecklenbeck"@en;
 					gn:parentFeature	<west>;
@@ -583,7 +583,7 @@
 
 <albachten>			a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Albachten"^^xsd:string;
+					gn:name 			"Albachten"^^xsd:string;			
 					gn:alternateName	"Albachten"@de,
 										"Albachten"@en;
 					gn:parentFeature	<west>;
@@ -599,7 +599,7 @@
 
 <roxel>				a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Roxel"^^xsd:string;
+					gn:name 			"Roxel"^^xsd:string;			
 					gn:alternateName	"Roxel"@de,
 										"Roxel"@en;
 					gn:parentFeature	<west>;
@@ -615,7 +615,7 @@
 
 <nienberge>			a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Nienberge"^^xsd:string;
+					gn:name 			"Nienberge"^^xsd:string;			
 					gn:alternateName	"Nienberge"@de,
 										"Nienberge"@en;
 					gn:parentFeature	<west>;
@@ -631,7 +631,7 @@
 
 <coerde>			a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Coerde"^^xsd:string;
+					gn:name 			"Coerde"^^xsd:string;			
 					gn:alternateName	"Coerde"@de,
 										"Coerde"@en;
 					gn:parentFeature	<nord>;
@@ -647,7 +647,7 @@
 
 <kinderhaus-ost>	a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Kinderhaus-Ost"^^xsd:string;
+					gn:name 			"Kinderhaus-Ost"^^xsd:string;			
 					gn:alternateName	"Kinderhaus-Ost"@de,
 										"Kinderhaus-Ost"@en;
 					gn:parentFeature	<nord>;
@@ -663,7 +663,7 @@
 
 <kinderhaus-west>	a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Kinderhaus-West"^^xsd:string;
+					gn:name 			"Kinderhaus-West"^^xsd:string;			
 					gn:alternateName	"Kinderhaus-West"@de,
 										"Kinderhaus-West"@en;
 					gn:parentFeature	<nord>;
@@ -679,7 +679,7 @@
 
 <sprakel>			a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Sprakel"^^xsd:string;
+					gn:name 			"Sprakel"^^xsd:string;			
 					gn:alternateName	"Sprakel"@de,
 										"Sprakel"@en;
 					gn:parentFeature	<nord>;
@@ -695,9 +695,9 @@
 
 <mauritz-ost>		a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Mauritz-Ost"^^xsd:string;
+					gn:name 			"Mauritz-Ost"^^xsd:string;			
 					gn:alternateName	"Mauritz-Ost"@de,
-										"Mauritz-East"@en;
+										"Mauritz-Ost"@en;
 					gn:parentFeature	<ost>;
 					coord:lat			51.96519023488759;
 					coord:lon			7.673435211181641;
@@ -711,7 +711,7 @@
 
 <gelmer-dyckburg>	a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Gelmer-Dyckburg"^^xsd:string;
+					gn:name 			"Gelmer-Dyckburg"^^xsd:string;			
 					gn:alternateName	"Gelmer-Dyckburg"@de,
 										"Gelmer-Dyckburg"@en;
 					gn:parentFeature	<ost>;
@@ -727,7 +727,7 @@
 
 <handorf>			a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Handorf"^^xsd:string;
+					gn:name 			"Handorf"^^xsd:string;			
 					gn:alternateName	"Handorf"@de,
 										"Handorf"@en;
 					gn:parentFeature	<ost>;
@@ -743,7 +743,7 @@
 
 <gremmendorf-west>	a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Gremmendorf-West"^^xsd:string;
+					gn:name 			"Gremmendorf-West"^^xsd:string;			
 					gn:alternateName	"Gremmendorf-West"@de,
 										"Gremmendorf-West"@en;
 					gn:parentFeature	<suedost>;
@@ -759,9 +759,9 @@
 
 <gremmendorf-ost>	a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Gremmendorf-Ost"^^xsd:string;
+					gn:name 			"Gremmendorf-Ost"^^xsd:string;			
 					gn:alternateName	"Gremmendorf-Ost"@de,
-										"Gremmendorf-East"@en;
+										"Gremmendorf-Ost"@en;
 					gn:parentFeature	<suedost>;
 					coord:lat			51.93524804803387;
 					coord:lon			7.681674957275391;
@@ -775,7 +775,7 @@
 
 <angelmodde>		a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Angelmodde"^^xsd:string;
+					gn:name 			"Angelmodde"^^xsd:string;			
 					gn:alternateName	"Angelmodde"@de,
 										"Angelmodde"@en;
 					gn:parentFeature	<suedost>;
@@ -791,7 +791,7 @@
 
 <wolbeck>			a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Wolbeck"^^xsd:string;
+					gn:name 			"Wolbeck"^^xsd:string;			
 					gn:alternateName	"Wolbeck"@de,
 										"Wolbeck"@en;
 					gn:parentFeature	<suedost>;
@@ -807,7 +807,7 @@
 
 <berg-fidel>		a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Berg-Fidel"^^xsd:string;
+					gn:name 			"Berg-Fidel"^^xsd:string;			
 					gn:alternateName	"Berg-Fidel"@de,
 										"Berg-Fidel"@en;
 					gn:parentFeature	<hiltrup>;
@@ -823,9 +823,9 @@
 
 <hiltrup-ost>		a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Hiltrup-Ost"^^xsd:string;
+					gn:name 			"Hiltrup-Ost"^^xsd:string;			
 					gn:alternateName	"Hiltrup-Ost"@de,
-										"Hiltrup-East"@en;
+										"Hiltrup-Ost"@en;
 					gn:parentFeature	<hiltrup>;
 					coord:lat			51.89721456263865;
 					coord:lon			7.676353454589844;
@@ -839,9 +839,9 @@
 
 <hiltrup-mitte>		a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Hiltrup-Mitte"^^xsd:string;
+					gn:name 			"Hiltrup-Mitte"^^xsd:string;			
 					gn:alternateName	"Hiltrup-Mitte"@de,
-										"Hiltrup-Center"@en;
+										"Hiltrup-Mitte"@en;
 					gn:parentFeature	<hiltrup>;
 					coord:lat			51.897765714816835;
 					coord:lon			7.6519775390625;
@@ -855,7 +855,7 @@
 
 <hiltrup-west>		a 					dbp:CityDistrict;
 					a					gn:Feature;
-					gn:name 			"Hiltrup-West"^^xsd:string;
+					gn:name 			"Hiltrup-West"^^xsd:string;			
 					gn:alternateName	"Hiltrup-West"@de,
 										"Hiltrup-West"@en;
 					gn:parentFeature	<hiltrup>;
@@ -872,7 +872,7 @@
 <amelsbueren>		a 					dbp:CityDistrict;
 					gn:name 			"Amelsb\u00FCren"^^xsd:string;
 					gn:alternateName	"Amelsb\u00FCren"@de,
-										"Amelsbueren"@en;
+										"Amelsb\u00FCren"@en;
 					gn:parentFeature	<hiltrup>;
 					coord:lat			51.88386567797622;
 					coord:lon			7.587089538574219;
