@@ -1,5 +1,9 @@
+/**
+ * Highcharts-functions for
+ * - drawing diagram based on selected feature(s)
+ * - reseting diagram
+ **/
 
-// CHARTS
 $( document ).ready(function() {
     // register function to change the diagram from the map
     changeHighcharts = {

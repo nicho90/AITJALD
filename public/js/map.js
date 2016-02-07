@@ -1,4 +1,15 @@
+/**
+ * Map-functions
+ * - Create a mapbox-map
+ * - Add (base-)layers
+ * - Add legend
+ * - Add year-slider
+ * - Highlighting features on click-events
+ **/
+
 "use strict";
+
+// GLOBAL VARIABLES
 var popup,
 	comparingStatus = false,
 	//TODO: populationType is hardcoded. Should be dynamic through a cookie (last selected population type)
@@ -29,14 +40,14 @@ $( document ).ready(function() {
 	setDiv('compareButton','map.compareButton.comparison');
 	appendDiv('compareButton', 'map.layerButton.city');
 
-	//assigning map click function
+	// Assigning map click function
 	map.on('click', function (e) {
 		if(!comparingStatus) {
 			setStyleForNoSelectedFeatures();
 		}
 	});
 
-	// creating the feature Groups for the geometries for different layers
+	// Creating the feature Groups for the geometries for different layers
 	var cityFeatureGroup = L.featureGroup(),
 			districtFeatureGroup = L.featureGroup(),
 			cityDistrictFeatureGroup = L.featureGroup();
@@ -45,7 +56,7 @@ $( document ).ready(function() {
 			districtLayerGroup = L.layerGroup().addTo(map),
 			cityDistrictLayerGroup = L.layerGroup().addTo(map);
 
-	//create the the data object needet for 'sparqlPOSTRequest' function
+	// Create the the data object needet for 'sparqlPOSTRequest' function
 	var data = {
 		query: sparqlHTTPConnection.createSparqlQuery({type: 'geometryQuery'}), // create the geometry query to get the geometries to add them to the feature groups
 		display:"json",
@@ -53,7 +64,7 @@ $( document ).ready(function() {
 	};
 
 
-	// create custom slider control
+	// Create custom slider control
 	createSliderControl(map,[cityFeatureGroup,districtFeatureGroup,cityDistrictFeatureGroup]);
 	map.legendControl.addLegend(getLegendHTML());
 
@@ -81,7 +92,7 @@ $( document ).ready(function() {
 				}
 			};
 
-			// adding the geoJSON to the responsible feature group
+			// Adding the geoJSON to the responsible feature group
 			switch(adminType) {
 				case 'City':
 					cityFeatureGroup.addLayer(L.geoJson(geoJSON,{
@@ -104,11 +115,13 @@ $( document ).ready(function() {
 		}
 	});
 
+	// MAP-PROVIDER
 	function getMap() {
 		return map;
 	}
+
 	// TODO: these variables have to dynamic. For testing now hardcoded
-	/*
+	/**
 	 * Function to assign click function etc to the layer/feature
 	 */
 	function onEachFeature(feature, layer) {
@@ -213,9 +226,13 @@ $( document ).ready(function() {
 			mouseout: mouseout
 		});
 	};
-	// assigning function to buttons in the top left corner of the map
-	// corresponding layer should be displayed others should not be visible
-	// change also the colors for the buttons
+
+	/** BUTTON-CLICK-EVENTS
+	 * assigning function to buttons in the top left corner of the map
+	 * corresponding layer should be displayed others should not be visible
+	 * change also the colors for the buttons
+	 **/
+	// CITIES
 	$('#level_1_button').click(function () {
 		$('#general').html('');
 		$('#chart2').remove();
@@ -232,6 +249,7 @@ $( document ).ready(function() {
 		setDiv('compareButton','map.compareButton.comparison');
 		appendDiv('compareButton', 'map.layerButton.city');
 	});
+	// DISTRCTS
 	$('#level_2_button').click(function () {
 		$('#general').html('');
 		$('#chart2').remove();
@@ -248,6 +266,7 @@ $( document ).ready(function() {
 		setDiv('compareButton','map.compareButton.comparison');
 		appendDiv('compareButton', 'map.layerButton.district');
 	});
+	// CITY-DISCTRICTS
 	$('#level_3_button').click(function () {
 		$('#general').html('');
 		$('#chart2').remove();
@@ -267,8 +286,11 @@ $( document ).ready(function() {
 
 	var closeTooltip;
 
+	/** Map-function
+	 * for mouse-movements
+	 **/
 	function mousemove(e) {
-		// react to the mouse movement only if the timeslider is not moving
+		// React to the mouse movement only if the timeslider is not moving
 		if (!timeSliderMovement) {
 
 			var layer = e.target;
@@ -304,7 +326,7 @@ $( document ).ready(function() {
 						featureIsInSelectedFeatures = true;
 					}
 				}
-				// highlight feature
+				// Highlight feature
 				if(!featureIsInSelectedFeatures) {
 					layer.setStyle({
 						weight: 1,
@@ -316,6 +338,9 @@ $( document ).ready(function() {
 		}
 	};
 
+	/** Map-function
+	 * for mouse-movements
+	 **/
 	function mouseout(e) {
 
 		// react to the mouse out movement only if the timeslider is not moving
@@ -415,6 +440,10 @@ function getLegendHTML() {
 		return '<span>' + language[getCookieObject().language].map.legend.title.percentPopulation + '</span><ul>' + labels.join('') + '</ul>';
 	}
 }
+
+/** Legend-function
+ *
+ **/
 function changeLegend(){
 	$('.map-legend').empty();
 	$('.map-legend').html(getLegendHTML());
@@ -454,7 +483,6 @@ function changeStyleForAllLayers(featureGroups, newCategorie) {
  * @param map {Object} this is needed to enable and disable the dragging of the map
  * @param featureGroups {Array} which contains every feature group layer of the map
  */
-
 function createSliderControl(map,featureGroups) {
 	var MyControl = L.Control.extend({
 		options: {
@@ -471,6 +499,11 @@ function createSliderControl(map,featureGroups) {
 	changeYearSliderControl(map,featureGroups);
 
 };
+
+/** Slider-function
+ * @param map {Object} this is needed to enable and disable the dragging of the map
+ * @param featureGroups {Array} which contains every feature group layer of the map
+ **/
 function changeYearSliderControl(map,featureGroups){
 	var options = {
 		type: 'distinctPopulation',
@@ -540,8 +573,8 @@ function changeYearSliderControl(map,featureGroups){
 	});
 }
 
-
-
+/** Function to reset the feature-highlighting
+ **/
 function setStyleForNoSelectedFeatures() {
 	// if a user clicks on the map and not on a feature, no feature should be visualized as visible
 	// TODO: Highcharts should be empty now

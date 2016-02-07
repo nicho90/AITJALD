@@ -1,7 +1,9 @@
 /**
- * Created by André on 24.01.2016.
- */
-
+ * General functions for:
+ * - language setup
+ * - button-click-events
+ * - information-panel (RDF-data)
+ **/
 
 $( document ).ready(function() {
 
@@ -14,26 +16,18 @@ $( document ).ready(function() {
         var guid = 0;
 
         return {
-            // must be called when the dom is ready
             setup : function () {
                 if ($('#fontInstalledTest').length) return;
-
                 $('head').append('<' + 'style> #fontInstalledTest, #fontTestBed { position: absolute; left: -9999px; top: 0; visibility: hidden; } #fontInstalledTest { font-size: 50px!important; font-family: ' + test_font + ';}</' + 'style>');
-
-
                 $('body').append('<div id="fontTestBed"></div>').append('<span id="fontInstalledTest" class="fonttest">' + test_string + '</span>');
                 testbed = $('#fontTestBed');
                 notInstalledWidth = $('#fontInstalledTest').width();
             },
-
             isInstalled : function(font) {
                 guid++;
-
                 var style = '<' + 'style id="fonttestStyle"> #fonttest' + guid + ' { font-size: 50px!important; font-family: ' + font + ', ' + test_font + '; } <' + '/style>';
-
                 $('head').find('#fonttestStyle').remove().end().append(style);
                 testbed.empty().append('<span id="fonttest' + guid + '" class="fonttest">' + test_string + '</span>');
-
                 return (testbed.find('span').width() != notInstalledWidth);
             }
         };
@@ -59,22 +53,9 @@ $( document ).ready(function() {
     }
 });
 
+
+// INIT
 var addStatus = false;
-
-$('#germanLanguageSwitcher').click(function(){
-    if (getCookieObject().language !== 'de') {
-        document.cookie = 'language = de';
-        location.reload();
-    }
-});
-
-$('#englishLanguageSwitcher').click(function(){
-    if (getCookieObject().language !== 'en') {
-        document.cookie = 'language = en';
-        location.reload();
-    }
-});
-
 switch (getCookieObject().language) {
     case 'de':
         $('#germanLanguageSwitcher').addClass('active');
@@ -86,6 +67,22 @@ switch (getCookieObject().language) {
         break;
 }
 
+
+// LANGUAGE SWITCHER
+$('#germanLanguageSwitcher').click(function(){
+    if (getCookieObject().language !== 'de') {
+        document.cookie = 'language = de';
+        location.reload();
+    }
+});
+$('#englishLanguageSwitcher').click(function(){
+    if (getCookieObject().language !== 'en') {
+        document.cookie = 'language = en';
+        location.reload();
+    }
+});
+
+//
 function connectToPopulationTypeDropdownToLoadData(callback) {
     $('#populationTypeDropdown').change(function() {
         if (selectedFeatures.length != 0) {
@@ -143,6 +140,7 @@ function connectToPopulationTypeDropdownToLoadData(callback) {
 
 }
 
+//
 function connectAgeDropdownToMap(featureGroups) {
     $('#ageGroupDropdown').change(function(){
         selectedAgeGroup = this.value;
@@ -151,7 +149,7 @@ function connectAgeDropdownToMap(featureGroups) {
     })
 }
 
-
+// COMPARE-BUTTON
 $('#compare_button').click(function () {
     if(comparingStatus){
         comparingStatus = false;
@@ -173,7 +171,7 @@ $('#compare_button').click(function () {
     }
 });
 
-// TOGGLE ADD-REMOVE-BUTTONS BASED ON COMPARISON BUTTON
+// TOGGLE ADD-REMOVE-FEATURES-BUTTON BASED ON THE COMPARE-BUTTON STATUS
 function toogleCompareAddRemoveBottons(status) {
     if(status) {
         setButtonStyle('#compare_button', 'btn-default', 'btn-primary');
@@ -212,9 +210,6 @@ function setButtonStyle(buttonId, removeClass, addClass){
 
 // SET GENERAL INFORMATION PANEL
 function setGeneralInformation(feature, data){
-
-    //console.log(feature);
-    //console.log(data);
 
     $('#general').html(
         '<div class="panel panel-default">' +

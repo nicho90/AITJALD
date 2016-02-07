@@ -1,11 +1,8 @@
 /**
- * Created by Andre on 16.01.2016.
- */
-
-/*
-* global prefix variables.
-* they are used to quickly delete the prefixes in the JSON output from the parliament server
-*/
+ * Global prefix variables for defined RDF-Schema and used in triple-server-requests
+ * They are used to quickly delete the prefixes in the JSON output from the parliament server
+ **/
+ 
 var GEOSPARQLPREFIX = "http://www.opengis.net/ont/geosparql#",
     GEOPREFIX = "http://www.w3.org/2003/01/geo/",
     LODCOMPREFIX = "http://vocab.lodcom.de/",

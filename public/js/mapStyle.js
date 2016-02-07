@@ -1,12 +1,17 @@
 /**
- * Created by Andre on 27.01.2016.
- */
-/*
- * function to channel the style for the corresponding layers
+ * Styles for features on map:
+ * - Highlighting clicked/selected features
+ * - Colorizing features based on population density
+ **/
+
+'use strict'
+
+/**
+ * Function to channel the style for the corresponding layers
  * this function loads the population for the features after they are created to enable the density visualisation
  * @param feature {object} the feature which is loaded to the layer
- * @param layer {object} the corresponding layer responsible for the feature*/
-'use strict'
+ * @param layer {object} the corresponding layer responsible for the feature
+ **/
 function channelStyle(layer,newCategorie,selected) {
     // init the options for the HTTP POST request
     var options = {
@@ -213,9 +218,9 @@ function channelStyle(layer,newCategorie,selected) {
     }
 }
 
-/*
- * style functions for the geometries
- * */
+/** Style functions for the geometries
+ *
+ **/
 function densityStyle(people, area) {
     var density = people/area;
 
@@ -228,8 +233,9 @@ function densityStyle(people, area) {
     };
 }
 
-/*function to calculate the color for the different population density
- * @param feature {object} the feature that contains information about the area in square kilometer and total population*/
+/** Function to calculate the color for the different population density
+ * @param feature {object} the feature that contains information about the area in square kilometer and total population
+ **/
 function getDensitiyColor(density) {
 
     if (density != null) {
@@ -246,10 +252,14 @@ function getDensitiyColor(density) {
     else {
         return '#dddddd'
     }
-}
+};
+
+/** Function to calculate the style for the different population density
+ * @param peopleSum {number} total number of people
+ * @param people {number} number of the people in this area (city / district / city district)
+ */
 function procentStyle(peopleSum, people) {
     var procent = (parseInt(people)/parseInt(peopleSum))*100;
-
     return {
         weight: 2,
         opacity: 0.3,
@@ -257,11 +267,12 @@ function procentStyle(peopleSum, people) {
         fillOpacity: 0.7,
         fillColor: getPercentColor(procent)
     };
-}
-/*function to calculate the color for the different population density
- * @param feature {object} the feature that contains information about the area in square kilometer and total population*/
-function getPercentColor(percent) {
+};
 
+/** Function to provide the html-color for the different population densitiess
+ * @param percent {number} - the calculated percentage for a feature
+ */
+function getPercentColor(percent) {
     if (percent != null) {
         //var density = feature.properties.population[populationType][selectedYear]/feature.properties.area;
         return percent > 75 ? '#8c2d04' :
@@ -276,11 +287,15 @@ function getPercentColor(percent) {
     else {
         return '#dddddd'
     }
-}
+};
+
+/** Function for clicked feature style
+ * Border the selected area will be highlighted red
+ **/
 function clickedStyle() {
     return {
         color: 'red',
         weight: 3,
         opacity: 1
     }
-}
+};

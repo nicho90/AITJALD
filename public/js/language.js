@@ -1,6 +1,13 @@
 /**
- * Created by André on 24.01.2016.
- */
+ * Language-Schema:
+ * - english support
+ * - german support
+ * Language-Functions:
+ * - browser-cookies-support
+ * - set/add content to div-element
+ * - language-provider
+ **/
+
 var language = {
     "en": {
         "main": {
@@ -179,10 +186,11 @@ var language = {
 };
 
 if (!document.cookie) {
-    document.cookie = 'language = en'
+    document.cookie = config.getStandardLanguage();
 }
-function getCookieObject() {
 
+// SET LANGUAGE BASED ON BROWSER-COOKIE
+function getCookieObject() {
     var cookieArray = document.cookie.split(';');
     var cookieJSON = {};
     for (var i = 0; i < cookieArray.length; i++) {
@@ -192,18 +200,22 @@ function getCookieObject() {
     return cookieJSON
 }
 
+// SET LANGUAGE-BASED-CONTENT TO DIV-ELEMENT
 function setDiv(div, input) {
     document.getElementById(div).innerHTML = readLanguageJSON(input);
 }
+
+// ADD LANGUAGE-BASED-CONTENT TO DIV-ELEMENT
 function appendDiv(div, input) {
     document.getElementById(div).innerHTML = document.getElementById(div).innerHTML + '' + readLanguageJSON(input);
 }
+
+// LANGUAGE PROVIDER
 function readLanguageJSON(input) {
     var inputArray = input.split('.');
     var object = language[getCookieObject().language];
     for (var i = 0; i < inputArray.length; i++) {
         object = object[inputArray[i]];
     }
-
     return object;
 }
