@@ -251,6 +251,8 @@ function setGeneralInformation(feature, data){
             predicate = '<a href="' + GNPREFIX + 'name" target="_blank">gn:Name</a>';
         } else if (predicate == (GNPREFIX + "parentFeature")) {
             predicate = '<a href="' + GNPREFIX + 'parentFeature" target="_blank">gn:parentFeature</a>';
+        } else if (predicate == (OWLPREFIX + "sameAs")) {
+            predicate = '<a href="' + OWLPREFIX + 'sameAs" target="_blank">owl:sameAs</a>';
         } else if(predicate == "type") {
             predicate = '<a href="' + RDFPREFIX + 'type" target="_blank">rdf:type</a>';
         } else {
