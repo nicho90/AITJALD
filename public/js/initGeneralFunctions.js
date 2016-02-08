@@ -56,19 +56,9 @@ $( document ).ready(function() {
 
 // INIT
 var addStatus = false;
-switch (getCookieObject().language) {
-    case 'de':
-        $('#germanLanguageSwitcher').addClass('active');
-        break;
-    case 'en':
-        $('#englishLanguageSwitcher').addClass('active');
-        break;
-    default:
-        break;
-}
 
 
-// LANGUAGE SWITCHER
+// CHANGE-LANGUAGE-BUTTONS
 $('#germanLanguageSwitcher').click(function(){
     if (getCookieObject().language !== 'de') {
         document.cookie = 'language = de';
@@ -81,6 +71,19 @@ $('#englishLanguageSwitcher').click(function(){
         location.reload();
     }
 });
+
+
+// LANGUAGE SWITCHER
+switch (getCookieObject().language) {
+    case 'de':
+        $('#germanLanguageSwitcher').addClass('active');
+        break;
+    case 'en':
+        $('#englishLanguageSwitcher').addClass('active');
+        break;
+    default:
+        break;
+}
 
 //
 function connectToPopulationTypeDropdownToLoadData(callback) {

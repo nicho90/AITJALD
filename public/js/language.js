@@ -186,7 +186,7 @@ var language = {
 };
 
 if (!document.cookie) {
-    document.cookie = config.getStandardLanguage();
+    document.cookie = getStandardLanguage();
 }
 
 // SET LANGUAGE BASED ON BROWSER-COOKIE
