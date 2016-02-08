@@ -98,14 +98,14 @@ function connectToPopulationTypeDropdownToLoadData(callback) {
             switch (newPopulationType) {
                 case 'male':
                     $('#chart2').remove();
-                    htmlString += '</br><i class="fa fa-male" id="genderIcon"></i>&nbsp;&nbsp;';
+                    htmlString += '<br><i class="fa fa-male" id="genderIcon"></i>&nbsp;&nbsp;';
                     break;
                 case 'female':
                     $('#chart2').remove();
-                    htmlString += '</br><i class="fa fa-female" id="genderIcon"></i>&nbsp;&nbsp;';
+                    htmlString += '<br><i class="fa fa-female" id="genderIcon"></i>&nbsp;&nbsp;';
                     break;
                 case 'gender':
-                    htmlString += '</br><i class="fa fa-binoculars" id="genderIcon"></i>&nbsp;&nbsp;';
+                    htmlString += '<br><i class="fa fa-binoculars" id="genderIcon"></i>&nbsp;&nbsp;';
                     break;
                 default:
                     break;
@@ -139,9 +139,8 @@ function connectToPopulationTypeDropdownToLoadData(callback) {
             callback(newPopulationType);
             $('#yearSlider').empty().slider('destroy').html(language[getCookieObject().language].genderal.loadingInformation).css('width','150px');
         }
-    })
-
-}
+    });
+};
 
 //
 function connectAgeDropdownToMap(featureGroups) {
@@ -150,7 +149,7 @@ function connectAgeDropdownToMap(featureGroups) {
         changeStyleForAllLayers(featureGroups,true);
         changeHighcharts.setDiagram();
     })
-}
+};
 
 // COMPARE-BUTTON
 $('#compare_button').click(function () {
@@ -217,9 +216,9 @@ function setGeneralInformation(feature, data){
     $('#general').html(
         '<div class="panel panel-default">' +
             '<div class="panel-heading">' +
-                '<h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;' + language[getCookieObject().language].info.heading + '</h3>' +
+                '<h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;<a href="#" data-toggle="collapse" data-target="#generalDiv">' + language[getCookieObject().language].info.heading + '</a></h3>' +
             '</div>' +
-            '<div class="table-responsive">' +
+            '<div class="table-responsive collapse" id="generalDiv">' +
                 '<table class="table table-striped" id="generalTable"><thead><th>Subject</th><th>Predicate</th><th>Object</th></thead><tbody></tbody></table>' +
             '</div>' +
         '</div>'
