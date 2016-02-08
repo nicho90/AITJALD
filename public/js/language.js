@@ -197,7 +197,7 @@ function getCookieObject() {
         var splittedArray = cookieArray[i].split('=');
         cookieJSON[splittedArray[0].replace(' ','')] = splittedArray[1].replace(' ','');
     }
-    return cookieJSON
+    return cookieJSON;
 }
 
 // SET LANGUAGE-BASED-CONTENT TO DIV-ELEMENT
