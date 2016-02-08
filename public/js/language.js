@@ -88,9 +88,22 @@ var language = {
         "license": {
             "heading": '<h1>Licenses</h1>',
             'software': '<h3>1. Software</h3>',
+            'framework': '<h5>Used Frameworks:</h5>',
             'data': '<h3>2. Open Data</h3>',
-            'mit': '<b>The MIT License (MIT)</b><br><br> Copyright (c) 2016 André Wieghardt, Nicholas Schiestel, Guiying Du, Pawan Thapa' + '<p> Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>' + '<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>' + '<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>',
-            'opendata': '<b>n/a</b><br><br>'
+            'cc': '<div class="row"><div class="col-sm-2"><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a></div><div class="col-sm-10"><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type">This <b>Linked Data Application</b></span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Guiying Du, Nicholas Schiestel, Pawan Thapa, André Wieghardt</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</div></div><br><br>',
+            'frameworks': '<ul>' +
+                '<li>JQuery (<a href="https://github.com/jquery/jquery/blob/master/LICENSE.txt" target="_blank">License</a>)</li>' +
+                '<li>JQuery-UI (<a href="https://github.com/jquery/jquery-ui/blob/master/LICENSE.txt" target="_blank">License</a>)</li>' +
+                '<li>Leaflet (<a href="https://github.com/Leaflet/Leaflet/blob/master/LICENSE" target="_blank">License</a>)</li>' +
+                '<li>Bootstrap (<a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">License</a>)</li>' +
+                '<li>Mapbox (<a href="https://github.com/mapbox/mapbox.js/blob/mb-pages/LICENSE.md" target="_blank">License</a>)</li>' +
+                '<li>Highcharts (<a href="https://github.com/highcharts/highcharts/blob/master/license.txt" target="_blank">License</a>)</li>' +
+                '<li>Font-Awesome (<a href="https://github.com/FortAwesome/Font-Awesome" target="_blank">License</a>)</li>' +
+                '<li>Flag-Icon (<a href="https://github.com/lipis/flag-icon-css/blob/master/LICENSE" target="_blank">License</a>)</li>' +
+                '<li>Terraformer (<a href="https://github.com/Esri/Terraformer/blob/master/LICENSE" target="_blank">License</a>)</li>' +
+                '<li>Terraformer-WKT-Parser (<a href="https://github.com/Esri/terraformer-wkt-parser/blob/master/LICENSE" target="_blank">License</a>)</li>' +
+                '<li>Cookieconsent2 (<a href="https://github.com/silktide/cookieconsent2/blob/master/licence" target="_blank">License</a>)</li></ul>',
+            'opendata': 'This application visualizes Open Data about the population of Münster and its city districts, which were published by the <b>Amt für Stadtentwicklung, Stadtplanung, Verkehrsplanung</b> (<a href="http://www.stadt-muenster.de/stadtentwicklung/zahlen-daten-fakten.html">http://www.stadt-muenster.de/stadtentwicklung/zahlen-daten-fakten.html</a>).<br>The dataset, which was used for this application can be found <a  href="http://www.stadt-muenster.de/fileadmin//user_upload/stadt-muenster/61_stadtentwicklung/pdf/sms/SMS_Bevoelkerung_2014.pdf"  target="_blank">here</a>. The terms of use for this dataset can be found <a href="http://www.stadt-muenster.de/fileadmin/user_upload/stadt-muenster/61_stadtentwicklung/pdf/zahlen/MS_Statistikdaten_Nutzungsbedingungen.pdf">here</a>.'
         },
         "genderal":{
             "loadingInformation": "Loading information"
@@ -175,9 +188,22 @@ var language = {
         "license": {
             "heading": '<h1>Lizenzen</h1>',
             'software': '<h3>1. Software</h3>',
+            'framework': '<h5>Verwendete Frameworks:</h5>',
             'data': '<h3>2. Open Data</h3>',
-            'mit': '<b>The MIT License (MIT)</b><br><br> Copyright (c) 2016 André Wieghardt, Nicholas Schiestel, Guiying Du, Pawan Thapa' + '<p> Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>' + '<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>' + '<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>',
-            'opendata': '<b>n/a</b><br><br>'
+            'cc': '<div class="row"><div class="col-sm-2"><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a></div><div class="col-sm-10"><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type">Diese <b>Linked Data Application</b></span> von <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Guiying Du, Nicholas Schiestel, Pawan Thapa, André Wieghardt</span> ist lizensiert unter der <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 internationalen Lizenz</a>.</div></div><br><br>',
+            'frameworks': '<ul>' +
+                '<li>JQuery (<a href="https://github.com/jquery/jquery/blob/master/LICENSE.txt" target="_blank">Lizenz</a>)</li>' +
+                '<li>JQuery-UI (<a href="https://github.com/jquery/jquery-ui/blob/master/LICENSE.txt" target="_blank">Lizenz</a>)</li>' +
+                '<li>Leaflet (<a href="https://github.com/Leaflet/Leaflet/blob/master/LICENSE" target="_blank">Lizenz</a>)</li>' +
+                '<li>Bootstrap (<a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">Lizenz</a>)</li>' +
+                '<li>Mapbox (<a href="https://github.com/mapbox/mapbox.js/blob/mb-pages/LICENSE.md" target="_blank">Lizenz</a>)</li>' +
+                '<li>Highcharts (<a href="https://github.com/highcharts/highcharts/blob/master/license.txt" target="_blank">Lizenz</a>)</li>' +
+                '<li>Font-Awesome (<a href="https://github.com/FortAwesome/Font-Awesome" target="_blank">License</a>)</li>' +
+                '<li>Flag-Icon (<a href="https://github.com/lipis/flag-icon-css/blob/master/LICENSE" target="_blank">Lizenz</a>)</li>' +
+                '<li>Terraformer (<a href="https://github.com/Esri/Terraformer/blob/master/LICENSE" target="_blank">Lizenz</a>)</li>' +
+                '<li>Terraformer-WKT-Parser (<a href="https://github.com/Esri/terraformer-wkt-parser/blob/master/LICENSE" target="_blank">Lizenz</a>)</li>' +
+                '<li>Cookieconsent2 (<a href="https://github.com/silktide/cookieconsent2/blob/master/licence" target="_blank">Lizenz</a>)</li></ul>',
+            'opendata': 'Diese Applikation visualisiert <i>Open Data</i> über die Bevölkerung der Stadt Münster und ihrer Stadtteile. Die Daten wurden vom <b>Amt für Stadtentwicklung, Stadtplanung, Verkehrsplanung</b> (<a href="http://www.stadt-muenster.de/stadtentwicklung/zahlen-daten-fakten.html">http://www.stadt-muenster.de/stadtentwicklung/zahlen-daten-fakten.html</a>) veröffentlicht.<br>Der Datensatz, welcher für diese Applikation verwendet wurde, kann <a  href="http://www.stadt-muenster.de/fileadmin//user_upload/stadt-muenster/61_stadtentwicklung/pdf/sms/SMS_Bevoelkerung_2014.pdf" target="_blank">hier</a> nachgeschlagen werden. Die Nutzungsbedingungen für diesen Datensatz können <a href="http://www.stadt-muenster.de/fileadmin/user_upload/stadt-muenster/61_stadtentwicklung/pdf/zahlen/MS_Statistikdaten_Nutzungsbedingungen.pdf">hier</a> nachgeschlagen werden.'
         },
         "genderal":{
             "loadingInformation": "Lade Informationen"
