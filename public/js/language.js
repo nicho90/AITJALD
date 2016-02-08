@@ -76,7 +76,7 @@ var language = {
             }
         },
         "info": {
-            "heading": 'Information about Feature'
+            "heading": 'More information'
         },
         "about": {
             "heading": '<h1>About us</h1>'
@@ -163,7 +163,7 @@ var language = {
             }
         },
         "info": {
-            "heading": 'Informationen über Feature'
+            "heading": 'Mehr Informationen'
         },
         "about": {
             "heading": '<h1>Über uns</h1>'
