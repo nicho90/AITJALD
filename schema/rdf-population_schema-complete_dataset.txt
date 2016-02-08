@@ -2,7 +2,7 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/>.
 @prefix lodcom: <http://vocab.lodcom.de/>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-@prefix rdf: <https://www.w3.org/TR/rdf-schema/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 
 
 lodcom:hasMainPopulation 		dc:description			"Population of the main residentials (per year)"@en,
@@ -762,7 +762,7 @@ lodcom:martini			    dc:description          "martini is a subdistrict of altsta
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    0;
+							rdf:value	    0;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -925,7 +925,7 @@ lodcom:pluggendorf			dc:description          "pluggendorf is a subdistrict of in
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    62;
+							rdf:value	    62;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -1088,7 +1088,7 @@ lodcom:josef			    dc:description          "josef is a subdistrict of innenstadt
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    92;
+							rdf:value	    92;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -1252,7 +1252,7 @@ lodcom:bahnhof			    dc:description          "bahnhof is a subdistrict of innens
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    0;
+							rdf:value	    0;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -1415,7 +1415,7 @@ lodcom:hansaplatz			dc:description          "hansaplatz is a subdistrict of inne
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    47;
+							rdf:value	    47;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -1578,7 +1578,7 @@ lodcom:mauritz-west			dc:description          "mauritz-west is a subdistrict of 
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    50;
+							rdf:value	    50;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -1741,7 +1741,7 @@ lodcom:schlachthof			dc:description          "schlachthof is a subdistrict of in
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    55;
+							rdf:value	    55;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -1904,7 +1904,7 @@ lodcom:kreuz			    dc:description          "kreuz is a subdistrict of innenstadt
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    114;
+							rdf:value	    114;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -2067,7 +2067,7 @@ lodcom:neutor			    dc:description          "neutor is a subdistrict of innensta
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    0;
+							rdf:value	    0;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -2230,7 +2230,7 @@ lodcom:schloss			    dc:description          "schloss is a subdistrict of innens
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    45;
+							rdf:value	    45;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -2393,7 +2393,7 @@ lodcom:aaseestadt			dc:description          "aaseestadt is a subdistrict of mitt
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    122;
+							rdf:value	    122;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -2556,7 +2556,7 @@ lodcom:geist			    dc:description          "geist is a subdistrict of mitte-sued
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    119;
+							rdf:value	    119;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -2719,7 +2719,7 @@ lodcom:schuetzenhof			dc:description          "schuetzenhof is a subdistrict of 
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    54;
+							rdf:value	    54;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -2882,7 +2882,7 @@ lodcom:dueesberg			dc:description          "dueesberg is a subdistrict of mitte-
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    157;
+							rdf:value	    157;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -3045,7 +3045,7 @@ lodcom:hafen			    dc:description          "hafen is a subdistrict of mitte-nord
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    0;
+							rdf:value	    0;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -3208,7 +3208,7 @@ lodcom:herz-jesu			dc:description          "herz-jesu is a subdistrict of mitte-
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    0;
+							rdf:value	    0;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -3371,7 +3371,7 @@ lodcom:mauritz-mitte	    dc:description          "mauritz-mitte is a subdistrict
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    194;
+							rdf:value	    194;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -3533,7 +3533,7 @@ lodcom:rumphorst	        dc:description          "rumphorst is a subdistrict of 
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    154;
+							rdf:value	    154;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -3696,7 +3696,7 @@ lodcom:uppenberg	        dc:description          "uppenberg is a subdistrict of 
 							lodcom:year			2014;
 							lodcom:agegroup		"80-89"^^xsd:string;
 							lodcom:gender		"male"^^xsd:string;
-							lodcom:value	    86;
+							rdf:value	    86;
 							];
 							lodcom:hasGenderedPopulation 	[
 							lodcom:year			2014;
@@ -5588,7 +5588,7 @@ lodcom:gelmer-dyckburg 	dc:description   "gelmer-dyckburg is a subdistrict of os
 							];
 							lodcom:hasEntitledPopulation 	[
 							lodcom:year			2012;
-							lodcom:value	    3623;
+							rdf:value	    3623;
 							];
 							lodcom:hasEntitledPopulation 	[
 							lodcom:year			2013;
@@ -5743,7 +5743,7 @@ lodcom:handorf 		dc:description 		"handorf is a subdistrict of ost"@en;
 							];
 							lodcom:hasEntitledPopulation 	[
 							lodcom:year			2010;
-							lodcom:value	7680;
+							rdf:value	7680;
 							];
 							lodcom:hasEntitledPopulation 	[
 							lodcom:year			2011;
@@ -5751,7 +5751,7 @@ lodcom:handorf 		dc:description 		"handorf is a subdistrict of ost"@en;
 							];
 							lodcom:hasEntitledPopulation 	[
 							lodcom:year			2012;
-							lodcom:value	7959;
+							rdf:value	7959;
 							];
 							lodcom:hasEntitledPopulation 	[
 							lodcom:year			2013;
@@ -6240,7 +6240,7 @@ lodcom:angelmodde 			dc:description 		 "angelmodde is a subdistrict of suedost"@
 							];
 							lodcom:hasEntitledPopulation 	[
 							lodcom:year			2012;
-							lodcom:value	    7527;
+							rdf:value	    7527;
 							];
 							lodcom:hasEntitledPopulation 	[
 							lodcom:year			2013;
@@ -6406,7 +6406,7 @@ lodcom:wolbeck 		dc:description		  "wolbeck is a subdistrict of suedost"@en;
 							];
 							lodcom:hasEntitledPopulation 	[
 							lodcom:year			2013;
-							lodcom:value	    8924;
+							rdf:value	    8924;
 							];
 							lodcom:hasEntitledPopulation 	[
 							lodcom:year			2014;

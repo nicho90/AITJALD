@@ -57,13 +57,14 @@ var sparqlHTTPConnection = {
 
                         // create the SPAQL query to get the population of the citydistrict
                         queryString = 'PREFIX lodcom: <' + LODCOMPREFIX + '>' +
+                            'PREFIX rdf:<' + RDFPREFIX + '>' +
                             'SELECT ?feature ?population ?year ' +
                             'WHERE {' +
                             'GRAPH <http://course.introlinkeddata.org/G2> {' +
                             'FILTER (?feature = lodcom:' + options.feature.properties.lodcomName + ').' +
                             populationTypeFilter +
                             '?b lodcom:year ?year.' +
-                            '?b lodcom:value ?population}}';
+                            '?b rdf:value ?population}}';
                         return queryString;
                         break;
                     case 'District':
@@ -71,13 +72,14 @@ var sparqlHTTPConnection = {
                          * later the result will be added together*/
                         queryString = 'PREFIX lodcom: <' + LODCOMPREFIX + '>' +
                             'PREFIX gn:<' + GNPREFIX + '>' +
+                            'PREFIX rdf:<' + RDFPREFIX + '>' +
                             'SELECT ?feature ?year ?population ' +
                             'WHERE {' +
                             'GRAPH <http://course.introlinkeddata.org/G2> {' +
                             '?feature gn:parentFeature lodcom:' + options.feature.properties.lodcomName + '.' +
                             populationTypeFilter +
                             '?b lodcom:year ?year.' +
-                            '?b lodcom:value ?population}}';
+                            '?b rdf:value ?population}}';
                         return queryString;
                         break;
                     case 'City':
@@ -86,6 +88,7 @@ var sparqlHTTPConnection = {
                          * later the result will be added together*/
                         queryString = 'PREFIX lodcom: <' + LODCOMPREFIX + '>' +
                             'PREFIX gn:<' + GNPREFIX + '>' +
+                            'PREFIX rdf:<' + RDFPREFIX + '>' +
                             'SELECT ?feature ?year ?population ' +
                             'WHERE {' +
                             'GRAPH <http://course.introlinkeddata.org/G2> {' +
@@ -93,7 +96,7 @@ var sparqlHTTPConnection = {
                             '?feature gn:parentFeature ?pFeature.'+
                             populationTypeFilter +
                             '?b lodcom:year ?year.' +
-                            '?b lodcom:value ?population}}';
+                            '?b rdf:value ?population}}';
                         return queryString;
                         break;
                     default:
@@ -120,15 +123,16 @@ var sparqlHTTPConnection = {
                 switch (options.feature.properties.administrativeLvl) {
                     case 'CityDistrict':
                         queryString = "PREFIX lodcom:<" + LODCOMPREFIX + "> " +
+                            'PREFIX rdf:<' + RDFPREFIX + '>' +
                             "SELECT ?feature ?year ?gender ?value ?agegroup ?entitledPopulationValue " +
                             "WHERE { GRAPH <http://course.introlinkeddata.org/G2> {" +
                             "FILTER(?feature = lodcom:" + options.feature.properties.lodcomName + ")." +
                             "?feature lodcom:hasGenderedPopulation ?genderedPopulation." +
                             "?feature lodcom:hasEntitledPopulation ?entitledPopulation."+
                             "?entitledPopulation lodcom:year ?entYear." +
-                            "?entitledPopulation lodcom:value ?entitledPopulationValue." +
+                            "?entitledPopulation rdf:value ?entitledPopulationValue." +
                             "?genderedPopulation lodcom:year ?year." +
-                            "?genderedPopulation lodcom:value ?value." +
+                            "?genderedPopulation rdf:value ?value." +
                             "?genderedPopulation lodcom:gender ?gender." +
                             "?genderedPopulation lodcom:agegroup ?agegroup." +
                             genderFilter +
@@ -139,6 +143,7 @@ var sparqlHTTPConnection = {
                     case 'District':
                         queryString = "PREFIX lodcom:<" + LODCOMPREFIX + "> " +
                             'PREFIX gn:<' + GNPREFIX + '>' +
+                            'PREFIX rdf:<' + RDFPREFIX + '>' +
                             "SELECT ?feature ?year ?gender ?value ?agegroup ?entitledPopulationValue " +
                             "WHERE { GRAPH <http://course.introlinkeddata.org/G2> {" +
                             "?feature gn:parentFeature ?parentFeature." +
@@ -146,9 +151,9 @@ var sparqlHTTPConnection = {
                             "?feature lodcom:hasGenderedPopulation ?genderedPopulation." +
                             "?feature lodcom:hasEntitledPopulation ?entitledPopulation."+
                             "?entitledPopulation lodcom:year ?entYear." +
-                            "?entitledPopulation lodcom:value ?entitledPopulationValue." +
+                            "?entitledPopulation rdf:value ?entitledPopulationValue." +
                             "?genderedPopulation lodcom:year ?year." +
-                            "?genderedPopulation lodcom:value ?value." +
+                            "?genderedPopulation rdf:value ?value." +
                             "?genderedPopulation lodcom:gender ?gender." +
                             "?genderedPopulation lodcom:agegroup ?agegroup." +
                             genderFilter +
@@ -159,6 +164,7 @@ var sparqlHTTPConnection = {
                     case 'City':
                         queryString = "PREFIX lodcom:<" + LODCOMPREFIX + "> " +
                             'PREFIX gn:<' + GNPREFIX + '>' +
+                            'PREFIX rdf:<' + RDFPREFIX + '>' +
                             "SELECT ?feature ?year ?gender ?value ?agegroup ?entitledPopulationValue " +
                             "WHERE { GRAPH <http://course.introlinkeddata.org/G2> {" +
                             "?parentFeature gn:parentFeature ?parent2Feature." +
@@ -167,9 +173,9 @@ var sparqlHTTPConnection = {
                             "?feature lodcom:hasGenderedPopulation ?genderedPopulation." +
                             "?feature lodcom:hasEntitledPopulation ?entitledPopulation."+
                             "?entitledPopulation lodcom:year ?entYear." +
-                            "?entitledPopulation lodcom:value ?entitledPopulationValue." +
+                            "?entitledPopulation rdf:value ?entitledPopulationValue." +
                             "?genderedPopulation lodcom:year ?year." +
-                            "?genderedPopulation lodcom:value ?value." +
+                            "?genderedPopulation rdf:value ?value." +
                             "?genderedPopulation lodcom:gender ?gender." +
                             "?genderedPopulation lodcom:agegroup ?agegroup." +
                             genderFilter +
