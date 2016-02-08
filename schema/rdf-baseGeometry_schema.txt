@@ -1,5 +1,5 @@
 @base <http://vocab.lodcom.de/>.
-
+@prefix owl:<http://www.w3.org/2002/07/owl#>
 @prefix dbp:<http://dbpedia.org/ontology/>.
 @prefix gn:<http://www.geonames.org/ontology#>.
 @prefix xsd:<http://www.w3.org/2001/XMLSchema#>.
@@ -15,6 +15,7 @@
 										"M\u00FCnster"@en;
 					gn:countryCode		"DE"^^xsd:string;
 					gn:wikipediaArticle	"http://de.wikipedia.org/wiki/M%FCnster_(Westfalen)";
+					owl:sameAs          <http://www.geonames.org/2867543/>;
 					coord:lat			51.960651;
 					coord:lon			7.625855;
 					geo:sfContains		<mitte>,
@@ -36,6 +37,7 @@
 					gn:alternateName	"Mitte"@de,
 										"Mitte"@en;
 					gn:parentFeature	<muenster>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/M%C3%BCnster-Mitte";
 					coord:lat			51.96673209962334;
 					coord:lon			7.6293182373046875;
 					geo:sfContains		<aegidii>,
@@ -74,6 +76,7 @@
 					gn:alternateName	"West"@de,
 										"West"@en;
 					gn:parentFeature	<muenster>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/M%C3%BCnster-West";
 					coord:lat			51.96931001863471;
 					coord:lon			7.546234130859375;
 					geo:sfContains		<gievenbeck>,
@@ -95,6 +98,7 @@
 					gn:alternateName	"Nord"@de,
 										"North"@en;
 					gn:parentFeature	<muenster>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/M%C3%BCnster-Nord";
 					coord:lat			52.01810384565018;
 					coord:lon			7.62176513671875;
 					geo:sfContains		<coerde>,
@@ -114,6 +118,7 @@
 					gn:alternateName	"Ost"@de,
 										"Ost"@en;
 					gn:parentFeature	<muenster>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/M%C3%BCnster-Ost";
 					coord:lat			51.995530263148666;
 					coord:lon			7.6952362060546875;
 					geo:sfContains		<mauritz-ost>,
@@ -132,6 +137,7 @@
 					gn:alternateName	"S\u00FCdost"@de,
 										"S\u00FCdos"@en;
 					gn:parentFeature	<muenster>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/M%C3%BCnster-S%C3%BCd-Ost";
 					coord:lat			51.92610038835092;
 					coord:lon			7.710685729980469;
 					geo:sfContains		<gremmendorf-west>,
@@ -151,6 +157,8 @@
 					gn:alternateName	"Hiltrup"@de,
 										"Hiltrup"@en;
 					gn:parentFeature	<muenster>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Hiltrup";
+					owl:sameAs          <http://www.geonames.org/2904598/>;
 					coord:lat			51.891404709538556;
 					coord:lon			7.606658935546875;
 					geo:sfContains		<berg_fidel>,
@@ -315,6 +323,7 @@
 					gn:alternateName	"Mauritz-West"@de,
 										"Mauritz-West"@en;
 					gn:parentFeature	<mitte>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/St._Mauritz";
 					coord:lat			51.96182166259155;
 					coord:lon			7.6427507400512695;
 					geo:sfWithin		<mitte>;
@@ -411,6 +420,7 @@
 					gn:alternateName	"Geist"@de,
 										"Geist"@en;
 					gn:parentFeature	<mitte>;
+					owl:sameAs          <http://www.geonames.org/2921581/>;
 					coord:lat			51.942190655805604;
 					coord:lon			7.616872787475586;
 					geo:sfWithin		<mitte>;
@@ -523,6 +533,7 @@
 					gn:alternateName	"Uppenberg"@de,
 										"Uppenberg"@en;
 					gn:parentFeature	<mitte>;
+					owl:sameAs          <http://www.geonames.org/2818261/>;
 					coord:lat			51.980851823877735;
 					coord:lon			7.614040374755859;
 					geo:sfWithin		<mitte>;
@@ -539,6 +550,8 @@
 					gn:alternateName	"Gievenbeck"@de,
 										"Gievenbeck"@en;
 					gn:parentFeature	<west>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Gievenbeck";
+					owl:sameAs          <http://www.geonames.org/8051527/>;
 					coord:lat			51.976082959388776;
 					coord:lon			7.568550109863281;
 					geo:sfWithin		<west>;
@@ -555,6 +568,7 @@
 					gn:alternateName	"Sentrup"@de,
 										"Sentrup"@en;
 					gn:parentFeature	<west>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Sentrup_(M%C3%BCnster)";
 					coord:lat			51.95609331029137;
 					coord:lon			7.5894927978515625;
 					geo:sfWithin		<west>;
@@ -571,6 +585,8 @@
 					gn:alternateName	"Mecklenbeck"@de,
 										"Mecklenbeck"@en;
 					gn:parentFeature	<west>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Mecklenbeck";
+					owl:sameAs          <http://www.geonames.org/2872573/>;
 					coord:lat			51.927732913413614;
 					coord:lon			7.575931549072266;
 					geo:sfWithin		<west>;
@@ -587,6 +603,8 @@
 					gn:alternateName	"Albachten"@de,
 										"Albachten"@en;
 					gn:parentFeature	<west>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Albachten";
+					owl:sameAs          <http://www.geonames.org/2958755/>;
 					coord:lat			51.921592855341544;
 					coord:lon			7.531299591064453;
 					geo:sfWithin		<west>;
@@ -603,6 +621,8 @@
 					gn:alternateName	"Roxel"@de,
 										"Roxel"@en;
 					gn:parentFeature	<west>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Roxel";
+					owl:sameAs          <http://www.geonames.org/2843595/>;
 					coord:lat			51.95609331029137;
 					coord:lon			7.5201416015625;
 					geo:sfWithin		<west>;
@@ -619,6 +639,8 @@
 					gn:alternateName	"Nienberge"@de,
 										"Nienberge"@en;
 					gn:parentFeature	<west>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Nienberge";
+					owl:sameAs          <http://www.geonames.org/2862632/>;
 					coord:lat			52.01316148214041;
 					coord:lon			7.5496673583984375;
 					geo:sfWithin		<west>;
@@ -635,6 +657,8 @@
 					gn:alternateName	"Coerde"@de,
 										"Coerde"@en;
 					gn:parentFeature	<nord>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Coerde";
+					owl:sameAs          <http://www.geonames.org/3205799/>;
 					coord:lat			52.00081969760444;
 					coord:lon			7.6444244384765625;
 					geo:sfWithin		<nord>;
@@ -651,6 +675,7 @@
 					gn:alternateName	"Kinderhaus-Ost"@de,
 										"Kinderhaus-Ost"@en;
 					gn:parentFeature	<nord>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Kinderhaus_(M%C3%BCnster)";
 					coord:lat			51.99464752895787;
 					coord:lon			7.6169586181640625;
 					geo:sfWithin		<nord>;
@@ -667,6 +692,7 @@
 					gn:alternateName	"Kinderhaus-West"@de,
 										"Kinderhaus-West"@en;
 					gn:parentFeature	<nord>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Kinderhaus_(M%C3%BCnster)";
 					coord:lat			51.99744843656566;
 					coord:lon			7.590093612670898;
 					geo:sfWithin		<nord>;
@@ -683,6 +709,8 @@
 					gn:alternateName	"Sprakel"@de,
 										"Sprakel"@en;
 					gn:parentFeature	<nord>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Sprakel";
+					owl:sameAs          <http://www.geonames.org/2830129/>;
 					coord:lat			52.03069664550128;
 					coord:lon			7.6183319091796875;
 					geo:sfWithin		<nord>;
@@ -699,6 +727,7 @@
 					gn:alternateName	"Mauritz-Ost"@de,
 										"Mauritz-Ost"@en;
 					gn:parentFeature	<ost>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/St._Mauritz";
 					coord:lat			51.96519023488759;
 					coord:lon			7.673435211181641;
 					geo:sfWithin		<ost>;
@@ -715,6 +744,8 @@
 					gn:alternateName	"Gelmer-Dyckburg"@de,
 										"Gelmer-Dyckburg"@en;
 					gn:parentFeature	<ost>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Gelmer";
+					owl:sameAs          <http://www.geonames.org/2921480/>;
 					coord:lat			52.01379540297288;
 					coord:lon			7.674980163574219;
 					geo:sfWithin		<ost>;
@@ -731,6 +762,8 @@
 					gn:alternateName	"Handorf"@de,
 										"Handorf"@en;
 					gn:parentFeature	<ost>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Handorf_(M%C3%BCnster)";
+					owl:sameAs          <http://www.geonames.org/2910976/>;
 					coord:lat			51.98758585476704;
 					coord:lon			7.715492248535156;
 					geo:sfWithin		<ost>;
@@ -747,6 +780,7 @@
 					gn:alternateName	"Gremmendorf-West"@de,
 										"Gremmendorf-West"@en;
 					gn:parentFeature	<suedost>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Gremmendorf";
 					coord:lat			51.93598890864212;
 					coord:lon			7.652149200439453;
 					geo:sfWithin		<suedost>;
@@ -763,6 +797,7 @@
 					gn:alternateName	"Gremmendorf-Ost"@de,
 										"Gremmendorf-Ost"@en;
 					gn:parentFeature	<suedost>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Gremmendorf";
 					coord:lat			51.93524804803387;
 					coord:lon			7.681674957275391;
 					geo:sfWithin		<suedost>;
@@ -779,6 +814,8 @@
 					gn:alternateName	"Angelmodde"@de,
 										"Angelmodde"@en;
 					gn:parentFeature	<suedost>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Angelmodde";
+					owl:sameAs          <http://www.geonames.org/2956147/>;
 					coord:lat			51.91678625134233;
 					coord:lon			7.694463729858398;
 					geo:sfWithin		<suedost>;
@@ -795,6 +832,7 @@
 					gn:alternateName	"Wolbeck"@de,
 										"Wolbeck"@en;
 					gn:parentFeature	<suedost>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Wolbeck_(M%C3%BCnster)";
 					coord:lat			51.92707627166699;
 					coord:lon			7.733345031738281;
 					geo:sfWithin		<suedost>;
@@ -811,6 +849,7 @@
 					gn:alternateName	"Berg-Fidel"@de,
 										"Berg-Fidel"@en;
 					gn:parentFeature	<hiltrup>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Berg_Fidel";
 					coord:lat			51.923921941758714;
 					coord:lon			7.629661560058594;
 					geo:sfWithin		<hiltrup>;
@@ -827,6 +866,7 @@
 					gn:alternateName	"Hiltrup-Ost"@de,
 										"Hiltrup-Ost"@en;
 					gn:parentFeature	<hiltrup>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Hiltrup";
 					coord:lat			51.89721456263865;
 					coord:lon			7.676353454589844;
 					geo:sfWithin		<hiltrup>;
@@ -843,6 +883,7 @@
 					gn:alternateName	"Hiltrup-Mitte"@de,
 										"Hiltrup-Mitte"@en;
 					gn:parentFeature	<hiltrup>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Hiltrup";
 					coord:lat			51.897765714816835;
 					coord:lon			7.6519775390625;
 					geo:sfWithin		<hiltrup>;
@@ -859,6 +900,7 @@
 					gn:alternateName	"Hiltrup-West"@de,
 										"Hiltrup-West"@en;
 					gn:parentFeature	<hiltrup>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Hiltrup";
 					coord:lat			51.90369720699491;
 					coord:lon			7.62176513671875;
 					geo:sfWithin		<hiltrup>;
@@ -874,6 +916,8 @@
 					gn:alternateName	"Amelsb\u00FCren"@de,
 										"Amelsb\u00FCren"@en;
 					gn:parentFeature	<hiltrup>;
+					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Amelsb%C3%BCren";
+					owl:sameAs          <http://www.geonames.org/2956579/>;
 					coord:lat			51.88386567797622;
 					coord:lon			7.587089538574219;
 					geo:sfWithin		<hiltrup>;
