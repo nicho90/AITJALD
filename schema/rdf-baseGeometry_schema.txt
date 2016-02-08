@@ -1,5 +1,5 @@
 @base <http://vocab.lodcom.de/>.
-@prefix owl:<http://www.w3.org/2002/07/owl#>
+@prefix owl:<http://www.w3.org/2002/07/owl#>.
 @prefix dbp:<http://dbpedia.org/ontology/>.
 @prefix gn:<http://www.geonames.org/ontology#>.
 @prefix xsd:<http://www.w3.org/2001/XMLSchema#>.
