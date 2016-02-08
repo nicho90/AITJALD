@@ -11,5 +11,5 @@ function getMapboxAccessToken() {
 
 // LANGUAGE ON APPLICATION-START
 function getStandardLanguage() {
-    return "language = en";
+    return 'language = en';
 };
