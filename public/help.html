@@ -32,6 +32,8 @@
     <link href="lib/cookieconsent2/build/dark-bottom.css" rel="stylesheet"/>
     <script>
         window.cookieconsent_options = {
+            learnMore: language[getCookieObject().language].help.cookie.more,
+            link: "help.html#_privacy",
             theme: 'dark-bottom'
         };
     </script>
@@ -146,6 +148,13 @@
             <h4 id="_compare_4">3.4 Female population by age</h4>
             <h4 id="_compare_5">3.5 Population by age</h4>
         </div>
+        <div id="_privacy">
+
+            <h3 id="_privacy-header"></h3>
+            <script>appendDiv('_privacy-header','help.cookie.title')</script>
+            <div id="privacy-content"><script>setDiv('privacy-content','help.cookie.cookie-content')</script></div>
+            <br><br><br><br>
+        </div>
     </div>
 </div>
 
@@ -240,7 +249,6 @@ In this application there is Citydistricts of Muenster.When you click this optio
 <script src="lib/jquery/dist/jquery.min.js"></script>
 <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="js/initGeneralFunctions.js"></script>
-
 
 </body>
 </html>

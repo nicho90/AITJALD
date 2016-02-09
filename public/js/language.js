@@ -83,13 +83,19 @@ var language = {
         },
         "help": {
             "heading": '<h1>Help</h1>',
-            "sub-heading": '<h3>- User manual- </h3>'
+            "sub-heading": '<h3>- User manual- </h3>',
+            'cookie': {
+                "title":'<h3>3. Privacy</h3>',
+                "more": "More info",
+                "cookie-content": "This application saves cookies. These cookies are saving the preferred language of the user. No personal data will be saved."
+            }
         },
         "license": {
             "heading": '<h1>Licenses</h1>',
             'software': '<h3>1. Software</h3>',
             'framework': '<h5>Used Frameworks:</h5>',
             'data': '<h3>2. Open Data</h3>',
+            'cookie': '<h3>2. Privacy</h3>',
             'cc': '<div class="row"><div class="col-sm-2"><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a></div><div class="col-sm-10"><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type">This <b>Linked Data Application</b></span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Guiying Du, Nicholas Schiestel, Pawan Thapa, André Wieghardt</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</div></div><br><br>',
             'frameworks': '<ul>' +
                 '<li>JQuery (<a href="https://github.com/jquery/jquery/blob/master/LICENSE.txt" target="_blank">License</a>)</li>' +
@@ -103,7 +109,9 @@ var language = {
                 '<li>Terraformer (<a href="https://github.com/Esri/Terraformer/blob/master/LICENSE" target="_blank">License</a>)</li>' +
                 '<li>Terraformer-WKT-Parser (<a href="https://github.com/Esri/terraformer-wkt-parser/blob/master/LICENSE" target="_blank">License</a>)</li>' +
                 '<li>Cookieconsent2 (<a href="https://github.com/silktide/cookieconsent2/blob/master/licence" target="_blank">License</a>)</li></ul>',
-            'opendata': 'This application visualizes Open Data about the population of Münster and its city districts, which were published by the <b>Amt für Stadtentwicklung, Stadtplanung, Verkehrsplanung</b> (<a href="http://www.stadt-muenster.de/stadtentwicklung/zahlen-daten-fakten.html">http://www.stadt-muenster.de/stadtentwicklung/zahlen-daten-fakten.html</a>).<br>The dataset, which was used for this application can be found <a  href="http://www.stadt-muenster.de/fileadmin//user_upload/stadt-muenster/61_stadtentwicklung/pdf/sms/SMS_Bevoelkerung_2014.pdf"  target="_blank">here</a>. The terms of use for this dataset can be found <a href="http://www.stadt-muenster.de/fileadmin/user_upload/stadt-muenster/61_stadtentwicklung/pdf/zahlen/MS_Statistikdaten_Nutzungsbedingungen.pdf">here</a>.'
+            'opendata': 'This application visualizes Open Data about the population of Münster and its city districts, which were published by the <b>Amt für Stadtentwicklung, Stadtplanung, Verkehrsplanung</b> (<a href="http://www.stadt-muenster.de/stadtentwicklung/zahlen-daten-fakten.html">http://www.stadt-muenster.de/stadtentwicklung/zahlen-daten-fakten.html</a>).<br>The dataset, which was used for this application can be found <a  href="http://www.stadt-muenster.de/fileadmin//user_upload/stadt-muenster/61_stadtentwicklung/pdf/sms/SMS_Bevoelkerung_2014.pdf"  target="_blank">here</a>. The terms of use for this dataset can be found <a href="http://www.stadt-muenster.de/fileadmin/user_upload/stadt-muenster/61_stadtentwicklung/pdf/zahlen/MS_Statistikdaten_Nutzungsbedingungen.pdf">here</a>.',
+            "cookie-content": "This application will create cookies. These cookies are saving the preferred language of the user. No personal data will be saved."
+
         },
         "genderal":{
             "loadingInformation": "Loading information"
@@ -183,7 +191,12 @@ var language = {
         },
         "help": {
             "heading": '<h1>Hilfe</h1>',
-            "sub-heading": '<h3>- Benutzerhandbuch - </h3>'
+            "sub-heading": '<h3>- Benutzerhandbuch - </h3>',
+            'cookie': {
+                "title":'<h3>3. Privatsphäre</h3>',
+                "more": "Mehr Informationen",
+                "cookie-content": "Diese Webanwendung speichert Cookies. Diese Cookies speichern die bevorzugte Sprache des Nutzers. Keine personenbezogenen Daten werden gespeichert"
+            }
         },
         "license": {
             "heading": '<h1>Lizenzen</h1>',
