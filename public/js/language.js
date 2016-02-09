@@ -11,7 +11,7 @@
 var language = {
     "en": {
         "main": {
-            "title": "JavaScript and Linked Data"
+            "title": "Population Open Data"
         },
         "navbar": {
             "home": "Home",
@@ -119,7 +119,7 @@ var language = {
     },
     "de": {
         "main": {
-            "title": "JavaScript und Linked Data"
+            "title": "Bevölkerung - Open Data"
         },
         "navbar": {
             "home": "Start",
