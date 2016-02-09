@@ -96,14 +96,14 @@ var language = {
             'framework': '<h5>Used Frameworks:</h5>',
             'data': '<h3>2. Open Data</h3>',
             'cookie': '<h3>3. Privacy</h3>',
-            'cc': '<div class="row"><div class="col-sm-2"><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png"></a></div><div class="col-sm-10"><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><b>Linked Open Data</b></span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Guiying Du, Nicholas Schiestel, Pawan Thapa, André Wieghardt</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</div></div><br><br>',
+            'cc': '<div class="row"><div class="col-sm-2"><a target="_blank" rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png"></a></div><div class="col-sm-10"><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><b>Linked Open Data</b></span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Guiying Du, Nicholas Schiestel, Pawan Thapa, André Wieghardt</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</div></div><br><br>',
             'frameworks': '<ul>' +
                 '<li>JQuery (<a href="https://github.com/jquery/jquery/blob/master/LICENSE.txt" target="_blank">License</a>)</li>' +
                 '<li>JQuery-UI (<a href="https://github.com/jquery/jquery-ui/blob/master/LICENSE.txt" target="_blank">License</a>)</li>' +
                 '<li>Leaflet (<a href="https://github.com/Leaflet/Leaflet/blob/master/LICENSE" target="_blank">License</a>)</li>' +
                 '<li>Bootstrap (<a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">License</a>)</li>' +
                 '<li>Mapbox (<a href="https://github.com/mapbox/mapbox.js/blob/mb-pages/LICENSE.md" target="_blank">License</a>)</li>' +
-                '<li>Highcharts (<a href="https://github.com/highcharts/highcharts/blob/master/license.txt" target="_blank">License</a>)</li>' +
+                '<li>Highcharts (<a href="http://shop.highsoft.com/faq#Non-Commercial-0" target="_blank">License</a>)</li>' +
                 '<li>Font-Awesome (<a href="https://github.com/FortAwesome/Font-Awesome" target="_blank">License</a>)</li>' +
                 '<li>Flag-Icon (<a href="https://github.com/lipis/flag-icon-css/blob/master/LICENSE" target="_blank">License</a>)</li>' +
                 '<li>Terraformer (<a href="https://github.com/Esri/Terraformer/blob/master/LICENSE" target="_blank">License</a>)</li>' +
@@ -202,14 +202,14 @@ var language = {
             'software': '<h3>1. Software</h3>',
             'framework': '<h5>Verwendete Frameworks:</h5>',
             'data': '<h3>2. Open Data</h3>',
-            'cc': '<div class="row"><div class="col-sm-2"><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png"></a></div><div class="col-sm-10"><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><b>Linked Open Data</b></span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Guiying Du, Nicholas Schiestel, Pawan Thapa, André Wieghardt</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</div></div><br><br>',
+            'cc': '<div class="row"><div class="col-sm-2"><a target="_blank" rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png"></a></div><div class="col-sm-10"><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><b>Linked Open Data</b></span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Guiying Du, Nicholas Schiestel, Pawan Thapa, André Wieghardt</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</div></div><br><br>',
             'frameworks': '<ul>' +
                 '<li>JQuery (<a href="https://github.com/jquery/jquery/blob/master/LICENSE.txt" target="_blank">Lizenz</a>)</li>' +
                 '<li>JQuery-UI (<a href="https://github.com/jquery/jquery-ui/blob/master/LICENSE.txt" target="_blank">Lizenz</a>)</li>' +
                 '<li>Leaflet (<a href="https://github.com/Leaflet/Leaflet/blob/master/LICENSE" target="_blank">Lizenz</a>)</li>' +
                 '<li>Bootstrap (<a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">Lizenz</a>)</li>' +
                 '<li>Mapbox (<a href="https://github.com/mapbox/mapbox.js/blob/mb-pages/LICENSE.md" target="_blank">Lizenz</a>)</li>' +
-                '<li>Highcharts (<a href="https://github.com/highcharts/highcharts/blob/master/license.txt" target="_blank">Lizenz</a>)</li>' +
+                '<li>Highcharts (<a href="http://shop.highsoft.com/faq#Non-Commercial-0" target="_blank">Lizenz</a>)</li>' +
                 '<li>Font-Awesome (<a href="https://github.com/FortAwesome/Font-Awesome" target="_blank">License</a>)</li>' +
                 '<li>Flag-Icon (<a href="https://github.com/lipis/flag-icon-css/blob/master/LICENSE" target="_blank">Lizenz</a>)</li>' +
                 '<li>Terraformer (<a href="https://github.com/Esri/Terraformer/blob/master/LICENSE" target="_blank">Lizenz</a>)</li>' +
