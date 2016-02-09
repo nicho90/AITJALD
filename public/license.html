@@ -33,7 +33,7 @@
     <script>
         window.cookieconsent_options = {
             learnMore: language[getCookieObject().language].help.cookie.more,
-            link: "help.html#_privacy",
+            link: "licence.html#_privacy",
             theme: 'dark-bottom'
         };
     </script>
@@ -102,6 +102,13 @@
                 <div class="col-xs-1"></div>
                 <div class="col-xs-10" id="opendata" style="text-align: justify;"><script>setDiv('opendata','license.opendata')</script></div>
                 <div class="col-xs-1"></div>
+            </div>
+            <div id="_privacy">
+
+                <h3 id="_privacy-header"></h3>
+                <script>appendDiv('_privacy-header','help.cookie.title')</script>
+                <div id="privacy-content"><script>setDiv('privacy-content','help.cookie.cookie-content')</script></div>
+                <br><br><br><br>
             </div>
         </div>
     </div>
