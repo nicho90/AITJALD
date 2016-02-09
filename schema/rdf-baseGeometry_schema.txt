@@ -15,7 +15,7 @@
 										"M\u00FCnster"@en;
 					gn:countryCode		"DE"^^xsd:string;
 					gn:wikipediaArticle	"http://de.wikipedia.org/wiki/M%FCnster_(Westfalen)";
-					owl:sameAs          <http://www.geonames.org/2867543/>;
+					owl:sameAs          "http://www.geonames.org/2867543/";
 					coord:lat			51.960651;
 					coord:lon			7.625855;
 					geo:sfContains		<mitte>,
@@ -158,7 +158,7 @@
 										"Hiltrup"@en;
 					gn:parentFeature	<muenster>;
 					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Hiltrup";
-					owl:sameAs          <http://www.geonames.org/2904598/>;
+					owl:sameAs          "http://www.geonames.org/2904598/";
 					coord:lat			51.891404709538556;
 					coord:lon			7.606658935546875;
 					geo:sfContains		<berg_fidel>,
@@ -420,7 +420,7 @@
 					gn:alternateName	"Geist"@de,
 										"Geist"@en;
 					gn:parentFeature	<mitte>;
-					owl:sameAs          <http://www.geonames.org/2921581/>;
+					owl:sameAs          "http://www.geonames.org/2921581/";
 					coord:lat			51.942190655805604;
 					coord:lon			7.616872787475586;
 					geo:sfWithin		<mitte>;
@@ -533,7 +533,7 @@
 					gn:alternateName	"Uppenberg"@de,
 										"Uppenberg"@en;
 					gn:parentFeature	<mitte>;
-					owl:sameAs          <http://www.geonames.org/2818261/>;
+					owl:sameAs          "http://www.geonames.org/2818261/";
 					coord:lat			51.980851823877735;
 					coord:lon			7.614040374755859;
 					geo:sfWithin		<mitte>;
@@ -551,7 +551,7 @@
 										"Gievenbeck"@en;
 					gn:parentFeature	<west>;
 					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Gievenbeck";
-					owl:sameAs          <http://www.geonames.org/8051527/>;
+					owl:sameAs          "http://www.geonames.org/8051527/";
 					coord:lat			51.976082959388776;
 					coord:lon			7.568550109863281;
 					geo:sfWithin		<west>;
@@ -586,7 +586,7 @@
 										"Mecklenbeck"@en;
 					gn:parentFeature	<west>;
 					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Mecklenbeck";
-					owl:sameAs          <http://www.geonames.org/2872573/>;
+					owl:sameAs          "http://www.geonames.org/2872573/";
 					coord:lat			51.927732913413614;
 					coord:lon			7.575931549072266;
 					geo:sfWithin		<west>;
@@ -604,7 +604,7 @@
 										"Albachten"@en;
 					gn:parentFeature	<west>;
 					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Albachten";
-					owl:sameAs          <http://www.geonames.org/2958755/>;
+					owl:sameAs          "http://www.geonames.org/2958755/";
 					coord:lat			51.921592855341544;
 					coord:lon			7.531299591064453;
 					geo:sfWithin		<west>;
@@ -622,7 +622,7 @@
 										"Roxel"@en;
 					gn:parentFeature	<west>;
 					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Roxel";
-					owl:sameAs          <http://www.geonames.org/2843595/>;
+					owl:sameAs          "http://www.geonames.org/2843595/";
 					coord:lat			51.95609331029137;
 					coord:lon			7.5201416015625;
 					geo:sfWithin		<west>;
@@ -640,7 +640,7 @@
 										"Nienberge"@en;
 					gn:parentFeature	<west>;
 					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Nienberge";
-					owl:sameAs          <http://www.geonames.org/2862632/>;
+					owl:sameAs          "http://www.geonames.org/2862632/";
 					coord:lat			52.01316148214041;
 					coord:lon			7.5496673583984375;
 					geo:sfWithin		<west>;
@@ -658,7 +658,7 @@
 										"Coerde"@en;
 					gn:parentFeature	<nord>;
 					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Coerde";
-					owl:sameAs          <http://www.geonames.org/3205799/>;
+					owl:sameAs          "http://www.geonames.org/3205799/";
 					coord:lat			52.00081969760444;
 					coord:lon			7.6444244384765625;
 					geo:sfWithin		<nord>;
@@ -710,7 +710,7 @@
 										"Sprakel"@en;
 					gn:parentFeature	<nord>;
 					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Sprakel";
-					owl:sameAs          <http://www.geonames.org/2830129/>;
+					owl:sameAs          "http://www.geonames.org/2830129/";
 					coord:lat			52.03069664550128;
 					coord:lon			7.6183319091796875;
 					geo:sfWithin		<nord>;
@@ -745,7 +745,7 @@
 										"Gelmer-Dyckburg"@en;
 					gn:parentFeature	<ost>;
 					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Gelmer";
-					owl:sameAs          <http://www.geonames.org/2921480/>;
+					owl:sameAs          "http://www.geonames.org/2921480/";
 					coord:lat			52.01379540297288;
 					coord:lon			7.674980163574219;
 					geo:sfWithin		<ost>;
@@ -763,7 +763,7 @@
 										"Handorf"@en;
 					gn:parentFeature	<ost>;
 					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Handorf_(M%C3%BCnster)";
-					owl:sameAs          <http://www.geonames.org/2910976/>;
+					owl:sameAs          "http://www.geonames.org/2910976/";
 					coord:lat			51.98758585476704;
 					coord:lon			7.715492248535156;
 					geo:sfWithin		<ost>;
@@ -815,7 +815,7 @@
 										"Angelmodde"@en;
 					gn:parentFeature	<suedost>;
 					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Angelmodde";
-					owl:sameAs          <http://www.geonames.org/2956147/>;
+					owl:sameAs          "http://www.geonames.org/2956147/";
 					coord:lat			51.91678625134233;
 					coord:lon			7.694463729858398;
 					geo:sfWithin		<suedost>;
@@ -917,7 +917,7 @@
 										"Amelsb\u00FCren"@en;
 					gn:parentFeature	<hiltrup>;
 					gn:wikipediaArticle	"https://de.wikipedia.org/wiki/Amelsb%C3%BCren";
-					owl:sameAs          <http://www.geonames.org/2956579/>;
+					owl:sameAs          "http://www.geonames.org/2956579/";
 					coord:lat			51.88386567797622;
 					coord:lon			7.587089538574219;
 					geo:sfWithin		<hiltrup>;
