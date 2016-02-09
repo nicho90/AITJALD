@@ -95,7 +95,7 @@ var language = {
             'software': '<h3>1. Software</h3>',
             'framework': '<h5>Used Frameworks:</h5>',
             'data': '<h3>2. Open Data</h3>',
-            'cookie': '<h3>2. Privacy</h3>',
+            'cookie': '<h3>3. Privacy</h3>',
             'cc': '<div class="row"><div class="col-sm-2"><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a></div><div class="col-sm-10"><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type">This <b>Linked Data Application</b></span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Guiying Du, Nicholas Schiestel, Pawan Thapa, André Wieghardt</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</div></div><br><br>',
             'frameworks': '<ul>' +
                 '<li>JQuery (<a href="https://github.com/jquery/jquery/blob/master/LICENSE.txt" target="_blank">License</a>)</li>' +
