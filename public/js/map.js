@@ -115,10 +115,10 @@ $( document ).ready(function() {
 		}
 	});
 
-	// MAP-PROVIDER
+	/*// MAP-PROVIDER
 	function getMap() {
 		return map;
-	}
+	}*/
 
 	// TODO: these variables have to dynamic. For testing now hardcoded
 	/**
@@ -466,7 +466,7 @@ function changeStyleForAllLayers(featureGroups, newCategorie) {
 					var featureInSelectedFeatures = false;
 					for (var j = 0; j < selectedFeatures.length; j++) {
 						if (selectedFeatures[j].feature == feature) {
-							featureInSelectedFeatures = true
+							featureInSelectedFeatures = true;
 						}
 					}
 					//if (!featureInSelectedFeatures || newCategorie) {

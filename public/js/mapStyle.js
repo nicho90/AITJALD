@@ -100,6 +100,9 @@ function channelStyle(layer,newCategorie,selected) {
                     if (layer.feature.displayInformation[selectedYear] != undefined) {
                         var population = layer.feature.displayInformation[selectedYear].population;
                         layer.setStyle(densityStyle(population, layer.feature.properties.area));
+                        if (selected) {
+                            layer.setStyle(clickedStyle())
+                        }
                     }
                 }
                 break;
@@ -205,6 +208,9 @@ function channelStyle(layer,newCategorie,selected) {
                     if (layer.feature.displayInformation[selectedYear] != undefined) {
                         var population = layer.feature.displayInformation[selectedYear].population;
                         layer.setStyle(procentStyle(population, layer.feature.displayInformation[selectedYear][selectedAgeGroup].value));
+                        if (selected) {
+                            layer.setStyle(clickedStyle())
+                        }
                     }
                 }
                 break;
@@ -296,6 +302,7 @@ function clickedStyle() {
     return {
         color: 'red',
         weight: 3,
-        opacity: 1
+        opacity: 1,
+        fillOpacity: 0.9
     }
 };
