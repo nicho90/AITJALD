@@ -89,10 +89,12 @@ switch (getCookieObject().language) {
 function connectToPopulationTypeDropdownToLoadData(callback) {
     $('#populationTypeDropdown').change(function() {
         if (selectedFeatures.length != 0) {
+            // fill highcharts with loading icon
             $('#chart').html('<br><center><i class="fa fa-spinner fa-pulse"></i></center>');
         }
         $('#populationTypeDropdown').parent().nextAll().remove();
         var newPopulationType = this.value;
+        // according to the population type, change the icon for the dropdown
         if (newPopulationType == 'male' || newPopulationType == 'female' || newPopulationType == 'gender') {
             var htmlString ='';
             switch (newPopulationType) {
@@ -110,6 +112,7 @@ function connectToPopulationTypeDropdownToLoadData(callback) {
                 default:
                     break;
             }
+            //initialize the html element for the population type dropdown
             htmlString += '<div class="ageGroupDropdown">' + language[getCookieObject().language].map.panel.highCharts.title.agePopulation.description +'&nbsp;&nbsp;</div>';
             htmlString +=  '<div class="ageGroupDropdown">'+
                 '<select class="form-control" id="ageGroupDropdown">'+
@@ -137,6 +140,7 @@ function connectToPopulationTypeDropdownToLoadData(callback) {
         else {
             $('#chart2').remove();
             callback(newPopulationType);
+            // destroy the html fpr the year slider and fill it with the current data
             $('#yearSlider').empty().slider('destroy').html(language[getCookieObject().language].genderal.loadingInformation).css('width','150px');
         }
     });

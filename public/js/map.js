@@ -12,7 +12,7 @@
 // GLOBAL VARIABLES
 var popup,
 	comparingStatus = false,
-	//TODO: populationType is hardcoded. Should be dynamic through a cookie (last selected population type)
+	//TODO: populationType is hardcoded. Should be dynamic through a cookie to enable a controlle (last selected population type)
 	populationType = 'main',
 	selectedAgeGroup = '',
 	selectedYear = '',
@@ -43,6 +43,7 @@ $( document ).ready(function() {
 	// Assigning map click function
 	map.on('click', function (e) {
 		if(!comparingStatus) {
+			changeHighcharts.emptyHighCharts();
 			setStyleForNoSelectedFeatures();
 		}
 	});
@@ -85,7 +86,6 @@ $( document ).ready(function() {
 				properties: {
 					name: result[i].name.value.replace(LODCOMPREFIX, ''),
 					lodcomName: result[i].feature.value.replace(LODCOMPREFIX, ''),
-					// TODO: do we need this?
 					administrativeLvl: adminType,
 					// area comes in square meters create as square kilometers
 					area: parseFloat(result[i].area.value)/1000000
@@ -120,7 +120,6 @@ $( document ).ready(function() {
 		return map;
 	}*/
 
-	// TODO: these variables have to dynamic. For testing now hardcoded
 	/**
 	 * Function to assign click function etc to the layer/feature
 	 */
@@ -133,7 +132,6 @@ $( document ).ready(function() {
 				layer.bringToFront();
 
 				// every other layer should be styled as default
-				// TODO: if comparing is active - more than one layer have do be styled 'clicked style'
 				if (!comparingStatus) {
 
 					// UPDATE HIGHCHARTS-PANEL
@@ -141,7 +139,6 @@ $( document ).ready(function() {
 					sparqlHTTPConnection.getDataForFeature(feature, function (featureData){
 						changeHighcharts.setDiagram({
 							type: populationType,
-							administrativeLvl: feature.properties.administrativeLvl,
 							features: [featureData]
 						})
 					});
@@ -181,7 +178,6 @@ $( document ).ready(function() {
 									if (counterHelper == selectedFeatures.length) {
 										changeHighcharts.setDiagram({
 											type: populationType,
-											administrativeLvl: feature.properties.administrativeLvl,
 											features: featureArrayForHC
 										})
 									}
@@ -210,7 +206,6 @@ $( document ).ready(function() {
 									if (counterHelper == selectedFeatures.length) {
 										changeHighcharts.setDiagram({
 											type: populationType,
-											administrativeLvl: feature.properties.administrativeLvl,
 											features: featureArrayForHC
 										})
 									}
@@ -384,7 +379,6 @@ $( document ).ready(function() {
 				if (counterHelper == selectedFeatures.length) {
 					changeHighcharts.setDiagram({
 						type: populationType,
-						administrativeLvl: selectedFeatures[counterHelper-1].feature.properties.administrativeLvl,
 						features: featureArrayForHC
 					})
 				}
@@ -520,7 +514,7 @@ function changeYearSliderControl(map,featureGroups){
 		for (var i = 0; i < result.length; i++) {
 			yearValueArray.push(parseInt(result[i].year.value));
 		}
-		$('#yearSlider').empty()
+		$('#yearSlider').empty();
 		$( "#yearSlider").slider({
 			min: yearValueArray[0],
 			max: yearValueArray[yearValueArray.length-1],
@@ -577,8 +571,6 @@ function changeYearSliderControl(map,featureGroups){
  **/
 function setStyleForNoSelectedFeatures() {
 	// if a user clicks on the map and not on a feature, no feature should be visualized as visible
-	// TODO: Highcharts should be empty now
-
 	for (var i = 0; i < selectedFeatures.length; i++) {
 		// if the layer for 'mouseout event' is not in selectedFeatures Array reset the style to densitys
 		selectedFeatures[i].layer.setStyle(channelStyle(selectedFeatures[i].layer),false);

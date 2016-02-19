@@ -12,11 +12,14 @@ $( document ).ready(function() {
         * @param options {object} it should contain 'type' and 'features'
         * */
         setDiagram: function(options) {
+            // change t Highcharts for the population types of main and entitled
             if (populationType == 'main' || populationType == 'entitled') {
                 var categories =[],
                     series = [];
+                // loop through the selected features
                 for (var i = 0; i < options.features.length; i++) {
                     if (options.features[i].population != undefined) {
+                        // if there are data available push to the serires of highcharts
                         series.push({
                             name:options.features[i].name,
                             data: []
@@ -28,6 +31,7 @@ $( document ).ready(function() {
                     }
                 }
                 if (series.length != 0) {
+                    // if there are data, initialize highcharts
                     $('#chart').highcharts({
                         chart: {
                             type: 'column'
@@ -75,11 +79,14 @@ $( document ).ready(function() {
                     $('#chart').html('Data missing');
                 }
             }
+            // change highcharts for the population types of female and male
             else if (populationType == 'female' || populationType == 'male'){
                 var categories =[],
                     series = [];
+                // loop through the selected features
                 for (var i = 0; i < options.features.length; i++) {
                     if (options.features[i].population != undefined) {
+                        // push to the series of highcharts if there is data available
                         series.push({
                             name:options.features[i].name,
                             data: []
@@ -94,6 +101,7 @@ $( document ).ready(function() {
                     }
                 }
                 if (series.length != 0) {
+                    // if there was data, initialize highcharts
                     $('#chart').highcharts({
                         chart: {
                             type: 'column'
@@ -142,17 +150,20 @@ $( document ).ready(function() {
                 }
             }
             else {
+                // change highcharts according to the population type of gendered population
+                // the input contains bth genders, this is why we hae to create two series and two barcharts
                 $('#chart2').remove();
                 $('#chart').parent().append('<div class="chart" id="chart2"></div>');
                 var categoriesFemale =[],
                     seriesFemale = [],
                     categoriesMale =[],
                     seriesMale = [];
-
+                // loop through the selected features
                 for (var i = 0; i < options.features.length; i++) {
                     if (options.features[i].population != undefined) {
                         var name = options.features[i].name
                         for (var gender in options.features[i].population) {
+                            // fill the female series
                             if (gender == 'female') {
                                 seriesFemale.push({
                                     name:language[getCookieObject().language].map.panel.highCharts.gender.female,
@@ -165,6 +176,7 @@ $( document ).ready(function() {
                                     }
                                 }
                             }
+                            // fill the male series
                             else {
                                 seriesMale.push({
                                     name:language[getCookieObject().language].map.panel.highCharts.gender.male,
@@ -181,6 +193,7 @@ $( document ).ready(function() {
                         }
                     }
                 }
+                // initialize the barchart wfor female population
                 if (seriesFemale.length != 0) {
                     $('#chart').highcharts({
                         chart: {
@@ -228,6 +241,7 @@ $( document ).ready(function() {
                 else {
                     $('#chart').html('Data missing');
                 }
+                // initialize the barchart for male population
                 if (seriesMale.length != 0) {
                     $('#chart2').highcharts({
                         chart: {

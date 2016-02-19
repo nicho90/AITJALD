@@ -102,7 +102,6 @@ var sparqlHTTPConnection = {
                     default:
                         console.log('Admin lvl error')
                 }
-                // TODO in 'options.features', there could be more than one. there have to be a iteration
 
                 break;
             // get all possible year values from the database
