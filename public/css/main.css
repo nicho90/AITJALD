@@ -60,7 +60,11 @@ body {
     text-align: center;
 }
 .help-content {
-    text-align: left;
+    text-align: justify;
+}
+
+#tableOfContents {
+    margin-left: -40px;
 }
 
 #tableOfContents ul {
@@ -71,24 +75,70 @@ body {
 }
 
 .image-1 {
-    width:300px;
-    height: auto;
+    width: auto;
+    height: 30px;
+    margin: 5px;
 }
 .image-2 {
-    width:760px;
-    height: auto;
+    width: auto;
+    height: 150px;
+    margin: 5px;
+    float: left;
 }
 .image-3 {
-    width:auto;
+    width: auto;
     height: 400px;
+    margin: 5px;
 }
 .image-4 {
-    width:760px;
-    height: auto;
+    width: auto;
+    height: 100px;
+    margin: 5px;
 }
 .image-5 {
-    width:400px;
+    width: 100%;
     height: auto;
+    margin: 5px;
+}
+.image-6 {
+    width: auto;
+    height: 500px;
+    margin: 5px;
+}
+.image-7 {
+    width: 100%;
+    height: auto;
+    margin: 5px;
+}
+.image-8 {
+    width: auto;
+    height: 100px;
+    margin: 5px;
+}
+.image-9 {
+    width: 100%;
+    height: auto;
+    margin: 5px;
+}
+.image-10 {
+    width: 100%;
+    height: auto;
+    margin: 5px;
+}
+.image-11 {
+    width: 100%;
+    height: auto;
+    margin: 5px;
+}
+.image-12 {
+    width: 100%;
+    height: auto;
+    margin: 5px;
+}
+.image-13 {
+    width: 100%;
+    height: auto;
+    margin: 5px;
 }
 
 .chart {
