@@ -368,23 +368,39 @@ $( document ).ready(function() {
 		//$( "#yearSlider").slider('destroy');
 		var featureGroups = [cityFeatureGroup,districtFeatureGroup,cityDistrictFeatureGroup];
 		populationType = result;
-		var counterHelper = 0,
-				featureArrayForHC = [];
-		//console.log(selectedFeatures.length)
-		for (var i = 0; i < selectedFeatures.length; i++) {
-			sparqlHTTPConnection.getDataForFeature(selectedFeatures[i].feature, function (featureData){
+		if (populationType == "gender") {
+			$(".compare-buttons").children().prop("disabled",true);
+			selectedFeatures = selectedFeatures.slice(0,1);
+			sparqlHTTPConnection.getDataForFeature(selectedFeatures[0].feature, function (featureData){
 				//console.log(featureData)
-				counterHelper +=1;
-				featureArrayForHC.push(featureData);
-				if (counterHelper == selectedFeatures.length) {
-					changeHighcharts.setDiagram({
-						type: populationType,
-						features: featureArrayForHC
-					})
-				}
+				changeHighcharts.setDiagram({
+					type: populationType,
+					features: [featureData]
+				})
 
 			});
 		}
+		else {
+			$(".compare-buttons").children().prop("disabled",false);
+			var counterHelper = 0,
+				featureArrayForHC = [];
+			//console.log(selectedFeatures.length)
+			for (var i = 0; i < selectedFeatures.length; i++) {
+				sparqlHTTPConnection.getDataForFeature(selectedFeatures[i].feature, function (featureData){
+					//console.log(featureData)
+					counterHelper +=1;
+					featureArrayForHC.push(featureData);
+					if (counterHelper == selectedFeatures.length) {
+						changeHighcharts.setDiagram({
+							type: populationType,
+							features: featureArrayForHC
+						})
+					}
+
+				});
+			}
+		}
+
 		changeStyleForAllLayers(featureGroups, true);
 		changeYearSliderControl(map,featureGroups);
 		if (result == 'male' || result == 'female' || result == 'gender') {
@@ -460,6 +476,8 @@ function changeStyleForAllLayers(featureGroups, newCategorie) {
 					var featureInSelectedFeatures = false;
 					for (var j = 0; j < selectedFeatures.length; j++) {
 						if (selectedFeatures[j].feature == feature) {
+
+							featureGroups[i]._layers[layer].bringToFront();
 							featureInSelectedFeatures = true;
 						}
 					}
