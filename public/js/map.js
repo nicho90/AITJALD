@@ -45,6 +45,7 @@ $( document ).ready(function() {
 		if(!comparingStatus) {
 			changeHighcharts.emptyHighCharts();
 			setStyleForNoSelectedFeatures();
+			resetGeneralInformation();
 		}
 	});
 
@@ -364,13 +365,15 @@ $( document ).ready(function() {
 		}
 	};
 
+	var featureGroups = [cityFeatureGroup,districtFeatureGroup,cityDistrictFeatureGroup];
+	connectCompareButtonToMap(featureGroups);
+
 	connectToPopulationTypeDropdownToLoadData(function(result) {
 		//$( "#yearSlider").slider('destroy');
-		var featureGroups = [cityFeatureGroup,districtFeatureGroup,cityDistrictFeatureGroup];
 		populationType = result;
 		if (populationType == "gender") {
 			$(".compare-buttons").children().prop("disabled",true);
-			selectedFeatures = selectedFeatures.slice(0,1);
+			selectedFeatures = selectedFeatures.slice(selectedFeatures.length-1,selectedFeatures.length);
 			sparqlHTTPConnection.getDataForFeature(selectedFeatures[0].feature, function (featureData){
 				//console.log(featureData)
 				changeHighcharts.setDiagram({

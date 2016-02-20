@@ -311,6 +311,7 @@ $( document ).ready(function() {
                     enabled: false
                 }
             });
+            $('#chart2').remove();
         }
     };
     changeHighcharts.emptyHighCharts();
