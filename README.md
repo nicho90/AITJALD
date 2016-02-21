@@ -35,5 +35,8 @@ The RDF-Schema is written in the RDF-Turtle-Syntax ([https://www.w3.org/TR/turtl
 10. Open a web-browser and go to `localhost:8080`
 11. (You also need a **Parliament triple store** with the stored RDF-Data)
 
+## minified version
+To run the application as the minified version, just use the command `node server.js minified` to run the NodeJS-server
+
 ## License
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">This Linked Open Data Application</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Guiying Du, Nicholas Schiestel, Pawan Thapa, André Wieghardt</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.

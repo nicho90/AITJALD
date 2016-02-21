@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <meta name="description" content="This application was build during the course &quot;An Introduction into JavaScript and Linked Data &quot;">
+    <meta name="author" content="Nicholas Schiestel, André Wieghardt, Guiying Du, Pawan Thapa">
+    <!-- <link rel="icon" href="../../favicon.ico">-->
+    <title>Linked Data</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font-Awesome -->
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Flag Icons -->
+    <link href="lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+
+    <!-- Own CSS -->
+    <link href="css/main.min.css" rel="stylesheet">
+
+    <!-- Config and Language control -->
+    <script src="js/init.min.js"></script>
+
+    <!-- Cookie Notification-->
+    <link href="lib/cookieconsent2/build/dark-bottom.css" rel="stylesheet"/>
+    <script>
+        window.cookieconsent_options = {
+            learnMore: language[getCookieObject().language].help.cookie.more,
+            link: "license.html#_privacy",
+            theme: 'dark-bottom'
+        };
+    </script>
+    <script src="lib/cookieconsent2/build/cookieconsent.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><div id="mainTitle"><script>appendDiv('mainTitle','main.title')</script></div></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html"><div id="homeText"><i class="fa fa-home"></i>&nbsp;&nbsp;<script>appendDiv('homeText','navbar.home')</script></div></a></li>
+                <li><a href="map.html"><div id="mapText"><i class="fa fa-map-o"></i>&nbsp;&nbsp;<script>appendDiv('mapText','navbar.map')</script></div></a></li>
+                <li><a href="about.html"><div id="aboutText"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;<script>appendDiv('aboutText','navbar.about')</script></div></a></li>
+                <li><a href="license.html"><div id="licenseText"><i class="fa fa-key"></i>&nbsp;&nbsp;<script>appendDiv('licenseText','navbar.license')</script></div></a></li>
+            </ul>
+            <!--NAVBAR RIGHT -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="help.html"><div id="helpText"><i class="fa fa-question-circle"></i>&nbsp;&nbsp;<script>appendDiv('helpText','navbar.help')</script></div></a></li>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><div id="languageText"><i class="fa fa-cogs"></i>&nbsp;&nbsp;<script>appendDiv('languageText','navbar.language.title')</script></div></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#" id="englishLanguageSwitcher">
+                                <div id="englishText"><span class="emoji" id="en_US">&#x1F1FA;&#x1F1F8;</span>&nbsp;&nbsp;</div><script>appendDiv('englishText','navbar.language.english')</script>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" id="germanLanguageSwitcher">
+                                <div id="germanText"><span class="emoji" id="de_DE">&#x1F1E9;&#x1F1EA;</span>&nbsp;&nbsp;</div><script>appendDiv('germanText','navbar.language.german')</script>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+
+    <div class="content">
+        <div id="helpHTMLContent">
+            <script>appendDiv('helpHTMLContent','help.heading')</script>
+        </div>
+    </div>
+    <div class="help-content">
+        <div id="tableOfContents">
+            <ul>
+                <li>1. <a href="#_intro"><span id="sub-heading_1"><script>setDiv('sub-heading_1','help.sub-heading_1')</script></span></a>
+                </li>
+                <li>2. <a href="#_map"><span id="sub-heading_2"><script>setDiv('sub-heading_2','help.sub-heading_2')</script></span></a>
+                </li>
+                <ul>
+                    <li>2.1. <a href="#_basics"><span id="sub-heading_2_1"><script>setDiv('sub-heading_2_1','help.sub-heading_2_1')</script></span></a>
+                    </li>
+                    <li>2.2. <a href="#_charts"><span id="sub-heading_2_2"><script>setDiv('sub-heading_2_2','help.sub-heading_2_2')</script></span></a>
+                    </li>
+                    <li>2.3. <a href="#_info-panel"><span id="sub-heading_2_3"><script>setDiv('sub-heading_2_3','help.sub-heading_2_3')</script></span></a>
+                    </li>
+                </ul>
+                <li>3. <a href="#_compare"><span id="sub-heading_3"><script>setDiv('sub-heading_3','help.sub-heading_3')</script></span></a>
+                </li>
+                <ul>
+                    <li>3.1 <a href="#_compare_1"><span id="sub-heading_3_1"><script>setDiv('sub-heading_3_1','help.sub-heading_3_1')</script></span></a>
+                    </li>
+                    <li>3.2 <a href="#_compare_2"><span id="sub-heading_3_2"><script>setDiv('sub-heading_3_2','help.sub-heading_3_2')</script></span></a>
+                    </li>
+                    <li>3.3 <a href="#_compare_3"><span id="sub-heading_3_3"><script>setDiv('sub-heading_3_3','help.sub-heading_3_3')</script></span></a>
+                    </li>
+                    <li>3.4 <a href="#_compare_4"><span id="sub-heading_3_4"><script>setDiv('sub-heading_3_4','help.sub-heading_3_4')</script></span></a>
+                    </li>
+                    <li>3.5 <a href="#_compare_5"><span id="sub-heading_3_5"><script>setDiv('sub-heading_3_5','help.sub-heading_3_5')</script></span></a>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+        <hr>
+        <div id="intro">
+            <h3>1. <span id="sub_heading_1"><script>setDiv('sub_heading_1','help.sub-heading_1')</script></span></h3>
+            <p><span id="content_1"><script>setDiv('content_1','help.content_1')</script></span></p>
+            <hr>
+        </div>
+        <div id="_map">
+
+            <h3>2. <span id="sub_heading_2"><script>setDiv('sub_heading_2','help.sub-heading_2')</script></span></h3>
+            <p><span id="content_2"><script>setDiv('content_2','help.content_2')</script></span></p>
+
+            <h4 id="_basics">2.1 <span id="sub_heading_2_1"><script>setDiv('sub_heading_2_1','help.sub-heading_2_1')</script></span></h4>
+            <li><span id="content_2_1_1"><script>setDiv('content_2_1_1','help.content_2_1_1')</script></span></li>
+            <li><span id="content_2_1_2"><script>setDiv('content_2_1_2','help.content_2_1_2')</script></span></li>
+            <ul>
+                <li><b>Streets</b></li>
+                <li><b>Satellite</b></li>
+                <li><b>Light</b></li>
+                <li><b>Dark</b></li>
+            </ul>
+            <li><span id="content_2_1_3"><script>setDiv('content_2_1_3','help.content_2_1_3')</script></span><br>
+                <img src="img/buttons.png" class="image-1">
+            </li>
+            <li><span id="content_2_1_4"><script>setDiv('content_2_1_4','help.content_2_1_4')</script></span><br>
+                <img src="img/legend.png" class="image-2">
+                <img src="img/choropleth-map.png" class="image-3">
+            </li>
+            <li><span id="content_2_1_5"><script>setDiv('content_2_1_5','help.content_2_1_5')</script></span><br>
+                <img src="img/slider.png" class="image-4">
+            </li>
+
+            <h4 id="_charts">2.2 <span id="sub_heading_2_2"><script>setDiv('sub_heading_2_2','help.sub-heading_2_2')</script></span></h4>
+            <p><span id="content_2_2"><script>setDiv('content_2_2','help.content_2_2')</script></span></p>
+            <img src="img/start.png" class="image-5">
+
+            <h4 id="_info-panel">2.3 <span id="sub_heading_2_3"><script>setDiv('sub_heading_2_3','help.sub-heading_2_3')</script></span></h4>
+            <p><span id="content_2_3"><script>setDiv('content_2_3','help.content_2_3')</script></span></p>
+
+            <p> Information panel provide the general information about population data. It also link to external links to show more informations.</p>
+            <img src="img/info-panel.png" class="image-6">
+        </div>
+        <hr>
+        <div id="_compare">
+            <h3>3. <span id="sub_heading_3"><script>setDiv('sub_heading_3','help.sub-heading_3')</script></span></h3>
+            <p><span id="content_3"><script>setDiv('content_3','help.content_3')</script></span></p>
+            <img src="img/compare.png" class="image-7">
+
+            <h4 id="_compare_1">3.1 <span id="sub_heading_3_1"><script>setDiv('sub_heading_3_1','help.sub-heading_3_1')</script></span></h4>
+            <p><span id="content_3_1"><script>setDiv('content_3_1','help.content_3_1')</script></span><br>
+                <img src="img/chart-menu.png" class="image-8">
+            </p>
+			<img src="img/main-population.png" class="image-9">
+
+            <h4 id="_compare_2">3.2 <span id="sub_heading_3_2"><script>setDiv('sub_heading_3_2','help.sub-heading_3_2')</script></span></h4>
+            <p><span id="content_3_2"><script>setDiv('content_3_2','help.content_3_2')</script></span><br>
+                <img src="img/chart-menu.png" class="image-8">
+            </p>
+            <img src="img/entitled-population.png" class="image-10">
+
+            <h4 id="_compare_3">3.3 <span id="sub_heading_3_3"><script>setDiv('sub_heading_3_3','help.sub-heading_3_3')</script></span></h4>
+            <p><span id="content_3_3"><script>setDiv('content_3_3','help.content_3_3')</script></span><br>
+                <img src="img/chart-menu.png" class="image-8">
+            </p>
+			<img src="img/male-population.png" class="image-11">
+
+            <h4 id="_compare_4">3.4 <span id="sub_heading_3_4"><script>setDiv('sub_heading_3_4','help.sub-heading_3_4')</script></span></h4>
+            <p><span id="content_3_4"><script>setDiv('content_3_4','help.content_3_4')</script></span><br>
+                <img src="img/chart-menu.png" class="image-8">
+            </p>
+			<img src="img/female-population.png" class="image-12">
+
+            <h4 id="_compare_5">3.5 <span id="sub_heading_3_5"><script>setDiv('sub_heading_3_5','help.sub-heading_3_5')</script></span></h4>
+            <p><span id="content_3_5"><script>setDiv('content_3_5','help.content_3_5')</script></span><br>
+                <img src="img/chart-menu.png" class="image-8">
+            </p>
+			<img src="img/age-group-population.png" class="image-13">
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="lib/jquery/dist/jquery.min.js"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="js/initGeneralFunctions.min.js"></script>
+
+</body>
+</html>

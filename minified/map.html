@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <meta name="description" content="This application was build during the course &quot;An Introduction into JavaScript and Linked Data &quot;">
+    <meta name="author" content="Nicholas Schiestel, André Wieghardt, Guiying Du, Pawan Thapa">
+    <!-- <link rel="icon" href="../../favicon.ico">-->
+    <title>Linked Data</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="lib/jquery-ui/themes/base/all.css" rel="stylesheet"/>
+
+    <!-- Font-Awesome -->
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <!-- Flag Icons -->
+    <link href="lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+
+    <!-- Mapbox -->
+    <link href='lib/mapbox.js/mapbox.css' rel="stylesheet"/>
+
+    <!-- Own CSS -->
+    <link href="css/main.min.css" rel="stylesheet">
+
+    <!-- Config and Language control -->
+    <script src="js/init.min.js"></script>
+
+    <!-- Cookie Notification-->
+    <link href="lib/cookieconsent2/build/dark-bottom.css" rel="stylesheet"/>
+    <script>
+        window.cookieconsent_options = {
+            learnMore: language[getCookieObject().language].help.cookie.more,
+            link: "license.html#_privacy",
+            theme: 'dark-bottom'
+        };
+    </script>
+    <script src="lib/cookieconsent2/build/cookieconsent.min.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="z-index: 99999999;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><div id="mainTitle"><script>appendDiv('mainTitle','main.title')</script></div></a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html"><div id="homeText"><i class="fa fa-home"></i>&nbsp;&nbsp;<script>appendDiv('homeText','navbar.home')</script></div></a></li>
+                    <li class="active"><a href="map.html"><div id="mapText"><i class="fa fa-map-o"></i>&nbsp;&nbsp;<script>appendDiv('mapText','navbar.map')</script></div></a></li>
+                    <li><a href="about.html"><div id="aboutText"><i class="fa fa-info-circle"></i>&nbsp;&nbsp;<script>appendDiv('aboutText','navbar.about')</script></div></a></li>
+                    <li><a href="license.html"><div id="licenseText"><i class="fa fa-key"></i>&nbsp;&nbsp;<script>appendDiv('licenseText','navbar.license')</script></div></a></li>
+                </ul>
+
+                <!--NAVBAR RIGHT -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="help.html"><div id="helpText"><i class="fa fa-question-circle"></i>&nbsp;&nbsp;<script>appendDiv('helpText','navbar.help')</script></div></a></li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><div id="languageText"><i class="fa fa-cogs"></i>&nbsp;&nbsp;<script>appendDiv('languageText','navbar.language.title')</script></div></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#" id="englishLanguageSwitcher">
+                                    <div id="englishText"><span class="emoji" id="en_US">&#x1F1FA;&#x1F1F8;</span>&nbsp;&nbsp;</div><script>appendDiv('englishText','navbar.language.english')</script>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" id="germanLanguageSwitcher">
+                                    <div id="germanText"><span class="emoji" id="de_DE">&#x1F1E9;&#x1F1EA;</span>&nbsp;&nbsp;</div><script>appendDiv('germanText','navbar.language.german')</script>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div id="map">
+                    <div class="btn-group map-buttons" role="group">
+                        <button type="button" class="btn btn-primary" id="level_1_button"><div id="cityLayerButton"><script>setDiv('cityLayerButton','map.layerButton.city')</script></div></button>
+                        <button type="button" class="btn btn-default" id="level_2_button"><div id="districtLayerButton"><script>setDiv('districtLayerButton','map.layerButton.district')</script></div></button>
+                        <button type="button" class="btn btn-default" id="level_3_button"><div id="cityDistrictLayerButton"><script>setDiv('cityDistrictLayerButton','map.layerButton.cityDistrict')</script></div></button>
+                    </div>
+                    <div class="btn-group compare-buttons" role="group">
+                        <button class="btn btn-default" id="compare_button"><div id="compareButton"></div></button>
+                        <button type="button" class="btn btn-default" id="compare_add_button"><i class="fa fa-plus-circle"></i></button>
+                        <button type="button" class="btn btn-default" id="compare_remove_button"><i class="fa fa-minus-circle"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="details">
+                    <div class="details-content">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <div id="highChartsTitle">
+                                        <i class="fa fa-users"></i>&nbsp;&nbsp;
+                                        <div class="populationDropdown">
+                                            <select class="form-control" id="populationTypeDropdown">
+                                                <option id="populationDropdown1" value="main"><script>setDiv('populationDropdown1','map.panel.highCharts.title.mainPopulation')</script></option>
+                                                <option id="populationDropdown2" value="entitled"><script>setDiv('populationDropdown2','map.panel.highCharts.title.entitledPopulation')</script></option>
+                                                <option id="populationDropdown3" value="male"><script>setDiv('populationDropdown3','map.panel.highCharts.title.agePopulation.male')</script></option>
+                                                <option id="populationDropdown4" value="female"><script>setDiv('populationDropdown4','map.panel.highCharts.title.agePopulation.female')</script></option>
+                                                <option id="populationDropdown5" value="gender"><script>setDiv('populationDropdown5','map.panel.highCharts.title.agePopulation.both')</script></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="chart" id="chart"></div>
+                            </div>
+                        </div>
+                        <div id="general"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/highcharts/highcharts.js"></script>
+
+    <!-- geo libraries for converting -->
+    <script src='lib/terraformer/terraformer.min.js'></script>
+    <script src='lib/terraformer-wkt-parser/terraformer-wkt-parser.min.js'></script>
+
+    <!-- Own JavaScripts -->
+    <script src="js/initGeneralFunctions.min.js"></script>
+    <script src='lib/mapbox.js/mapbox.js'></script>
+    <script src="js/map.min.js"></script>
+
+</body>
+</html>

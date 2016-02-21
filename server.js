@@ -9,8 +9,14 @@ var server = app.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + server.address().port);
 });
 
+
 // WEBCLIENT
-app.use(express.static(path.join(__dirname, '/public')));
+if (process.argv[2] == 'minified') {
+  app.use(express.static(path.join(__dirname, '/minified')));
+}
+else {
+  app.use(express.static(path.join(__dirname, '/public')));
+}
 
 
 module.exports = app;
