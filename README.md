@@ -35,7 +35,7 @@ The RDF-Schema is written in the RDF-Turtle-Syntax ([https://www.w3.org/TR/turtl
 10. Open a web-browser and go to `localhost:8080`
 11. (You also need a **Parliament triple store** with the stored RDF-Data)
 
-## minified version
+## Minified version
 To run the application as the minified version, just use the command `node server.js minified` to run the NodeJS-server
 
 ## License
