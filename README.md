@@ -13,7 +13,7 @@ The RDF-Schema is written in the RDF-Turtle-Syntax ([https://www.w3.org/TR/turtl
 
 ***
 
-## Contributers
+## Contributors
 
 ##### ![alt GitHub](http://i.imgur.com/0o48UoR.png") [Du Guiying](https://github.com/robinhood747)
 ##### ![alt GitHub](http://i.imgur.com/0o48UoR.png") [Thapa Pawan](https://github.com/pawan100)
