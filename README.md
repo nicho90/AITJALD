@@ -13,15 +13,15 @@ The RDF-Schema is written in the RDF-Turtle-Syntax ([https://www.w3.org/TR/turtl
 
 ***
 
-## Contributors
+### Contributors
 
-##### ![alt GitHub](http://i.imgur.com/0o48UoR.png") [Du Guiying](https://github.com/robinhood747)
-##### ![alt GitHub](http://i.imgur.com/0o48UoR.png") [Thapa Pawan](https://github.com/pawan100)
-##### ![alt GitHub](http://i.imgur.com/0o48UoR.png") [Nicholas Schiestel](https://github.com/nicho90)
-##### ![alt GitHub](http://i.imgur.com/0o48UoR.png") [André Wieghardt](https://github.com/AndreWieghardt)
+:octocat: [Du Guiying](https://github.com/robinhood747)<br>
+:octocat: [Thapa Pawan](https://github.com/pawan100)<br>
+:octocat: [Nicholas Schiestel](https://github.com/nicho90)<br>
+:octocat: [André Wieghardt](https://github.com/AndreWieghardt)<br>
 
 
-## Steps to build and run the application
+### Steps to build and run the application
 
 1. Install **NodeJS**: [https://nodejs.org/en/](https://nodejs.org/en/)
 2. Open a terminal and move with command `cd` to the directory of the project
@@ -35,8 +35,8 @@ The RDF-Schema is written in the RDF-Turtle-Syntax ([https://www.w3.org/TR/turtl
 10. Open a web-browser and go to `localhost:8080`
 11. (You also need a **Parliament triple store** with the stored RDF-Data)
 
-## Minified version
+### Minified version
 To run the application as the minified version, just use the command `node server.js minified` to run the NodeJS-server
 
-## License
+### License
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">This Linked Open Data Application</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Guiying Du, Nicholas Schiestel, Pawan Thapa, André Wieghardt</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
